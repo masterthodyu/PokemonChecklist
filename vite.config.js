@@ -6,5 +6,5 @@ import react from '@vitejs/plugin-react'
 // If this doesn't match your repo name exactly, you'll get a blank white page.
 export default defineConfig({
   plugins: [react()],
-  base: '/pokemon-checklist/',
+  base: '/PokemonChecklist/',
 })
