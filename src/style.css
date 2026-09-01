@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f2f2f7;
+  color: #1c1c1e;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin-bottom: 4px;
+  font-size: 1.8rem;
+}
+
+.progress {
+  color: #636366;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.controls input {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d1d6;
+  font-size: 1rem;
+  min-width: 220px;
+}
+
+.filter-buttons button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d1d6;
+  background: white;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.filter-buttons button.active {
+  background: #ffcb05;
+  border-color: #ffcb05;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.15s, opacity 0.15s;
+  position: relative;
+}
+
+.card img {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+}
+
+.card.caught {
+  border-color: #2ecc71;
+  opacity: 0.6;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+}
+
+.dex-number {
+  color: #8e8e93;
+  font-size: 0.75rem;
+}
+
+.card input[type='checkbox'] {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+}
