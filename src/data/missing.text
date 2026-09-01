@@ -1,0 +1,88 @@
+  Pokemon not in json yet
+  
+  {"id":1203,"dexid":351,"name":"Castform (Sunny Form)","sprite":"castform-sunny","boxId":45},
+  {"id":1204,"dexid":351,"name":"Castform (Rainy Form)","sprite":"castform-rainy","boxId":45},
+  {"id":1205,"dexid":351,"name":"Castform (Snowy Form)","sprite":"castform-snowy","boxId":45},
+
+  {"id":1206,"dexid":382,"name":"Primal Kyogre","sprite":"kyogre-primal","boxId":45},
+  {"id":1207,"dexid":383,"name":"Primal Groudon","sprite":"groudon-primal","boxId":45},
+  
+  {"id":1217,"dexid":421,"name":"Cherrim (Sunshine Form)","sprite":"cherrim-sunshine","boxId":44},
+
+  {"id":1231,"dexid":493,"name":"Arceus (Fighting)","sprite":"arceus-fighting","boxId":45},
+  {"id":1232,"dexid":493,"name":"Arceus (Flying)","sprite":"arceus-flying","boxId":45},
+  {"id":1233,"dexid":493,"name":"Arceus (Poison)","sprite":"arceus-poison","boxId":45},
+  {"id":1234,"dexid":493,"name":"Arceus (Ground)","sprite":"arceus-ground","boxId":45},
+  {"id":1235,"dexid":493,"name":"Arceus (Rock)","sprite":"arceus-rock","boxId":45},
+  {"id":1236,"dexid":493,"name":"Arceus (Bug)","sprite":"arceus-bug","boxId":45},
+  {"id":1237,"dexid":493,"name":"Arceus (Ghost)","sprite":"arceus-ghost","boxId":45},
+  {"id":1238,"dexid":493,"name":"Arceus (Steel)","sprite":"arceus-steel","boxId":45},
+  {"id":1239,"dexid":493,"name":"Arceus (Fire)","sprite":"arceus-fire","boxId":45},
+  {"id":1240,"dexid":493,"name":"Arceus (Water)","sprite":"arceus-water","boxId":45},
+  {"id":1241,"dexid":493,"name":"Arceus (Grass)","sprite":"arceus-grass","boxId":45},
+  {"id":1242,"dexid":493,"name":"Arceus (Electric)","sprite":"arceus-electric","boxId":45},
+  {"id":1243,"dexid":493,"name":"Arceus (Psychic)","sprite":"arceus-psychic","boxId":45},
+  {"id":1244,"dexid":493,"name":"Arceus (Ice)","sprite":"arceus-ice","boxId":45},
+  {"id":1245,"dexid":493,"name":"Arceus (Dragon)","sprite":"arceus-dragon","boxId":45},
+  {"id":1246,"dexid":493,"name":"Arceus (Dark)","sprite":"arceus-dark","boxId":45},
+  {"id":1247,"dexid":493,"name":"Arceus (Fairy)","sprite":"arceus-fairy","boxId":45},
+
+  {"id":1229,"dexid":487,"name":"Giratina (Origin Forme)","sprite":"giratina-origin","boxId":45},
+
+
+  {"id":1253,"dexid":555,"name":"Galarian Darmanitan (Zen Mode)","sprite":"darmanitan-galar-zen","boxId":46},
+  {"id":1251,"dexid":555,"name":"Darmanitan (Zen Mode)","sprite":"darmanitan-zen","boxId":45},
+
+  {"id":1264,"dexid":646,"name":"White Kyurem","sprite":"kyurem-white","boxId":46},
+  {"id":1265,"dexid":646,"name":"Black Kyurem","sprite":"kyurem-black","boxId":46},
+
+  {"id":1267,"dexid":648,"name":"Meloetta (Pirouette Forme)","sprite":"meloetta-pirouette","boxId":46},
+  {"id":1268,"dexid":649,"name":"Genesect (Douse Drive)","sprite":"genesect-douse","boxId":46},
+  {"id":1269,"dexid":649,"name":"Genesect (Shock Drive)","sprite":"genesect-shock","boxId":46},
+  {"id":1270,"dexid":649,"name":"Genesect (Burn Drive)","sprite":"genesect-burn","boxId":46},
+  {"id":1271,"dexid":649,"name":"Genesect (Chill Drive)","sprite":"genesect-chill","boxId":46},
+
+  {"id":1314,"dexid":681,"name":"Aegislash (Blade Forme)","sprite":"aegislash-blade","boxId":47},
+
+  {"id":1321,"dexid":716,"name":"Xerneas (Active Mode)","sprite":"xerneas","boxId":47},
+
+  {"id":1323,"dexid":718,"name":"Zygarde (Complete Forme)","sprite":"zygarde-complete","boxId":47},
+
+  {"id":1330,"dexid":746,"name":"Wishiwashi (School Form)","sprite":"wishiwashi-school","boxId":47},
+
+  {"id":1331,"dexid":773,"name":"Silvally (Fighting)","sprite":"silvally-fighting","boxId":47},
+  {"id":1332,"dexid":773,"name":"Silvally (Flying)","sprite":"silvally-flying","boxId":47},
+  {"id":1333,"dexid":773,"name":"Silvally (Poison)","sprite":"silvally-poison","boxId":47},
+  {"id":1334,"dexid":773,"name":"Silvally (Ground)","sprite":"silvally-ground","boxId":47},
+  {"id":1335,"dexid":773,"name":"Silvally (Rock)","sprite":"silvally-rock","boxId":47},
+  {"id":1336,"dexid":773,"name":"Silvally (Bug)","sprite":"silvally-bug","boxId":47},
+  {"id":1337,"dexid":773,"name":"Silvally (Ghost)","sprite":"silvally-ghost","boxId":47},
+  {"id":1338,"dexid":773,"name":"Silvally (Steel)","sprite":"silvally-steel","boxId":47},
+  {"id":1339,"dexid":773,"name":"Silvally (Fire)","sprite":"silvally-fire","boxId":47},
+  {"id":1340,"dexid":773,"name":"Silvally (Water)","sprite":"silvally-water","boxId":47},
+  {"id":1341,"dexid":773,"name":"Silvally (Grass)","sprite":"silvally-grass","boxId":47},
+  {"id":1342,"dexid":773,"name":"Silvally (Electric)","sprite":"silvally-electric","boxId":47},
+  {"id":1343,"dexid":773,"name":"Silvally (Psychic)","sprite":"silvally-psychic","boxId":47},
+  {"id":1344,"dexid":773,"name":"Silvally (Ice)","sprite":"silvally-ice","boxId":47},
+  {"id":1345,"dexid":773,"name":"Silvally (Dragon)","sprite":"silvally-dragon","boxId":47},
+  {"id":1346,"dexid":773,"name":"Silvally (Dark)","sprite":"silvally-dark","boxId":47},
+  {"id":1347,"dexid":773,"name":"Silvally (Fairy)","sprite":"silvally-fairy","boxId":47},
+
+  {"id":1355,"dexid":778,"name":"Mimikyu (Busted Form)","sprite":"mimikyu-busted","boxId":47},
+
+  {"id":1356,"dexid":800,"name":"Necrozma (Dusk Mane)","sprite":"necrozma-dusk","boxId":47},
+  {"id":1357,"dexid":800,"name":"Necrozma (Dawn Wings)","sprite":"necrozma-dawn","boxId":47},
+  {"id":1358,"dexid":800,"name":"Ultra Necrozma","sprite":"necrozma-ultra","boxId":47},
+
+  {"id":1360,"dexid":845,"name":"Cramorant (Gulping Form)","sprite":"cramorant-gulping","boxId":47},
+  {"id":1361,"dexid":845,"name":"Cramorant (Gorging Form)","sprite":"cramorant-gorging","boxId":47},
+
+
+  {"id":1186,"dexid":25,"name":"Pikachu Rock Star","sprite":"pikachu-rock-star","boxId":44},
+  {"id":1187,"dexid":25,"name":"Pikachu Belle","sprite":"pikachu-belle","boxId":44},
+  {"id":1188,"dexid":25,"name":"Pikachu Pop Star","sprite":"pikachu-pop-star","boxId":44},
+  {"id":1189,"dexid":25,"name":"Pikachu, Ph.D.","sprite":"pikachu-phd","boxId":44},
+  {"id":1190,"dexid":25,"name":"Pikachu Libre","sprite":"pikachu-libre","boxId":44},
+  {"id":1191,"dexid":25,"name":"Cosplay Pikachu","sprite":"pikachu-cosplay","boxId":44},
+
+  {"id":1451,"dexid":783,"name":"Totem Hakamo-o (Demo exclusive)","sprite":"hakamo-o","boxId":51}

@@ -1,9 +1,9 @@
-function PokemonCard({ pokemon, caught, onToggle }) {
+function PokemonCard({ pokemon, caught, onToggle, highlighted = false }) {
   const spriteSlug = pokemon.sprite ?? String(pokemon.dexid ?? pokemon.id)
   const spriteUrl = `https://img.pokemondb.net/sprites/home/normal/${spriteSlug}.png`
 
   return (
-    <div className={`card ${caught ? 'caught' : ''}`} onClick={onToggle}>
+    <div className={`card ${caught ? 'caught' : ''} ${highlighted ? 'highlighted' : ''}`} onClick={onToggle}>
       <img
         src={spriteUrl}
         alt={pokemon.name}
