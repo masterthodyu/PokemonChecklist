@@ -1,5 +1,6 @@
 function PokemonCard({ pokemon, caught, onToggle }) {
-  const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`
+  const spriteSlug = pokemon.sprite ?? String(pokemon.dexid ?? pokemon.id)
+  const spriteUrl = `https://img.pokemondb.net/sprites/home/normal/${spriteSlug}.png`
 
   return (
     <div className={`card ${caught ? 'caught' : ''}`} onClick={onToggle}>
@@ -10,7 +11,7 @@ function PokemonCard({ pokemon, caught, onToggle }) {
         onError={e => { e.target.style.visibility = 'hidden' }}
       />
       <div className="card-info">
-        <span className="dex-number">#{String(pokemon.id).padStart(3, '0')}</span>
+        <span className="dex-number">#{String(pokemon.dexid ?? pokemon.id).padStart(3, '0')}</span>
         <span className="name">{pokemon.name}</span>
       </div>
       <input
