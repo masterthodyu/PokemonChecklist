@@ -1,9 +1,8 @@
-function PokemonCard({ pokemon, caught, onToggle }) {
+function PokemonCard({ pokemon, caught, onToggle, highlighted = false }) {
   const dexNumber = pokemon.dexId ?? pokemon.id
   const spriteUrl = pokemon.spriteUrl
-
   return (
-    <div className={`card ${caught ? 'caught' : ''}`} onClick={onToggle}>
+    <div className={`card ${caught ? 'caught' : ''} ${highlighted ? 'highlighted' : ''}`} onClick={onToggle}>
       <img
         src={spriteUrl}
         alt={pokemon.name}
@@ -23,5 +22,4 @@ function PokemonCard({ pokemon, caught, onToggle }) {
     </div>
   )
 }
-
 export default PokemonCard
