@@ -1,3 +1,6 @@
+// The right sidebar: one button per generation that jumps straight to the
+// box where that generation starts. `generations` is the same data
+// GenProgress uses, so the two sidebars always agree with each other.
 function BoxShortcuts({ generations, currentBoxId, onSelect }) {
   return (
     <div className="sidebar-inner">

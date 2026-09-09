@@ -54,6 +54,13 @@ header h1 {
   cursor: pointer;
 }
 
+.sync-status {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9aa4af;
+}
+
 .controls {
   display: flex;
   justify-content: center;
@@ -298,6 +305,17 @@ header h1 {
   color: #ffffff;
   text-align: center;
   letter-spacing: 0.02em;
+}
+
+.sidebar-inner + .sidebar-inner {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gen-row:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 /* Generation progress (left sidebar) */

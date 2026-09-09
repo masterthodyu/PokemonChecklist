@@ -9,6 +9,30 @@
   
   {"id":1217,"dexid":421,"name":"Cherrim (Sunshine Form)","sprite":"cherrim-sunshine","boxId":44},
 
+{
+    "dexId": 487,
+    "name": "Giratina (Origin Forme)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/giratina-origin.png",
+    "id": 1171,
+    "boxId": 40,
+    "category": "form"
+  },
+{
+    "dexId": 483,
+    "name": "Dialga (Origin Forme)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/dialga-origin.png",
+    "id": 1181,
+    "boxId": 43,
+    "category": "form"
+  },
+  {
+    "dexId": 484,
+    "name": "Palkia (Origin Forme)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/palkia-origin.png",
+    "id": 1182,
+    "boxId": 43,
+    "category": "form"
+  },
   {"id":1231,"dexid":493,"name":"Arceus (Fighting)","sprite":"arceus-fighting","boxId":45},
   {"id":1232,"dexid":493,"name":"Arceus (Flying)","sprite":"arceus-flying","boxId":45},
   {"id":1233,"dexid":493,"name":"Arceus (Poison)","sprite":"arceus-poison","boxId":45},
@@ -86,3 +110,135 @@
   {"id":1191,"dexid":25,"name":"Cosplay Pikachu","sprite":"pikachu-cosplay","boxId":44},
 
   {"id":1451,"dexid":783,"name":"Totem Hakamo-o (Demo exclusive)","sprite":"hakamo-o","boxId":51}
+
+
+
+
+
+ {
+    "dexId": 875,
+    "name": "Eiscue (Noice Face)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/eiscue-noice.png",
+    "id": 1315,
+    "boxId": 45,
+    "category": "form"
+  },
+  {
+    "dexId": 877,
+    "name": "Morpeko (Hangry Mode)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/morpeko-hangry.png",
+    "id": 1316,
+    "boxId": 45,
+    "category": "form"
+  },
+
+{
+    "dexId": 888,
+    "name": "Zacian (Crowned Sword)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zacian-crowned.png",
+    "id": 1317,
+    "boxId": 45,
+    "category": "form"
+  },
+  {
+    "dexId": 889,
+    "name": "Zamazenta (Crowned Shield)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zamazenta-crowned.png",
+    "id": 1318,
+    "boxId": 45,
+    "category": "form"
+  },
+  {
+    "dexId": 890,
+    "name": "Eternatus (Eternamax)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/eternatus-eternamax.png",
+    "id": 1319,
+    "boxId": 45,
+    "category": "form"
+  },
+
+{
+    "dexId": 898,
+    "name": "Calyrex (Ice Rider)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/calyrex-ice.png",
+    "id": 1322,
+    "boxId": 45,
+    "category": "form"
+  },
+  {
+    "dexId": 898,
+    "name": "Calyrex (Shadow Rider)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/calyrex-shadow.png",
+    "id": 1323,
+    "boxId": 45,
+    "category": "form"
+  },
+
+  {
+    "dexId": 964,
+    "name": "Palafin (Hero Form)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/palafin-hero.png",
+    "id": 1329,
+    "boxId": 46,
+    "category": "form"
+  },
+
+
+{
+    "dexId": 1017,
+    "name": "Ogerpon (Wellspring Mask)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ogerpon-wellspring-mask.png",
+    "id": 1336,
+    "boxId": 46,
+    "category": "form"
+  },
+  {
+    "dexId": 1017,
+    "name": "Ogerpon (Hearthflame Mask)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ogerpon-hearthflame-mask.png",
+    "id": 1337,
+    "boxId": 46,
+    "category": "form"
+  },
+  {
+    "dexId": 1017,
+    "name": "Ogerpon (Cornerstone Mask)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ogerpon-cornerstone-mask.png",
+    "id": 1338,
+    "boxId": 46,
+    "category": "form"
+  },
+
+    {
+    "dexId": 1024,
+    "name": "Terapagos (Terastal Form)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/terapagos-terastal.png",
+    "id": 1339,
+    "boxId": 46,
+    "category": "form"
+  },
+  {
+    "dexId": 1024,
+    "name": "Terapagos (Stellar Form)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/terapagos-stellar.png",
+    "id": 1340,
+    "boxId": 46,
+    "category": "form"
+  }
+
+  {
+    "dexId": 670,
+    "name": "Mega Floette (Eternal Flower)",
+    "spriteUrl": "https://www.serebii.net/legendsz-a/pokemon/670-e.png",
+    "id": 1242,
+    "boxId": 43,
+    "category": "form"
+  },
+
+
+ {"id":1441,"dexid":746,"name":"Totem Wishiwashi (Schooling Form)","spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gumshoos.png","boxId": 56,"category": "totem"},
+  {"id":1442,"dexid":753,"name":"Totem Araquanid","spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gumshoos.png","boxId": 56,"category": "totem"},
+  {"id":1447,"dexid":777,"name":"Totem Togedemaru","spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gumshoos.png","boxId": 56,"category": "totem"},
+  {"id":1450,"dexid":743,"name":"Totem Ribombee","spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gumshoos.png","boxId": 56,"category": "totem"},
+
+
