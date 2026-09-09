@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_EDIT_PASSWORD: ${{ secrets.EDIT_PASSWORD }}
+          VITE_EDIT_PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
