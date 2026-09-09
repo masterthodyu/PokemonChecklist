@@ -1,4 +1,4 @@
-// Fixes up src/data/pokemon.json:
+// Fixes up ../data.json:
 //  1. Makes sure every non-base Pokémon (anything where id !== dexId —
 //     genders, forms, regional variants, Gigantamax, etc.) has a unique
 //     id. Safe to run any time, even if you or Copilot added entries by
@@ -11,7 +11,7 @@
 //     this script will never move or renumber a box you've already set.
 //
 // Run from your project root:
-//   node scripts/assignBoxes.mjs
+//   node src/checklists/pokemon/scripts/assignBoxes.mjs
 //
 // Heads up: renumbering ids can shift which id number a gender/form
 // Pokémon happens to have. If you've already got some of those checked
@@ -25,7 +25,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DATA_PATH = path.join(__dirname, '../src/data/pokemon.json')
+const DATA_PATH = path.join(__dirname, '../data.json')
 
 // Any id in this list: the NEXT entry after it starts a fresh box,
 // even if the current box isn't full yet. Only matters for entries that

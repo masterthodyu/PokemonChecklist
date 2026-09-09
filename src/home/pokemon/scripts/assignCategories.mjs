@@ -1,7 +1,7 @@
-// Tags every Pokémon in pokemon.json with a "category" field, based on
+// Tags every Pokémon in ../data.json with a "category" field, based on
 // simple naming rules. Run this any time you add new Pokémon to the file:
 //
-//   node scripts/assignCategories.mjs
+//   node src/checklists/pokemon/scripts/assignCategories.mjs
 //
 // HOW TO NAME NEW ENTRIES SO THIS SCRIPT PICKS THEM UP:
 //   Alolan form      -> start the name with "Alolan "        e.g. "Alolan Vulpix"
@@ -31,7 +31,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DATA_PATH = path.join(__dirname, '../src/data/pokemon.json')
+const DATA_PATH = path.join(__dirname, '../data.json')
 
 const pokemon = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'))
 

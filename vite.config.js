@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// ⚠️ IMPORTANT: change 'pokemon-checklist' below to your actual GitHub repo name.
+// ⚠️ IMPORTANT: change 'checklists' below to your actual GitHub repo name.
 // GitHub Pages serves your site at https://<username>.github.io/<repo-name>/
-// If this doesn't match your repo name exactly, you'll get a blank white page.
+// This must match the `basename` passed to <BrowserRouter> in App.jsx too —
+// if the two ever disagree, links inside the app will 404 on the live site.
 export default defineConfig({
   plugins: [react()],
-  base: '/PokemonChecklist/',
+  base: '/checklists/',
 })

@@ -1,7 +1,7 @@
 // Rough National Dex ranges per generation, used only to bucket base-form
 // Pokémon (id === dexId) into a generation for the progress sidebar.
 // Alternate forms, genders, and costumes aren't counted here on purpose —
-// those are meant to become their own separate categories later.
+// those are meant to become their own separate categories instead.
 export const GENERATIONS = [
   { gen: 1, label: 'Kanto', start: 1, end: 151 },
   { gen: 2, label: 'Johto', start: 152, end: 251 },

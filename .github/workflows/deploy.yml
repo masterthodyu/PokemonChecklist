@@ -35,7 +35,9 @@ jobs:
         env:
           VITE_EDIT_PASSWORD: ${{ secrets.PASSWORD }}
           VITE_JSONBIN_KEY: ${{ secrets.JSONBIN_KEY }}
-          VITE_JSONBIN_BIN_ID: ${{ secrets.JSONBIN_BIN_ID }}
+          VITE_POKEMON_BIN_ID: ${{ secrets.POKEMON_BIN_ID }}
+          # Add one more VITE_..._BIN_ID line here per new checklist that
+          # turns on cloud sync.
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3

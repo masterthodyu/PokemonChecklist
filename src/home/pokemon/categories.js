@@ -1,6 +1,6 @@
 // Every "extra" category beyond generation, in the order they show up in
 // the sidebar. `key` must match the `category` value the assignCategories
-// script writes onto each Pokémon in pokemon.json.
+// script writes onto each Pokémon in data.json.
 //
 // Adding a new category later? Add one line here, and add a matching rule
 // in scripts/assignCategories.mjs so entries actually get tagged with it.
