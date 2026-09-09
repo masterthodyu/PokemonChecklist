@@ -1,28 +1,52 @@
+// Turns "Charizard (Gigantamax)" into "Charizard", and
+// "Bulbasaur (Gigantamax Factor) (Gift)" into "Bulbasaur (Gift)" —
+// the little G-Max badge (below) shows the Gigantamax part instead of
+// having it spelled out in the name every time.
+function stripGigantamaxText(name) {
+  return name
+    .replace(/Gigantamax Factor/g, '')
+    .replace(/Gigantamax/g, '')
+    .replace(/\(\s*\)/g, '')   // clean up any now-empty "()"
+    .replace(/\(\s+/g, '(')    // trim stray space right after "("
+    .replace(/\s+\)/g, ')')    // trim stray space right before ")"
+    .replace(/\s{2,}/g, ' ')   // collapse doubled-up spaces
+    .trim()
+}
+
 // One clickable tile for a single Pokémon: picture, dex number, name,
 // and a checkbox. Clicking anywhere on the card toggles it caught/not
 // caught (the checkbox itself does the same thing, it's just there so
 // the caught state is easy to see at a glance).
 function PokemonCard({ pokemon, caught, onToggle, highlighted = false }) {
   const dexNumber = pokemon.dexId ?? pokemon.id
+  const isGigantamax = pokemon.category === 'gmax'
+  const displayName = isGigantamax ? stripGigantamaxText(pokemon.name) : pokemon.name
 
   return (
     <div
       className={`card ${caught ? 'caught' : ''} ${highlighted ? 'highlighted' : ''}`}
       onClick={onToggle}
     >
-      <img
-        src={pokemon.spriteUrl}
-        alt={pokemon.name}
-        loading="lazy"
-        onError={e => {
-          // If the sprite image link is broken, just hide the broken-image
-          // icon instead of showing an ugly placeholder.
-          e.target.style.visibility = 'hidden'
-        }}
-      />
+      <div className="card-image">
+        <img
+          src={pokemon.spriteUrl}
+          alt={pokemon.name}
+          loading="lazy"
+          onError={e => {
+            // If the sprite image link is broken, just hide the broken-image
+            // icon instead of showing an ugly placeholder.
+            e.target.style.visibility = 'hidden'
+          }}
+        />
+        {isGigantamax && (
+          <span className="gmax-badge" title="Gigantamax">
+            
+          </span>
+        )}
+      </div>
       <div className="card-info">
         <span className="dex-number">#{String(dexNumber).padStart(3, '0')}</span>
-        <span className="name">{pokemon.name}</span>
+        <span className="name">{displayName}</span>
       </div>
       <input
         type="checkbox"

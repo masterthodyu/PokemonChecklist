@@ -237,6 +237,30 @@ header h1 {
   image-rendering: pixelated;
 }
 
+.card-image {
+  position: relative;
+  display: inline-block;
+}
+
+.gmax-badge {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  
+  /* 1. Add your image and size it */
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffv4gc-26ecc0c6-34dd-49ec-a93a-7360dd5a95fc.png/v1/fill/w_1280,h_1280/gigantamax_icon_by_jormxdos_dffv4gc-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmdjRnYy0yNmVjYzBjNi0zNGRkLTQ5ZWMtYTkzYS03MzYwZGQ1YTk1ZmMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.upz_uLqCRF7S-DJzDuL5PH6jled4GkiHebFWE0-fMSM'); /* Replace with your file path */
+  background-size: contain;                     /* Ensures the image scales perfectly */
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* 2. Define explicit tiny dimensions (adjust as needed) */
+  width: 16px; 
+  height: 16px;
+
+  /* 3. Drop shadow (optional, kept from your original style) */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
 .card.caught {
   border-color: #2ecc71;
   opacity: 1;
@@ -359,41 +383,6 @@ header h1 {
   background: linear-gradient(90deg, #ee1515, #ffcb05);
   border-radius: 4px;
   transition: width 0.2s ease;
-}
-
-/* Box shortcuts (right sidebar) — one row per generation, mirroring the
-   left sidebar's gen-row height so the two lists line up. */
-
-.box-shortcut-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-  height: 44px;
-  margin-bottom: 4px;
-  padding: 0 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(18, 28, 39, 0.9);
-  color: #f5f7fa;
-  font-size: 0.78rem;
-  cursor: pointer;
-}
-
-.box-shortcut-row:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.box-shortcut-row.active {
-  background: #ffcb05;
-  border-color: #ffcb05;
-  color: #1c1c1e;
-  font-weight: 700;
-}
-
-.box-shortcut-value {
-  font-weight: 700;
 }
 
 @media (max-width: 1000px) {

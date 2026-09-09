@@ -1,4 +1,4 @@
-function Categoryprogress({ categories, onSelect }) {
+function CategoryProgress({ categories, onSelect }) {
   return (
     <div className="sidebar-inner">
       <h2>Category</h2>
@@ -26,4 +26,4 @@ function Categoryprogress({ categories, onSelect }) {
   )
 }
 
-export default Categoryprogress
+export default CategoryProgress

@@ -1,8 +1,8 @@
 # Pokémon Checklist
 
-A website where I can check off every Pokémon I've caught. Made because I couldn't find one that did exactly what I wanted, so I built my own with a lot of help from AI along the way (Copilot and Claude, mostly — I'm still learning to code, so if something looks messy, that's why).
+A page where I can check off every Pokémon I've caught. Made because I couldn't find one that did exactly what I wanted, so I built my own with help from AI along the way (Copilot and Claude assisted).
 
-Right now it tracks 1340 Pokémon total across 46 boxes, sorted by dex number with a few forced breaks so things stay organized by generation and category.
+Right now it tracks 1442 Pokémon total across 52 boxes, sorted by dex number with a few forced breaks so things stay organized by generation and category.
 
 ## What it does
 
@@ -11,7 +11,6 @@ Right now it tracks 1340 Pokémon total across 46 boxes, sorted by dex number wi
 - Search bar jumps straight to whatever you type (name or dex number)
 - Filter by All / Caught / Not Caught
 - Left sidebar shows progress bars by generation, and by category (gender variants, form differences, regional forms, etc.)
-- Right sidebar lets you jump straight to any generation's box
 - Locked by default so I don't accidentally mess up my own progress — there's a password to unlock editing
 - Saves your progress in the browser, and (if I ever get around to setting it up) can sync across devices too
 
@@ -56,6 +55,6 @@ It's a Vite + React app, hosted for free on GitHub Pages. No backend, no databas
 
 ## Still to do
 
-- Fill in the Alolan, Hisuian, Totem, and Gigantamax entries (categories are ready for them, the actual Pokémon just aren't added yet)
+
 - Decide on a permanent place to store progress instead of the temporary cloud setup
 - Probably clean up more code as I understand it better

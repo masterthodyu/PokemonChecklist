@@ -4,8 +4,7 @@ import { GENERATIONS } from './data/generations.js'
 import { CATEGORIES } from './data/categories.js'
 import PokemonCard from './PokemonCard.jsx'
 import GenProgress from './GenProgress.jsx'
-import CategoryProgress from './Categoryprogress.jsx'
-import BoxShortcuts from './BoxShortcuts.jsx'
+import CategoryProgress from './CategoryProgress.jsx'
 import { syncEnabled, fetchCaughtIdsFromCloud, pushCaughtIdsToCloud } from './sync.js'
 
 // The name of the "drawer" we use in the browser's storage to remember
@@ -368,15 +367,6 @@ function App() {
             </div>
           </div>
         </main>
-
-        {/* Right sidebar: text shortcuts to jump straight to a generation's box */}
-        <aside className="sidebar sidebar-right">
-          <BoxShortcuts
-            generations={genStats}
-            currentBoxId={currentBoxId}
-            onSelect={n => setBoxIndex(n - 1)}
-          />
-        </aside>
       </div>
     </div>
   )

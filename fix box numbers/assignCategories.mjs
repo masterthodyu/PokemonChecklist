@@ -4,12 +4,13 @@
 //   node scripts/assignCategories.mjs
 //
 // HOW TO NAME NEW ENTRIES SO THIS SCRIPT PICKS THEM UP:
-//   Alolan form      -> start the name with "Alolan "      e.g. "Alolan Vulpix"
-//   Hisuian form      -> start the name with "Hisuian "     e.g. "Hisuian Zorua"
-//   Paldean form      -> start the name with "Paldean "     e.g. "Paldean Wooper"
-//   Totem Pokémon     -> start the name with "Totem "       e.g. "Totem Raticate"
-//   Gigantamax form   -> start the name with "Gigantamax "  e.g. "Gigantamax Charizard"
-//   N's Pokémon       -> put "(N's)" anywhere in the name   e.g. "Zorua (N's)"
+//   Alolan form      -> start the name with "Alolan "        e.g. "Alolan Vulpix"
+//   Galarian form     -> start the name with "Galarian "      e.g. "Galarian Ponyta"
+//   Hisuian form      -> start the name with "Hisuian "       e.g. "Hisuian Zorua"
+//   Paldean form      -> start the name with "Paldean "       e.g. "Paldean Wooper"
+//   Totem Pokémon     -> start the name with "Totem "         e.g. "Totem Raticate"
+//   Gigantamax form   -> put "(Gigantamax)" at the end        e.g. "Charizard (Gigantamax)"
+//   N's Pokémon       -> put "N's" anywhere in the name       e.g. "Zorua (N's Pokémon)"
 //   Gender variant     -> same exact name as the base Pokémon, just a
 //                         different id and sprite (this already works for
 //                         the entries you have — nothing to type differently)
@@ -17,6 +18,13 @@
 //   costumes, seasonal forms, etc.) automatically falls into "form" —
 //   the general "form difference" bucket.
 //   Everything else (id === dexId) is just "base".
+//
+// This always re-tags every entry based on its name, using the rules
+// above. If you've hand-set a category that doesn't match the name
+// pattern (on purpose, for a one-off exception), running this script
+// WILL overwrite it back to what the name suggests — the printed list of
+// changes at the end is there so you can catch that and re-fix it if
+// that happens.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -39,20 +47,29 @@ function categorize(p) {
 
   const name = p.name
   if (name.startsWith('Alolan ')) return 'alolan'
+  if (name.startsWith('Galarian ')) return 'galarian'
   if (name.startsWith('Hisuian ')) return 'hisuian'
   if (name.startsWith('Paldean ')) return 'paldean'
   if (name.startsWith('Totem ')) return 'totem'
-  if (name.startsWith('Gigantamax ')) return 'gigantamax'
-  if (name.includes("(N's)")) return 'n'
+  if (name.includes('Gigantamax')) return 'gmax'
+  if (name.includes("N's")) return 'n'
 
-  const isSameNameAsBase = baseNameByDexId[p.dexId] === name
-  if (isSameNameAsBase) return 'gender'
+  const isGenderVariant =
+    name.includes('♀') ||
+    name.includes('♂') ||
+    baseNameByDexId[p.dexId] === name
+  if (isGenderVariant) return 'gender'
 
   return 'form'
 }
 
+const changes = []
 for (const p of pokemon) {
-  p.category = categorize(p)
+  const detected = categorize(p)
+  if (p.category && p.category !== detected) {
+    changes.push({ name: p.name, from: p.category, to: detected })
+  }
+  p.category = detected
 }
 
 fs.writeFileSync(DATA_PATH, JSON.stringify(pokemon, null, 2) + '\n')
@@ -63,3 +80,10 @@ for (const p of pokemon) {
 }
 console.log('Tagged', pokemon.length, 'Pokémon:')
 console.log(counts)
+
+if (changes.length) {
+  console.log(`\n${changes.length} entries changed category — worth a quick look:`)
+  for (const c of changes) {
+    console.log(`  "${c.name}": ${c.from} -> ${c.to}`)
+  }
+}
