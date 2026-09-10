@@ -8,7 +8,11 @@ export default {
   id: 'go',
   title: 'Pokémon GO',
   path: '/go',
-  icon: '/icons/pokemon-go.png',
+  icon: 'https://static.wikia.nocookie.net/pokemongo/images/c/c1/AppIcon_Standard.png/revision/latest?cb=20220304130349',
+  // GO's own blue, not the mainline games' red — this one has its own
+  // app identity.
+  accentFrom: '#2f80c4',
+  accentTo: '#7ed6df',
   data, // array of { id, dexId, name, spriteUrl, category }
   // boxSize intentionally left out — boxless checklist, see note above.
   storageKey: 'go-caught-v1',

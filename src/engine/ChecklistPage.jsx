@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useState, useEffect, useMemo, useRef } from 'react'
 import ItemCard from './ItemCard.jsx'
 import GroupProgress from './GroupProgress.jsx'
@@ -279,21 +280,30 @@ function ChecklistPage({ config }) {
 
   return (
     <div className="app">
-      <div className="layout">
-        {/* Left sidebar: one progress-bar list per group set */}
-        <aside className="sidebar sidebar-left">
-          {groupStats.map(set => (
-            <GroupProgress
-              key={set.label}
-              title={set.label}
-              groups={set.groups}
-              onSelect={g => jumpToGroup(set, g)}
-            />
-          ))}
-        </aside>
+      <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
+        {/* Left sidebar: one progress-bar list per group set — only
+            rendered at all when this checklist's config actually defines
+            groups (like Pokémon's Generation/Category). Checklists with
+            no groupSets (SoulSilver, GO, etc.) skip this entirely instead
+            of showing an empty box. */}
+        {groupStats.length > 0 && (
+          <aside className="sidebar sidebar-left">
+            {groupStats.map(set => (
+              <GroupProgress
+                key={set.label}
+                title={set.label}
+                groups={set.groups}
+                onSelect={g => jumpToGroup(set, g)}
+              />
+            ))}
+          </aside>
+        )}
 
         <main className="main-content">
           <header>
+            <Link to="/" className="back-link">
+              ← Back to checklists
+            </Link>
             <h1>{title}</h1>
             <p className="progress">
               {checkedCount} / {total} caught ({Math.round((checkedCount / total) * 100)}%)

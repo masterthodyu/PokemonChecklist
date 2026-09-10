@@ -8,7 +8,7 @@ import { CHECKLISTS } from './checklists/index.js'
 // nothing here needs to change.
 function App() {
   return (
-    <BrowserRouter basename="/PokemonChecklist">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<HubPage checklists={CHECKLISTS} />} />
         {CHECKLISTS.map(config => (

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap');
+
 * {
   box-sizing: border-box;
 }
+
 
 html {
   overflow-y: scroll;
@@ -37,6 +40,19 @@ header h1 {
   font-size: 1.8rem;
   color: #ffffff;
   text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #dfe3e8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: #ffcb05;
 }
 
 .progress {
@@ -335,6 +351,15 @@ header h1 {
   align-items: start;
 }
 
+/* Checklists with no Generation/Category sidebar (SoulSilver, GO, etc.)
+   drop the reserved 200px sidebar column entirely, so the content is
+   centered instead of shifted left with a dead gap on the right. */
+.layout-no-sidebar {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .main-content {
   min-width: 0;
 }
@@ -424,8 +449,19 @@ header h1 {
 /* --- Hub page --- */
 
 .hub {
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
+}
+
+/* Distinct display face for just the hub's own title — nowhere else in
+   the app changes fonts. The shadow gives it legibility against whatever
+   busy artwork sits behind it, instead of needing an opaque panel. */
+.hub h1 {
+  font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
 /* A dark overlay under the hub's own background gradient so text stays
@@ -459,15 +495,18 @@ header h1 {
     radial-gradient(circle at 15% 15%, rgba(238, 21, 21, 0.08), transparent 35%),
     linear-gradient(180deg, #1b2735 0%, #0e1620 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--row-accent-from, #ee1515);
   border-radius: 16px;
   padding: 16px 20px;
   text-decoration: none;
   color: #f5f7fa;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
 }
 
 .hub-row:hover {
   border-color: #ffcb05;
+  border-left-color: var(--row-accent-from, #ee1515);
+  transform: translateX(2px);
 }
 
 .hub-row-icon {
@@ -499,8 +538,29 @@ header h1 {
   color: #ffffff;
 }
 
-.hub-row-body p {
+.hub-row-count {
   margin: 0 0 8px;
   color: #dfe3e8;
   font-size: 0.9rem;
+}
+
+/* Per-game progress fill — reads its color from the row's own CSS vars
+   (set in HubPage.jsx from that checklist's config), so each game's bar
+   matches its own identity instead of every row sharing one gradient. */
+.hub-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--row-accent-from, #ee1515), var(--row-accent-to, #ffcb05));
+  border-radius: 4px;
+  transition: width 0.2s ease;
+}
+
+/* The completion percentage, promoted to its own bold stat on the right
+   of the row instead of buried inside the "x / y (z%)" line — it's the
+   number you actually glance at. */
+.hub-row-stat {
+  flex-shrink: 0;
+  font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+  padding-left: 12px;
 }

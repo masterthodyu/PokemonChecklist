@@ -11,6 +11,11 @@ export default {
   id: 'pokemon',
   title: 'Pokémon Caught Checklist',
   path: '/pokemon',
+  icon: 'https://play-lh.googleusercontent.com/gKOiChbx6pKJ8PDmdpsSfLuULbljOFGVf67B8ley5Ym6eYK4KfIrnl1x3Jg2Kei-6sSegsxpz-k5gycvFAUw',
+  // The Pokéball's own red/yellow — also the engine's default accent, so
+  // this is here for clarity rather than necessity.
+  accentFrom: '#ee1515',
+  accentTo: '#ffcb05',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
   storageKey: 'pokemon-caught-v1',

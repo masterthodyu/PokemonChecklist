@@ -40,8 +40,19 @@ function HubPage({ checklists }) {
           const total = config.data.length
           const pct = total > 0 ? Math.round((checked / total) * 100) : 0
 
+          // Each game keeps its own real-world colors instead of every
+          // row sharing one identical bar — falls back to the classic
+          // Pokéball red/yellow if a checklist's config doesn't set one.
+          const accentFrom = config.accentFrom || '#ee1515'
+          const accentTo = config.accentTo || '#ffcb05'
+
           return (
-            <Link key={config.id} to={config.path} className="hub-row">
+            <Link
+              key={config.id}
+              to={config.path}
+              className="hub-row"
+              style={{ '--row-accent-from': accentFrom, '--row-accent-to': accentTo }}
+            >
               {config.icon ? (
                 <img className="hub-row-icon" src={config.icon} alt="" />
               ) : (
@@ -50,11 +61,13 @@ function HubPage({ checklists }) {
 
               <div className="hub-row-body">
                 <h2>{config.title}</h2>
-                <p>{checked} / {total} ({pct}%)</p>
+                <p className="hub-row-count">{checked} / {total} caught</p>
                 <div className="gen-bar-track">
-                  <div className="gen-bar-fill" style={{ width: `${pct}%` }} />
+                  <div className="hub-bar-fill" style={{ width: `${pct}%` }} />
                 </div>
               </div>
+
+              <div className="hub-row-stat">{pct}%</div>
             </Link>
           )
         })}

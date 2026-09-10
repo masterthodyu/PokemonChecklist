@@ -16,6 +16,12 @@
     "dexId": 1,
     "name": "Bulbasaur (Shedinja Costume)",
     "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/1x/bulbasaur-shedinja.png"
+  },
+  {
+    "id": 2,
+    "dexId": 2,
+    "name": "Ivysaur (Pikachu Cap)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/2x/ivysaur-pikachu-cap.png"
   }
 
 ]
