@@ -247,11 +247,19 @@ function ChecklistPage({ config }) {
 
   // The items "in scope" before search/filter narrows things further:
   // the current box for a boxed checklist, the active group filter (or
-  // everything) for a boxless one.
+  // everything) for a boxless one. Always sorted by id — for a boxed
+  // checklist this is effectively already true (assignBoxes.mjs assigns
+  // boxes in file order), but for a boxless checklist (GO) this means you
+  // can paste new entries into data.json in any order and they'll still
+  // display sorted, no separate script needed.
   const scopedList = useMemo(() => {
-    if (isBoxed) return data.filter(p => p.boxId === currentBoxId)
-    if (activeGroup) return data.filter(activeGroup.matches)
-    return data
+    const inScope = isBoxed
+      ? data.filter(p => p.boxId === currentBoxId)
+      : activeGroup
+        ? data.filter(activeGroup.matches)
+        : data
+
+    return [...inScope].sort((a, b) => a.id - b.id)
   }, [data, isBoxed, currentBoxId, activeGroup])
 
   const normalizedSearch = search.trim().toLowerCase()

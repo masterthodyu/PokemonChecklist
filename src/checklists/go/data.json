@@ -2,26 +2,535 @@
   {
     "id": 1,
     "dexId": 1,
+    "name": "Bulbasaur (Shedinja Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/001-halloween2019.png"
+  },
+  {
+    "id": 1.2,
+    "dexId": 1,
     "name": "Bulbasaur (Pikachu Cap)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/1x/bulbasaur-pikachu-cap.png"
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/001-pikachuvisor.png"
   },
   {
     "id": 1.1,
     "dexId": 1,
     "name": "Bulbasaur (Red Party Hat)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/1x/bulbasaur-red-party-hat.png"
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/001-partyhat.png"
+  },
+
+  {
+    "id": 2.1,
+    "dexId": 2,
+    "name": "Ivysaur (Pikachu Party Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/002-partyhat.png"
   },
   {
-    "id": 1.2,
-    "dexId": 1,
-    "name": "Bulbasaur (Shedinja Costume)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/1x/bulbasaur-shedinja.png"
-  },
-  {
-    "id": 2,
+    "id": 2.2,
     "dexId": 2,
     "name": "Ivysaur (Pikachu Cap)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/2x/ivysaur-pikachu-cap.png"
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/002-pikachuvisor.png"
+  },
+  {
+    "id": 25,
+    "dexId": 25,
+    "name": "Pikachu (Santa hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/025-santa.png"
+  },
+  {
+    "id": 26,
+    "dexId": 26,
+    "name": "Raichu (Santa hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/026-santa.png"
+  },
+  {
+    "id": 26.01,
+    "dexId": 26,
+    "name": "Raichu (Party hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/026-party.png"
+  },
+  {
+    "id": 26.02,
+    "dexId": 26,
+    "name": "Raichu (Original Cap)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/026-ash.png"
+  },
+  {
+    "id": 25.0001,
+    "dexId": 25,
+    "name": "Pikachu (Santa hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/025-party.png"
+  },
+  {
+    "id": 25.0002,
+    "dexId": 25,
+    "name": "Pikachu (Santa hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/025-ash.png"
+  },
+  {
+    "id": 999,
+    "dexId": 25,
+    "name": "Gimmighoul (Roaming Form (9th Anniversary Coin)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/999-r.png"
+  },
+  {
+    "id": 999.1,
+    "dexId": 999,
+    "name": "Gimmighoul (Roaming Form (10th Anniversary Coin)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/999-r.png"
+  },
+  {
+    "id": 907,
+    "dexId": 907,
+    "name": "Floragato (Liko's Pin)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/907-liko.png"
+  },
+  {
+    "id": 901,
+    "dexId": 901,
+    "name": "Ursaluna (Witch Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/901-witchhat.png"
+  },
+  {
+    "id": 870,
+    "dexId": 870,
+    "name": "Falinks (Train Conductor)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/870-trainconductor.png"
+  },
+  {
+    "id": 831,
+    "dexId": 831,
+    "name": "Wooloo (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/831-holiday.png"
+  },
+  {
+    "id": 832,
+    "dexId": 832,
+    "name": "Dubwool (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/832-holiday.png"
+  },
+  {
+    "id": 760,
+    "dexId": 760,
+    "name": "Bewear (Wilderness Cape)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/760-wildernesscape.png"
+  },
+  {
+    "id": 737,
+    "dexId": 737,
+    "name": "Charjabug (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/737-holidays.png"
+  },
+  {
+    "id": 738,
+    "dexId": 738,
+    "name": "Vikavolt (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/738-holidays.png"
+  },
+  {
+    "id": 722,
+    "dexId": 722,
+    "name": "Rowlett (Halloween Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/722-halloween.png"
+  },
+  {
+    "id": 723,
+    "dexId": 723,
+    "name": "Dartrix (Halloween Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/723-halloween.png"
+  },
+  {
+    "id": 724,
+    "dexId": 724,
+    "name": "Decidueye (Halloween Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/724-halloween.png"
+  },
+  {
+    "id": 714,
+    "dexId": 714,
+    "name": "Noibat (Halloween Headband)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/714-headband.png"
+  },
+  {
+    "id": 715,
+    "dexId": 715,
+    "name": "Noivern (Halloween Headband)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/715-headband.png"
+  },
+  {
+    "id": 700.4,
+    "dexId": 700,
+    "name": "Sylveon (Explorer Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/700-safari.png"
+  },
+  {
+    "id": 700.3,
+    "dexId": 700,
+    "name": "Sylveon (Cherry Blossom)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/700-cherryblossoms.png"
+  },
+  {
+    "id": 700.2,
+    "dexId": 700,
+    "name": "Sylveon (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/700-holiday.png"
+  },
+  {
+    "id": 700.1,
+    "dexId": 700,
+    "name": "Sylveon (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/700-flowers.png"
+  },
+  {
+    "id": 656,
+    "dexId": 656,
+    "name": "Froakie (Halloween Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/656-halloween.png"
+  },
+  {
+    "id": 657,
+    "dexId": 657,
+    "name": "Frogadier (Halloween Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/657-halloween.png"
+  },
+  {
+    "id": 658,
+    "dexId": 658,
+    "name": "Greninja (Halloween Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/658-halloween.png"
+  },
+  {
+    "id": 613,
+    "dexId": 613,
+    "name": "Cubchoo (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/613-holiday2020.png"
+  },
+  {
+    "id": 614,
+    "dexId": 614,
+    "name": "Beartic (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/614-holiday2022.png"
+  },
+  {
+    "id": 572,
+    "dexId": 572,
+    "name": "Minccino (Fashionable)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/572-fashionable.png"
+  },
+  {
+    "id": 573,
+    "dexId": 573,
+    "name": "Cinccino (Fashionable)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/573-fashionable.png"
+  },
+  {
+    "id": 546,
+    "dexId": 546,
+    "name": "Cottonee (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/546-flowercrown.png"
+  },
+  {
+    "id": 547,
+    "dexId": 547,
+    "name": "Whimsicott (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/547-flowercrown.png"
+  },
+  {
+    "id": 522,
+    "dexId": 522,
+    "name": "Blitzle (Fashionable)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/522-fashionable.png"
+  },
+  {
+    "id": 477,
+    "dexId": 477,
+    "name": "Dusknoir (Cempasúchil Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/477-crown.png"
+  },
+  {
+    "id": 356,
+    "dexId": 356,
+    "name": "Dusclops (Cempasúchil Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/356-crown.png"
+  },
+  {
+    "id": 355,
+    "dexId": 355,
+    "name": "Duskull (Cempasúchil Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/355-crown.png"
+  },
+  {
+    "id": 471.5,
+    "dexId": 471,
+    "name": "Glaceon (Explorer Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/471-safari.png"
+  },
+  {
+    "id": 471.4,
+    "dexId": 471,
+    "name": "Glaceon (Cherry Blossom)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/471-cherryblossoms.png"
+  },
+  {
+    "id": 471.2,
+    "dexId": 471,
+    "name": "Glaceon (Undersea Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/471-holiday.png"
+  },
+  {
+    "id": 471.1,
+    "dexId": 471,
+    "name": "Glaceon (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/471-flowers.png"
+  },
+  {
+    "id": 471.3,
+    "dexId": 471,
+    "name": "Glaceon (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/471-holiday2022.png"
+  },
+  {
+    "id": 470.4,
+    "dexId": 470,
+    "name": "Leafeon (Explorer Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/470-safari.png"
+  },
+  {
+    "id": 470.3,
+    "dexId": 470,
+    "name": "Leafeon (Cherry Blossom)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/470-cherryblossoms.png"
+  },
+  {
+    "id": 470.2,
+    "dexId": 470,
+    "name": "Leafeon (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/470-holiday.png"
+  },
+  {
+    "id": 470.1,
+    "dexId": 470,
+    "name": "Leafeon (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/470-flowers.png"
+  },
+  {
+    "id": 468,
+    "dexId": 468,
+    "name": "Togekiss (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/468-flowers.png"
+  },
+  {
+    "id": 176,
+    "dexId": 176,
+    "name": "Togetic (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/176-flowers.png"
+  },
+  {
+    "id": 175,
+    "dexId": 175,
+    "name": "Togepi (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/175-flowers.png"
+  },
+  {
+    "id": 466,
+    "dexId": 466,
+    "name": "Electivire (Spark Accessory)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/466-spark.png"
+  },
+  {
+    "id": 125,
+    "dexId": 125,
+    "name": "Electabuzz (Spark Accessory)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/125-spark.png"
+  },
+  {
+    "id": 239,
+    "dexId": 239,
+    "name": "Elekid (Spark Accessory)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/239-spark.png"
+  },
+  {
+    "id": 453,
+    "dexId": 453,
+    "name": "Croagunk (Backwards Cap)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/453-backwardscap.png"
+  },
+  {
+    "id": 454,
+    "dexId": 454,
+    "name": "Toxicroak (Backwards Cap)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/454-backwardscap.png"
+  },
+  {
+    "id": 440,
+    "dexId": 440,
+    "name": "Happiny (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/440-flowercrown.png"
+  },
+  {
+    "id": 113,
+    "dexId": 113,
+    "name": "Chansey (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/113-flowercrown.png"
+  },
+  {
+    "id": 242,
+    "dexId": 242,
+    "name": "Blissey (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/242-flowercrown.png"
+  },
+  {
+    "id": 427,
+    "dexId": 427,
+    "name": "Happiny (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/427-flowers.png"
+  },
+  {
+    "id": 428,
+    "dexId": 428,
+    "name": "Lopunny (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/428-flowers.png"
+  },
+  {
+    "id": 426,
+    "dexId": 426,
+    "name": "Drifblim (Halloween Mischief)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/426-halloween2021.png"
+  },
+  {
+    "id": 403,
+    "dexId": 403,
+    "name": "Shinx (Top Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/403-tophat.png"
+  },
+  {
+    "id": 393,
+    "dexId": 393,
+    "name": "Piplup (Halloween Mischief)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/393-halloween2021.png"
+  },
+  {
+    "id": 393.1,
+    "dexId": 393,
+    "name": "Piplup (Lucas Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/393-lucas.png"
+  },
+  {
+    "id": 393.2,
+    "dexId": 393,
+    "name": "Piplup (Dawn Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/393-dawn.png"
+  },
+  {
+    "id": 390.1,
+    "dexId": 390,
+    "name": "Chimchar (Lucas Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/390-lucas.png"
+  },
+  {
+    "id": 390.2,
+    "dexId": 390,
+    "name": "Chimchar (Dawn Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/390-dawn.png"
+  },
+  {
+    "id": 387.1,
+    "dexId": 387,
+    "name": "Chimchar (Lucas Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/387-lucas.png"
+  },
+  {
+    "id": 387.2,
+    "dexId": 387,
+    "name": "Chimchar (Dawn Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/387-dawn.png"
+  },
+  {
+    "id": 363,
+    "dexId": 363,
+    "name": "Spheal (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/363-holiday.png"
+  },
+  {
+    "id": 359,
+    "dexId": 359,
+    "name": "Absol (Fashionable Costume)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/359-fashion.png"
+  },
+  {
+    "id": 330,
+    "dexId": 330,
+    "name": "Flygon (Meloetta hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/330-gofest2021.png"
+  },
+  {
+    "id": 302,
+    "dexId": 302,
+    "name": "Sableye (Halloween)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/302-halloween.png"
+  },
+  {
+    "id": 287,
+    "dexId": 287,
+    "name": "Slakoth (Visor)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/287-visor.png"
+  },
+  {
+    "id": 288,
+    "dexId": 288,
+    "name": "Vigoroth (Visor)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/288-visor.png"
+  },
+  {
+    "id": 289,
+    "dexId": 289,
+    "name": "Slaking (Visor)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/289-visor.png"
+  },
+  {
+    "id": 282,
+    "dexId": 282,
+    "name": "Gardevoir (Meloetta hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/282-gofest2021.png"
+  },
+  {
+    "id": 281,
+    "dexId": 281,
+    "name": "Kirlia (Top Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/281-tophat.png"
+  },
+  {
+    "id": 265,
+    "dexId": 265,
+    "name": "Wurmple (Party)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/265-partyhat.png"
+  },
+  {
+    "id": 263,
+    "dexId": 263,
+    "name": "Galarian Zigzagoon (Meloetta hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/263-gofest2021.png"
+  },
+  {
+    "id": 249,
+    "dexId": 249,
+    "name": "Lugia (2017 Go Fest)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/249.png"
+  },
+  {
+    "id": 238,
+    "dexId": 238,
+    "name": "Smoochum (Bow)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/238-bow.png"
+  },
+  {
+    "id": 234,
+    "dexId": 234,
+    "name": "Stantler (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/234-bells.png"
   }
 
+
+
+
+  
 ]
