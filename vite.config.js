@@ -7,5 +7,5 @@ import react from '@vitejs/plugin-react'
 // if the two ever disagree, links inside the app will 404 on the live site.
 export default defineConfig({
   plugins: [react()],
-  base: '/checklists/',
+  base: '/PokemonChecklist/',
 })

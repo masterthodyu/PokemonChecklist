@@ -20,18 +20,30 @@ function loadCheckedIds(storageKey) {
 
 // The generic engine behind every checklist. Takes one checklist's
 // `config` (see src/checklists/pokemon/config.js for an example) and
-// renders the whole page — box grid, search, filters, sidebars, lock, and
-// cloud sync. This file is the direct descendant of the original
-// App.jsx; nothing in here should ever need to know it's Pokémon
-// specifically — that's all in config.
+// renders the whole page — box grid (or flat list), search, filters,
+// sidebars, lock, and cloud sync. This file is the direct descendant of
+// the original App.jsx; nothing in here should ever need to know it's
+// Pokémon specifically — that's all in config.
+//
+// Two layout modes, chosen by whether the config sets a boxSize:
+//   - BOXED (boxSize is a number): items are split into fixed-size boxes
+//     with Previous/Next/Jump-to-box navigation. This is the normal mode.
+//   - BOXLESS (boxSize is null/undefined): no boxes at all — every item
+//     that matches the search + filters shows in one flat, scrollable
+//     list instead. Use this for something like Pokémon GO, which
+//     doesn't have a box system in the actual game. Clicking a sidebar
+//     group (like a generation) narrows the flat list down to just that
+//     group instead of jumping to a box — click it again to clear it.
 function ChecklistPage({ config }) {
   const { data, boxSize, storageKey, jsonBinId, groupSets, title } = config
+  const isBoxed = Boolean(boxSize)
   const syncEnabled = isSyncEnabled(jsonBinId)
 
   // --- All of this checklist's "memory" lives here as state ---
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
   const [showOnly, setShowOnly] = useState('all')           // 'all' | 'caught' | 'uncaught'
-  const [boxIndex, setBoxIndex] = useState(0)                // which box we're looking at (0-based)
+  const [boxIndex, setBoxIndex] = useState(0)                // which box we're looking at (0-based) — boxed mode only
+  const [activeGroup, setActiveGroup] = useState(null)        // which sidebar group is narrowing the list — boxless mode only
   const [search, setSearch] = useState('')                   // what's typed in the search bar
   const [unlocked, setUnlocked] = useState(false)             // is editing unlocked right now?
 
@@ -50,6 +62,7 @@ function ChecklistPage({ config }) {
     setCheckedIds(loadCheckedIds(storageKey))
     setShowOnly('all')
     setBoxIndex(0)
+    setActiveGroup(null)
     setSearch('')
     setUnlocked(false)
     setSyncStatus(syncEnabled ? 'loading' : 'off')
@@ -106,8 +119,12 @@ function ChecklistPage({ config }) {
   }, [checkedIds, jsonBinId, syncEnabled])
 
   // Every time the search box changes, look for a matching item and jump
-  // straight to the box it's in.
+  // straight to the box it's in. Boxless checklists don't have boxes to
+  // jump to — searching there just narrows the flat list directly further
+  // down in visibleList, so this effect has nothing to do.
   useEffect(() => {
+    if (!isBoxed) return
+
     const normalizedSearch = search.trim().toLowerCase()
     if (!normalizedSearch) return
 
@@ -120,7 +137,7 @@ function ChecklistPage({ config }) {
     if (match) {
       setBoxIndex(match.boxId - 1) // boxId counts from 1, boxIndex counts from 0
     }
-  }, [search, data])
+  }, [search, data, isBoxed])
 
   // Asks for the password (if not already unlocked) and returns true/false
   // for whether we're allowed to make a change right now.
@@ -168,13 +185,27 @@ function ChecklistPage({ config }) {
     })
   }
 
-  const totalBoxes = Math.max(...data.map(p => p.boxId))
+  // Marks every item currently visible (the current box, or the current
+  // filtered flat list for a boxless checklist) as checked in one go.
+  function selectAllVisible() {
+    if (!requestUnlock()) return
+
+    setCheckedIds(prev => {
+      const next = new Set(prev)
+      for (const item of visibleList) next.add(item.id)
+      return next
+    })
+  }
+
+  const totalBoxes = isBoxed ? Math.max(...data.map(p => p.boxId)) : 0
   const currentBoxId = boxIndex + 1
 
   // --- Left sidebar: one progress-bar list per group set the config
   // defines (Pokémon has "Generation" and "Category"; a future checklist
   // might only need one, or a different pair entirely). useMemo just means
-  // "only redo this math when checkedIds/data actually changes."
+  // "only redo this math when checkedIds/data actually changes." Each
+  // group keeps a reference to its own `matches` function too, so boxless
+  // checklists can use it to filter the flat list when a group is clicked.
   const groupStats = useMemo(() => {
     return groupSets.map(set => {
       const candidates = data.filter(set.filter)
@@ -182,7 +213,7 @@ function ChecklistPage({ config }) {
         const inGroup = candidates.filter(item => set.matches(item, g))
         const checked = inGroup.filter(item => checkedIds.has(item.id)).length
         // data is already in box order, so the first matching entry tells
-        // us which box to jump to.
+        // us which box to jump to (boxed checklists only).
         const first = inGroup[0]
         return {
           ...g,
@@ -192,25 +223,42 @@ function ChecklistPage({ config }) {
           startBox: first?.boxId,
         }
       })
-      return { label: set.label, groups }
+      return { label: set.label, groups, matches: set.matches }
     })
   }, [groupSets, data, checkedIds])
 
-  function jumpToGroup(g) {
-    if (g.startBox) setBoxIndex(g.startBox - 1)
+  // Boxed: clicking a sidebar group jumps straight to the box it starts in.
+  // Boxless: clicking a sidebar group narrows the flat list down to just
+  // that group — clicking the same one again clears the filter.
+  function jumpToGroup(set, g) {
+    if (isBoxed) {
+      if (g.startBox) setBoxIndex(g.startBox - 1)
+      return
+    }
+
+    const groupKey = g.key ?? g.gen
+    setActiveGroup(prev =>
+      prev && prev.setLabel === set.label && prev.groupKey === groupKey
+        ? null
+        : { setLabel: set.label, groupKey, groupLabel: g.label, matches: item => set.matches(item, g) }
+    )
   }
 
-  // The items that belong in the box we're currently looking at.
-  const currentBox = useMemo(() => {
-    return data.filter(p => p.boxId === currentBoxId)
-  }, [data, currentBoxId])
+  // The items "in scope" before search/filter narrows things further:
+  // the current box for a boxed checklist, the active group filter (or
+  // everything) for a boxless one.
+  const scopedList = useMemo(() => {
+    if (isBoxed) return data.filter(p => p.boxId === currentBoxId)
+    if (activeGroup) return data.filter(activeGroup.matches)
+    return data
+  }, [data, isBoxed, currentBoxId, activeGroup])
 
   const normalizedSearch = search.trim().toLowerCase()
 
-  // The current box's items, narrowed down by whatever's typed in search
+  // The scoped items, narrowed down further by whatever's typed in search
   // and whichever All/Caught/Not Caught filter is selected.
   const visibleList = useMemo(() => {
-    return currentBox.filter(p => {
+    return scopedList.filter(p => {
       const matchesSearch =
         !normalizedSearch ||
         p.name.toLowerCase().includes(normalizedSearch) ||
@@ -224,30 +272,13 @@ function ChecklistPage({ config }) {
 
       return matchesSearch && matchesFilter
     })
-  }, [currentBox, checkedIds, normalizedSearch, showOnly])
+  }, [scopedList, checkedIds, normalizedSearch, showOnly])
 
   const total = data.length
   const checkedCount = checkedIds.size
 
   return (
     <div className="app">
-      <header>
-        <h1>{title}</h1>
-        <p className="progress">
-          {checkedCount} / {total} caught ({Math.round((checkedCount / total) * 100)}%)
-        </p>
-        <button className="lock-status" onClick={handleLockButtonClick}>
-          {unlocked ? '🔓 Editing unlocked — tap to relock' : '🔒 Locked — tap to unlock editing'}
-        </button>
-        {syncEnabled && (
-          <p className="sync-status">
-            {syncStatus === 'loading' && '☁️ Loading cloud save…'}
-            {syncStatus === 'synced' && '☁️ Synced'}
-            {syncStatus === 'error' && '⚠️ Cloud sync failed — saved locally only'}
-          </p>
-        )}
-      </header>
-
       <div className="layout">
         {/* Left sidebar: one progress-bar list per group set */}
         <aside className="sidebar sidebar-left">
@@ -256,12 +287,29 @@ function ChecklistPage({ config }) {
               key={set.label}
               title={set.label}
               groups={set.groups}
-              onSelect={jumpToGroup}
+              onSelect={g => jumpToGroup(set, g)}
             />
           ))}
         </aside>
 
         <main className="main-content">
+          <header>
+            <h1>{title}</h1>
+            <p className="progress">
+              {checkedCount} / {total} caught ({Math.round((checkedCount / total) * 100)}%)
+            </p>
+            <button className="lock-status" onClick={handleLockButtonClick}>
+              {unlocked ? '🔓 Editing unlocked — tap to relock' : '🔒 Locked — tap to unlock editing'}
+            </button>
+            {syncEnabled && (
+              <p className="sync-status">
+                {syncStatus === 'loading' && '☁️ Loading cloud save…'}
+                {syncStatus === 'synced' && '☁️ Synced'}
+                {syncStatus === 'error' && '⚠️ Cloud sync failed — saved locally only'}
+              </p>
+            )}
+          </header>
+
           <div className="controls">
             <input
               type="text"
@@ -271,45 +319,47 @@ function ChecklistPage({ config }) {
             />
           </div>
 
-          <div className="box-controls">
-            <button
-              className="nav-button"
-              onClick={() => setBoxIndex(prev => Math.max(prev - 1, 0))}
-              disabled={boxIndex === 0}
-            >
-              Previous box
-            </button>
+          {isBoxed && (
+            <div className="box-controls">
+              <button
+                className="nav-button"
+                onClick={() => setBoxIndex(prev => Math.max(prev - 1, 0))}
+                disabled={boxIndex === 0}
+              >
+                Previous box
+              </button>
 
-            <div className="box-meta">
-              <span className="box-label">Box {boxIndex + 1}</span>
-              <span className="box-range">
-                #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
-              </span>
-              <label className="box-jump">
-                <span>Jump to box</span>
-                <input
-                  type="number"
-                  min="1"
-                  max={totalBoxes}
-                  value={boxIndex + 1}
-                  onChange={e => {
-                    const nextBox = Number(e.target.value)
-                    if (!Number.isNaN(nextBox)) {
-                      setBoxIndex(Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1))
-                    }
-                  }}
-                />
-              </label>
+              <div className="box-meta">
+                <span className="box-label">Box {boxIndex + 1}</span>
+                <span className="box-range">
+                  #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
+                </span>
+                <label className="box-jump">
+                  <span>Jump to box</span>
+                  <input
+                    type="number"
+                    min="1"
+                    max={totalBoxes}
+                    value={boxIndex + 1}
+                    onChange={e => {
+                      const nextBox = Number(e.target.value)
+                      if (!Number.isNaN(nextBox)) {
+                        setBoxIndex(Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1))
+                      }
+                    }}
+                  />
+                </label>
+              </div>
+
+              <button
+                className="nav-button"
+                onClick={() => setBoxIndex(prev => Math.min(prev + 1, totalBoxes - 1))}
+                disabled={boxIndex === totalBoxes - 1}
+              >
+                Next box
+              </button>
             </div>
-
-            <button
-              className="nav-button"
-              onClick={() => setBoxIndex(prev => Math.min(prev + 1, totalBoxes - 1))}
-              disabled={boxIndex === totalBoxes - 1}
-            >
-              Next box
-            </button>
-          </div>
+          )}
 
           <div className="filter-buttons">
             <button
@@ -334,9 +384,18 @@ function ChecklistPage({ config }) {
 
           <div className="box-panel">
             <div className="box-header">
-              <span>Box {boxIndex + 1}</span>
               <span>
-                {visibleList.length} / {currentBox.length} shown
+                {isBoxed
+                  ? `Box ${boxIndex + 1}`
+                  : activeGroup
+                    ? `${activeGroup.groupLabel} (tap it again in the sidebar to clear)`
+                    : title}
+              </span>
+              <span className="box-header-right">
+                {visibleList.length} / {scopedList.length} shown
+                <button className="select-all-button" onClick={selectAllVisible}>
+                  Select All
+                </button>
               </span>
             </div>
 

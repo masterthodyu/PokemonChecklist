@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "dexId": 1,
+    "name": "Rowlet",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rowlet.png",
+    "boxId": 1,
+    "category": "base"
+  },
+  {
+    "id": 2,
+    "dexId": 2,
+    "name": "Dartrix",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/dartrix.png",
+    "boxId": 1,
+    "category": "base"
+  },
+  {
+    "id": 3,
+    "dexId": 3,
+    "name": "Decidueye",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/decidueye.png",
+    "boxId": 1,
+    "category": "base"
+  }
+]
