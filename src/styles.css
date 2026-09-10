@@ -289,18 +289,18 @@ header h1 {
   position: absolute;
   top: -4px;
   left: -4px;
-  
-  /* 1. Add your image and size it */
-  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffv4gc-26ecc0c6-34dd-49ec-a93a-7360dd5a95fc.png/v1/fill/w_1280,h_1280/gigantamax_icon_by_jormxdos_dffv4gc-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmdjRnYy0yNmVjYzBjNi0zNGRkLTQ5ZWMtYTkzYS03MzYwZGQ1YTk1ZmMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.upz_uLqCRF7S-DJzDuL5PH6jled4GkiHebFWE0-fMSM'); /* Replace with your file path */
-  background-size: contain;                     /* Ensures the image scales perfectly */
+
+  /* TODO: this is hotlinked to someone else's server for now — swap to
+     url('/icons/gmax-badge.png') once the actual file is saved into
+     public/icons/. Until then this could break if that link ever moves. */
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffv4gc-26ecc0c6-34dd-49ec-a93a-7360dd5a95fc.png/v1/fill/w_1280,h_1280/gigantamax_icon_by_jormxdos_dffv4gc-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmdjRnYy0yNmVjYzBjNi0zNGRkLTQ5ZWMtYTkzYS03MzYwZGQ1YTk1ZmMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.upz_uLqCRF7S-DJzDuL5PH6jled4GkiHebFWE0-fMSM');
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 
-  /* 2. Define explicit tiny dimensions (adjust as needed) */
-  width: 16px; 
+  width: 16px;
   height: 16px;
 
-  /* 3. Drop shadow (optional, kept from your original style) */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 

@@ -42,9 +42,7 @@ function ItemCard({ item, checked, onToggle, highlighted = false }) {
           }}
         />
         {isGigantamax && (
-          <span className="gmax-badge" title="Gigantamax">
-
-          </span>
+          <span className="gmax-badge" title="Gigantamax" />
         )}
       </div>
       <div className="card-info">

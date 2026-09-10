@@ -527,6 +527,24 @@
     "dexId": 234,
     "name": "Stantler (Holiday)",
     "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/234-bells.png"
+  },
+  {
+    "id": 222,
+    "dexId": 222,
+    "name": "Galarian Corsola (Pink Sunglasses)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/222-glasses.png"
+  },
+  {
+    "id": 216,
+    "dexId": 216,
+    "name": "Teddiursa (Witch Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/216-witchhat.png"
+  },
+  {
+    "id": 217,
+    "dexId": 217,
+    "name": "Ursaring (Witch Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/217-witchhat.png"
   }
 
 

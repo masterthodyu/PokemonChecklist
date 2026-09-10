@@ -1,10 +1,10 @@
 import data from './data.json'
 
-// ⚠️ data.json here is a 3-entry PLACEHOLDER (just the starter line), not
-// the real Alola regional dex. I didn't want to guess at the exact
-// species order for the full ~400-entry soulsilver regional Pokédex from
-// memory — getting the sequence wrong would put everything in the wrong
-// box. Two ways to fill this in properly:
+// ⚠️ data.json here is a 1-entry PLACEHOLDER (just a single event Pichu),
+// not the real Johto/National regional dex. Getting the species order
+// wrong would put everything in the wrong box, so rather than guess at
+// the full ~250+ entry list from memory, this is left for you to fill in
+// properly. Two ways to do that:
 //   1. Ask Claude to look it up carefully (a real, focused research pass)
 //   2. Build data.json the same way you built the Home checklist's data
 // Once real data.json is in place, this config file itself likely needs
@@ -20,6 +20,6 @@ export default {
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
   storageKey: 'soulsilver-caught-v1',
-  jsonBinId: import.meta.env.VITE_soulsilver_BIN_ID,
+  jsonBinId: import.meta.env.VITE_SOULSILVER_BIN_ID,
   groupSets: [],
 }
