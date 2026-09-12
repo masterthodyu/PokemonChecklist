@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap');
+
 * {
   box-sizing: border-box;
 }
+
 
 html {
   overflow-y: scroll;
@@ -9,10 +12,14 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background:
     radial-gradient(circle at top, rgba(58, 92, 134, 0.45), transparent 30%),
     linear-gradient(180deg, #0b1220 0%, #050a12 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   color: #f5f5f5;
 }
 
@@ -35,6 +42,19 @@ header h1 {
   text-align: center;
 }
 
+.back-link {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #dfe3e8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: #ffcb05;
+}
+
 .progress {
   margin: 0;
   color: #dfe3e8;
@@ -52,6 +72,13 @@ header h1 {
   color: #f5f7fa;
   font-size: 0.85rem;
   cursor: pointer;
+}
+
+.sync-status {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9aa4af;
 }
 
 .controls {
@@ -200,6 +227,29 @@ header h1 {
   color: #f5f7fa;
 }
 
+.box-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 400;
+}
+
+.select-all-button {
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f7fa;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.select-all-button:hover {
+  border-color: #ffcb05;
+  color: #ffcb05;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -228,6 +278,30 @@ header h1 {
   width: 72px;
   height: 72px;
   image-rendering: pixelated;
+}
+
+.card-image {
+  position: relative;
+  display: inline-block;
+}
+
+.gmax-badge {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+
+  /* TODO: this is hotlinked to someone else's server for now — swap to
+     url('/icons/gmax-badge.png') once the actual file is saved into
+     public/icons/. Until then this could break if that link ever moves. */
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffv4gc-26ecc0c6-34dd-49ec-a93a-7360dd5a95fc.png/v1/fill/w_1280,h_1280/gigantamax_icon_by_jormxdos_dffv4gc-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmdjRnYy0yNmVjYzBjNi0zNGRkLTQ5ZWMtYTkzYS03MzYwZGQ1YTk1ZmMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.upz_uLqCRF7S-DJzDuL5PH6jled4GkiHebFWE0-fMSM');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 16px;
+  height: 16px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .card.caught {
@@ -277,6 +351,15 @@ header h1 {
   align-items: start;
 }
 
+/* Checklists with no Generation/Category sidebar (SoulSilver, GO, etc.)
+   drop the reserved 200px sidebar column entirely, so the content is
+   centered instead of shifted left with a dead gap on the right. */
+.layout-no-sidebar {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .main-content {
   min-width: 0;
 }
@@ -298,6 +381,17 @@ header h1 {
   color: #ffffff;
   text-align: center;
   letter-spacing: 0.02em;
+}
+
+.sidebar-inner + .sidebar-inner {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gen-row:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 /* Generation progress (left sidebar) */
@@ -343,41 +437,6 @@ header h1 {
   transition: width 0.2s ease;
 }
 
-/* Box shortcuts (right sidebar) — one row per generation, mirroring the
-   left sidebar's gen-row height so the two lists line up. */
-
-.box-shortcut-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-  height: 44px;
-  margin-bottom: 4px;
-  padding: 0 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(18, 28, 39, 0.9);
-  color: #f5f7fa;
-  font-size: 0.78rem;
-  cursor: pointer;
-}
-
-.box-shortcut-row:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.box-shortcut-row.active {
-  background: #ffcb05;
-  border-color: #ffcb05;
-  color: #1c1c1e;
-  font-weight: 700;
-}
-
-.box-shortcut-value {
-  font-weight: 700;
-}
-
 @media (max-width: 1000px) {
   .layout {
     grid-template-columns: 1fr;
@@ -386,4 +445,122 @@ header h1 {
   .sidebar {
     position: static;
   }
+}
+/* --- Hub page --- */
+
+.hub {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Distinct display face for just the hub's own title — nowhere else in
+   the app changes fonts. The shadow gives it legibility against whatever
+   busy artwork sits behind it, instead of needing an opaque panel. */
+.hub h1 {
+  font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* A dark overlay under the hub's own background gradient so text stays
+   readable no matter what image someone sets as the background. */
+.hub-has-background {
+  position: relative;
+}
+
+.hub-has-background::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 18, 0.65);
+  z-index: -1;
+}
+
+.hub-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  max-width: 640px;
+  margin: 20px auto 0;
+}
+
+.hub-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(238, 21, 21, 0.08), transparent 35%),
+    linear-gradient(180deg, #1b2735 0%, #0e1620 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--row-accent-from, #ee1515);
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: #f5f7fa;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+
+.hub-row:hover {
+  border-color: #ffcb05;
+  border-left-color: var(--row-accent-from, #ee1515);
+  transform: translateX(2px);
+}
+
+.hub-row-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hub-row-icon-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.hub-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.hub-row-body h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.hub-row-count {
+  margin: 0 0 8px;
+  color: #dfe3e8;
+  font-size: 0.9rem;
+}
+
+/* Per-game progress fill — reads its color from the row's own CSS vars
+   (set in HubPage.jsx from that checklist's config), so each game's bar
+   matches its own identity instead of every row sharing one gradient. */
+.hub-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--row-accent-from, #ee1515), var(--row-accent-to, #ffcb05));
+  border-radius: 4px;
+  transition: width 0.2s ease;
+}
+
+/* The completion percentage, promoted to its own bold stat on the right
+   of the row instead of buried inside the "x / y (z%)" line — it's the
+   number you actually glance at. */
+.hub-row-stat {
+  flex-shrink: 0;
+  font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+  padding-left: 12px;
 }

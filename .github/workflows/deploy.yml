@@ -34,6 +34,7 @@ jobs:
         run: npm run build
         env:
           VITE_EDIT_PASSWORD: ${{ secrets.PASSWORD }}
+          VITE_FIREBASE_DB_URL: ${{ secrets.FIREBASE_DB_URL }}
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
