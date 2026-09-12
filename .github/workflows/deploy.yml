@@ -34,12 +34,7 @@ jobs:
         run: npm run build
         env:
           VITE_EDIT_PASSWORD: ${{ secrets.PASSWORD }}
-          VITE_JSONBIN_KEY: ${{ secrets.JSONBIN_KEY }}
-          VITE_POKEMON_BIN_ID: ${{ secrets.POKEMON_BIN_ID }}
-          VITE_GO_BIN_ID: ${{ secrets.GO_BIN_ID }}
-          VITE_USUM_BIN_ID: ${{ secrets.USUM_BIN_ID }}
-          # Add one more VITE_..._BIN_ID line here per new checklist that
-          # turns on cloud sync.
+          VITE_FIREBASE_DB_URL: ${{ secrets.FIREBASE_DB_URL }}
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3

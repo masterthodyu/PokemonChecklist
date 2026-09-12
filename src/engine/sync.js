@@ -1,75 +1,63 @@
-// Talks to JSONBin.io (a free "just store some JSON somewhere" service) so
-// a checklist's progress can follow you between browsers and devices,
-// instead of being stuck in just one browser's localStorage.
+// Talks to Firebase's Realtime Database over its plain REST API — no SDK
+// needed, just fetch calls to URLs ending in ".json": a GET reads a path,
+// a PUT overwrites it. Same shape as the JSONBin version this replaces.
 //
-// One JSONBin account can hold one bin per checklist — each checklist's
-// own bin id comes in through its config (config.jsonBinId), so adding a
-// new checklist just means creating one more bin, not more code here.
+// SETUP (one-time, by hand):
+//   1. console.firebase.google.com -> create a project (free Spark plan).
+//   2. Build -> Realtime Database -> Create Database (any region).
+//   3. Copy the database URL it gives you (looks like
+//      https://your-project-default-rtdb.firebaseio.com) into .env.local
+//      as VITE_FIREBASE_DB_URL, and as a FIREBASE_DB_URL secret in GitHub
+//      Actions for the deployed site.
+//   4. In the Rules tab, paste:
+//        { "rules": { ".read": true, ".write": true } }
+//      Wide open on purpose — fine for now since this is just a personal
+//      checklist with nothing sensitive in it. Anyone with the database
+//      URL could read or overwrite it, so this is worth tightening (or
+//      moving back to self-hosting) later.
 //
-// SETUP (one-time, by hand, per checklist):
-//   1. Make a free account at https://jsonbin.io
-//   2. On the API Keys page, copy your "X-Master-Key"
-//   3. Create one bin per checklist (from the dashboard, "Create Bin")
-//      with this content: {"caughtIds": []}
-//      Copy the Bin ID shown for it into that checklist's config.js.
-//   4. Put the key in .env.local for local dev:
-//        VITE_JSONBIN_KEY=your-master-key
-//      ...and as a GitHub Actions secret (same name) for the deployed site.
-//
-// If the key or a checklist's bin id is missing, sync just quietly turns
-// itself off for that checklist and it falls back to saving in this
-// browser only — nothing breaks.
-//
-// Heads up: same story as the edit password — this key has to live in the
-// browser's code for this to work with no backend server, so a determined
-// person could technically find it and mess with saved data. Since this is
-// just personal checklists and not sensitive info, that's a trade-off
-// worth making for the convenience. If that ever changes, swapping this
-// out for a real backend is the fix.
+// Each checklist gets its own path under the database (config.syncId), so
+// adding a checklist needs no new Firebase setup — just a new path under
+// the same database.
 
-const JSONBIN_KEY = import.meta.env.VITE_JSONBIN_KEY
+const DB_URL = import.meta.env.VITE_FIREBASE_DB_URL
 
-export function isSyncEnabled(jsonBinId) {
-  return Boolean(JSONBIN_KEY && jsonBinId)
+export function isSyncEnabled(syncId) {
+  return Boolean(DB_URL && syncId)
 }
 
 // Gets the checked-item list currently saved in the cloud for one
-// checklist's bin. Returns an array of ids, or null if something went
-// wrong (sync is off, no internet, JSONBin is down, etc) — the caller
-// should just keep using whatever's saved locally in that case.
-export async function fetchIdsFromCloud(jsonBinId) {
-  if (!isSyncEnabled(jsonBinId)) return null
+// checklist. Returns an array of ids, or null if something went wrong
+// (sync is off, no internet, Firebase is down, etc) — the caller should
+// just keep using whatever's saved locally in that case.
+export async function fetchIdsFromCloud(syncId) {
+  if (!isSyncEnabled(syncId)) return null
 
   try {
-    const res = await fetch(`https://api.jsonbin.io/v3/b/${jsonBinId}/latest`, {
-      headers: { 'X-Master-Key': JSONBIN_KEY },
-    })
-    if (!res.ok) throw new Error(`JSONBin read failed: ${res.status}`)
+    const res = await fetch(`${DB_URL}/checklists/${syncId}/checkedIds.json`)
+    if (!res.ok) throw new Error(`Firebase read failed: ${res.status}`)
 
     const data = await res.json()
-    return Array.isArray(data.record.caughtIds) ? data.record.caughtIds : []
+    return Array.isArray(data) ? data : []
   } catch (err) {
     console.warn('Could not load the cloud save — using the local save instead.', err)
     return null
   }
 }
 
-// Pushes the current checked-item list up to a checklist's cloud bin.
+// Pushes the current checked-item list up to a checklist's cloud path.
 // Doesn't throw — if it fails, progress is still safe in localStorage, it
 // just won't be on other devices until the next successful sync.
-export async function pushIdsToCloud(jsonBinId, ids) {
-  if (!isSyncEnabled(jsonBinId)) return false
+export async function pushIdsToCloud(syncId, ids) {
+  if (!isSyncEnabled(syncId)) return false
 
   try {
-    const res = await fetch(`https://api.jsonbin.io/v3/b/${jsonBinId}`, {
+    const res = await fetch(`${DB_URL}/checklists/${syncId}/checkedIds.json`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Master-Key': JSONBIN_KEY,
-      },
-      body: JSON.stringify({ caughtIds: [...ids] }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify([...ids]),
     })
-    if (!res.ok) throw new Error(`JSONBin update failed: ${res.status}`)
+    if (!res.ok) throw new Error(`Firebase write failed: ${res.status}`)
     return true
   } catch (err) {
     console.warn('Could not save to the cloud — progress is still saved locally.', err)

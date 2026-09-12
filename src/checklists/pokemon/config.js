@@ -19,10 +19,10 @@ export default {
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
   storageKey: 'pokemon-caught-v1',
-  // Set VITE_POKEMON_BIN_ID in .env.local / GitHub Actions secrets to turn
-  // on cloud sync for this checklist specifically. Leaving it unset just
-  // means this checklist saves locally only — nothing else breaks.
-  jsonBinId: import.meta.env.VITE_POKEMON_BIN_ID,
+  // Cloud sync is now shared across every checklist via one Firebase
+  // Realtime Database (VITE_FIREBASE_DB_URL) — this is just this
+  // checklist's own path under that database, not a secret.
+  syncId: 'pokemon',
 
   // Each entry here becomes one progress-bar list in the left sidebar.
   // `filter` narrows the full data set down to what's eligible for this

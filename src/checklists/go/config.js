@@ -16,7 +16,7 @@ export default {
   data, // array of { id, dexId, name, spriteUrl, category }
   // boxSize intentionally left out — boxless checklist, see note above.
   storageKey: 'go-caught-v1',
-  jsonBinId: import.meta.env.VITE_GO_BIN_ID,
+  syncId: 'go',
 
   // Starting point only — this currently covers Gen 1 (Kanto), which has
   // definitely been in the game since launch. Later generations have been

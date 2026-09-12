@@ -36,9 +36,9 @@ function loadCheckedIds(storageKey) {
 //     group (like a generation) narrows the flat list down to just that
 //     group instead of jumping to a box — click it again to clear it.
 function ChecklistPage({ config }) {
-  const { data, boxSize, storageKey, jsonBinId, groupSets, title } = config
+  const { data, boxSize, storageKey, syncId, groupSets, title } = config
   const isBoxed = Boolean(boxSize)
-  const syncEnabled = isSyncEnabled(jsonBinId)
+  const syncEnabled = isSyncEnabled(syncId)
 
   // --- All of this checklist's "memory" lives here as state ---
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
@@ -83,7 +83,7 @@ function ChecklistPage({ config }) {
     if (!syncEnabled) return
 
     let cancelled = false
-    fetchIdsFromCloud(jsonBinId).then(cloudIds => {
+    fetchIdsFromCloud(syncId).then(cloudIds => {
       if (cancelled) return
       if (cloudIds !== null) {
         setCheckedIds(prevLocal => new Set([...prevLocal, ...cloudIds]))
@@ -97,7 +97,7 @@ function ChecklistPage({ config }) {
     return () => {
       cancelled = true
     }
-  }, [jsonBinId, syncEnabled])
+  }, [syncId, syncEnabled])
 
   // Every time checkedIds changes, save it to this browser right away...
   useEffect(() => {
@@ -111,13 +111,13 @@ function ChecklistPage({ config }) {
     if (!syncEnabled || !hasLoadedCloud.current) return
 
     const timeoutId = setTimeout(() => {
-      pushIdsToCloud(jsonBinId, checkedIds).then(success => {
+      pushIdsToCloud(syncId, checkedIds).then(success => {
         setSyncStatus(success ? 'synced' : 'error')
       })
     }, 800)
 
     return () => clearTimeout(timeoutId)
-  }, [checkedIds, jsonBinId, syncEnabled])
+  }, [checkedIds, syncId, syncEnabled])
 
   // Every time the search box changes, look for a matching item and jump
   // straight to the box it's in. Boxless checklists don't have boxes to

@@ -21,6 +21,6 @@ export default {
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
   storageKey: 'usum-caught-v1',
-  jsonBinId: import.meta.env.VITE_USUM_BIN_ID,
+  syncId: 'usum',
   groupSets: [],
 }
