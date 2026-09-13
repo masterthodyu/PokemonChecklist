@@ -36,10 +36,15 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
   const isGigantamax = item.category === 'gmax'
   const displayName = isGigantamax ? stripGigantamaxText(item.name) : item.name
   const dateLabel = checked ? formatCheckedDate(checkedDate) : null
+  // Checks category first (same pattern as the Gigantamax badge), falls
+  // back to a name check for now since Shadow Pokémon aren't tagged with
+  // a category yet in any checklist's data.
+  const isShadow = item.category === 'shadow' || item.name.includes('Shadow')
 
   return (
     <div
       className={`card ${checked ? 'caught' : ''} ${highlighted ? 'highlighted' : ''}`}
+      data-shadow={isShadow || undefined}
       onClick={onToggle}
     >
       <div className="card-image">
@@ -75,5 +80,7 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
     </div>
   )
 }
+
+
 
 export default ItemCard

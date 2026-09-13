@@ -81,6 +81,22 @@ header h1 {
   color: #9aa4af;
 }
 
+.retry-sync-button {
+  padding: 1px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f7fa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.retry-sync-button:hover {
+  border-color: #ffcb05;
+  color: #ffcb05;
+}
+
 .controls {
   display: flex;
   justify-content: center;
@@ -99,6 +115,36 @@ header h1 {
 
 .controls input::placeholder {
   color: #b5bac1;
+}
+
+.search-wrapper {
+  position: relative;
+  width: min(100%, 420px);
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding-right: 36px; /* room for the clear button so it never overlaps typed text */
+}
+
+.search-clear-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f5f7fa;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.search-clear-button:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .box-controls {
@@ -234,6 +280,11 @@ header h1 {
   font-weight: 400;
 }
 
+.box-header-caught {
+  color: #9aa4af;
+  font-size: 0.85rem;
+}
+
 .select-all-button {
   padding: 4px 12px;
   border-radius: 8px;
@@ -261,6 +312,36 @@ header h1 {
   cursor: not-allowed;
   border-color: rgba(255, 255, 255, 0.2);
   color: #f5f7fa;
+}
+
+.undo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 203, 5, 0.35);
+  background: rgba(255, 203, 5, 0.08);
+  color: #f5f7fa;
+  font-size: 0.85rem;
+}
+
+.undo-banner button {
+  flex-shrink: 0;
+  padding: 4px 14px;
+  border-radius: 8px;
+  border: 1px solid #ffcb05;
+  background: #ffcb05;
+  color: #1a2333;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.undo-banner button:hover {
+  background: #ffd93d;
 }
 
 .grid {
@@ -301,6 +382,32 @@ header h1 {
   font-size: 0.62rem;
   color: rgba(26, 35, 51, 0.55);
   pointer-events: none;
+}
+
+/* Shadow Pokémon badge — bottom-left corner of the card. (Bottom-right is
+   already taken by .checked-date, top-right by the checkbox, and the
+   image's own top-left corner by .gmax-badge, so this is the one open
+   spot left.) */
+.card[data-shadow="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'>\
+  <circle cx='20' cy='20' r='19' fill='%23200030' stroke='%23a259ff' stroke-width='2'/>\
+  <path d='M20 6 C28 10 30 16 26 22 C31 24 30 32 22 34 C25 28 20 26 16 30 C14 24 18 22 14 18 C10 20 8 14 14 12 C12 8 16 5 20 6 Z' fill='%23c084fc'/>\
+</svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Tint the sprite itself to feel more "shadow" */
+.card[data-shadow="true"] .card-image img {
+  filter: drop-shadow(0 0 4px rgba(162, 89, 255, 0.7));
 }
 
 .card img {

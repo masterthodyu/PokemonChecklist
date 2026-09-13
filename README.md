@@ -1,6 +1,10 @@
 # My Checklists
 
 Started as a single page to check off every Pokémon I've caught. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, and Soul Silver/Heart Gold so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist all stored in a firebase database.
+## How does this differ from other trackers
+
+This list is something more personally tailored to myself. I wanted to not just be bound by base forms in pokemon home, or not include N's pokemon, or leave out the 1 spiky eared pichu in HGSS. I wanted to mark that I've caught EVERY SINGLE POKEMON POSSIBLE. Starting with all the sprite differences and then maybe in the future going for the ultra rares like Japan birthday pokemon or rarer events.
+
 
 ## How it's structured
 
@@ -103,7 +107,9 @@ If `VITE_FIREBASE_DB_URL` isn't set, every checklist just saves locally only —
 ## Still to do
 
 - **Pokémon GO's `data.json` is a work in progress** — there's a lot of costume pokemon. 
-- **Ultra Sun & Ultra Moon's `data.json` is a 3-entry placeholder**, not the real Alola regional Pokédex — the actual ~400-entry regional dex order needs to be sourced properly (not guessed) before this checklist is usable for real.
+- **Ultra Sun & Ultra Moon's `data.json` is a 3-entry placeholder**, will replace with Ultra SUn and Moon on transferables
+- **Game Cube - Will eventually add game cube games to add shadow pokemon
+
 
 
 ## Image sources
