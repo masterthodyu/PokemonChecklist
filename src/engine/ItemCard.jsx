@@ -16,14 +16,26 @@ function stripGigantamaxText(name) {
     .trim()
 }
 
+// Turns an ISO date string into a short label like "Sep 13" — small enough
+// to fit in a corner of the card without crowding anything else. Returns
+// null if there's no date to show (nothing checked yet, or it was checked
+// before this feature existed and so has no date on record).
+function formatCheckedDate(isoDate) {
+  if (!isoDate) return null
+  const date = new Date(isoDate)
+  if (Number.isNaN(date.getTime())) return null
+  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+}
+
 // One clickable tile for a single checklist item: picture, number, name,
 // and a checkbox. Clicking anywhere on the card toggles it checked/not
 // checked (the checkbox itself does the same thing, it's just there so
 // the checked state is easy to see at a glance).
-function ItemCard({ item, checked, onToggle, highlighted = false }) {
+function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false }) {
   const number = item.dexId ?? item.id
   const isGigantamax = item.category === 'gmax'
   const displayName = isGigantamax ? stripGigantamaxText(item.name) : item.name
+  const dateLabel = checked ? formatCheckedDate(checkedDate) : null
 
   return (
     <div
@@ -49,6 +61,11 @@ function ItemCard({ item, checked, onToggle, highlighted = false }) {
         <span className="dex-number">#{String(number).padStart(3, '0')}</span>
         <span className="name">{displayName}</span>
       </div>
+      {dateLabel && (
+        <span className="checked-date" title={new Date(checkedDate).toLocaleString()}>
+          {dateLabel}
+        </span>
+      )}
       <input
         type="checkbox"
         checked={checked}

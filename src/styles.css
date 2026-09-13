@@ -250,10 +250,30 @@ header h1 {
   color: #ffcb05;
 }
 
+.deselect-all-button:hover {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.select-all-button:disabled,
+.select-all-button:disabled:hover {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f5f7fa;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9aa4af;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 640px) {
@@ -272,6 +292,15 @@ header h1 {
   transition: border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
   position: relative;
   color: #1a2333;
+}
+
+.checked-date {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-size: 0.62rem;
+  color: rgba(26, 35, 51, 0.55);
+  pointer-events: none;
 }
 
 .card img {

@@ -545,7 +545,86 @@
     "dexId": 217,
     "name": "Ursaring (Witch Hat)",
     "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/217-witchhat.png"
+  },
+  {
+    "id": 215,
+    "dexId": 215,
+    "name": "Sneasel (Fashionable)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/215-fashionable.png"
+  },
+  {
+    "id": 202,
+    "dexId": 202,
+    "name": "Wobbuffet (Party Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/202-partyhat.png"
+  },
+  {
+    "id": 199,
+    "dexId": 199,
+    "name": "Slowking (2022)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/199-2022.png"
+  },
+  {
+    "id": 197.4,
+    "dexId": 197,
+    "name": "Umbreon (Explorer Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/197-safari.png"
+  },
+  {
+    "id": 197.3,
+    "dexId": 197,
+    "name": "Umbreon (Cherry Blossom)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/197-cherryblossoms.png"
+  },
+  {
+    "id": 197.5,
+    "dexId": 197,
+    "name": "Umbreon (Moon Scarf)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/197-scarf.png"
+  },
+  {
+    "id": 197.1,
+    "dexId": 197,
+    "name": "Umbreon (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/197-flowers.png"
+  },
+  {
+    "id": 197.2,
+    "dexId": 197,
+    "name": "Umbreon (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/197-holiday.png"
+  },
+   {
+    "id": 196.4,
+    "dexId": 196,
+    "name": "Espeon (Explorer Hat)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/196-safari.png"
+  },
+  {
+    "id": 196.3,
+    "dexId": 196,
+    "name": "Espeon (Cherry Blossom)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/196-cherryblossoms.png"
+  },
+  {
+    "id": 196.5,
+    "dexId": 196,
+    "name": "Espeon (Moon Scarf)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/196-scarf.png"
+  },
+  {
+    "id": 196.1,
+    "dexId": 196,
+    "name": "Espeon (Flower Crown)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/196-flowers.png"
+  },
+  {
+    "id": 196.2,
+    "dexId": 196,
+    "name": "Espeon (Holiday)",
+    "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/196-holiday.png"
   }
+
 
 
 

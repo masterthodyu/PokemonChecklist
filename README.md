@@ -1,6 +1,6 @@
 # My Checklists
 
-Started as a single page to check off every Pokémon I've caught. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, and Soul Silver/Heart Gold so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist.
+Started as a single page to check off every Pokémon I've caught. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, and Soul Silver/Heart Gold so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist all stored in a firebase database.
 
 ## How it's structured
 
@@ -12,7 +12,7 @@ Started as a single page to check off every Pokémon I've caught. It's now a hub
   - `ItemCard.jsx` — one clickable tile
   - `GroupProgress.jsx` — one progress-bar sidebar list
   - `lock.js` — the password check
-  - `sync.js` — JSONBin.io cloud sync, one bin per checklist
+  - `sync.js` — cloud sync via Firebase Realtime Database's REST API, one shared database, one path per checklist
 - `src/checklists/` — one folder per checklist. `index.js` is the registry — add one line here per new checklist.
   - `pokemon/` — Pokémon Home: `config.js`, `data.json`, `generations.js`, `categories.js`, `scripts/`
   - `go/` — Pokémon GO: boxless (no box system, since the real game doesn't have one either)
@@ -34,7 +34,7 @@ Adding a new checklist means copying the shape of `src/checklists/pokemon/`, wri
 - Gigantamax cards (Pokémon Home) get a small badge instead of spelling "Gigantamax" out in the name every time — currently hotlinked to an external image as a placeholder; swap it for a self-hosted `public/icons/gmax-badge.png` when there's time (see the note in `styles.css`)
 - Locked by default so random clicks don't change anything — one password unlocks editing across every checklist for the rest of the browser tab
 - Progress saves to the browser automatically, under its own storage key per checklist
-- Cloud sync through JSONBin.io, one bin per checklist — see setup steps below
+- Cloud sync through Firebase Realtime Database — one shared database for every checklist, see setup steps below
 - Auto-deploys to GitHub Pages via GitHub Actions on every push to `main`
 
 ## Icons, colors, and background image
@@ -64,7 +64,7 @@ To build the actual site (the thing that gets deployed):
 npm run build
 ```
 
-**Deployment note:** `vite.config.js`'s `base` needs to match your actual GitHub repo name exactly (currently `/PokemonChecklist/`). `App.jsx`'s router `basename` reads this automatically now, so there's only ever one place to update it.
+**Deployment note:** `vite.config.js`'s `base` needs to match your actual GitHub repo name exactly (currently `/PokemonChecklist/`). `App.jsx`'s router `basename` reads this automatically now, so there's only ever one place to update it. That subpath only applies during `npm run build` — `npm run dev` stays at the plain root, since forcing the dev server under a subpath was causing 404s (most setups, including a GitHub Codespaces forwarded preview URL, open the dev server at its root). `vite.config.js` also sets `server.host: true` so Codespaces' port forwarding can actually reach the dev server.
 
 ## The password lock
 
@@ -88,25 +88,23 @@ Same idea for categories — `assignCategories.mjs` tags each item automatically
 node src/checklists/pokemon/scripts/assignCategories.mjs
 ```
 
-## Cloud sync setup (per checklist)
+## Cloud sync setup
 
-Each checklist that wants cloud sync needs its own JSONBin.io bin, but they all share one master key:
+Every checklist shares one Firebase Realtime Database, each at its own path — so unlike the old per-checklist-bin setup, adding a new checklist needs no new sync setup at all, just one more `syncId` in that checklist's `config.js`.
 
-1. Free account at [jsonbin.io](https://jsonbin.io), copy your `X-Master-Key`
-2. Create one bin per checklist with `{"caughtIds": []}` as its starting content, and copy its Bin ID into that checklist's `config.js`
-3. Local dev: put the master key and each bin id in `.env.local` (see `.env.local.example`)
-4. Live site: add the master key as a `JSONBIN_KEY` secret, and each checklist's bin id as its own secret — see `.github/workflows/deploy.yml` for the exact names it expects
+1. Free project at [console.firebase.google.com](https://console.firebase.google.com) (the free Spark plan is enough) — Build → Realtime Database → Create Database, any region
+2. Copy the database URL it gives you (looks like `https://your-project-default-rtdb.firebaseio.com`)
+3. Local dev: put it in `.env.local` as `VITE_FIREBASE_DB_URL` (see `.env.local.example`)
+4. Live site: add it as a `FIREBASE_DB_URL` secret in the repo's GitHub Actions settings
+5. In the Rules tab, paste `{ "rules": { ".read": true, ".write": true } }` — wide open on purpose, since this is just a personal checklist with nothing sensitive in it. Anyone with the database URL could read or overwrite it, so this is worth tightening (or moving to a real backend) if that ever stops being true.
 
-If a checklist's bin id (or the master key) isn't set, that checklist just saves locally only — nothing breaks, it just won't follow you across devices until it's set up.
+If `VITE_FIREBASE_DB_URL` isn't set, every checklist just saves locally only — nothing breaks, it just won't follow you across devices until it's set up. One database URL covers every checklist, so there's only ever this one thing to configure, regardless of how many checklists exist.
 
 ## Still to do
 
-- **Pokémon GO's `data.json` is a work in progress** — a mix of costume/seasonal variants across several generations, still being added to. `id` uses decimals on purpose (`25.01`, `25.02`, ...) to keep all of a species' variants grouped together — with 40+ Pikachu variants alone, that's a reasonable call, and it's safe: nothing in this app does math on `id`, only exact comparisons and storage, so floats won't silently corrupt anything. The one thing worth staying disciplined about is a **consistent number of decimal digits** (the data currently mixes `26.01`, `999.1`, and `25.0001` — numerically `25.1 > 25.01`, so mismatched precision can make sort order and "which number haven't I used yet" harder to track as the list grows). Picking one fixed width (like always 2 digits, `25.01`–`25.99`) would give 99 variant slots per species and keep it predictable long-term — not required, just worth knowing.
+- **Pokémon GO's `data.json` is a work in progress** — there's a lot of costume pokemon. 
 - **Ultra Sun & Ultra Moon's `data.json` is a 3-entry placeholder**, not the real Alola regional Pokédex — the actual ~400-entry regional dex order needs to be sourced properly (not guessed) before this checklist is usable for real.
-- **Soul Silver & Heart Gold's `data.json` is a 1-entry placeholder** (just the special event Spiky-eared Pichu) — same story, needs the real Johto/National dex order sourced properly.
-- Confirm cloud sync is actually working end-to-end once all four bins are set up (should work — the code was verified, just needs configuring).
-- `src/checklists/pokemon/missing.text` is a scratch list of Pokémon not yet added to that checklist's `data.json`.
-- Probably clean up more code as I understand it better.
+
 
 ## Image sources
 
