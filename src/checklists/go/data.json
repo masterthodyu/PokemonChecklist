@@ -1752,16 +1752,10 @@
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-baseball.png"
   },
   {
-    "id": 25.0087,
-    "dexId": 25,
-    "name": "Pikachu (Baseball Shirt)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-baseball.png"
-  },
-  {
     "id": 25.0088,
     "dexId": 25,
     "name": "Pikachu (Marathon Visor)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-baseball.png"
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-marathon.png"
   },
   {
     "id": 25.0089,
@@ -1924,6 +1918,12 @@
     "dexId": 20,
     "name": "Shadow Raticate (Party Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/020-partyhat.png"
+  },
+  {
+    "id": 225,
+    "dexId": 225,
+    "name": "Delibird (Holidays)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/225-holiday2020.png"
   }
   
   
