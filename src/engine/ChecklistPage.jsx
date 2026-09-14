@@ -3,19 +3,20 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import ItemCard from './ItemCard.jsx'
 import GroupProgress from './GroupProgress.jsx'
 import { checkPassword } from './lock.js'
-import { isSyncEnabled, fetchIdsFromCloud, pushIdsToCloud } from './sync.js'
+import { isSyncEnabled, fetchIdsFromCloud, pushIdsToCloud, toCheckedMap, fromCheckedMap } from './sync.js'
 
-// Reads a checklist's checked-item list back out of the browser's storage
-// when the page first loads. A "Set" is just a list that automatically
-// ignores duplicates and makes "have I checked this one?" checks fast.
+// Reads a checklist's checked-item Map back out of the browser's storage
+// when the page first loads — a Map of id -> the date it was checked (or
+// null if that date isn't known, which is true for anything checked
+// before this feature existed).
 function loadCheckedIds(storageKey) {
   try {
     const raw = localStorage.getItem(storageKey)
-    return raw ? new Set(JSON.parse(raw)) : new Set()
+    return raw ? toCheckedMap(JSON.parse(raw)) : new Map()
   } catch {
     // If the saved data is broken/missing for any reason, just start fresh
     // instead of crashing the whole page.
-    return new Set()
+    return new Map()
   }
 }
 
@@ -47,6 +48,7 @@ function ChecklistPage({ config }) {
   const [activeGroup, setActiveGroup] = useState(null)        // which sidebar group is narrowing the list — boxless mode only
   const [search, setSearch] = useState('')                   // what's typed in the search bar
   const [unlocked, setUnlocked] = useState(false)             // is editing unlocked right now?
+  const [lastBulkAction, setLastBulkAction] = useState(null)   // { label, previousMap } | null — powers the Undo banner for Select All / Unselect All
 
   // 'off' (no cloud set up), 'loading', 'synced', or 'error'
   const [syncStatus, setSyncStatus] = useState(syncEnabled ? 'loading' : 'off')
@@ -78,15 +80,32 @@ function ChecklistPage({ config }) {
   // (never remove anything either way — simple, but it means an "uncheck"
   // on one device might not always stick if another device still has that
   // item checked. Good enough for a personal checklist; a smarter merge is
-  // a job for a real backend later on).
+  // a job for a real backend later on). When both sides have the same item
+  // checked with different dates, keep whichever date is earlier — that's
+  // the actual first time it was marked, which is the more truthful answer
+  // than whichever device happened to sync last.
   useEffect(() => {
     if (!syncEnabled) return
 
     let cancelled = false
-    fetchIdsFromCloud(syncId).then(cloudIds => {
+    fetchIdsFromCloud(syncId).then(cloudMap => {
       if (cancelled) return
-      if (cloudIds !== null) {
-        setCheckedIds(prevLocal => new Set([...prevLocal, ...cloudIds]))
+      if (cloudMap !== null) {
+        setCheckedIds(prevLocal => {
+          const merged = new Map(prevLocal)
+          for (const [id, cloudDate] of cloudMap) {
+            const localDate = merged.get(id)
+            if (!merged.has(id)) {
+              merged.set(id, cloudDate)
+            } else if (localDate == null && cloudDate != null) {
+              merged.set(id, cloudDate)
+            } else if (localDate != null && cloudDate != null && cloudDate < localDate) {
+              merged.set(id, cloudDate)
+            }
+            // else: keep the local value as-is
+          }
+          return merged
+        })
         setSyncStatus('synced')
       } else {
         setSyncStatus('error')
@@ -101,7 +120,7 @@ function ChecklistPage({ config }) {
 
   // Every time checkedIds changes, save it to this browser right away...
   useEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify([...checkedIds]))
+    localStorage.setItem(storageKey, JSON.stringify(fromCheckedMap(checkedIds)))
   }, [checkedIds, storageKey])
 
   // ...and also push it up to the cloud a moment later (if sync is set
@@ -118,6 +137,17 @@ function ChecklistPage({ config }) {
 
     return () => clearTimeout(timeoutId)
   }, [checkedIds, syncId, syncEnabled])
+
+  // Manually re-attempts pushing the current state up, for when the
+  // automatic push failed (bad connection, database asleep, etc.) — the
+  // "⚠️ Cloud sync failed" message otherwise has no recovery besides
+  // reloading the whole page.
+  function retrySync() {
+    setSyncStatus('loading')
+    pushIdsToCloud(syncId, checkedIds).then(success => {
+      setSyncStatus(success ? 'synced' : 'error')
+    })
+  }
 
   // Every time the search box changes, look for a matching item and jump
   // straight to the box it's in. Boxless checklists don't have boxes to
@@ -172,15 +202,33 @@ function ChecklistPage({ config }) {
   }
 
   // Checks/unchecks one item. Won't do anything unless editing is unlocked.
+  // Checking something stamps the current date/time; unchecking just
+  // removes it entirely (no history of "checked, then unchecked" is kept —
+  // if you want that, that's a database-level edit, per your call).
+  // The Undo banner for Select All / Unselect All disappears on its own
+  // after a few seconds if you don't use it — same "why is this still
+  // here" reasoning as any other toast-style notification.
+  useEffect(() => {
+    if (!lastBulkAction) return
+    const timeoutId = setTimeout(() => setLastBulkAction(null), 8000)
+    return () => clearTimeout(timeoutId)
+  }, [lastBulkAction])
+
   function toggleChecked(id) {
     if (!requestUnlock()) return
 
+    // A single click is already its own undo (click it again) — but it
+    // does mean the last bulk action's "undo" banner no longer describes
+    // an accurate revert target, so clear it rather than let it linger
+    // with stale meaning.
+    setLastBulkAction(null)
+
     setCheckedIds(prev => {
-      const next = new Set(prev)
+      const next = new Map(prev)
       if (next.has(id)) {
         next.delete(id)
       } else {
-        next.add(id)
+        next.set(id, new Date().toISOString())
       }
       return next
     })
@@ -188,14 +236,66 @@ function ChecklistPage({ config }) {
 
   // Marks every item currently visible (the current box, or the current
   // filtered flat list for a boxless checklist) as checked in one go.
+  // Anything already checked keeps its original date — Select All only
+  // stamps the ones that weren't checked yet. Confirms first since it's a
+  // bulk action across potentially 30+ items at once.
   function selectAllVisible() {
-    if (!requestUnlock()) return
+    const targets = visibleList.filter(item => !checkedIds.has(item.id))
+    if (targets.length === 0) return // nothing to do
 
+    if (!requestUnlock()) return
+    const confirmed = window.confirm(`Mark ${targets.length} Pokémon as caught?`)
+    if (!confirmed) return
+
+    setLastBulkAction({
+      label: `Marked ${targets.length} Pokémon as caught`,
+      previousMap: new Map(checkedIds),
+    })
+
+    const now = new Date().toISOString()
     setCheckedIds(prev => {
-      const next = new Set(prev)
-      for (const item of visibleList) next.add(item.id)
+      const next = new Map(prev)
+      for (const item of targets) next.set(item.id, now)
       return next
     })
+  }
+
+  // Unchecks every item currently visible. This is the one that actually
+  // loses data (the checked-date for each item) — the Undo banner below
+  // gives you a few seconds to catch a misclick before that date is gone
+  // for good.
+  function deselectAllVisible() {
+    const targets = visibleList.filter(item => checkedIds.has(item.id))
+    if (targets.length === 0) return // nothing to do
+
+    if (!requestUnlock()) return
+    const confirmed = window.confirm(
+      `Unmark ${targets.length} Pokémon as not caught? This also erases the date each one was checked on — you'll have a few seconds to undo it right after.`
+    )
+    if (!confirmed) return
+
+    setLastBulkAction({
+      label: `Unmarked ${targets.length} Pokémon as not caught`,
+      previousMap: new Map(checkedIds),
+    })
+
+    setCheckedIds(prev => {
+      const next = new Map(prev)
+      for (const item of targets) next.delete(item.id)
+      return next
+    })
+  }
+
+  // Reverts the most recent Select All / Unselect All back to exactly
+  // how things were right before it ran. Disappears on its own after a
+  // few seconds, or immediately if you make any other change first (see
+  // toggleChecked/selectAllVisible/deselectAllVisible above) — so it can
+  // never revert something other than the action it's currently labeled
+  // as undoing.
+  function undoLastBulkAction() {
+    if (!lastBulkAction) return
+    setCheckedIds(lastBulkAction.previousMap)
+    setLastBulkAction(null)
   }
 
   const totalBoxes = isBoxed ? Math.max(...data.map(p => p.boxId)) : 0
@@ -302,6 +402,7 @@ function ChecklistPage({ config }) {
                 title={set.label}
                 groups={set.groups}
                 onSelect={g => jumpToGroup(set, g)}
+                isBoxed={isBoxed}
               />
             ))}
           </aside>
@@ -323,18 +424,40 @@ function ChecklistPage({ config }) {
               <p className="sync-status">
                 {syncStatus === 'loading' && '☁️ Loading cloud save…'}
                 {syncStatus === 'synced' && '☁️ Synced'}
-                {syncStatus === 'error' && '⚠️ Cloud sync failed — saved locally only'}
+                {syncStatus === 'error' && (
+                  <>
+                    ⚠️ Cloud sync failed — saved locally only{' '}
+                    <button className="retry-sync-button" onClick={retrySync}>
+                      Retry
+                    </button>
+                  </>
+                )}
               </p>
             )}
           </header>
 
           <div className="controls">
-            <input
-              type="text"
-              placeholder="Search by name or number..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
+            <div className="search-wrapper">
+              <input
+                type="text"
+                placeholder="Search by name or number..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                onKeyDown={e => {
+                  if (e.key === 'Escape') setSearch('')
+                }}
+              />
+              {search && (
+                <button
+                  className="search-clear-button"
+                  onClick={() => setSearch('')}
+                  aria-label="Clear search"
+                  title="Clear search"
+                >
+                  ×
+                </button>
+              )}
+            </div>
           </div>
 
           {isBoxed && (
@@ -411,27 +534,61 @@ function ChecklistPage({ config }) {
               </span>
               <span className="box-header-right">
                 {visibleList.length} / {scopedList.length} shown
-                <button className="select-all-button" onClick={selectAllVisible}>
+                <span className="box-header-caught">
+                  {scopedList.filter(item => checkedIds.has(item.id)).length} caught
+                </span>
+                <button
+                  className="select-all-button"
+                  onClick={selectAllVisible}
+                  disabled={visibleList.every(item => checkedIds.has(item.id))}
+                >
                   Select All
+                </button>
+                <button
+                  className="select-all-button deselect-all-button"
+                  onClick={deselectAllVisible}
+                  disabled={visibleList.every(item => !checkedIds.has(item.id))}
+                >
+                  Unselect All
                 </button>
               </span>
             </div>
 
-            <div className="grid">
-              {visibleList.map(p => (
-                <ItemCard
-                  key={p.id}
-                  item={p}
-                  checked={checkedIds.has(p.id)}
-                  onToggle={() => toggleChecked(p.id)}
-                  highlighted={
-                    Boolean(normalizedSearch) &&
-                    (p.name.toLowerCase().includes(normalizedSearch) ||
-                      String(p.dexId ?? p.id).includes(normalizedSearch))
-                  }
-                />
-              ))}
-            </div>
+            {lastBulkAction && (
+              <div className="undo-banner">
+                <span>{lastBulkAction.label}.</span>
+                <button onClick={undoLastBulkAction}>Undo</button>
+              </div>
+            )}
+
+            {visibleList.length === 0 ? (
+              <p className="empty-state">
+                {normalizedSearch
+                  ? 'No matches for that search.'
+                  : scopedList.length === 0
+                    ? 'Nothing here.'
+                    : showOnly === 'caught'
+                      ? 'Nothing caught here yet.'
+                      : 'Everything here is already caught.'}
+              </p>
+            ) : (
+              <div className="grid">
+                {visibleList.map(p => (
+                  <ItemCard
+                    key={p.id}
+                    item={p}
+                    checked={checkedIds.has(p.id)}
+                    checkedDate={checkedIds.get(p.id)}
+                    onToggle={() => toggleChecked(p.id)}
+                    highlighted={
+                      Boolean(normalizedSearch) &&
+                      (p.name.toLowerCase().includes(normalizedSearch) ||
+                        String(p.dexId ?? p.id).includes(normalizedSearch))
+                    }
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </main>
       </div>
