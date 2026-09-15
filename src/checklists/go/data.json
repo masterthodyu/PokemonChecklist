@@ -122,7 +122,7 @@
   {
     "id": 700.4,
     "dexId": 700,
-    "name": "Sylveon (Explorer Hat)",
+    "name": "Sylveon (Safari Hat)",
     "spriteUrl": "/sprites/go/700-safari.png"
   },
   {
@@ -200,7 +200,7 @@
   {
     "id": 522,
     "dexId": 522,
-    "name": "Blitzle (Fashionable)",
+    "name": "Blitzle (Collar)",
     "spriteUrl": "/sprites/go/522-fashionable.png"
   },
   {
@@ -224,7 +224,7 @@
   {
     "id": 471.5,
     "dexId": 471,
-    "name": "Glaceon (Explorer Hat)",
+    "name": "Glaceon (Safari Hat)",
     "spriteUrl": "/sprites/go/471-safari.png"
   },
   {
@@ -254,7 +254,7 @@
   {
     "id": 470.4,
     "dexId": 470,
-    "name": "Leafeon (Explorer Hat)",
+    "name": "Leafeon (Safari Hat)",
     "spriteUrl": "/sprites/go/470-safari.png"
   },
   {
@@ -512,7 +512,7 @@
   {
     "id": 215,
     "dexId": 215,
-    "name": "Sneasel (Fashionable)",
+    "name": "Sneasel (Sunglasses)",
     "spriteUrl": "/sprites/go/215-fashionable.png"
   },
   {
@@ -530,7 +530,7 @@
   {
     "id": 197.4,
     "dexId": 197,
-    "name": "Umbreon (Explorer Hat)",
+    "name": "Umbreon (Safari Hat)",
     "spriteUrl": "/sprites/go/197-safari.png"
   },
   {
@@ -560,7 +560,7 @@
   {
     "id": 196.4,
     "dexId": 196,
-    "name": "Espeon (Explorer Hat)",
+    "name": "Espeon (Safari Hat)",
     "spriteUrl": "/sprites/go/196-safari.png"
   },
   {
@@ -608,7 +608,7 @@
   {
     "id": 172,
     "dexId": 172,
-    "name": "Pichu (Original Cap)",
+    "name": "Pichu (Ash's Hat)",
     "spriteUrl": "/sprites/go/172-ash.png"
   },
   {
@@ -716,7 +716,7 @@
   {
     "id": 136.4,
     "dexId": 136,
-    "name": "Flareon (Explorer Hat)",
+    "name": "Flareon (Safari Hat)",
     "spriteUrl": "/sprites/go/136-safari.png"
   },
   {
@@ -740,7 +740,7 @@
   {
     "id": 135.4,
     "dexId": 135,
-    "name": "Vaporeon (Explorer Hat)",
+    "name": "Vaporeon (Safari Hat)",
     "spriteUrl": "/sprites/go/135-safari.png"
   },
   {
@@ -764,7 +764,7 @@
   {
     "id": 134.4,
     "dexId": 134,
-    "name": "Jolteon (Explorer Hat)",
+    "name": "Jolteon (Safari Hat)",
     "spriteUrl": "/sprites/go/134-safari.png"
   },
   {
@@ -812,7 +812,7 @@
   {
     "id": 133.5,
     "dexId": 133,
-    "name": "Eevee (Explorer)",
+    "name": "Eevee (Safari)",
     "spriteUrl": "/sprites/go/133-safari.png"
   },
   {
@@ -1130,7 +1130,7 @@
   {
     "id": 12,
     "dexId": 12,
-    "name": "Butterfree (Fashionable)",
+    "name": "Butterfree (Bow)",
     "spriteUrl": "/sprites/go/012-fashionable.png"
   },
   {
@@ -1154,7 +1154,7 @@
   {
     "id": 26.02,
     "dexId": 26,
-    "name": "Raichu (Original Cap)",
+    "name": "Raichu (Ash's Hat)",
     "spriteUrl": "/sprites/go/026-ash.png"
   },
   {
@@ -1238,7 +1238,7 @@
   {
     "id": 25.0002,
     "dexId": 25,
-    "name": "Pikachu (Original Cap)",
+    "name": "Pikachu (Ash's Hat)",
     "spriteUrl": "/sprites/go/025-ash.png"
   },
   {
@@ -1262,7 +1262,7 @@
   {
     "id": 25.0006,
     "dexId": 25,
-    "name": "Pikachu (Flower Crown)",
+    "name": "Pikachu (Spring Hat)",
     "spriteUrl": "/sprites/go/025-flowers.png"
   },
   {
@@ -1304,7 +1304,7 @@
   {
     "id": 25.0013,
     "dexId": 25,
-    "name": "Pikachu (Flower Hat)",
+    "name": "Pikachu (Flower Crown)",
     "spriteUrl": "/sprites/go/025-flowerhat.png"
   },
   {
@@ -1418,7 +1418,7 @@
   {
     "id": 25.0032,
     "dexId": 25,
-    "name": "Pikachu (Holidays)",
+    "name": "Pikachu (Holiday Snowman)",
     "spriteUrl": "/sprites/go/025-holidays2023.png"
   },
   {
