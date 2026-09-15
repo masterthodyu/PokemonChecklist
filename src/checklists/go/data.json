@@ -992,7 +992,7 @@
   {
     "id": 4.3,
     "dexId": 4,
-    "name": "Charmander (Halloween)",
+    "name": "Charmander (Cubone Costume)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/004-halloween2019.png"
   },
   {
@@ -1064,7 +1064,7 @@
   {
     "id": 7.4,
     "dexId": 7,
-    "name": "Squirtle (Halloween)",
+    "name": "Squirtle (Yamask Costume)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/007-halloween2019.png"
   },
   {
@@ -1802,25 +1802,25 @@
   {
     "id": 25.0096,
     "dexId": 25,
-    "name": "Pikachu (PokéXciting Malaysia)",
+    "name": "Pikachu (PokéXciting! Turquoise)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingmalaysia.png"
   },
   {
     "id": 25.0097,
     "dexId": 25,
-    "name": "Pikachu (PokéXciting Taiwan)",
+    "name": "Pikachu (PokéXciting! Pink)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingtaiwan.png"
   },
   {
     "id": 25.0098,
     "dexId": 25,
-    "name": "Pikachu (PokéXciting Singapore)",
+    "name": "Pikachu (PokéXciting! Blue)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingsingapore.png"
   },
   {
     "id": 25.0099,
     "dexId": 25,
-    "name": "Pikachu (PokéXciting Philippines)",
+    "name": "Pikachu (PokéXciting! Red)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingphilippines.png"
   },
   {

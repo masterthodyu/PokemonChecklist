@@ -18,6 +18,10 @@ export default {
   // named for.
   accentFrom: '#f5a623',
   accentTo: '#3b5bdb',
+  // Explicit, not guessed from entry count — this is what tells
+  // HubPage.jsx to show "still being built" instead of a percentage
+  // that doesn't mean anything yet.
+  placeholder: true,
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
   storageKey: 'usum-caught-v1',

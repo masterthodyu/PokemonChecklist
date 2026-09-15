@@ -27,6 +27,15 @@ function readCheckedCount(storageKey) {
 function HubPage({ checklists }) {
   const hasBackground = Boolean(HUB_CONFIG.backgroundImage)
 
+  // Overall completion across everything — only counting checklists that
+  // are actually finished data sets. A placeholder checklist (USUM's
+  // 3-entry stub, say) would drag this number around meaninglessly if it
+  // counted toward the total, since its "total" isn't the real dex size.
+  const realChecklists = checklists.filter(config => !config.placeholder)
+  const overallChecked = realChecklists.reduce((sum, config) => sum + readCheckedCount(config.storageKey), 0)
+  const overallTotal = realChecklists.reduce((sum, config) => sum + config.data.length, 0)
+  const overallPct = overallTotal > 0 ? Math.round((overallChecked / overallTotal) * 100) : 0
+
   return (
     <div
       className={`app hub ${hasBackground ? 'hub-has-background' : ''}`}
@@ -35,6 +44,19 @@ function HubPage({ checklists }) {
       <header>
         <h1>{HUB_CONFIG.title}</h1>
       </header>
+
+      {overallTotal > 0 && (
+        <div className="overall-status">
+          <div className="overall-status-top">
+            <span>Overall completion</span>
+            <span className="overall-status-pct">{overallPct}%</span>
+          </div>
+          <div className="gen-bar-track">
+            <div className="overall-status-fill" style={{ width: `${overallPct}%` }} />
+          </div>
+          <p className="overall-status-count">{overallChecked} / {overallTotal} caught across every finished list</p>
+        </div>
+      )}
 
       <div className="hub-list">
         {checklists.map(config => {
@@ -50,10 +72,12 @@ function HubPage({ checklists }) {
 
           // Checklists still mid-setup (like USUM's 3-entry starter data)
           // would otherwise show something like "0 / 3 caught (0%)" —
-          // reads as broken rather than "not built out yet." Anything
-          // under this threshold gets a plain "still being built" note
-          // instead of a percentage that doesn't mean much yet.
-          const isPlaceholderData = total < 10
+          // reads as broken rather than "not built out yet." This is an
+          // explicit flag on the checklist's own config, not a guess from
+          // entry count — a genuinely tiny-but-finished list (SoulSilver's
+          // intentional single entry) needs to show a real percentage,
+          // not get mistaken for one that's still being built.
+          const isPlaceholderData = Boolean(config.placeholder)
 
           return (
             <Link
