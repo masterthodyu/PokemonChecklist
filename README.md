@@ -44,6 +44,12 @@ Adding a new checklist means copying the shape of `src/checklists/home/`, writin
 - Cloud sync through Firebase Realtime Database — one shared database for every checklist. If a sync push ever fails, a Retry button shows up right next to the error instead of needing a page reload
 - Auto-deploys to GitHub Pages via GitHub Actions on every push to `main`
 
+## Hub title & the overall progress card
+
+`src/hubConfig.js` also has a `collectionLabel` field — a small heading shown directly above the overall-completion progress bar at the top of the hub (separate from `title`, which is the page's big `<h1>`). Set it to `''` or `null` to hide that line.
+
+The overall-completion card (the one showing total % across every finished checklist) uses the same solid dark card treatment as the per-checklist rows below it — it used to be a near-transparent tint, which made both the card and its progress bar genuinely hard to see against the hub's background image.
+
 ## Icons, colors, and background image
 
 Each checklist's `config.js` has an `icon` field — just point it at an image path and drop the actual file in `public/icons/`. No icon set? The hub shows a plain placeholder box instead, so nothing looks broken while you're still deciding.
@@ -71,6 +77,21 @@ To build the actual site (the thing that gets deployed):
 npm run build
 ```
 
+## Automated tests
+
+```
+npm test          # runs the whole suite once
+npm run test:watch   # re-runs on file changes
+```
+
+Uses [Vitest](https://vitest.dev) (config lives in `vite.config.js`'s `test` block) plus [Testing Library](https://testing-library.com/react) for the component test. Three kinds of tests, none of which need Firebase, a real browser, or any network access:
+
+- `src/engine/sync.test.js`, `src/engine/lock.test.js` — pure-logic tests for the checked-id parsing, the Firebase REST calls (with `fetch` mocked), and the password check.
+- `src/checklists/registry.test.js` — data-integrity checks that run against the **real** `data.json`/`config.js` files, not fixtures: no duplicate ids within a checklist, no two checklists sharing a `storageKey`/`syncId`, every Home category tag actually exists in `categories.js`, generation ranges don't overlap. This is the kind of check that would have caught the old Pokémon GO duplicate-id issue automatically.
+- `src/HubPage.test.jsx` — renders the hub with small fake checklists and checks the overall-progress card: the collection label shows, placeholder checklists don't count toward the total, localStorage counts show up correctly, and bad/missing localStorage data doesn't crash the page.
+
+Adding a checklist to `src/checklists/index.js` gets covered by `registry.test.js` automatically — no test file changes needed for that part.
+
 **Deployment note:** `vite.config.js`'s `base` needs to match your actual GitHub repo name exactly (currently `/PokemonChecklist/`). `App.jsx`'s router `basename` reads this automatically now, so there's only ever one place to update it. That subpath only applies during `npm run build` — `npm run dev` stays at the plain root, since forcing the dev server under a subpath was causing 404s (most setups, including a GitHub Codespaces forwarded preview URL, open the dev server at its root). `vite.config.js` also sets `server.host: true` so Codespaces' port forwarding can actually reach the dev server.
 
 ## The password lock
@@ -95,7 +116,16 @@ Same idea for categories — `assignCategories.mjs` tags each item automatically
 node src/checklists/home/scripts/assignCategories.mjs
 ```
 
-Pokémon GO doesn't have either script — it's boxless, and category tagging hasn't been needed there yet (its ids are hand-assigned decimals grouping variants near their base species, e.g. all the Pikachu costumes near `25.x` — see "Known issues" below for a gotcha with that scheme).
+Pokémon GO doesn't have either script — it's boxless, and category tagging hasn't been needed there yet (its ids are hand-assigned decimals grouping variants near their base species, e.g. all the Pikachu costumes near `25.x`). Since these are hand-assigned rather than generated, double-check a new entry's decimal doesn't already belong to another costume before adding it — two entries sharing one `id` means checking either one shows both as checked, and React will complain about duplicate list keys.
+
+## Self-hosting sprites & other images
+
+Every sprite in every checklist's `data.json`, plus the hub/checklist icons and the hub background, is currently hotlinked from other sites (see "Image sources" below) rather than self-hosted in `public/`. Two scripts move that over to local files, in two deliberate steps:
+
+1. **`node scripts/download-sprites.mjs`** — reads every checklist's `data.json`, downloads each `spriteUrl` it finds, and saves it to `public/sprites/<checklist-id>/<original-filename>`. **You don't need to create that folder yourself** — the script creates `public/sprites/` (and one subfolder per checklist) automatically the first time it runs. Nothing about this runs on its own — there's no build step, git hook, or CI job that triggers it; you run it yourself, by hand, whenever you want to pull down whatever's currently hotlinked. It's also safe to re-run any time (e.g. after adding new Pokémon to a `data.json`): it skips anything it's already downloaded, so a re-run only fetches what's new.
+2. **`node scripts/use-local-sprites.mjs`** — run this only after step 1, and after you've actually looked through `public/sprites/` to confirm the images downloaded correctly. This rewrites each `data.json`'s `spriteUrl` fields to point at the local copy instead of the original hotlinked URL — but only for files it can actually find locally, so a failed/skipped download just keeps its original working URL rather than breaking.
+
+Both are plain Node scripts (`node <path>`), not npm scripts, and both need to run somewhere with normal internet access — some of the source sites (PokémonDB, Serebii, the wixmp-hosted DeviantArt links) block requests from sandboxed or datacenter environments, which is why this is a manual step you run yourself (your own machine, or a Codespace) rather than something automated in CI.
 
 ## Cloud sync setup
 
@@ -111,12 +141,11 @@ If `VITE_FIREBASE_DB_URL` isn't set, every checklist just saves locally only —
 
 ## Known issues
 
-- **Pokémon GO has 3 duplicate `id` values** as of the last data pass: `25.0039` (Green Balloon Pikachu / Purple Shirt Pikachu), `25.0062` (Black Balloon Pikachu / Captain Pikachu), and `25.0094` (Cosmog Spacesuit Pikachu / World Championships 2026 Pikachu). Two entries sharing one id means checking either one shows both as checked, and React will complain about duplicate list keys. Needs a manual renumber of one entry in each pair — the decimal scheme itself is fine (safe, since nothing does math on `id`, only exact comparisons), this is just a handful of accidental collisions from the data entry itself.
-- Gigantamax cards, the USUM icon, and the hub's own background image are all currently hotlinked to DeviantArt via a temporary wixmp CDN token — see "Image sources" below.
+- Gigantamax cards, the USUM icon, and the hub's own background image are all currently hotlinked to DeviantArt via a temporary wixmp CDN token — see "Image sources" below, and "Self-hosting sprites & other images" above for the fix.
 
 ## Still to do
 
-- **Pokémon GO's `data.json` is a work in progress** — lots of costume Pokémon added so far (see "Known issues" above for the one data problem to fix).
+- **Pokémon GO's `data.json` is a work in progress** — lots of costume Pokémon added so far.
 - **Ultra Sun & Ultra Moon's `data.json` is a 3-entry placeholder** — plan is to build it around transferable Pokémon rather than a full regional dex from scratch.
 - **Soul Silver & Heart Gold's `data.json` is a 1-entry placeholder** (just the special event Spiky-eared Pichu).
 - **GameCube games** — eventually add Pokémon Colosseum/XD as their own checklist(s), largely to track Shadow Pokémon.

@@ -47,11 +47,14 @@ function HubPage({ checklists }) {
 
       {overallTotal > 0 && (
         <div className="overall-status">
+          {HUB_CONFIG.collectionLabel && (
+            <p className="overall-status-label">{HUB_CONFIG.collectionLabel}</p>
+          )}
           <div className="overall-status-top">
             <span>Overall completion</span>
             <span className="overall-status-pct">{overallPct}%</span>
           </div>
-          <div className="gen-bar-track">
+          <div className="gen-bar-track overall-status-track">
             <div className="overall-status-fill" style={{ width: `${overallPct}%` }} />
           </div>
           <p className="overall-status-count">{overallChecked} / {overallTotal} caught across every finished list</p>
