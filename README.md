@@ -1,10 +1,29 @@
-# My Checklists
+# My Checklist Project
 
-Started as a single page to check off every Pokémon I've caught. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, and Soul Silver/Heart Gold so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist. Progress is stored in one shared Firebase database.
+This started as a single page to check off every Pokémon I've caught in Pokémon Home. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, and Soul Silver/Heart Gold so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist. Progress is stored in one shared Firebase database.
 
 ## How this differs from other trackers
 
 This list is something more personally tailored to myself. I wanted to not just be bound by base forms in Pokémon Home, or not include N's Pokémon, or leave out the one Spiky-eared Pichu from HGSS. I wanted to mark that I've caught EVERY SINGLE POKÉMON POSSIBLE — starting with all the sprite differences, and then maybe in the future going for the ultra rares, like Japan birthday Pokémon or rarer events.
+
+## What it does
+
+- Central page that lists overall collection progress. Clickable pages to specific lists(see "Icons, colors, and background image" below) and progress bars. A checklist with fewer than 10 entries shows "🚧 Still being built" instead of a percentage, since something like "0 / 3 (0%)" reads as broken rather than "not built out yet" (with the exeption of HGSS list containing 1 entry)
+- Every item shows up as a card in a grid — click it (or its checkbox) to mark caught/not caught
+- Checking something **stamps the date it was checked**, shown as a small label in the corner of the card. Unchecking removes it entirely (no history kept — if you want to backdate or restore something, that's a database-level edit)
+- **Select All** / **Unselect All** buttons act on everything currently visible (the current box, or the current filtered list for a boxless checklist), both with a confirmation showing exactly how many items are affected, and both disable themselves when there's nothing to do
+- After a Select All / Unselect All, an **Undo banner** appears for a few seconds — reverts that one bulk action back to exactly how things were, in case of a misclick. It clears itself the moment you make any other change, so it can never revert the wrong thing
+- Search bar (name or number) has a clear (×) button, and Escape clears it too — jumps to the right box for boxed checklists, or filters the flat list directly for boxless ones
+- Filter buttons: All / Caught / Not Caught, with an empty-state message ("No matches for that search," "Everything here is already caught," etc.) instead of a silently blank grid
+- Most checklists use 30-per-box (6×5) grids with Previous/Next and a "jump to box #" field, same as the games' PC boxes
+- Left sidebar: one progress-bar list per "group set" a checklist defines (Pokémon Home has Generation and Category) — click a row to jump to it. Checklists with no group sets defined (SoulSilver, GO, USUM currently) skip the sidebar entirely and center the content instead of leaving a dead gap
+- Gigantamax cards (Pokémon Home) get a small badge currently hotlinked to an external image as a placeholder; swap it for a self-hosted `public/icons/gmax-badge.png` when there's time.
+- **Pokémon GO has no boxes** — it's one flat, searchable list instead, since the actual game doesn't have a box system. 
+- Shadow Pokémon cards get a small badge and a subtle purple glow on the sprite
+- Locked by default so random clicks don't change anything — one password unlocks editing across every checklist for the rest of the browser tab after clicking on the lock button or clicking on a card.
+- Progress saves to the browser automatically, under its own storage key per checklist even after tab closure.
+- Cloud sync through Firebase Realtime Database — one shared database for every checklist. If a sync push ever fails, a Retry button shows up right next to the error instead of needing a page reload
+- Auto-deploys to GitHub Pages via GitHub Actions on every push to `main`
 
 ## How it's structured
 
@@ -13,7 +32,7 @@ This list is something more personally tailored to myself. I wanted to not just 
 - `src/hubConfig.js` — the hub's own settings: its title, and an optional background image.
 - `src/engine/` — the shared, checklist-agnostic engine every checklist page actually renders through: box grid (or flat list), search, filters, select-all/undo, the group-progress sidebars, the password lock, and cloud sync all live here.
   - `ChecklistPage.jsx` — the main page component
-  - `ItemCard.jsx` — one clickable tile
+  - `ItemCard.jsx` — configures the one clickable pokemon tiles
   - `GroupProgress.jsx` — one progress-bar sidebar list (shared by every group set a checklist defines — Pokémon Home's Generation and Category sidebars are two instances of this same component, not two copies of similar code)
   - `lock.js` — the password check
   - `sync.js` — cloud sync via Firebase Realtime Database's REST API, one shared database, one path per checklist
@@ -21,28 +40,11 @@ This list is something more personally tailored to myself. I wanted to not just 
   - `home/` — Pokémon Home: `config.js`, `data.json`, `generations.js`, `categories.js`, `scripts/`
   - `go/` — Pokémon GO: boxless (no box system, since the real game doesn't have one either)
   - `usum/` — Ultra Sun & Ultra Moon: same shape as Home, currently a placeholder (see below)
-  - `soulsilver/` — Soul Silver & Heart Gold: same shape as Home, currently a placeholder (see below)
+  - `soulsilver/` — Soul Silver & Heart Gold: contains only 1 pokemon, spiked-ear Pichu. Only pokemon that couldn't transfer out of the games.
 
 Adding a new checklist means copying the shape of `src/checklists/home/`, writing its `config.js`, and adding one line to `src/checklists/index.js` — nothing in `src/engine/` needs to change.
 
-## What it does
 
-- Hub page: a centered vertical list, one row per checklist, each with its own icon and accent color (see "Icons, colors, and background image" below) and a progress bar. A checklist with fewer than 10 entries shows "🚧 Still being built" instead of a percentage, since something like "0 / 3 (0%)" reads as broken rather than "not built out yet"
-- Every item shows up as a card in a grid — click it (or its checkbox) to mark caught/not caught
-- Checking something **stamps the date it was checked**, shown as a small label in the corner of the card. Unchecking removes it entirely (no history kept — if you want to backdate or restore something, that's a database-level edit)
-- **Select All** / **Unselect All** buttons act on everything currently visible (the current box, or the current filtered list for a boxless checklist), both with a confirmation showing exactly how many items are affected, and both disable themselves when there's nothing to do
-- After a Select All / Unselect All, an **Undo banner** appears for a few seconds — reverts that one bulk action back to exactly how things were, in case of a misclick. It clears itself the moment you make any other change, so it can never revert the wrong thing
-- Search bar (name or number) has a clear (×) button, and Escape clears it too — jumps to the right box for boxed checklists, or filters the flat list directly for boxless ones
-- Filter buttons: All / Caught / Not Caught, with an empty-state message ("No matches for that search," "Everything here is already caught," etc.) instead of a silently blank grid
-- Most checklists use 30-per-box (6×5) grids with Previous/Next and a "jump to box #" field, same as the games' PC boxes
-- **Pokémon GO has no boxes** — it's one flat, searchable list instead, since the actual game doesn't have a box system. Clicking a sidebar group (once GO has any set up) narrows the list instead of jumping to a box
-- Left sidebar: one progress-bar list per "group set" a checklist defines (Pokémon Home has Generation and Category) — click a row to jump to it. Checklists with no group sets defined (SoulSilver, GO, USUM currently) skip the sidebar entirely and center the content instead of leaving a dead gap
-- Gigantamax cards (Pokémon Home) get a small badge instead of spelling "Gigantamax" out in the name every time — currently hotlinked to an external image as a placeholder; swap it for a self-hosted `public/icons/gmax-badge.png` when there's time (see the note in `styles.css`)
-- Shadow Pokémon cards get a small badge and a subtle purple glow on the sprite
-- Locked by default so random clicks don't change anything — one password unlocks editing across every checklist for the rest of the browser tab
-- Progress saves to the browser automatically, under its own storage key per checklist
-- Cloud sync through Firebase Realtime Database — one shared database for every checklist. If a sync push ever fails, a Retry button shows up right next to the error instead of needing a page reload
-- Auto-deploys to GitHub Pages via GitHub Actions on every push to `main`
 
 ## Hub title & the overall progress card
 
@@ -83,6 +85,7 @@ npm run build
 npm test          # runs the whole suite once
 npm run test:watch   # re-runs on file changes
 ```
+Test will also run upon build or dev start.
 
 Uses [Vitest](https://vitest.dev) (config lives in `vite.config.js`'s `test` block) plus [Testing Library](https://testing-library.com/react) for the component test. Three kinds of tests, none of which need Firebase, a real browser, or any network access:
 
@@ -96,7 +99,7 @@ Adding a checklist to `src/checklists/index.js` gets covered by `registry.test.j
 
 ## The password lock
 
-Editing is locked until you type a password in. It's not real security — since this is a static site with no backend, a determined person could still dig the password out of the code if they really wanted to. It's mainly there so nothing changes by accident. One password unlocks every checklist. This is a single-user personal tool, not something built for multiple people to log in separately — one shared password and one shared database is the right amount of complexity for that.
+Editing the page is "protected" by a password to prevent accidental clicks or unwanted guest clicks. One password unlocks every checklist. This is a single-user personal tool, not something built for multiple people to log in separately — one shared password and one shared database is the right amount of complexity for that.
 
 To set your own password:
 - Local dev: copy `.env.local.example` to `.env.local` and fill it in
@@ -147,9 +150,8 @@ If `VITE_FIREBASE_DB_URL` isn't set, every checklist just saves locally only —
 
 - **Pokémon GO's `data.json` is a work in progress** — lots of costume Pokémon added so far.
 - **Ultra Sun & Ultra Moon's `data.json` is a 3-entry placeholder** — plan is to build it around transferable Pokémon rather than a full regional dex from scratch.
-- **Soul Silver & Heart Gold's `data.json` is a 1-entry placeholder** (just the special event Spiky-eared Pichu).
 - **GameCube games** — eventually add Pokémon Colosseum/XD as their own checklist(s), largely to track Shadow Pokémon.
-- `src/checklists/home/missing.text` is a scratch list of Pokémon not yet added to that checklist's `data.json`.
+- Need to build and correct the `Checklist.test.js` file
 
 ## Image sources
 
