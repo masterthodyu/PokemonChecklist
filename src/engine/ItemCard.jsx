@@ -33,7 +33,7 @@ function formatCheckedDate(isoDate) {
 // the checked state is easy to see at a glance).
 function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false }) {
   const number = item.dexId ?? item.id
-  const isGigantamax = item.category === 'gmax'
+  const isGigantamax = item.category === 'gmax' || item.name.includes('Gigantamax')
   const displayName = isGigantamax ? stripGigantamaxText(item.name) : item.name
   const dateLabel = checked ? formatCheckedDate(checkedDate) : null
   // Checks category first (same pattern as the Gigantamax badge), falls

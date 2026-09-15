@@ -9016,66 +9016,66 @@
     "category": "gender"
   },
   {
+    "id": 1128,
     "dexId": 25,
     "name": "Pikachu (Original Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-original-cap.png",
-    "id": 1128,
     "boxId": 41,
     "category": "form"
   },
   {
+    "id": 1129,
     "dexId": 25,
     "name": "Pikachu (Hoenn Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-hoenn-cap.png",
-    "id": 1129,
     "boxId": 41,
     "category": "form"
   },
   {
+    "id": 1130,
     "dexId": 25,
     "name": "Pikachu (Sinnoh Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-sinnoh-cap.png",
-    "id": 1130,
     "boxId": 41,
     "category": "form"
   },
   {
+    "id": 1131,
     "dexId": 25,
     "name": "Pikachu (Unova Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-unova-cap.png",
-    "id": 1131,
     "boxId": 41,
     "category": "form"
   },
   {
+    "id": 1132,
     "dexId": 25,
     "name": "Pikachu (Kalos Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-kalos-cap.png",
-    "id": 1132,
     "boxId": 41,
     "category": "form"
   },
   {
+    "id": 1133,
     "dexId": 25,
     "name": "Pikachu (Alola Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-alola-cap.png",
-    "id": 1133,
     "boxId": 41,
     "category": "form"
   },
   {
+    "id": 1134,
     "dexId": 25,
     "name": "Pikachu (Partner Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-partner-cap.png",
-    "id": 1134,
     "boxId": 41,
     "category": "form"
   },
   {
+    "id": 1135,
     "dexId": 25,
     "name": "Pikachu (World Cap)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-world-cap.png",
-    "id": 1135,
     "boxId": 41,
     "category": "form"
   },
@@ -9296,2243 +9296,2243 @@
     "category": "form"
   },
   {
+    "id": 1163,
     "dexId": 386,
     "name": "Deoxys (Attack Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/deoxys-attack.png",
-    "id": 1163,
     "boxId": 42,
     "category": "form"
   },
   {
+    "id": 1164,
     "dexId": 386,
     "name": "Deoxys (Defense Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/deoxys-defense.png",
-    "id": 1164,
     "boxId": 42,
     "category": "form"
   },
   {
+    "id": 1165,
     "dexId": 386,
     "name": "Deoxys (Speed Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/deoxys-speed.png",
-    "id": 1165,
     "boxId": 42,
     "category": "form"
   },
   {
+    "id": 1166,
     "dexId": 412,
     "name": "Burmy (Plant Cloak)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/burmy-plant.png",
-    "id": 1166,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1167,
     "dexId": 412,
     "name": "Burmy (Sandy Cloak)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/burmy-sandy.png",
-    "id": 1167,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1168,
     "dexId": 412,
     "name": "Burmy (Trash Cloak)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/burmy-trash.png",
-    "id": 1168,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1169,
     "dexId": 413,
     "name": "Wormadam (Plant Cloak)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/wormadam-plant.png",
-    "id": 1169,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1170,
     "dexId": 413,
     "name": "Wormadam (Sandy Cloak)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/wormadam-sandy.png",
-    "id": 1170,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1171,
     "dexId": 413,
     "name": "Wormadam (Trash Cloak)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/wormadam-trash.png",
-    "id": 1171,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1172,
     "dexId": 422,
     "name": "Shellos (West Sea)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/shellos-west.png",
-    "id": 1172,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1173,
     "dexId": 422,
     "name": "Shellos (East Sea)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/shellos-east.png",
-    "id": 1173,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1174,
     "dexId": 423,
     "name": "Gastrodon (West Sea)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gastrodon-west.png",
-    "id": 1174,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1175,
     "dexId": 423,
     "name": "Gastrodon (East Sea)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gastrodon-east.png",
-    "id": 1175,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1176,
     "dexId": 479,
     "name": "Heat Rotom",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rotom-heat.png",
-    "id": 1176,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1177,
     "dexId": 479,
     "name": "Wash Rotom",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rotom-wash.png",
-    "id": 1177,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1178,
     "dexId": 479,
     "name": "Frost Rotom",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rotom-frost.png",
-    "id": 1178,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1179,
     "dexId": 479,
     "name": "Fan Rotom",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rotom-fan.png",
-    "id": 1179,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1180,
     "dexId": 479,
     "name": "Mow Rotom",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rotom-mow.png",
-    "id": 1180,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1181,
     "dexId": 492,
     "name": "Shaymin (Sky Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/shaymin-sky.png",
-    "id": 1181,
     "boxId": 43,
     "category": "form"
   },
   {
+    "id": 1182,
     "dexId": 585,
     "name": "Deerling (Summer Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/deerling-summer.png",
-    "id": 1182,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1183,
     "dexId": 585,
     "name": "Deerling (Autumn Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/deerling-autumn.png",
-    "id": 1183,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1184,
     "dexId": 585,
     "name": "Deerling (Winter Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/deerling-winter.png",
-    "id": 1184,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1185,
     "dexId": 586,
     "name": "Sawsbuck (Summer Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sawsbuck-summer.png",
-    "id": 1185,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1186,
     "dexId": 586,
     "name": "Sawsbuck (Autumn Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sawsbuck-autumn.png",
-    "id": 1186,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1187,
     "dexId": 586,
     "name": "Sawsbuck (Winter Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sawsbuck-winter.png",
-    "id": 1187,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1188,
     "dexId": 550,
     "name": "Basculin (Blue-Striped Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/basculin-blue-striped.png",
-    "id": 1188,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1189,
     "dexId": 641,
     "name": "Tornadus (Therian Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/tornadus-therian.png",
-    "id": 1189,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1190,
     "dexId": 642,
     "name": "Thundurus (Therian Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/thundurus-therian.png",
-    "id": 1190,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1191,
     "dexId": 645,
     "name": "Landorus (Therian Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/landorus-therian.png",
-    "id": 1191,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1192,
     "dexId": 647,
     "name": "Keldeo (Resolute Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/keldeo-resolute.png",
-    "id": 1192,
     "boxId": 44,
     "category": "form"
   },
   {
+    "id": 1193,
     "dexId": 658,
     "name": "Ash-Greninja",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/greninja-ash.png",
-    "id": 1193,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1194,
     "dexId": 666,
     "name": "Vivillon (Polar Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-polar.png",
-    "id": 1194,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1195,
     "dexId": 666,
     "name": "Vivillon (Tundra Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-tundra.png",
-    "id": 1195,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1196,
     "dexId": 666,
     "name": "Vivillon (Continental Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-continental.png",
-    "id": 1196,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1197,
     "dexId": 666,
     "name": "Vivillon (Garden Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-garden.png",
-    "id": 1197,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1198,
     "dexId": 666,
     "name": "Vivillon (Elegant Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-elegant.png",
-    "id": 1198,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1199,
     "dexId": 666,
     "name": "Vivillon (Meadow Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-meadow.png",
-    "id": 1199,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1200,
     "dexId": 666,
     "name": "Vivillon (Modern Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-modern.png",
-    "id": 1200,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1201,
     "dexId": 666,
     "name": "Vivillon (Marine Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-marine.png",
-    "id": 1201,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1202,
     "dexId": 666,
     "name": "Vivillon (Archipelago Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-archipelago.png",
-    "id": 1202,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1203,
     "dexId": 666,
     "name": "Vivillon (High Plains Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-high-plains.png",
-    "id": 1203,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1204,
     "dexId": 666,
     "name": "Vivillon (Sandstorm Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-sandstorm.png",
-    "id": 1204,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1205,
     "dexId": 666,
     "name": "Vivillon (River Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-river.png",
-    "id": 1205,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1206,
     "dexId": 666,
     "name": "Vivillon (Monsoon Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-monsoon.png",
-    "id": 1206,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1207,
     "dexId": 666,
     "name": "Vivillon (Savanna Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-savanna.png",
-    "id": 1207,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1208,
     "dexId": 666,
     "name": "Vivillon (Sun Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-sun.png",
-    "id": 1208,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1209,
     "dexId": 666,
     "name": "Vivillon (Ocean Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-ocean.png",
-    "id": 1209,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1210,
     "dexId": 666,
     "name": "Vivillon (Jungle Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-jungle.png",
-    "id": 1210,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1211,
     "dexId": 666,
     "name": "Vivillon (Fancy Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-fancy.png",
-    "id": 1211,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1212,
     "dexId": 666,
     "name": "Vivillon (Poké Ball Pattern)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vivillon-poke-ball.png",
-    "id": 1212,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1213,
     "dexId": 669,
     "name": "Flabébé (Yellow Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/flabebe-yellow.png",
-    "id": 1213,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1214,
     "dexId": 669,
     "name": "Flabébé (Orange Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/flabebe-orange.png",
-    "id": 1214,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1215,
     "dexId": 669,
     "name": "Flabébé (Blue Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/flabebe-blue.png",
-    "id": 1215,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1216,
     "dexId": 669,
     "name": "Flabébé (White Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/flabebe-white.png",
-    "id": 1216,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1217,
     "dexId": 670,
     "name": "Floette (Yellow Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/floette-yellow.png",
-    "id": 1217,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1218,
     "dexId": 670,
     "name": "Floette (Orange Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/floette-orange.png",
-    "id": 1218,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1219,
     "dexId": 670,
     "name": "Floette (Blue Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/floette-blue.png",
-    "id": 1219,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1220,
     "dexId": 670,
     "name": "Floette (White Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/floette-white.png",
-    "id": 1220,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1221,
     "dexId": 670,
     "name": "Floette (Eternal Flower)",
     "spriteUrl": "https://www.serebii.net/legendsz-a/pokemon/670-e.png",
-    "id": 1221,
     "boxId": 45,
     "category": "form"
   },
   {
+    "id": 1222,
     "dexId": 671,
     "name": "Florges (Yellow Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/florges-yellow.png",
-    "id": 1222,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1223,
     "dexId": 671,
     "name": "Florges (Orange Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/florges-orange.png",
-    "id": 1223,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1224,
     "dexId": 671,
     "name": "Florges (Blue Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/florges-blue.png",
-    "id": 1224,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1225,
     "dexId": 671,
     "name": "Florges (White Flower)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/florges-white.png",
-    "id": 1225,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1226,
     "dexId": 676,
     "name": "Furfrou (Heart Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-heart.png",
-    "id": 1226,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1227,
     "dexId": 676,
     "name": "Furfrou (Star Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-star.png",
-    "id": 1227,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1228,
     "dexId": 676,
     "name": "Furfrou (Diamond Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-diamond.png",
-    "id": 1228,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1229,
     "dexId": 676,
     "name": "Furfrou (Debutante Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-debutante.png",
-    "id": 1229,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1230,
     "dexId": 676,
     "name": "Furfrou (Matron Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-matron.png",
-    "id": 1230,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1231,
     "dexId": 676,
     "name": "Furfrou (Dandy Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-dandy.png",
-    "id": 1231,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1232,
     "dexId": 676,
     "name": "Furfrou (La Reine Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-la-reine.png",
-    "id": 1232,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1233,
     "dexId": 676,
     "name": "Furfrou (Kabuki Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-kabuki.png",
-    "id": 1233,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1234,
     "dexId": 676,
     "name": "Furfrou (Pharaoh Trim)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/furfrou-pharaoh.png",
-    "id": 1234,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1235,
     "dexId": 710,
     "name": "Pumpkaboo (Small Size)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pumpkaboo-small.png",
-    "id": 1235,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1236,
     "dexId": 710,
     "name": "Pumpkaboo (Large Size)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pumpkaboo-large.png",
-    "id": 1236,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1237,
     "dexId": 710,
     "name": "Pumpkaboo (Super Size)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pumpkaboo-super.png",
-    "id": 1237,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1238,
     "dexId": 711,
     "name": "Gourgeist (Small Size)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gourgeist-small.png",
-    "id": 1238,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1239,
     "dexId": 711,
     "name": "Gourgeist (Large Size)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gourgeist-large.png",
-    "id": 1239,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1240,
     "dexId": 711,
     "name": "Gourgeist (Super Size)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gourgeist-super.png",
-    "id": 1240,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1241,
     "dexId": 718,
     "name": "Zygarde (10% Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zygarde-10.png",
-    "id": 1241,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1242,
     "dexId": 720,
     "name": "Hoopa Unbound",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/hoopa-unbound.png",
-    "id": 1242,
     "boxId": 46,
     "category": "form"
   },
   {
+    "id": 1243,
     "dexId": 741,
     "name": "Oricorio (Pom-Pom Style)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/oricorio-pom-pom.png",
-    "id": 1243,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1244,
     "dexId": 741,
     "name": "Oricorio (Pa'u Style)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/oricorio-pau.png",
-    "id": 1244,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1245,
     "dexId": 741,
     "name": "Oricorio (Sensu Style)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/oricorio-sensu.png",
-    "id": 1245,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1246,
     "dexId": 745,
     "name": "Lycanroc (Midnight Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/lycanroc-midnight.png",
-    "id": 1246,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1247,
     "dexId": 745,
     "name": "Lycanroc (Dusk Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/lycanroc-dusk.png",
-    "id": 1247,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1248,
     "dexId": 774,
     "name": "Minior (Core, Red)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/minior-red-core.png",
-    "id": 1248,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1249,
     "dexId": 774,
     "name": "Minior (Core, Orange)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/minior-orange-core.png",
-    "id": 1249,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1250,
     "dexId": 774,
     "name": "Minior (Core, Yellow)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/minior-yellow-core.png",
-    "id": 1250,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1251,
     "dexId": 774,
     "name": "Minior (Core, Green)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/minior-green-core.png",
-    "id": 1251,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1252,
     "dexId": 774,
     "name": "Minior (Core, Blue)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/minior-blue-core.png",
-    "id": 1252,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1253,
     "dexId": 774,
     "name": "Minior (Core, Indigo)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/minior-indigo-core.png",
-    "id": 1253,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1254,
     "dexId": 774,
     "name": "Minior (Core, Violet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/minior-violet-core.png",
-    "id": 1254,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1255,
     "dexId": 801,
     "name": "Magearna (Original Color Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/magearna-original.png",
-    "id": 1255,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1256,
     "dexId": 849,
     "name": "Toxtricity (Low Key Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/toxtricity-low-key.png",
-    "id": 1256,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1257,
     "dexId": 854,
     "name": "Sinistea (Antique Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sinistea-antique.png",
-    "id": 1257,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1258,
     "dexId": 855,
     "name": "Polteageist (Antique Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/polteageist-antique.png",
-    "id": 1258,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1259,
     "dexId": 892,
     "name": "Urshifu (Rapid Strike Style)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/urshifu-rapid-strike.png",
-    "id": 1259,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1260,
     "dexId": 893,
     "name": "Zarude (Dada)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zarude-dada.png",
-    "id": 1260,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1261,
     "dexId": 905,
     "name": "Enamorus (Therian Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/enamorus-therian.png",
-    "id": 1261,
     "boxId": 47,
     "category": "form"
   },
   {
+    "id": 1262,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Berry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-vanilla-cream-berry.png",
-    "id": 1262,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1263,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Clover Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-vanilla-cream-clover.png",
-    "id": 1263,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1264,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Flower Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-vanilla-cream-flower.png",
-    "id": 1264,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1265,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Love Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-vanilla-cream-love.png",
-    "id": 1265,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1266,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Ribbon Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-vanilla-cream-ribbon.png",
-    "id": 1266,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1267,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Star Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-vanilla-cream-star.png",
-    "id": 1267,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1268,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Strawberry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-vanilla-cream-strawberry.png",
-    "id": 1268,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1269,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Berry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-caramel-swirl-berry.png",
-    "id": 1269,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1270,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Clover Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-caramel-swirl-clover.png",
-    "id": 1270,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1271,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Flower Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-caramel-swirl-flower.png",
-    "id": 1271,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1272,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Love Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-caramel-swirl-love.png",
-    "id": 1272,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1273,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Ribbon Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-caramel-swirl-ribbon.png",
-    "id": 1273,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1274,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Star Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-caramel-swirl-star.png",
-    "id": 1274,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1275,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Strawberry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-caramel-swirl-strawberry.png",
-    "id": 1275,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1276,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Berry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-lemon-cream-berry.png",
-    "id": 1276,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1277,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Clover Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-lemon-cream-clover.png",
-    "id": 1277,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1278,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Flower Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-lemon-cream-flower.png",
-    "id": 1278,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1279,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Love Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-lemon-cream-love.png",
-    "id": 1279,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1280,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Ribbon Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-lemon-cream-ribbon.png",
-    "id": 1280,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1281,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Star Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-lemon-cream-star.png",
-    "id": 1281,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1282,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Strawberry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-lemon-cream-strawberry.png",
-    "id": 1282,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1283,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Berry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-matcha-cream-berry.png",
-    "id": 1283,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1284,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Clover Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-matcha-cream-clover.png",
-    "id": 1284,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1285,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Flower Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-matcha-cream-flower.png",
-    "id": 1285,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1286,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Love Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-matcha-cream-love.png",
-    "id": 1286,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1287,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Ribbon Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-matcha-cream-ribbon.png",
-    "id": 1287,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1288,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Star Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-matcha-cream-star.png",
-    "id": 1288,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1289,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Strawberry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-matcha-cream-strawberry.png",
-    "id": 1289,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1290,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Berry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-mint-cream-berry.png",
-    "id": 1290,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1291,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Clover Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-mint-cream-clover.png",
-    "id": 1291,
     "boxId": 48,
     "category": "form"
   },
   {
+    "id": 1292,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Flower Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-mint-cream-flower.png",
-    "id": 1292,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1293,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Love Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-mint-cream-love.png",
-    "id": 1293,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1294,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Ribbon Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-mint-cream-ribbon.png",
-    "id": 1294,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1295,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Star Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-mint-cream-star.png",
-    "id": 1295,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1296,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Strawberry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-mint-cream-strawberry.png",
-    "id": 1296,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1297,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Berry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-rainbow-swirl-berry.png",
-    "id": 1297,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1298,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Clover Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-rainbow-swirl-clover.png",
-    "id": 1298,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1299,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Flower Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-rainbow-swirl-flower.png",
-    "id": 1299,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1300,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Love Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-rainbow-swirl-love.png",
-    "id": 1300,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1301,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Ribbon Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-rainbow-swirl-ribbon.png",
-    "id": 1301,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1302,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Star Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-rainbow-swirl-star.png",
-    "id": 1302,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1303,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Strawberry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-rainbow-swirl-strawberry.png",
-    "id": 1303,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1304,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Berry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-ruby-cream-berry.png",
-    "id": 1304,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1305,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Clover Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-ruby-cream-clover.png",
-    "id": 1305,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1306,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Flower Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-ruby-cream-flower.png",
-    "id": 1306,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1307,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Love Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-ruby-cream-love.png",
-    "id": 1307,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1308,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Ribbon Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-ruby-cream-ribbon.png",
-    "id": 1308,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1309,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Star Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-ruby-cream-star.png",
-    "id": 1309,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1310,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Strawberry Sweet)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-ruby-cream-strawberry.png",
-    "id": 1310,
     "boxId": 49,
     "category": "form"
   },
   {
+    "id": 1311,
     "dexId": 867,
     "name": "Squawkabilly (Blue Plumage)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/squawkabilly-blue.png",
-    "id": 1311,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1312,
     "dexId": 867,
     "name": "Squawkabilly (Yellow Plumage)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/squawkabilly-yellow.png",
-    "id": 1312,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1313,
     "dexId": 867,
     "name": "Squawkabilly (White Plumage)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/squawkabilly-white.png",
-    "id": 1313,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1314,
     "dexId": 925,
     "name": "Maushold (Family of Four)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/maushold-family3.png",
-    "id": 1314,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1315,
     "dexId": 978,
     "name": "Tatsugiri (Droopy Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/tatsugiri-droopy.png",
-    "id": 1315,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1316,
     "dexId": 978,
     "name": "Tatsugiri (Stretchy Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/tatsugiri-stretchy.png",
-    "id": 1316,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1317,
     "dexId": 982,
     "name": "Dudunsparce (Three-Segment Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/dudunsparce-three-segment.png",
-    "id": 1317,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1318,
     "dexId": 999,
     "name": "Gimmighoul (Roaming Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gimmighoul-roaming.png",
-    "id": 1318,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1319,
     "dexId": 1013,
     "name": "Poltchageist (Artisan Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/poltchageist-artisan.png",
-    "id": 1319,
     "boxId": 50,
     "category": "form"
   },
   {
+    "id": 1320,
     "dexId": 1014,
     "name": "Sinistcha (Masterpiece Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sinistcha.png",
-    "id": 1320,
     "boxId": 50,
     "category": "form"
   },
   {
     "id": 1321,
+    "dexId": 19,
     "name": "Alolan Rattata",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rattata-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 19
+    "category": "alolan"
   },
   {
     "id": 1322,
+    "dexId": 20,
     "name": "Alolan Raticate",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/raticate-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 20
+    "category": "alolan"
   },
   {
     "id": 1323,
+    "dexId": 26,
     "name": "Alolan Raichu",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/raichu-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 26
+    "category": "alolan"
   },
   {
     "id": 1324,
+    "dexId": 27,
     "name": "Alolan Sandshrew",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sandshrew-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 27
+    "category": "alolan"
   },
   {
     "id": 1325,
+    "dexId": 28,
     "name": "Alolan Sandslash",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sandslash-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 28
+    "category": "alolan"
   },
   {
     "id": 1326,
+    "dexId": 37,
     "name": "Alolan Vulpix",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vulpix-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 37
+    "category": "alolan"
   },
   {
     "id": 1327,
+    "dexId": 38,
     "name": "Alolan Ninetales",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ninetales-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 38
+    "category": "alolan"
   },
   {
     "id": 1328,
+    "dexId": 50,
     "name": "Alolan Diglett",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/diglett-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 50
+    "category": "alolan"
   },
   {
     "id": 1329,
+    "dexId": 51,
     "name": "Alolan Dugtrio",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/dugtrio-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 51
+    "category": "alolan"
   },
   {
     "id": 1330,
+    "dexId": 52,
     "name": "Alolan Meowth",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/meowth-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 52
+    "category": "alolan"
   },
   {
     "id": 1331,
+    "dexId": 53,
     "name": "Alolan Persian",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/persian-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 53
+    "category": "alolan"
   },
   {
     "id": 1332,
+    "dexId": 74,
     "name": "Alolan Geodude",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/geodude-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 74
+    "category": "alolan"
   },
   {
     "id": 1333,
+    "dexId": 75,
     "name": "Alolan Graveler",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/graveler-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 75
+    "category": "alolan"
   },
   {
     "id": 1334,
+    "dexId": 103,
     "name": "Alolan Exeggutor",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/exeggutor-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 103
+    "category": "alolan"
   },
   {
     "id": 1335,
+    "dexId": 105,
     "name": "Alolan Marowak",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/marowak-alolan.png",
     "boxId": 51,
-    "category": "alolan",
-    "dexId": 105
+    "category": "alolan"
   },
   {
     "id": 1336,
+    "dexId": 52,
     "name": "Galarian Meowth",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/meowth-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 52
+    "category": "galarian"
   },
   {
     "id": 1337,
+    "dexId": 77,
     "name": "Galarian Ponyta",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ponyta-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 77
+    "category": "galarian"
   },
   {
     "id": 1338,
+    "dexId": 78,
     "name": "Galarian Rapidash",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rapidash-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 78
+    "category": "galarian"
   },
   {
     "id": 1339,
+    "dexId": 79,
     "name": "Galarian Slowpoke",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/slowpoke-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 79
+    "category": "galarian"
   },
   {
     "id": 1340,
+    "dexId": 80,
     "name": "Galarian Slowbro",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/slowbro-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 80
+    "category": "galarian"
   },
   {
     "id": 1341,
+    "dexId": 83,
     "name": "Galarian Farfetch'd",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/farfetchd-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 83
+    "category": "galarian"
   },
   {
     "id": 1342,
+    "dexId": 110,
     "name": "Galarian Weezing",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/weezing-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 110
+    "category": "galarian"
   },
   {
     "id": 1343,
+    "dexId": 122,
     "name": "Galarian Mr. Mime",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/mr-mime-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 122
+    "category": "galarian"
   },
   {
     "id": 1344,
+    "dexId": 144,
     "name": "Galarian Articuno",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/articuno-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 144
+    "category": "galarian"
   },
   {
     "id": 1345,
+    "dexId": 145,
     "name": "Galarian Zapdos",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zapdos-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 145
+    "category": "galarian"
   },
   {
     "id": 1346,
+    "dexId": 146,
     "name": "Galarian Moltres",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/moltres-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 146
+    "category": "galarian"
   },
   {
     "id": 1347,
+    "dexId": 199,
     "name": "Galarian Slowking",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/slowking-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 199
+    "category": "galarian"
   },
   {
     "id": 1348,
+    "dexId": 222,
     "name": "Galarian Corsola",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/corsola-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 222
+    "category": "galarian"
   },
   {
     "id": 1349,
+    "dexId": 263,
     "name": "Galarian Zigzagoon",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zigzagoon-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 263
+    "category": "galarian"
   },
   {
     "id": 1350,
+    "dexId": 264,
     "name": "Galarian Linoone",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/linoone-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 264
+    "category": "galarian"
   },
   {
     "id": 1351,
+    "dexId": 554,
     "name": "Galarian Darumaka",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/darumaka-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 554
+    "category": "galarian"
   },
   {
     "id": 1352,
+    "dexId": 555,
     "name": "Galarian Darmanitan",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/darmanitan-galarian-standard.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 555
+    "category": "galarian"
   },
   {
     "id": 1353,
+    "dexId": 562,
     "name": "Galarian Yamask",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/yamask-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 562
+    "category": "galarian"
   },
   {
     "id": 1354,
+    "dexId": 618,
     "name": "Galarian Stunfisk",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/stunfisk-galarian.png",
     "boxId": 52,
-    "category": "galarian",
-    "dexId": 618
+    "category": "galarian"
   },
   {
     "id": 1355,
+    "dexId": 58,
     "name": "Hisuian Growlithe",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/growlithe-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 58
+    "category": "hisuian"
   },
   {
     "id": 1356,
+    "dexId": 59,
     "name": "Hisuian Arcanine",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/arcanine-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 59
+    "category": "hisuian"
   },
   {
     "id": 1357,
+    "dexId": 100,
     "name": "Hisuian Voltorb",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/voltorb-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 100
+    "category": "hisuian"
   },
   {
     "id": 1358,
+    "dexId": 101,
     "name": "Hisuian Electrode",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/electrode-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 101
+    "category": "hisuian"
   },
   {
     "id": 1359,
+    "dexId": 157,
     "name": "Hisuian Typhlosion",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/typhlosion-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 157
+    "category": "hisuian"
   },
   {
     "id": 1360,
+    "dexId": 211,
     "name": "Hisuian Qwilfish",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/qwilfish-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 211
+    "category": "hisuian"
   },
   {
     "id": 1361,
+    "dexId": 215,
     "name": "Hisuian Sneasel",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sneasel-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 215
+    "category": "hisuian"
   },
   {
     "id": 1362,
+    "dexId": 503,
     "name": "Hisuian Samurott",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/samurott-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 503
+    "category": "hisuian"
   },
   {
     "id": 1363,
+    "dexId": 549,
     "name": "Hisuian Lilligant",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/lilligant-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 549
+    "category": "hisuian"
   },
   {
     "id": 1364,
+    "dexId": 550,
     "name": "Basculin (White-Striped)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/basculin-white-striped.png",
     "boxId": 53,
-    "category": "form",
-    "dexId": 550
+    "category": "form"
   },
   {
     "id": 1365,
+    "dexId": 570,
     "name": "Hisuian Zorua",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zorua-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 570
+    "category": "hisuian"
   },
   {
     "id": 1366,
+    "dexId": 571,
     "name": "Hisuian Zoroark",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zoroark-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 571
+    "category": "hisuian"
   },
   {
     "id": 1367,
+    "dexId": 628,
     "name": "Hisuian Braviary",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/braviary-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 628
+    "category": "hisuian"
   },
   {
     "id": 1368,
+    "dexId": 706,
     "name": "Hisuian Goodra",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/goodra-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 706
+    "category": "hisuian"
   },
   {
     "id": 1369,
+    "dexId": 713,
     "name": "Hisuian Avalugg",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/avalugg-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 713
+    "category": "hisuian"
   },
   {
     "id": 1370,
+    "dexId": 724,
     "name": "Hisuian Decidueye",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/decidueye-hisuian.png",
     "boxId": 53,
-    "category": "hisuian",
-    "dexId": 724
+    "category": "hisuian"
   },
   {
     "id": 1371,
+    "dexId": 194,
     "name": "Paldean Wooper",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/wooper-paldean.png",
     "boxId": 54,
-    "category": "paldean",
-    "dexId": 194
+    "category": "paldean"
   },
   {
     "id": 1372,
+    "dexId": 128,
     "name": "Paldean Tauros (Combat Breed)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/tauros-paldean-combat.png",
     "boxId": 54,
-    "category": "paldean",
-    "dexId": 128
+    "category": "paldean"
   },
   {
     "id": 1373,
+    "dexId": 128,
     "name": "Paldean Tauros (Blaze Breed)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/tauros-paldean-blaze.png",
     "boxId": 54,
-    "category": "paldean",
-    "dexId": 128
+    "category": "paldean"
   },
   {
     "id": 1374,
+    "dexId": 128,
     "name": "Paldean Tauros (Aqua Breed)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/tauros-paldean-aqua.png",
     "boxId": 54,
-    "category": "paldean",
-    "dexId": 128
+    "category": "paldean"
   },
   {
+    "id": 1375,
     "dexId": 901,
     "name": "Bloodmoon Ursaluna",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ursaluna-bloodmoon.png",
-    "id": 1375,
     "boxId": 54,
     "category": "form"
   },
   {
     "id": 1376,
+    "dexId": 509,
     "name": "Purrloin (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/purrloin.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 509
+    "category": "n"
   },
   {
     "id": 1377,
+    "dexId": 519,
     "name": "Pidove (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pidove.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 519
+    "category": "n"
   },
   {
     "id": 1378,
+    "dexId": 527,
     "name": "Woobat (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/woobat.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 527
+    "category": "n"
   },
   {
     "id": 1379,
+    "dexId": 532,
     "name": "Timburr (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/timburr.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 532
+    "category": "n"
   },
   {
     "id": 1380,
+    "dexId": 535,
     "name": "Tympole (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/tympole.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 535
+    "category": "n"
   },
   {
     "id": 1381,
+    "dexId": 525,
     "name": "Boldore (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/boldore.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 525
+    "category": "n"
   },
   {
     "id": 1382,
+    "dexId": 551,
     "name": "Sandile (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sandile.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 551
+    "category": "n"
   },
   {
     "id": 1383,
+    "dexId": 554,
     "name": "Darumaka (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/darumaka.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 554
+    "category": "n"
   },
   {
     "id": 1384,
+    "dexId": 555,
     "name": "Darmanitan (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/darmanitan.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 555
+    "category": "n"
   },
   {
     "id": 1385,
+    "dexId": 559,
     "name": "Scraggy (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/scraggy.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 559
+    "category": "n"
   },
   {
     "id": 1386,
+    "dexId": 561,
     "name": "Sigilyph (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sigilyph.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 561
+    "category": "n"
   },
   {
     "id": 1387,
+    "dexId": 570,
     "name": "Zorua (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/zorua.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 570
+    "category": "n"
   },
   {
     "id": 1388,
+    "dexId": 595,
     "name": "Joltik (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/joltik.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 595
+    "category": "n"
   },
   {
     "id": 1389,
+    "dexId": 597,
     "name": "Ferroseed (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ferroseed.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 597
+    "category": "n"
   },
   {
     "id": 1390,
+    "dexId": 599,
     "name": "Klink (N's Pokémon)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/klink.png",
     "boxId": 55,
-    "category": "n",
-    "dexId": 599
+    "category": "n"
   },
   {
     "id": 1391,
+    "dexId": 735,
     "name": "Totem Gumshoos",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gumshoos.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 735
+    "category": "totem"
   },
   {
     "id": 1392,
+    "dexId": 20,
     "name": "Totem Raticate (Alola Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/raticate-alolan.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 20
+    "category": "totem"
   },
   {
     "id": 1393,
+    "dexId": 758,
     "name": "Totem Salazzle",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/salazzle.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 758
+    "category": "totem"
   },
   {
     "id": 1394,
+    "dexId": 105,
     "name": "Totem Marowak (Alola Form)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/marowak-alolan.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 105
+    "category": "totem"
   },
   {
     "id": 1395,
+    "dexId": 754,
     "name": "Totem Lurantis",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/lurantis.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 754
+    "category": "totem"
   },
   {
     "id": 1396,
+    "dexId": 738,
     "name": "Totem Vikavolt",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/vikavolt.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 738
+    "category": "totem"
   },
   {
     "id": 1397,
+    "dexId": 778,
     "name": "Totem Mimikyu",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/mimikyu.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 778
+    "category": "totem"
   },
   {
     "id": 1398,
+    "dexId": 784,
     "name": "Totem Kommo-o",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/kommo-o.png",
     "boxId": 56,
-    "category": "totem",
-    "dexId": 784
+    "category": "totem"
   },
   {
     "id": 1399,
+    "dexId": 3,
     "name": "Venusaur (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/venusaur-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 3
+    "category": "gmax"
   },
   {
     "id": 1400,
+    "dexId": 6,
     "name": "Charizard (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/charizard-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 6
+    "category": "gmax"
   },
   {
     "id": 1401,
+    "dexId": 9,
     "name": "Blastoise (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/blastoise-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 9
+    "category": "gmax"
   },
   {
     "id": 1402,
+    "dexId": 12,
     "name": "Butterfree (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/butterfree-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 12
+    "category": "gmax"
   },
   {
     "id": 1403,
+    "dexId": 25,
     "name": "Pikachu (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 25
+    "category": "gmax"
   },
   {
     "id": 1404,
+    "dexId": 52,
     "name": "Meowth (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/meowth-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 52
+    "category": "gmax"
   },
   {
     "id": 1405,
+    "dexId": 68,
     "name": "Machamp (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/machamp-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 68
+    "category": "gmax"
   },
   {
     "id": 1406,
+    "dexId": 94,
     "name": "Gengar (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/gengar-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 94
+    "category": "gmax"
   },
   {
     "id": 1407,
+    "dexId": 99,
     "name": "Kingler (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/kingler-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 99
+    "category": "gmax"
   },
   {
     "id": 1408,
+    "dexId": 131,
     "name": "Lapras (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/lapras-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 131
+    "category": "gmax"
   },
   {
     "id": 1409,
+    "dexId": 133,
     "name": "Eevee (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/eevee-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 133
+    "category": "gmax"
   },
   {
     "id": 1410,
+    "dexId": 569,
     "name": "Garbodor (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/garbodor-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 569
+    "category": "gmax"
   },
   {
     "id": 1411,
+    "dexId": 809,
     "name": "Melmetal (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/melmetal-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 809
+    "category": "gmax"
   },
   {
     "id": 1412,
+    "dexId": 812,
     "name": "Rillaboom (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/rillaboom-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 812
+    "category": "gmax"
   },
   {
     "id": 1413,
+    "dexId": 815,
     "name": "Cinderace (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/cinderace-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 815
+    "category": "gmax"
   },
   {
     "id": 1414,
+    "dexId": 818,
     "name": "Inteleon (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/inteleon-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 818
+    "category": "gmax"
   },
   {
     "id": 1415,
+    "dexId": 823,
     "name": "Corviknight (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/corviknight-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 823
+    "category": "gmax"
   },
   {
     "id": 1416,
+    "dexId": 826,
     "name": "Orbeetle (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/orbeetle-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 826
+    "category": "gmax"
   },
   {
     "id": 1417,
+    "dexId": 834,
     "name": "Drednaw (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/drednaw-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 834
+    "category": "gmax"
   },
   {
     "id": 1418,
+    "dexId": 839,
     "name": "Coalossal (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/coalossal-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 839
+    "category": "gmax"
   },
   {
     "id": 1419,
+    "dexId": 841,
     "name": "Flapple (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/flapple-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 841
+    "category": "gmax"
   },
   {
     "id": 1420,
+    "dexId": 842,
     "name": "Appletun (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/appletun-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 842
+    "category": "gmax"
   },
   {
     "id": 1421,
+    "dexId": 844,
     "name": "Sandaconda (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sandaconda-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 844
+    "category": "gmax"
   },
   {
     "id": 1422,
+    "dexId": 849,
     "name": "Toxtricity Amped Form (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/toxtricity-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 849
+    "category": "gmax"
   },
   {
     "id": 1423,
+    "dexId": 849,
     "name": "Toxtricity Low Key Form (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/toxtricity-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 849
+    "category": "gmax"
   },
   {
     "id": 1424,
+    "dexId": 854,
     "name": "Centiskorch (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/centiskorch-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 854
+    "category": "gmax"
   },
   {
     "id": 1425,
+    "dexId": 859,
     "name": "Hatterene (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/hatterene-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 859
+    "category": "gmax"
   },
   {
     "id": 1426,
+    "dexId": 863,
     "name": "Grimmsnarl (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/grimmsnarl-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 863
+    "category": "gmax"
   },
   {
     "id": 1427,
+    "dexId": 867,
     "name": "Alcremie (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/alcremie-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 867
+    "category": "gmax"
   },
   {
     "id": 1428,
+    "dexId": 889,
     "name": "Copperajah (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/copperajah-gigantamax.png",
     "boxId": 57,
-    "category": "gmax",
-    "dexId": 889
+    "category": "gmax"
   },
   {
     "id": 1429,
+    "dexId": 894,
     "name": "Duraludon (Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/duraludon-gigantamax.png",
     "boxId": 58,
-    "category": "gmax",
-    "dexId": 894
+    "category": "gmax"
   },
   {
     "id": 1430,
+    "dexId": 892,
     "name": "Urshifu (Rapid Strike Style Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/urshifu-rapid-strike-gigantamax.png",
     "boxId": 58,
-    "category": "gmax",
-    "dexId": 892
+    "category": "gmax"
   },
   {
     "id": 1431,
+    "dexId": 892,
     "name": "Urshifu (Single Strike Style Gigantamax)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/urshifu-single-strike-gigantamax.png",
     "boxId": 58,
-    "category": "gmax",
-    "dexId": 892
+    "category": "gmax"
   },
   {
     "id": 1432,
+    "dexId": 1,
     "name": "Bulbasaur (Gigantamax Factor) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/bulbasaur.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 1
+    "category": "gmax"
   },
   {
     "id": 1433,
+    "dexId": 2,
     "name": "Ivysaur (Gigantamax Factor) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/ivysaur.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 2
+    "category": "gmax"
   },
   {
     "id": 1434,
+    "dexId": 4,
     "name": "Charmander (Gigantamax Factor) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/charmander.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 4
+    "category": "gmax"
   },
   {
     "id": 1435,
+    "dexId": 5,
     "name": "Charmeleon (Gigantamax Factor) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/charmeleon.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 5
+    "category": "gmax"
   },
   {
     "id": 1436,
+    "dexId": 7,
     "name": "Squirtle (Gigantamax Factor) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/squirtle.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 7
+    "category": "gmax"
   },
   {
     "id": 1437,
+    "dexId": 8,
     "name": "Wartortle (Gigantamax Factor) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/wartortle.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 8
+    "category": "gmax"
   },
   {
     "id": 1438,
+    "dexId": 3,
     "name": "Venusaur (Gigantamax) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/venusaur-gigantamax.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 3
+    "category": "gmax"
   },
   {
     "id": 1439,
+    "dexId": 6,
     "name": "Charizard (Gigantamax) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/charizard-gigantamax.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 6
+    "category": "gmax"
   },
   {
     "id": 1440,
+    "dexId": 9,
     "name": "Blastoise (Gigantamax) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/blastoise-gigantamax.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 9
+    "category": "gmax"
   },
   {
     "id": 1441,
+    "dexId": 25,
     "name": "Pikachu (Gigantamax) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/pikachu-gigantamax.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 25
+    "category": "gmax"
   },
   {
     "id": 1442,
+    "dexId": 52,
     "name": "Meowth (Gigantamax) (Gift)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/meowth-gigantamax.png",
     "boxId": 59,
-    "category": "gmax",
-    "dexId": 52
+    "category": "gmax"
   }
 ]

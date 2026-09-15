@@ -11,7 +11,7 @@
 //     this script will never move or renumber a box you've already set.
 //
 // Run from your project root:
-//   node src/checklists/pokemon/scripts/assignBoxes.mjs
+//   node src/checklists/home/scripts/assignBoxes.mjs
 //
 // Heads up: renumbering ids can shift which id number a gender/form
 // Pokémon happens to have. If you've already got some of those checked

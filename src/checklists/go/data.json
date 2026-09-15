@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 1.3,
     "dexId": 1,
     "name": "Bulbasaur (Shedinja Costume)",
     "spriteUrl": "https://www.serebii.net/pokemongo/pokemon/001-halloween2019.png"
@@ -986,11 +986,11 @@
   {
     "id": 3.2,
     "dexId": 3,
-    "name": "Venusaur (Clone)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/003-clone.png"
+    "name": "Venusaur (Pikachu Cap)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/003-pikachuvisor.png"
   },
   {
-    "id": 4,
+    "id": 4.3,
     "dexId": 4,
     "name": "Charmander (Halloween)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/004-halloween2019.png"
@@ -1008,7 +1008,7 @@
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/004-pikachuvisor.png"
   },
   {
-    "id": 4.3,
+    "id": 4.4,
     "dexId": 4,
     "name": "Charmander (Friede's Goggles)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/004-friede.png"
@@ -1056,13 +1056,13 @@
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/006-friede.png"
   },
   {
-    "id": 7,
+    "id": 7.1,
     "dexId": 7,
     "name": "Squirtle (Sunglasses)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/007-sunglasses.png"
   },
   {
-    "id": 7.1,
+    "id": 7.4,
     "dexId": 7,
     "name": "Squirtle (Halloween)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/007-halloween2019.png"
@@ -1268,44 +1268,44 @@
   {
     "id": 25.0007,
     "dexId": 25,
+    "name": "Pikachu (Beanie)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-beanie.png"
+  },
+  {
+    "id": 25.0008,
+    "dexId": 25,
     "name": "Pikachu (Detective)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-detective.png"
   },
   {
-    "id": 25.0008,
+    "id": 25.0009,
     "dexId": 25,
     "name": "Pikachu (Straw Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-strawhat.png"
   },
   {
-    "id": 25.0009,
-    "dexId": 25,
-    "name": "Pikachu (Mimikyu Costume)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-halloween2019.png"
-  },
-  {
     "id": 25.0010,
     "dexId": 25,
-    "name": "Pikachu (Beanie)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-beanie.png"
+    "name": "Pikachu (Libre)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-libre.png"
   },
-  {
+   {
     "id": 25.0011,
+    "dexId": 25,
+    "name": "Pikachu (Pikachu PhD)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-phd.png"
+  }, 
+  {
+    "id": 25.0012,
     "dexId": 25,
     "name": "Pikachu (Party Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-partyhat2020.png"
   },
   {
-    "id": 25.0012,
-    "dexId": 25,
-    "name": "Pikachu (Clone)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-clone.png"
-  },
-  {
     "id": 25.0013,
     "dexId": 25,
-    "name": "Pikachu (Libre)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-libre.png"
+    "name": "Pikachu (Flower Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flowerhat.png"
   },
   {
     "id": 25.0014,
@@ -1316,437 +1316,437 @@
   {
     "id": 25.0015,
     "dexId": 25,
-    "name": "Pikachu (Flower Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flowerhat.png"
-  },
-  {
-    "id": 25.0016,
-    "dexId": 25,
     "name": "Pikachu (Charizard Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-charizard.png"
   },
   {
-    "id": 25.0017,
+    "id": 25.0016,
     "dexId": 25,
     "name": "Pikachu (Umbreon Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-umbreon.png"
   },
   {
-    "id": 25.0018,
+    "id": 25.0017,
     "dexId": 25,
     "name": "Pikachu (Rayquaza Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-rayquaza.png"
   },
   {
-    "id": 25.0019,
+    "id": 25.0018,
     "dexId": 25,
     "name": "Pikachu (Lucario Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-lucario.png"
   },
   {
-    "id": 25.0020,
-    "dexId": 25,
-    "name": "Pikachu (Flying)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flying.png"
-  },
-  {
-    "id": 25.0021,
+    "id": 25.0019,
     "dexId": 25,
     "name": "Pikachu (World Cap)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worldcap.png"
   },
   {
-    "id": 25.0022,
-    "dexId": 25,
-    "name": "Pikachu (Explorer)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-explorer.png"
-  },
-  {
-    "id": 25.0023,
-    "dexId": 25,
-    "name": "Pikachu (Winter Carnival)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-holiday2020.png"
-  },
-  {
-    "id": 25.0025,
+    "id": 25.0020,
     "dexId": 25,
     "name": "Pikachu (New Year Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-newyear.png"
   },
   {
-    "id": 25.0026,
-    "dexId": 25,
-    "name": "Pikachu (5th Anniversary Flying)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flying5th.png"
-  },
-  {
-    "id": 25.0027,
-    "dexId": 25,
-    "name": "Pikachu (Pop Star)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-popstar.png"
-  },
-  {
-    "id": 25.0028,
-    "dexId": 25,
-    "name": "Pikachu (Rock Star)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-rockstar.png"
-  },
-  {
-    "id": 25.0029,
+    "id": 25.0021,
     "dexId": 25,
     "name": "Pikachu (Meloetta Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gofest2021.png"
   },
   {
-    "id": 25.0030,
+    "id": 25.0022,
     "dexId": 25,
     "name": "Pikachu (Halloween Mischief)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-halloween2021.png"
   },
   {
-    "id": 25.0031,
-    "dexId": 25,
-    "name": "Pikachu (Kariyushi)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-kariyushi.png"
-  },
-  {
-    "id": 25.0032,
-    "dexId": 25,
-    "name": "Pikachu (Okinawa Balloon)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-okinawaballoons.png"
-  },
-  {
-    "id": 25.0033,
-    "dexId": 25,
-    "name": "Pikachu (Gracidea)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gracidea.png"
-  },
-  {
-    "id": 25.0034,
+    "id": 25.0023,
     "dexId": 25,
     "name": "Pikachu (TCG Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-tcg.png"
   },
   {
-    "id": 25.0035,
+    "id": 25.0024,
+    "dexId": 25,
+    "name": "Pikachu (Gracidea)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gracidea.png"
+  },
+  {
+    "id": 25.0025,
     "dexId": 25,
     "name": "Pikachu (Cake Costume)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-cake.png"
   },
   {
-    "id": 25.0036,
-    "dexId": 25,
-    "name": "Pikachu (World Championships 2022)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds2022.png"
-  },
-  {
-    "id": 25.0037,
-    "dexId": 25,
-    "name": "Pikachu (Shaymin Scarf)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-shayminscarf.png"
-  },
-  {
-    "id": 25.0038,
-    "dexId": 25,
-    "name": "Pikachu (Green Shirt)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-greenshirt.png"
-  },
-  {
-    "id": 25.0039,
-    "dexId": 25,
-    "name": "Pikachu (Green Balloon)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flyinggreen.png"
-  },
-  {
-    "id": 25.0039,
-    "dexId": 25,
-    "name": "Pikachu (Purple Shirt)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-purpleshirt.png"
-  },
-  {
-    "id": 25.0040,
-    "dexId": 25,
-    "name": "Pikachu (Purple Balloon)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flyingpurple.png"
-  },
-  {
-    "id": 25.0041,
+    "id": 25.0026,
     "dexId": 25,
     "name": "Pikachu (Party Top Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-newyear2023.png"
   },
-  {
-    "id": 25.0042,
-    "dexId": 25,
-    "name": "Pikachu (Brendan Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-brendan.png"
-  },
-  {
-    "id": 25.0043,
+    {
+    "id": 25.0027,
     "dexId": 25,
     "name": "Pikachu (May Bow)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-may.png"
   },
   {
-    "id": 25.0044,
+    "id": 25.0028,
+    "dexId": 25,
+    "name": "Pikachu (Brendan Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-brendan.png"
+  },
+  {
+    "id": 25.0029,
     "dexId": 25,
     "name": "Pikachu (Cherry Blossoms)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-cherryblossoms.png"
   },
   {
-    "id": 25.0045,
-    "dexId": 25,
-    "name": "Pikachu (Blue Shirt (Citrus))",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-jeju.png"
-  },
-  {
-    "id": 25.0046,
-    "dexId": 25,
-    "name": "Pikachu (Orange Flying)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/1x/pikachu-orange-balloons.png"
-  },
-  {
-    "id": 25.0047,
-    "dexId": 25,
-    "name": "Pikachu (Amethyst Crown)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-amethyst.png"
-  },
-  {
-    "id": 25.0048,
-    "dexId": 25,
-    "name": "Pikachu (World Championships Jersey)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds23.png"
-  },
-  {
-    "id": 25.0049,
-    "dexId": 25,
-    "name": "Pikachu (Pyrite Crown)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pyrite.png"
-  },
-  {
-    "id": 25.0050,
-    "dexId": 25,
-    "name": "Pikachu (Quartz Crown)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-quartz.png"
-  },
-  {
-    "id": 25.0051,
-    "dexId": 25,
-    "name": "Pikachu (Malachite Crown)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-malachite.png"
-  },
-  {
-    "id": 25.0052,
-    "dexId": 25,
-    "name": "Pikachu (Aquamarine Crown)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-aquamarine.png"
-  },
-  {
-    "id": 25.0053,
+    "id": 25.0030,
     "dexId": 25,
     "name": "Pikachu (Detective 2023)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-detective.png"
   },
   {
-    "id": 25.0054,
+    "id": 25.0031,
     "dexId": 25,
     "name": "Pikachu (Tricks & Treats)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-halloween2023.png"
   },
   {
-    "id": 25.0055,
+    "id": 25.0032,
     "dexId": 25,
     "name": "Pikachu (Holidays)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-holidays2023.png"
   },
-  {
-    "id": 25.0056,
-    "dexId": 25,
-    "name": "Pikachu (Dawn Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-dawn.png"
-  },
-  {
-    "id": 25.0057,
-    "dexId": 25,
-    "name": "Pikachu (Lucas Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-lucas.png"
-  },
-  {
-    "id": 25.0058,
-    "dexId": 25,
-    "name": "Pikachu (Akari's Kerchief)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-akari.png"
-  },
-  {
-    "id": 25.0059,
-    "dexId": 25,
-    "name": "Pikachu (Rei's Cap)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-rei.png"
-  },
-  {
-    "id": 25.0060,
-    "dexId": 25,
-    "name": "Pikachu (Pikachu PhD)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-phd.png"
-  },
-  {
-    "id": 25.0061,
-    "dexId": 25,
-    "name": "Pikachu (Batik Shirt)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-indshirt.png"
-  },
-  {
-    "id": 25.0062,
-    "dexId": 25,
-    "name": "Pikachu (Black Balloon)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-indballoon.png"
-  },
-  {
-    "id": 25.0062,
-    "dexId": 25,
-    "name": "Pikachu (Captain)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-captain.png"
-  },
-  {
-    "id": 25.0063,
-    "dexId": 25,
-    "name": "Pikachu (Sun Crown)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-sun.png"
-  },
-  {
-    "id": 25.0064,
-    "dexId": 25,
-    "name": "Pikachu (Moon Crown)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-moon.png"
-  },
-  {
-    "id": 25.0065,
-    "dexId": 25,
-    "name": "Pikachu (World Championships 2024)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds24.png"
-  },
-  {
-    "id": 25.0066,
-    "dexId": 25,
-    "name": "Pikachu (Saree)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-saree.png"
-  },
-  {
-    "id": 25.0067,
-    "dexId": 25,
-    "name": "Pikachu (Hilbert's Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-hilbert.png"
-  },
-  {
-    "id": 25.0068,
-    "dexId": 25,
-    "name": "Pikachu (Hilda's Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-hilda.png"
-  },
-  {
-    "id": 25.0069,
-    "dexId": 25,
-    "name": "Pikachu (Nate's Visor)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-nate.png"
-  },
-  {
-    "id": 25.0070,
-    "dexId": 25,
-    "name": "Pikachu (Rosa's Visor)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-rosa.png"
-  },
-  {
-    "id": 25.0071,
-    "dexId": 25,
-    "name": "Pikachu (Kurta)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-kurta.png"
-  },
-  {
-    "id": 25.0072,
-    "dexId": 25,
-    "name": "Pikachu (Goggles (Red))",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gogglesred.png"
-  },
-  {
-    "id": 25.0073,
-    "dexId": 25,
-    "name": "Pikachu (Goggles (Blue))",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gogglesblue.png"
-  },
-  {
-    "id": 25.0074,
-    "dexId": 25,
-    "name": "Pikachu (Goggles (Yellow))",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gogglesyellow.png"
-  },
-  {
-    "id": 25.0075,
-    "dexId": 25,
-    "name": "Pikachu (Monocle (Red))",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-monoclered.png"
-  },
-  {
-    "id": 25.0076,
-    "dexId": 25,
-    "name": "Pikachu (Monocle (Blue))",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-monocleblue.png"
-  },
-  {
-    "id": 25.0077,
-    "dexId": 25,
-    "name": "Pikachu (Monocle (Yellow))",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-monocleyellow.png"
-  },
-  {
-    "id": 25.0078,
+    {
+    "id": 25.0033,
     "dexId": 25,
     "name": "Pikachu (Timnas Indonesia)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-timnasindonesia.png"
   },
   {
+    "id": 25.0034,
+    "dexId": 25,
+    "name": "Pikachu (Mimikyu Costume)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-halloween2019.png"
+  },
+  {
+    "id": 25.0035,
+    "dexId": 25,
+    "name": "Pikachu (Clone)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-clone.png"
+  },
+  {
+    "id": 25.0036,
+    "dexId": 25,
+    "name": "Pikachu (Flying)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flying.png"
+  },
+  {
+    "id": 25.0037,
+    "dexId": 25,
+    "name": "Pikachu (Explorer)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-explorer.png"
+  },
+  {
+    "id": 25.0038,
+    "dexId": 25,
+    "name": "Pikachu (Winter Carnival)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-holiday2020.png"
+  },
+  {
+    "id": 25.0039,
+    "dexId": 25,
+    "name": "Pikachu (Kariyushi)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-kariyushi.png"
+  },
+    {
+    "id": 25.0040,
+    "dexId": 25,
+    "name": "Pikachu (Okinawa Balloon)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-okinawaballoons.png"
+  },
+  {
+    "id": 25.0041,
+    "dexId": 25,
+    "name": "Pikachu (Pop Star)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-popstar.png"
+  },
+  {
+    "id": 25.0042,
+    "dexId": 25,
+    "name": "Pikachu (Rock Star)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-rockstar.png"
+  },
+  {
+    "id": 25.0043,
+    "dexId": 25,
+    "name": "Pikachu (5th Anniversary Flying)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flying5th.png"
+  },
+  {
+    "id": 25.0044,
+    "dexId": 25,
+    "name": "Pikachu (Shaymin Scarf)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-shayminscarf.png"
+  },
+  {
+    "id": 25.0045,
+    "dexId": 25,
+    "name": "Pikachu (World Championships 2022)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds2022.png"
+  },
+  {
+    "id": 25.0046,
+    "dexId": 25,
+    "name": "Pikachu (Green Shirt)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-greenshirt.png"
+  },
+  {
+    "id": 25.0047,
+    "dexId": 25,
+    "name": "Pikachu (Purple Shirt)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-purpleshirt.png"
+  },
+  {
+    "id": 25.0048,
+    "dexId": 25,
+    "name": "Pikachu (Blue Shirt (Citrus))",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-jeju.png"
+  },
+  {
+    "id": 25.0049,
+    "dexId": 25,
+    "name": "Pikachu (Green Balloon)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flyinggreen.png"
+  },
+  {
+    "id": 25.0050,
+    "dexId": 25,
+    "name": "Pikachu (Purple Balloon)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-flyingpurple.png"
+  },
+  {
+    "id": 25.0051,
+    "dexId": 25,
+    "name": "Pikachu (Lucas Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-lucas.png"
+  },
+  {
+    "id": 25.0052,
+    "dexId": 25,
+    "name": "Pikachu (Rei's Cap)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-rei.png"
+  },
+  {
+    "id": 25.0053,
+    "dexId": 25,
+    "name": "Pikachu (Dawn Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-dawn.png"
+  },
+  {
+    "id": 25.0054,
+    "dexId": 25,
+    "name": "Pikachu (Akari's Kerchief)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-akari.png"
+  },
+  {
+    "id": 25.0055,
+    "dexId": 25,
+    "name": "Pikachu (Batik Shirt)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-indshirt.png"
+  },
+  {
+    "id": 25.0056,
+    "dexId": 25,
+    "name": "Pikachu (Black Balloon)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-indballoon.png"
+  },
+  {
+    "id": 25.0057,
+    "dexId": 25,
+    "name": "Pikachu (Captain)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-captain.png"
+  },
+  {
+    "id": 25.0058,
+    "dexId": 25,
+    "name": "Pikachu (Sun Crown)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-sun.png"
+  },
+  {
+    "id": 25.0059,
+    "dexId": 25,
+    "name": "Pikachu (Moon Crown)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-moon.png"
+  },
+  {
+    "id": 25.0060,
+    "dexId": 25,
+    "name": "Pikachu (Saree)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-saree.png"
+  },
+  {
+    "id": 25.0061,
+    "dexId": 25,
+    "name": "Pikachu (Hilbert's Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-hilbert.png"
+  },
+  {
+    "id": 25.0062,
+    "dexId": 25,
+    "name": "Pikachu (Nate's Visor)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-nate.png"
+  },
+  {
+    "id": 25.0063,
+    "dexId": 25,
+    "name": "Pikachu (Hilda's Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-hilda.png"
+  },
+  {
+    "id": 25.0064,
+    "dexId": 25,
+    "name": "Pikachu (Rosa's Visor)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-rosa.png"
+  },
+  {
+    "id": 25.0065,
+    "dexId": 25,
+    "name": "Pikachu (Kurta)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-kurta.png"
+  },
+  {
+    "id": 25.0066,
+    "dexId": 25,
+    "name": "Pikachu (Goggles (Red))",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gogglesred.png"
+  },
+  {
+    "id": 25.0067,
+    "dexId": 25,
+    "name": "Pikachu (Goggles (Blue))",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gogglesblue.png"
+  },
+  {
+    "id": 25.0068,
+    "dexId": 25,
+    "name": "Pikachu (Goggles (Yellow))",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-gogglesyellow.png"
+  },
+  {
+    "id": 25.0069,
+    "dexId": 25,
+    "name": "Pikachu (Monocle (Red))",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-monoclered.png"
+  },
+  {
+    "id": 25.0070,
+    "dexId": 25,
+    "name": "Pikachu (Monocle (Blue))",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-monocleblue.png"
+  },
+  {
+    "id": 25.0071,
+    "dexId": 25,
+    "name": "Pikachu (Monocle (Yellow))",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-monocleyellow.png"
+  },
+  {
+    "id": 25.0072,
+    "dexId": 25,
+    "name": "Pikachu (Malachite Crown)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-aquamarine.png"
+  },
+  {
+    "id": 25.0073,
+    "dexId": 25,
+    "name": "Pikachu (Aquamarine Crown)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-malachite.png"
+  },
+  {
+    "id": 25.0074,
+    "dexId": 25,
+    "name": "Pikachu (Quartz Crown)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-quartz.png"
+  },
+  {
+    "id": 25.0075,
+    "dexId": 25,
+    "name": "Pikachu (Pyrite Crown)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pyrite.png"
+  },
+  {
+    "id": 25.0076,
+    "dexId": 25,
+    "name": "Pikachu (Amethyst Crown)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-amethyst.png"
+  },
+  {
+    "id": 25.0077,
+    "dexId": 25,
+    "name": "Pikachu (Orange Flying)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/go/normal/1x/pikachu-orange-balloons.png"
+  },
+  {
+    "id": 25.0078,
+    "dexId": 25,
+    "name": "Pikachu (World Championships Jersey)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds23.png"
+  },
+  {
     "id": 25.0079,
     "dexId": 25,
-    "name": "Pikachu (World Championships 2025)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds25.png"
+    "name": "Pikachu (World Championships 2024)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds24.png"
   },
   {
     "id": 25.0080,
     "dexId": 25,
-    "name": "Pikachu (Calem Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-calem.png"
+    "name": "Pikachu (World Championships 2025)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds25.png"
   },
-  {
+{
     "id": 25.0081,
-    "dexId": 25,
-    "name": "Pikachu (Serena Hat)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-serena.png"
-  },
-  {
-    "id": 25.0082,
     "dexId": 25,
     "name": "Pikachu (Red Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-red.png"
   },
   {
-    "id": 25.0083,
+    "id": 25.0082,
     "dexId": 25,
     "name": "Pikachu (Leaf Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-leaf.png"
   },
   {
-    "id": 25.0084,
+    "id": 25.0083,
     "dexId": 25,
     "name": "Pikachu (Ethan Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-ethan.png"
   },
   {
-    "id": 25.0085,
+    "id": 25.0084,
     "dexId": 25,
     "name": "Pikachu (Lyra Hat)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-lyra.png"
   },
   {
+    "id": 25.0085,
+    "dexId": 25,
+    "name": "Pikachu (Calem Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-calem.png"
+  },
+  {
     "id": 25.0086,
+    "dexId": 25,
+    "name": "Pikachu (Serena Hat)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-serena.png"
+  },
+  {
+    "id": 25.0087,
     "dexId": 25,
     "name": "Pikachu (Baseball Shirt)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-baseball.png"
@@ -1794,37 +1794,37 @@
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-xp26.png"
   },
   {
-    "id": 25.0094,
+    "id": 25.0095,
     "dexId": 25,
     "name": "Pikachu (World Championships 2026)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-worlds26.png"
   },
   {
-    "id": 25.0095,
+    "id": 25.0096,
     "dexId": 25,
     "name": "Pikachu (PokéXciting Malaysia)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingmalaysia.png"
   },
   {
-    "id": 25.0096,
+    "id": 25.0097,
     "dexId": 25,
     "name": "Pikachu (PokéXciting Taiwan)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingtaiwan.png"
   },
   {
-    "id": 25.0097,
+    "id": 25.0098,
     "dexId": 25,
     "name": "Pikachu (PokéXciting Singapore)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingsingapore.png"
   },
   {
-    "id": 25.0098,
+    "id": 25.0099,
     "dexId": 25,
     "name": "Pikachu (PokéXciting Philippines)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-pokexcitingphilippines.png"
   },
   {
-    "id": 25.0099,
+    "id": 25.0100,
     "dexId": 25,
     "name": "Pikachu (Orange Hanbok)",
     "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-hanbok.png"

@@ -21,7 +21,7 @@ function loadCheckedIds(storageKey) {
 }
 
 // The generic engine behind every checklist. Takes one checklist's
-// `config` (see src/checklists/pokemon/config.js for an example) and
+// `config` (see src/checklists/home/config.js for an example) and
 // renders the whole page — box grid (or flat list), search, filters,
 // sidebars, lock, and cloud sync. This file is the direct descendant of
 // the original App.jsx; nothing in here should ever need to know it's

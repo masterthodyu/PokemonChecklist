@@ -1,7 +1,7 @@
 // Tags every Pokémon in ../data.json with a "category" field, based on
 // simple naming rules. Run this any time you add new Pokémon to the file:
 //
-//   node src/checklists/pokemon/scripts/assignCategories.mjs
+//   node src/checklists/home/scripts/assignCategories.mjs
 //
 // HOW TO NAME NEW ENTRIES SO THIS SCRIPT PICKS THEM UP:
 //   Alolan form      -> start the name with "Alolan "        e.g. "Alolan Vulpix"

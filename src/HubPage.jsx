@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import { HUB_CONFIG } from './hubConfig.js'
+import { toCheckedMap } from './engine/sync.js'
 
 // Reads the exact same localStorage key each ChecklistPage writes to, just
 // to show a quick "how far along am I" summary. No separate state to keep
-// in sync — it's reading straight from the same source of truth.
+// in sync — it's reading straight from the same source of truth, through
+// the same toCheckedMap parser ChecklistPage itself uses (so this stays
+// correct no matter how the storage format changes in the future).
 function readCheckedCount(storageKey) {
   try {
     const raw = localStorage.getItem(storageKey)
-    const checkedIds = raw ? new Set(JSON.parse(raw)) : new Set()
-    return checkedIds.size
+    return raw ? toCheckedMap(JSON.parse(raw)).size : 0
   } catch {
     return 0
   }
@@ -19,7 +21,7 @@ function readCheckedCount(storageKey) {
 // progress, linking into that checklist's route.
 //
 // To add a new checklist's icon: just set `icon` in that checklist's
-// config.js (see src/checklists/pokemon/config.js for an example) —
+// config.js (see src/checklists/home/config.js for an example) —
 // nothing here needs to change. No icon set? A generic placeholder box
 // shows instead, so nothing looks broken while you're still deciding.
 function HubPage({ checklists }) {
@@ -46,6 +48,13 @@ function HubPage({ checklists }) {
           const accentFrom = config.accentFrom || '#ee1515'
           const accentTo = config.accentTo || '#ffcb05'
 
+          // Checklists still mid-setup (like USUM's 3-entry starter data)
+          // would otherwise show something like "0 / 3 caught (0%)" —
+          // reads as broken rather than "not built out yet." Anything
+          // under this threshold gets a plain "still being built" note
+          // instead of a percentage that doesn't mean much yet.
+          const isPlaceholderData = total < 10
+
           return (
             <Link
               key={config.id}
@@ -61,13 +70,19 @@ function HubPage({ checklists }) {
 
               <div className="hub-row-body">
                 <h2>{config.title}</h2>
-                <p className="hub-row-count">{checked} / {total} caught</p>
-                <div className="gen-bar-track">
-                  <div className="hub-bar-fill" style={{ width: `${pct}%` }} />
-                </div>
+                {isPlaceholderData ? (
+                  <p className="hub-row-count">🚧 Still being built ({total} entries so far)</p>
+                ) : (
+                  <>
+                    <p className="hub-row-count">{checked} / {total} caught</p>
+                    <div className="gen-bar-track">
+                      <div className="hub-bar-fill" style={{ width: `${pct}%` }} />
+                    </div>
+                  </>
+                )}
               </div>
 
-              <div className="hub-row-stat">{pct}%</div>
+              {!isPlaceholderData && <div className="hub-row-stat">{pct}%</div>}
             </Link>
           )
         })}
