@@ -1,3 +1,6 @@
+# DISCLAIMER
+This is an unofficial, non-commercial fan project. Pokemon and all related names, images, and data are trademarks and copyrights of Nintendo, Game Freak, Creates Inc. and the Pokemon COmpnay. This project is not affiilited with, endorsed by or sponsored yb any of them.
+
 # My Checklist Project
 
 This started as a single page to check off every Pokémon I've caught in Pokémon Home. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, Soul Silver/Heart Gold, Colosseum, and XD: Gale of Darkness so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist. Progress is stored in one shared Firebase database.
