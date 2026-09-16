@@ -8,7 +8,7 @@ export default {
   id: 'go',
   title: 'Pokémon GO',
   path: '/go',
-  icon: 'https://static.wikia.nocookie.net/pokemongo/images/c/c1/AppIcon_Standard.png/revision/latest?cb=20220304130349',
+  icon: '/icons/go.png',
   // GO's own blue, not the mainline games' red — this one has its own
   // app identity.
   accentFrom: '#2f80c4',

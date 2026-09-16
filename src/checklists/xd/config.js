@@ -20,11 +20,10 @@ export default {
   id: 'xd',
   title: 'Pokémon XD: Gale of Darkness',
   path: '/xd',
-  // Shadow Lugia's own menu sprite — the game's box-art mascot. Same
-  // stand-in caveat as the Colosseum icon: correct-by-construction rather
-  // than a token-bearing hotlink. Swap for a real logo in public/icons/
-  // when you have one.
-  icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlpGg_gO9qiJ5jXM9B1yq9vsVb4nJ0fwEKw2ZCnon0gA&s',
+  // Shadow Lugia's own menu sprite — the game's box-art mascot. A
+  // stand-in, self-hosted now (see public/icons/xd.png) rather than
+  // hotlinked. Swap for a real logo in public/icons/ when you have one.
+  icon: '/icons/xd.png',
   // Shadow Lugia's pale blue-white into Shadow purple.
   accentFrom: '#cfdced',
   accentTo: '#604e82',

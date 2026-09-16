@@ -26,13 +26,11 @@ export default {
   id: 'colluseum',
   title: 'Pokémon Colosseum',
   path: '/colluseum',
-  // Umbreon's Colosseum menu sprite — Wes's signature Pokémon. This is a
-  // stand-in, not a real game logo: it's here because it's a URL that's
-  // *verifiably* correct (same Bulbapedia archive pattern as every sprite
-  // in data.json), rather than a hotlink with a expiring token like the
-  // USUM icon this config was originally copy-pasted from. Swap in a
-  // proper Colosseum logo in public/icons/ when you have one.
-  icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo0wD9lMqco2FuNUnZDuG44ZjfK1LCEEXEQQBEfN503g&s=10',
+  // Umbreon's Colosseum menu sprite — Wes's signature Pokémon. A
+  // stand-in, not a real game logo, but self-hosted now (see
+  // public/icons/colluseum.png) rather than hotlinked. Swap in a proper
+  // Colosseum logo in public/icons/ when you have one.
+  icon: '/icons/colluseum.png',
   // Orre's desert sand into Shadow purple — Colosseum's own box art palette,
   // rather than the USUM sun/moon colors this was copy-pasted from.
   accentFrom: '#c8a25b',

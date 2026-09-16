@@ -11,7 +11,7 @@ export default {
   id: 'home',
   title: 'Pokémon Home',
   path: '/home',
-  icon: 'https://play-lh.googleusercontent.com/gKOiChbx6pKJ8PDmdpsSfLuULbljOFGVf67B8ley5Ym6eYK4KfIrnl1x3Jg2Kei-6sSegsxpz-k5gycvFAUw',
+  icon: '/icons/home.png',
   // The Pokéball's own red/yellow — also the engine's default accent, so
   // this is here for clarity rather than necessity.
   accentFrom: '#ee1515',
