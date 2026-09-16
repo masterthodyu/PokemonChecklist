@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import ItemCard from './ItemCard.jsx'
 import GroupProgress from './GroupProgress.jsx'
 import { checkPassword } from './lock.js'
-import { isSyncEnabled, fetchIdsFromCloud, pushIdsToCloud, toCheckedMap, fromCheckedMap } from './sync.js'
+import { isSyncEnabled, fetchIdsFromCloud, pushIdsToCloud, toCheckedMap, fromCheckedMap, mergeCheckedMaps } from './sync.js'
 
 // Reads a checklist's checked-item Map back out of the browser's storage
 // when the page first loads — a Map of id -> the date it was checked (or
@@ -76,14 +76,10 @@ function ChecklistPage({ config }) {
   }, [storageKey])
 
   // On first load (and whenever we switch checklists): pull down whatever's
-  // saved in the cloud and MERGE it with what's already saved locally
-  // (never remove anything either way — simple, but it means an "uncheck"
-  // on one device might not always stick if another device still has that
-  // item checked. Good enough for a personal checklist; a smarter merge is
-  // a job for a real backend later on). When both sides have the same item
-  // checked with different dates, keep whichever date is earlier — that's
-  // the actual first time it was marked, which is the more truthful answer
-  // than whichever device happened to sync last.
+  // saved in the cloud and merge it with what's already saved locally, via
+  // the shared mergeCheckedMaps (see sync.js for the merge rules — never
+  // remove anything either way, and prefer whichever date is earlier when
+  // both sides have the same item checked).
   useEffect(() => {
     if (!syncEnabled) return
 
@@ -91,21 +87,7 @@ function ChecklistPage({ config }) {
     fetchIdsFromCloud(syncId).then(cloudMap => {
       if (cancelled) return
       if (cloudMap !== null) {
-        setCheckedIds(prevLocal => {
-          const merged = new Map(prevLocal)
-          for (const [id, cloudDate] of cloudMap) {
-            const localDate = merged.get(id)
-            if (!merged.has(id)) {
-              merged.set(id, cloudDate)
-            } else if (localDate == null && cloudDate != null) {
-              merged.set(id, cloudDate)
-            } else if (localDate != null && cloudDate != null && cloudDate < localDate) {
-              merged.set(id, cloudDate)
-            }
-            // else: keep the local value as-is
-          }
-          return merged
-        })
+        setCheckedIds(prevLocal => mergeCheckedMaps(prevLocal, cloudMap))
         setSyncStatus('synced')
       } else {
         setSyncStatus('error')

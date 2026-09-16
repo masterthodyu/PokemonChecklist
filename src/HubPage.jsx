@@ -1,18 +1,17 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { HUB_CONFIG } from './hubConfig.js'
-import { toCheckedMap } from './engine/sync.js'
+import { toCheckedMap, fromCheckedMap, isSyncEnabled, fetchIdsFromCloud, mergeCheckedMaps } from './engine/sync.js'
 
-// Reads the exact same localStorage key each ChecklistPage writes to, just
-// to show a quick "how far along am I" summary. No separate state to keep
-// in sync — it's reading straight from the same source of truth, through
-// the same toCheckedMap parser ChecklistPage itself uses (so this stays
-// correct no matter how the storage format changes in the future).
-function readCheckedCount(storageKey) {
+// Reads the exact same localStorage key each ChecklistPage writes to,
+// through the same toCheckedMap parser ChecklistPage itself uses (so this
+// stays correct no matter how the storage format changes in the future).
+function readLocalCheckedMap(storageKey) {
   try {
     const raw = localStorage.getItem(storageKey)
-    return raw ? toCheckedMap(JSON.parse(raw)).size : 0
+    return raw ? toCheckedMap(JSON.parse(raw)) : new Map()
   } catch {
-    return 0
+    return new Map()
   }
 }
 
@@ -27,12 +26,65 @@ function readCheckedCount(storageKey) {
 function HubPage({ checklists }) {
   const hasBackground = Boolean(HUB_CONFIG.backgroundImage)
 
+  // Checked-item counts per checklist, keyed by storageKey. Starts from
+  // whatever's already saved locally — same as before, so there's no
+  // flash of "0" on a device that's already opened these lists — and
+  // then gets refreshed in the effect below as each checklist's cloud
+  // data comes back in.
+  const [counts, setCounts] = useState(() =>
+    Object.fromEntries(
+      checklists.map(config => [config.storageKey, readLocalCheckedMap(config.storageKey).size])
+    )
+  )
+
+  // Previously, the hub only ever read localStorage directly, and the
+  // cloud fetch+merge (see mergeCheckedMaps in sync.js) only ever ran
+  // inside ChecklistPage's own effect. That meant a checklist's progress
+  // bar stayed at 0 — or stale — on any device that hadn't actually
+  // opened that specific checklist page at least once, since nothing had
+  // ever pulled its cloud data down yet. This mirrors that same
+  // fetch+merge here, once per synced checklist on mount, so the hub's
+  // numbers are right the first time you land here rather than only
+  // after clicking into each list. The merged result also gets written
+  // back to localStorage, same as ChecklistPage would, so the numbers
+  // stay correct even without a network connection next time.
+  //
+  // Skips placeholder checklists (their progress line isn't shown at all,
+  // just an entry count) and anything without cloud sync configured —
+  // isSyncEnabled itself already returns false with no VITE_FIREBASE_DB_URL
+  // set, same guard ChecklistPage uses.
+  useEffect(() => {
+    let cancelled = false
+
+    for (const config of checklists) {
+      if (config.placeholder || !isSyncEnabled(config.syncId)) continue
+
+      fetchIdsFromCloud(config.syncId).then(cloudMap => {
+        if (cancelled || cloudMap === null) return
+
+        const merged = mergeCheckedMaps(readLocalCheckedMap(config.storageKey), cloudMap)
+        localStorage.setItem(config.storageKey, JSON.stringify(fromCheckedMap(merged)))
+        setCounts(prev => ({ ...prev, [config.storageKey]: merged.size }))
+      })
+    }
+
+    return () => {
+      cancelled = true
+    }
+    // Only re-run if the actual list of checklists changes, not on every
+    // render — and specifically not when `counts` changes, since this
+    // effect is what updates `counts` in the first place.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checklists])
+
+  const checkedCount = config => counts[config.storageKey] ?? 0
+
   // Overall completion across everything — only counting checklists that
   // are actually finished data sets. A placeholder checklist (USUM's
   // 3-entry stub, say) would drag this number around meaninglessly if it
   // counted toward the total, since its "total" isn't the real dex size.
   const realChecklists = checklists.filter(config => !config.placeholder)
-  const overallChecked = realChecklists.reduce((sum, config) => sum + readCheckedCount(config.storageKey), 0)
+  const overallChecked = realChecklists.reduce((sum, config) => sum + checkedCount(config), 0)
   const overallTotal = realChecklists.reduce((sum, config) => sum + config.data.length, 0)
   const overallPct = overallTotal > 0 ? Math.round((overallChecked / overallTotal) * 100) : 0
 
@@ -63,7 +115,7 @@ function HubPage({ checklists }) {
 
       <div className="hub-list">
         {checklists.map(config => {
-          const checked = readCheckedCount(config.storageKey)
+          const checked = checkedCount(config)
           const total = config.data.length
           const pct = total > 0 ? Math.round((checked / total) * 100) : 0
 

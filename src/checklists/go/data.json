@@ -344,7 +344,7 @@
   {
     "id": 427,
     "dexId": 427,
-    "name": "Happiny (Flower Crown)",
+    "name": "Buneary (Flower Crown)",
     "spriteUrl": "/sprites/go/427-flowers.png"
   },
   {
@@ -398,13 +398,13 @@
   {
     "id": 387.1,
     "dexId": 387,
-    "name": "Chimchar (Lucas Hat)",
+    "name": "Turtwig (Lucas Hat)",
     "spriteUrl": "/sprites/go/387-lucas.png"
   },
   {
     "id": 387.2,
     "dexId": 387,
-    "name": "Chimchar (Dawn Hat)",
+    "name": "Turtwig (Dawn Hat)",
     "spriteUrl": "/sprites/go/387-dawn.png"
   },
   {
@@ -896,7 +896,7 @@
   {
     "id": 78,
     "dexId": 78,
-    "name": "Ponyta (Candela Accessory)",
+    "name": "Rapidash (Candela Accessory)",
     "spriteUrl": "/sprites/go/078-candela.png"
   },
   {
@@ -1298,7 +1298,7 @@
   {
     "id": 25.0012,
     "dexId": 25,
-    "name": "Pikachu (Party Hat)",
+    "name": "Pikachu (Party Hat 2020)",
     "spriteUrl": "/sprites/go/025-partyhat2020.png"
   },
   {

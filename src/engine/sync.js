@@ -58,6 +58,35 @@ export function fromCheckedMap(map) {
   return [...map].map(([id, date]) => ({ id, date }))
 }
 
+// Combines a local checked-id Map with one just pulled from the cloud,
+// never losing anything either side already has (an "uncheck" on one
+// device might not stick if another device still has that item checked —
+// simple, but good enough for a personal checklist; see ChecklistPage's
+// own comment on this for the full reasoning). When both sides have the
+// same item checked with different dates, keeps whichever date is
+// earlier — that's the actual first time it was marked, which is more
+// truthful than whichever device happened to sync last.
+//
+// Exported so every place that merges cloud data — ChecklistPage (after
+// its own fetch) and HubPage (so the hub's progress bars are already
+// correct on first load, not just after you've opened that checklist at
+// least once) — shares this one implementation instead of drifting apart.
+export function mergeCheckedMaps(localMap, cloudMap) {
+  const merged = new Map(localMap)
+  for (const [id, cloudDate] of cloudMap) {
+    const localDate = merged.get(id)
+    if (!merged.has(id)) {
+      merged.set(id, cloudDate)
+    } else if (localDate == null && cloudDate != null) {
+      merged.set(id, cloudDate)
+    } else if (localDate != null && cloudDate != null && cloudDate < localDate) {
+      merged.set(id, cloudDate)
+    }
+    // else: keep the local value as-is
+  }
+  return merged
+}
+
 // Gets the checked-item list currently saved in the cloud for one
 // checklist, as a Map of id -> date. Returns null if something went wrong
 // (sync is off, no internet, Firebase is down, etc) — the caller should

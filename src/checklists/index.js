@@ -3,6 +3,7 @@ import goConfig from './go/config.js'
 import usumConfig from './usum/config.js'
 import soulsilverConfig from './soulsilver/config.js'
 import colluseumConfig from './colluseum/config.js'
+import xdConfig from './xd/config.js'
 
 // Add each new checklist's config here once it exists — this list drives
 // both the routes in App.jsx and the summary cards on HubPage.jsx.
@@ -14,4 +15,5 @@ export const CHECKLISTS = [
   usumConfig,
   soulsilverConfig,
   colluseumConfig,
+  xdConfig,
 ]
