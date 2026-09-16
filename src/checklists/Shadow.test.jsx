@@ -1,173 +1,97 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { HUB_CONFIG } from '../hubConfig.js'
-import { toCheckedMap, fromCheckedMap, isSyncEnabled, fetchIdsFromCloud, mergeCheckedMaps } from '../engine/sync.js'
-
-// Reads the exact same localStorage key each ChecklistPage writes to,
-// through the same toCheckedMap parser ChecklistPage itself uses (so this
-// stays correct no matter how the storage format changes in the future).
-function readLocalCheckedMap(storageKey) {
-  try {
-    const raw = localStorage.getItem(storageKey)
-    return raw ? toCheckedMap(JSON.parse(raw)) : new Map()
-  } catch {
-    return new Map()
-  }
-}
-
-// Landing page: one row per checklist in the CHECKLISTS registry, stacked
-// in a single centered column, each showing its icon, title, and
-// progress, linking into that checklist's route.
+// Data checks specific to "Shadow Pokémon" — the mechanic Colosseum and
+// XD are both built around — rather than the generic per-checklist shape
+// checks in Registry.test.jsx. Referenced by name in
+// ChecklistPage.test.jsx's file header comment as "where the real data
+// gets checked" alongside registry.test.js.
 //
-// To add a new checklist's icon: just set `icon` in that checklist's
-// config.js (see src/checklists/home/config.js for an example) —
-// nothing here needs to change. No icon set? A generic placeholder box
-// shows instead, so nothing looks broken while you're still deciding.
-function HubPage({ checklists }) {
-  const hasBackground = Boolean(HUB_CONFIG.backgroundImage)
+// This file previously contained a stray, unrelated copy of HubPage.jsx
+// (with only its import paths adjusted) instead of any actual tests —
+// Vitest picking that up as a test file with zero describe/it blocks is
+// what "Shadow.test.jsx failing" meant. Restored here as actual tests.
 
-  // Checked-item counts per checklist, keyed by storageKey. Starts from
-  // whatever's already saved locally — same as before, so there's no
-  // flash of "0" on a device that's already opened these lists — and
-  // then gets refreshed in the effect below as each checklist's cloud
-  // data comes back in.
-  const [counts, setCounts] = useState(() =>
-    Object.fromEntries(
-      checklists.map(config => [config.storageKey, readLocalCheckedMap(config.storageKey).size])
+import { describe, expect, it } from 'vitest'
+import colosseumConfig from './colosseum/config.js'
+import xdConfig from './xd/config.js'
+import homeConfig from './home/config.js'
+import goConfig from './go/config.js'
+import { CHECKLISTS } from './index.js'
+
+describe('Colosseum (colosseum/) category distribution', () => {
+  // config.js's own comment: "54 entries = 51 Shadow Pokémon + Wes's two
+  // starters + the Mt. Battle Ho-Oh." If a future data edit throws that
+  // off, this is the test that catches it — a miscounted category here
+  // means the sidebar's "Shadow Pokémon" total no longer reflects the
+  // actual in-game goal.
+  it('has exactly 51 shadow, 2 starter, and 1 bonus entries', () => {
+    const counts = { shadow: 0, starter: 0, bonus: 0 }
+    for (const item of colosseumConfig.data) counts[item.category]++
+    expect(counts).toEqual({ shadow: 51, starter: 2, bonus: 1 })
+  })
+
+  it("Wes's two starters are Espeon and Umbreon, tagged 'starter' not 'shadow'", () => {
+    const starters = colosseumConfig.data.filter(item => item.category === 'starter').map(item => item.name).sort()
+    expect(starters).toEqual(['Espeon', 'Umbreon'])
+  })
+})
+
+describe('XD (xd/) is entirely Shadow Pokémon', () => {
+  // config.js: "All 83 entries are Shadow Pokémon, which is the whole
+  // point of the game" — unlike Colosseum, nothing here should ever be
+  // tagged anything other than 'shadow'.
+  it('tags every single entry "shadow"', () => {
+    const notShadow = xdConfig.data.filter(item => item.category !== 'shadow').map(item => item.name)
+    expect(notShadow).toEqual([])
+  })
+
+  // config.js: "Entry 76 is Shadow Lugia, the one Pokémon whose
+  // appearance actually changes when it's turned Shadow — hence the name
+  // and the 249S sprite, rather than a plain Lugia."
+  it('has Shadow Lugia at id 76 with dexId 249 and an "S"-suffixed sprite', () => {
+    const entry = xdConfig.data.find(item => item.id === 76)
+    expect(entry?.name).toBe('Shadow Lugia')
+    expect(entry?.dexId).toBe(249)
+    expect(entry?.spriteUrl).toMatch(/249S\.png$/)
+  })
+})
+
+describe('ItemCard\'s name-based Shadow fallback (see ItemCard.jsx) against real data', () => {
+  // ItemCard falls back to checking whether "Shadow" (capital S) appears
+  // in an item's name when category isn't set to 'shadow' — see
+  // ItemCard.test.jsx for the component-level behavior. This checks it
+  // against what's actually in the checklists today.
+
+  // Home's Marshadow is the obvious near-miss: it contains "shadow" as a
+  // substring, but lowercase and mid-word ("Mar" + "shadow"). Since the
+  // fallback check is case-sensitive, this must NOT match — Marshadow
+  // getting Colosseum's purple Shadow-Pokémon glow would be a visual bug,
+  // not a cute coincidence.
+  it('does not treat Marshadow as a Shadow Pokémon', () => {
+    const marshadow = homeConfig.data.find(item => item.name === 'Marshadow')
+    expect(marshadow).toBeDefined()
+    expect(marshadow.category).not.toBe('shadow')
+    expect(marshadow.name.includes('Shadow')).toBe(false)
+  })
+
+  // Pokémon GO has its own, unrelated "Shadow [Pokémon] (event)" costume
+  // Pokémon (Halloween/holiday reskins with a capital "Shadow" in the
+  // name) — nothing to do with the Colosseum/XD Shadow Pokémon mechanic,
+  // but they don't have category: 'shadow' set, so ItemCard's name
+  // fallback picks them up and gives them the same purple glow too. Not
+  // fixed here — it's a plausible, harmless double meaning of "shadow"
+  // rather than a clear bug — but pinned to today's known count (9) so a
+  // future name that starts with "Shadow ..." changes this test on
+  // purpose instead of silently changing what glows purple.
+  it('also matches 9 of GO\'s unrelated cosmetic "Shadow" costume Pokémon (documented, not a bug fix)', () => {
+    const goShadowNamed = goConfig.data.filter(
+      item => item.category !== 'shadow' && item.name.includes('Shadow')
     )
-  )
+    expect(goShadowNamed).toHaveLength(9)
+  })
+})
 
-  // Previously, the hub only ever read localStorage directly, and the
-  // cloud fetch+merge (see mergeCheckedMaps in sync.js) only ever ran
-  // inside ChecklistPage's own effect. That meant a checklist's progress
-  // bar stayed at 0 — or stale — on any device that hadn't actually
-  // opened that specific checklist page at least once, since nothing had
-  // ever pulled its cloud data down yet. This mirrors that same
-  // fetch+merge here, once per synced checklist on mount, so the hub's
-  // numbers are right the first time you land here rather than only
-  // after clicking into each list. The merged result also gets written
-  // back to localStorage, same as ChecklistPage would, so the numbers
-  // stay correct even without a network connection next time.
-  //
-  // Skips placeholder checklists (their progress line isn't shown at all,
-  // just an entry count) and anything without cloud sync configured —
-  // isSyncEnabled itself already returns false with no VITE_FIREBASE_DB_URL
-  // set, same guard ChecklistPage uses.
-  useEffect(() => {
-    let cancelled = false
-
-    for (const config of checklists) {
-      if (config.placeholder || !isSyncEnabled(config.syncId)) continue
-
-      fetchIdsFromCloud(config.syncId).then(cloudMap => {
-        if (cancelled || cloudMap === null) return
-
-        const merged = mergeCheckedMaps(readLocalCheckedMap(config.storageKey), cloudMap)
-        localStorage.setItem(config.storageKey, JSON.stringify(fromCheckedMap(merged)))
-        setCounts(prev => ({ ...prev, [config.storageKey]: merged.size }))
-      })
-    }
-
-    return () => {
-      cancelled = true
-    }
-    // Only re-run if the actual list of checklists changes, not on every
-    // render — and specifically not when `counts` changes, since this
-    // effect is what updates `counts` in the first place.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [checklists])
-
-  const checkedCount = config => counts[config.storageKey] ?? 0
-
-  // Overall completion across everything — only counting checklists that
-  // are actually finished data sets. A placeholder checklist (USUM's
-  // 3-entry stub, say) would drag this number around meaninglessly if it
-  // counted toward the total, since its "total" isn't the real dex size.
-  const realChecklists = checklists.filter(config => !config.placeholder)
-  const overallChecked = realChecklists.reduce((sum, config) => sum + checkedCount(config), 0)
-  const overallTotal = realChecklists.reduce((sum, config) => sum + config.data.length, 0)
-  const overallPct = overallTotal > 0 ? Math.round((overallChecked / overallTotal) * 100) : 0
-
-  return (
-    <div
-      className={`app hub ${hasBackground ? 'hub-has-background' : ''}`}
-      style={hasBackground ? { backgroundImage: `url(${HUB_CONFIG.backgroundImage})` } : undefined}
-    >
-      <header>
-        <h1>{HUB_CONFIG.title}</h1>
-      </header>
-
-      {overallTotal > 0 && (
-        <div className="overall-status">
-          {HUB_CONFIG.collectionLabel && (
-            <p className="overall-status-label">{HUB_CONFIG.collectionLabel}</p>
-          )}
-          <div className="overall-status-top">
-            <span>Overall completion</span>
-            <span className="overall-status-pct">{overallPct}%</span>
-          </div>
-          <div className="gen-bar-track overall-status-track">
-            <div className="overall-status-fill" style={{ width: `${overallPct}%` }} />
-          </div>
-          <p className="overall-status-count">{overallChecked} / {overallTotal} caught across every finished list</p>
-        </div>
-      )}
-
-      <div className="hub-list">
-        {checklists.map(config => {
-          const checked = checkedCount(config)
-          const total = config.data.length
-          const pct = total > 0 ? Math.round((checked / total) * 100) : 0
-
-          // Each game keeps its own real-world colors instead of every
-          // row sharing one identical bar — falls back to the classic
-          // Pokéball red/yellow if a checklist's config doesn't set one.
-          const accentFrom = config.accentFrom || '#ee1515'
-          const accentTo = config.accentTo || '#ffcb05'
-
-          // Checklists still mid-setup (like USUM's 3-entry starter data)
-          // would otherwise show something like "0 / 3 caught (0%)" —
-          // reads as broken rather than "not built out yet." This is an
-          // explicit flag on the checklist's own config, not a guess from
-          // entry count — a genuinely tiny-but-finished list (SoulSilver's
-          // intentional single entry) needs to show a real percentage,
-          // not get mistaken for one that's still being built.
-          const isPlaceholderData = Boolean(config.placeholder)
-
-          return (
-            <Link
-              key={config.id}
-              to={config.path}
-              className="hub-row"
-              style={{ '--row-accent-from': accentFrom, '--row-accent-to': accentTo }}
-            >
-              {config.icon ? (
-                <img className="hub-row-icon" src={config.icon} alt="" />
-              ) : (
-                <div className="hub-row-icon hub-row-icon-placeholder">?</div>
-              )}
-
-              <div className="hub-row-body">
-                <h2>{config.title}</h2>
-                {isPlaceholderData ? (
-                  <p className="hub-row-count">🚧 Still being built ({total} entries so far)</p>
-                ) : (
-                  <>
-                    <p className="hub-row-count">{checked} / {total} caught</p>
-                    <div className="gen-bar-track">
-                      <div className="hub-bar-fill" style={{ width: `${pct}%` }} />
-                    </div>
-                  </>
-                )}
-              </div>
-
-              {!isPlaceholderData && <div className="hub-row-stat">{pct}%</div>}
-            </Link>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-export default HubPage
+describe('Shadow-capable checklists are wired into the registry', () => {
+  it('both colosseum and xd are registered in CHECKLISTS', () => {
+    const ids = CHECKLISTS.map(c => c.id)
+    expect(ids).toEqual(expect.arrayContaining(['colosseum', 'xd']))
+  })
+})

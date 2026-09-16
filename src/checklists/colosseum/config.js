@@ -17,28 +17,34 @@ import { CATEGORIES } from './categories.js'
 // "every Pokémon possible", but they're the ones to expect to never tick off
 // on a Western cartridge — see the README's note about them.
 //
-// The folder/id spelling "colluseum" is a typo for "Colosseum", kept
-// deliberately: `id`, `storageKey` and `syncId` are the literal keys your
-// saved progress already lives under, locally and in Firebase. Renaming
-// them would point the app at empty keys and your progress would look
-// like it reset. Only the display `title` is spelled correctly.
+// This checklist and its folder were originally spelled "colluseum" (typo
+// for "Colosseum") — fixed now, folder included, while this checklist is
+// still new enough that nobody has real saved progress sitting under the
+// old `colluseum-caught-v1` / `colluseum` keys yet. (This is the opposite
+// situation from Home's `pokemon`/`pokemon-caught-v1` keys, which stay
+// misspelled on purpose — see that config's own comment — specifically
+// because real progress already lives under those.) If you'd already
+// checked things off here before this fix, that progress would be sitting
+// under the old localStorage key `colluseum-caught-v1` (and old Firebase
+// path `checklists/colluseum/...`) — let me know and I can add a one-time
+// migration instead of just this rename.
 export default {
-  id: 'colluseum',
+  id: 'colosseum',
   title: 'Pokémon Colosseum',
-  path: '/colluseum',
+  path: '/colosseum',
   // Umbreon's Colosseum menu sprite — Wes's signature Pokémon. A
   // stand-in, not a real game logo, but self-hosted now (see
-  // public/icons/colluseum.png) rather than hotlinked. Swap in a proper
+  // public/icons/colosseum.png) rather than hotlinked. Swap in a proper
   // Colosseum logo in public/icons/ when you have one.
-  icon: '/icons/colluseum.png',
+  icon: '/icons/colosseum.png',
   // Orre's desert sand into Shadow purple — Colosseum's own box art palette,
   // rather than the USUM sun/moon colors this was copy-pasted from.
   accentFrom: '#c8a25b',
   accentTo: '#604e82',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
-  storageKey: 'colluseum-caught-v1',
-  syncId: 'colluseum',
+  storageKey: 'colosseum-caught-v1',
+  syncId: 'colosseum',
 
   // One sidebar list, so the Shadow Pokémon count (the actual goal of the
   // game) reads separately from the three non-Shadow extras rather than

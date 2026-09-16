@@ -8,6 +8,9 @@
 // silently stops meaning anything.
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
+// mergeCheckedMaps doesn't read any env var, so — unlike everything else
+// in this file — it's fine to import it normally, once, at the top.
+import { mergeCheckedMaps } from './sync.js'
 
 afterEach(() => {
   vi.unstubAllEnvs()
@@ -151,5 +154,45 @@ describe('pushIdsToCloud', () => {
       { id: 1, date: '2026-01-01T00:00:00.000Z' },
       { id: 2, date: null },
     ])
+  })
+})
+
+describe('mergeCheckedMaps', () => {
+  it('keeps everything from both sides — merging never removes an item', () => {
+    const local = new Map([[1, '2026-01-01T00:00:00.000Z']])
+    const cloud = new Map([[2, '2026-01-02T00:00:00.000Z']])
+    const merged = mergeCheckedMaps(local, cloud)
+    expect([...merged.keys()].sort()).toEqual([1, 2])
+  })
+
+  it('fills in the cloud date when the local side only has a null date', () => {
+    const local = new Map([[1, null]])
+    const cloud = new Map([[1, '2026-01-01T00:00:00.000Z']])
+    expect(mergeCheckedMaps(local, cloud).get(1)).toBe('2026-01-01T00:00:00.000Z')
+  })
+
+  it('keeps the local date when the cloud side has no date for the same item', () => {
+    const local = new Map([[1, '2026-01-01T00:00:00.000Z']])
+    const cloud = new Map([[1, null]])
+    expect(mergeCheckedMaps(local, cloud).get(1)).toBe('2026-01-01T00:00:00.000Z')
+  })
+
+  it('when both sides have a date, keeps the earlier one', () => {
+    const local = new Map([[1, '2026-01-05T00:00:00.000Z']])
+    const cloud = new Map([[1, '2026-01-01T00:00:00.000Z']])
+    expect(mergeCheckedMaps(local, cloud).get(1)).toBe('2026-01-01T00:00:00.000Z')
+
+    // and the reverse — order of arguments shouldn't matter for which
+    // date wins, only which date actually is earlier
+    const merged2 = mergeCheckedMaps(cloud, local)
+    expect(merged2.get(1)).toBe('2026-01-01T00:00:00.000Z')
+  })
+
+  it('does not mutate either input Map', () => {
+    const local = new Map([[1, null]])
+    const cloud = new Map([[1, '2026-01-01T00:00:00.000Z']])
+    mergeCheckedMaps(local, cloud)
+    expect(local.get(1)).toBeNull()
+    expect(cloud.get(1)).toBe('2026-01-01T00:00:00.000Z')
   })
 })
