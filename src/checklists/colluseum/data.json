@@ -3,7 +3,7 @@
     "id": 1,
     "dexId": 196,
     "name": "Espeon",
-    "spriteUrl": "https://archives.bulbagarden.net/media/upload/0/03/Menu_Colo_196.png",
+    "spriteUrl": "https://www.serebii.net/pokearth/sprites/cxd/196.png",
     "boxId": 1,
     "category": "starter"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "dexId": 197,
     "name": "Umbreon",
-    "spriteUrl": "https://archives.bulbagarden.net/media/upload/4/43/Menu_Colo_197.png",
+    "spriteUrl": "https://www.serebii.net/pokearth/sprites/cxd/197.png",
     "boxId": 1,
     "category": "starter"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "dexId": 296,
     "name": "Makuhita",
-    "spriteUrl": "https://archives.bulbagarden.net/media/upload/e/ea/Menu_Colo_296.png",
+    "spriteUrl": "https://www.serebii.net/pokearth/sprites/cxd/296.png",
     "boxId": 1,
     "category": "shadow"
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "dexId": 153,
     "name": "Bayleef",
-    "spriteUrl": "https://archives.bulbagarden.net/media/upload/d/d7/Menu_Colo_153.png",
+    "spriteUrl": "https://www.serebii.net/pokearth/sprites/cxd/153.png",
     "boxId": 1,
     "category": "shadow"
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "dexId": 156,
     "name": "Quilava",
-    "spriteUrl": "https://archives.bulbagarden.net/media/upload/d/d4/Menu_Colo_156.png",
+    "spriteUrl": "https://www.serebii.net/pokearth/sprites/cxd/156.png",
     "boxId": 1,
     "category": "shadow"
   },

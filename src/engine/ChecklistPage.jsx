@@ -36,6 +36,15 @@ function loadCheckedIds(storageKey) {
 //     doesn't have a box system in the actual game. Clicking a sidebar
 //     group (like a generation) narrows the flat list down to just that
 //     group instead of jumping to a box — click it again to clear it.
+// Formats a "last synced" timestamp the way a person would actually say
+// it — just a time if it happened today, otherwise the date too, so it
+// doesn't get confusing after leaving a tab open overnight.
+function formatSyncedAt(date) {
+  const isToday = date.toDateString() === new Date().toDateString()
+  const time = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
+  return isToday ? time : `${date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}, ${time}`
+}
+
 function ChecklistPage({ config }) {
   const { data, boxSize, storageKey, syncId, groupSets, title } = config
   const isBoxed = Boolean(boxSize)
@@ -52,6 +61,15 @@ function ChecklistPage({ config }) {
 
   // 'off' (no cloud set up), 'loading', 'synced', or 'error'
   const [syncStatus, setSyncStatus] = useState(syncEnabled ? 'loading' : 'off')
+  const [lastSyncedAt, setLastSyncedAt] = useState(null) // Date | null — set on every successful fetch or push
+
+  // Whether this device's localStorage was completely empty the moment
+  // this checklist loaded — if so, and cloud sync fails, "0 caught"
+  // could genuinely mean "all your progress is gone" rather than the
+  // usual case (this device already had progress, so a sync hiccup is
+  // low-stakes). That distinction is what the header's loading/error
+  // states below are built around.
+  const wasEmptyOnLoad = useRef(checkedIds.size === 0)
 
   // We don't want to push to the cloud before we've actually pulled the
   // cloud's data down once — otherwise we might overwrite someone else's
@@ -62,13 +80,16 @@ function ChecklistPage({ config }) {
   // mounted engine), reset everything to that checklist's own saved state
   // instead of carrying the previous checklist's state over.
   useEffect(() => {
-    setCheckedIds(loadCheckedIds(storageKey))
+    const freshChecked = loadCheckedIds(storageKey)
+    setCheckedIds(freshChecked)
     setShowOnly('all')
     setBoxIndex(0)
     setActiveGroup(null)
     setSearch('')
     setUnlocked(false)
     setSyncStatus(syncEnabled ? 'loading' : 'off')
+    setLastSyncedAt(null)
+    wasEmptyOnLoad.current = freshChecked.size === 0
     hasLoadedCloud.current = !syncEnabled
     // storageKey changing means "this is now a different checklist" — that's
     // the only thing that should re-run this reset.
@@ -89,6 +110,7 @@ function ChecklistPage({ config }) {
       if (cloudMap !== null) {
         setCheckedIds(prevLocal => mergeCheckedMaps(prevLocal, cloudMap))
         setSyncStatus('synced')
+        setLastSyncedAt(new Date())
       } else {
         setSyncStatus('error')
       }
@@ -114,6 +136,7 @@ function ChecklistPage({ config }) {
     const timeoutId = setTimeout(() => {
       pushIdsToCloud(syncId, checkedIds).then(success => {
         setSyncStatus(success ? 'synced' : 'error')
+        if (success) setLastSyncedAt(new Date())
       })
     }, 800)
 
@@ -128,6 +151,7 @@ function ChecklistPage({ config }) {
     setSyncStatus('loading')
     pushIdsToCloud(syncId, checkedIds).then(success => {
       setSyncStatus(success ? 'synced' : 'error')
+      if (success) setLastSyncedAt(new Date())
     })
   }
 
@@ -403,10 +427,22 @@ function ChecklistPage({ config }) {
               {unlocked ? '🔓 Editing unlocked — tap to relock' : '🔒 Locked — tap to unlock editing'}
             </button>
             {syncEnabled && (
-              <p className="sync-status">
-                {syncStatus === 'loading' && '☁️ Loading cloud save…'}
-                {syncStatus === 'synced' && '☁️ Synced'}
-                {syncStatus === 'error' && (
+              <p className={`sync-status ${syncStatus === 'error' && wasEmptyOnLoad.current ? 'sync-status-urgent' : ''}`}>
+                {syncStatus === 'loading' && wasEmptyOnLoad.current && '☁️ Checking for saved progress before showing 0…'}
+                {syncStatus === 'loading' && !wasEmptyOnLoad.current && '☁️ Loading cloud save…'}
+                {syncStatus === 'synced' && (
+                  <>☁️ Synced{lastSyncedAt && <span className="sync-status-time"> · last synced {formatSyncedAt(lastSyncedAt)}</span>}</>
+                )}
+                {syncStatus === 'error' && wasEmptyOnLoad.current && (
+                  <>
+                    ⚠️ Couldn't reach the cloud save, and this device has no local progress either —
+                    this checklist may not actually be starting from 0, it just couldn't check.{' '}
+                    <button className="retry-sync-button" onClick={retrySync}>
+                      Retry
+                    </button>
+                  </>
+                )}
+                {syncStatus === 'error' && !wasEmptyOnLoad.current && (
                   <>
                     ⚠️ Cloud sync failed — saved locally only{' '}
                     <button className="retry-sync-button" onClick={retrySync}>

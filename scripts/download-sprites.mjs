@@ -1,10 +1,13 @@
 // Downloads every sprite image referenced across every checklist's
-// data.json into public/sprites/<checklist-id>/<filename>, instead of
-// hotlinking pokemondb.net / serebii.net / wixmp directly. Run this from
-// wherever you actually have normal internet access (your own machine,
-// or a Codespace) — some of these hosts block requests from sandboxed/
-// datacenter environments, which is why this has to be a script you run
-// yourself rather than something done for you automatically.
+// data.json — AND every checklist's own icon (config.js's `icon` field,
+// if it's still an external URL) — into public/sprites/ and
+// public/icons/ respectively, instead of hotlinking pokemondb.net /
+// serebii.net / archives.bulbagarden.net / Google's thumbnail cache
+// directly. Run this from wherever you actually have normal internet
+// access (your own machine, or a Codespace) — some of these hosts block
+// requests from sandboxed/datacenter environments, which is why this has
+// to be a script you run yourself rather than something done for you
+// automatically.
 //
 // Usage:
 //   node scripts/download-sprites.mjs
@@ -58,6 +61,47 @@ async function main() {
   let skipped = 0
   let failed = 0
 
+  // --- Each checklist's icon (config.js), not just its data.json sprites ---
+  // Colosseum and XD's icons in particular are still hotlinked to
+  // encrypted-tbn0.gstatic.com — Google's internal search-thumbnail
+  // cache, never meant for direct embedding, and known to go stale
+  // without warning. That's the single most likely reason sprites
+  // "aren't loading" for those two checklists specifically.
+  const iconsDir = path.join(PROJECT_ROOT, 'public', 'icons')
+  fs.mkdirSync(iconsDir, { recursive: true })
+
+  for (const checklistId of checklistFolders) {
+    const configPath = path.join(CHECKLISTS_DIR, checklistId, 'config.js')
+    if (!fs.existsSync(configPath)) continue
+
+    const configSource = fs.readFileSync(configPath, 'utf8')
+    const iconMatch = configSource.match(/icon:\s*['"](https?:\/\/[^'"]+)['"]/)
+    if (!iconMatch) continue // no icon set, or already a local path — nothing to do
+
+    const iconUrl = iconMatch[1]
+    // Google's thumbnail URLs have no real filename in the path — fall
+    // back to "<checklist-id>.png" for those instead of a garbled name.
+    const filename = iconUrl.includes('encrypted-tbn0.gstatic.com')
+      ? `${checklistId}.png`
+      : urlToFilename(iconUrl)
+    const destPath = path.join(iconsDir, filename)
+
+    if (fs.existsSync(destPath)) {
+      skipped++
+      continue
+    }
+
+    try {
+      await downloadOne(iconUrl, destPath)
+      downloaded++
+      console.log(`✓ icons/${filename} (${checklistId})`)
+    } catch (err) {
+      failed++
+      console.warn(`✗ icons/${filename} (${checklistId}) — ${err.message} (${iconUrl})`)
+    }
+  }
+
+  // --- Every Pokémon sprite in every checklist's data.json ---
   for (const checklistId of checklistFolders) {
     const dataPath = path.join(CHECKLISTS_DIR, checklistId, 'data.json')
     if (!fs.existsSync(dataPath)) continue
@@ -92,6 +136,9 @@ async function main() {
   if (failed > 0) {
     console.log('Failures are usually a dead/moved link on the source site — worth checking those URLs by hand.')
   }
+  console.log('\nSprites: run node scripts/use-local-sprites.mjs next to switch data.json over automatically.')
+  console.log('Icons: those live in each checklist\'s config.js, not a JSON file, so switch them over by hand —')
+  console.log('  change icon: \'https://...\' to icon: \'/icons/<filename>\' for whichever ones just downloaded.')
 }
 
 main()

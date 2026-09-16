@@ -83,6 +83,24 @@ header h1 {
   color: #9aa4af;
 }
 
+.sync-status-time {
+  color: #6b7581; /* a touch dimmer than the "Synced" text it's attached to — a secondary detail, not the headline */
+}
+
+/* The one case where a small gray status line genuinely isn't enough —
+   a fresh device, sync failed, and "0 caught" on screen could look like
+   every bit of progress is gone rather than "we just couldn't check." */
+.sync-status-urgent {
+  margin: 10px auto 0;
+  max-width: 480px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(238, 21, 21, 0.4);
+  background: rgba(238, 21, 21, 0.08);
+  color: #f5f7fa;
+  font-weight: 500;
+}
+
 .retry-sync-button {
   padding: 1px 10px;
   border-radius: 6px;
