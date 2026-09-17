@@ -3,7 +3,7 @@ export default {
   id: 'soulsilver',
   title: 'Pokémon Soul Silver & Heart Gold',
   path: '/soulsilver',
-  icon: '/icons/hgss.png',
+  icon: 'icons/hgss.png',
   // Silver to gold — the two version names themselves.
   accentFrom: '#c7ccd1',
   accentTo: '#f4c430',

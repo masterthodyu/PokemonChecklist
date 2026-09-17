@@ -3,7 +3,7 @@
     "id": 1,
     "dexId": 172,
     "name": "Pichu (Spiky-eared)",
-    "spriteUrl": "/sprites/soulsilver/pichu-spiky-eared.png",
+    "spriteUrl": "sprites/soulsilver/pichu-spiky-eared.png",
     "boxId": 1
   }
 ]

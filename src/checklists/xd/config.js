@@ -23,7 +23,7 @@ export default {
   // Shadow Lugia's own menu sprite — the game's box-art mascot. A
   // stand-in, self-hosted now (see public/icons/xd.png) rather than
   // hotlinked. Swap for a real logo in public/icons/ when you have one.
-  icon: '/icons/xd.png',
+  icon: 'icons/xd.png',
   // Shadow Lugia's pale blue-white into Shadow purple.
   accentFrom: '#cfdced',
   accentTo: '#604e82',

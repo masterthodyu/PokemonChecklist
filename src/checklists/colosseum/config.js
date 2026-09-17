@@ -36,7 +36,7 @@ export default {
   // stand-in, not a real game logo, but self-hosted now (see
   // public/icons/colosseum.png) rather than hotlinked. Swap in a proper
   // Colosseum logo in public/icons/ when you have one.
-  icon: '/icons/colosseum.png',
+  icon: 'icons/colosseum.png',
   // Orre's desert sand into Shadow purple — Colosseum's own box art palette,
   // rather than the USUM sun/moon colors this was copy-pasted from.
   accentFrom: '#c8a25b',

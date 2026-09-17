@@ -53,7 +53,7 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
     >
       <div className="card-image">
         <img
-          src={item.spriteUrl}
+          src={item.spriteUrl.startsWith('http') ? item.spriteUrl : `${import.meta.env.BASE_URL}${item.spriteUrl}`}
           alt={item.name}
           loading="lazy"
           onError={e => {
