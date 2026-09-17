@@ -3,7 +3,7 @@
     "id": 1,
     "dexId": 1,
     "name": "Rowlet",
-    "spriteUrl": "/sprites/usum/rowlet.png",
+    "spriteUrl": "sprites/usum/rowlet.png",
     "boxId": 1,
     "category": "base"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "dexId": 2,
     "name": "Dartrix",
-    "spriteUrl": "/sprites/usum/dartrix.png",
+    "spriteUrl": "sprites/usum/dartrix.png",
     "boxId": 1,
     "category": "base"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "dexId": 3,
     "name": "Decidueye",
-    "spriteUrl": "/sprites/usum/decidueye.png",
+    "spriteUrl": "sprites/usum/decidueye.png",
     "boxId": 1,
     "category": "base"
   }

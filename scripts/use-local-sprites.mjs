@@ -45,13 +45,13 @@ function main() {
 
     for (const item of data) {
       if (!item.spriteUrl) continue
-      if (item.spriteUrl.startsWith('/sprites/')) continue // already switched
+      if (item.spriteUrl.startsWith('sprites/')) continue // already switched
 
       const filename = urlToFilename(item.spriteUrl)
       const localPath = path.join(SPRITES_DIR, checklistId, filename)
 
       if (fs.existsSync(localPath)) {
-        item.spriteUrl = `/sprites/${checklistId}/${filename}`
+        item.spriteUrl = `sprites/${checklistId}/${filename}`
         switched++
       } else {
         leftAlone++ // no local copy — probably a failed download, keep the original URL working

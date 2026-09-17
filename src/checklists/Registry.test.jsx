@@ -76,9 +76,9 @@ describe.each(CHECKLISTS)('$id data.json', config => {
   // Anything else — a bare filename, a "www." with no scheme, a stray
   // space — renders as a silently broken image, since ItemCard's onError
   // handler deliberately hides broken images rather than showing them.
-  it('gives every item a spriteUrl that is either a local /sprites/ path or a full URL', () => {
+  it('gives every item a spriteUrl that is either a local sprites/ path or a full URL', () => {
     const bad = config.data
-      .filter(item => !/^\/sprites\//.test(item.spriteUrl) && !/^https?:\/\//.test(item.spriteUrl))
+      .filter(item => !/^sprites\//.test(item.spriteUrl) && !/^https?:\/\//.test(item.spriteUrl))
       .map(item => `${item.name} -> "${item.spriteUrl}"`)
     expect(bad).toEqual([])
   })

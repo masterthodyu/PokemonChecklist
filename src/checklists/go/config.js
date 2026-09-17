@@ -8,7 +8,7 @@ export default {
   id: 'go',
   title: 'Pokémon GO',
   path: '/go',
-  icon: '/icons/go.png',
+  icon: 'icons/go.png',
   // GO's own blue, not the mainline games' red — this one has its own
   // app identity.
   accentFrom: '#2f80c4',
