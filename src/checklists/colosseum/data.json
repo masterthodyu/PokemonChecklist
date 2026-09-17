@@ -1,0 +1,434 @@
+[
+  {
+    "id": 1,
+    "dexId": 196,
+    "name": "Espeon",
+    "spriteUrl": "/sprites/colosseum/196.png",
+    "boxId": 1,
+    "category": "starter"
+  },
+  {
+    "id": 2,
+    "dexId": 197,
+    "name": "Umbreon",
+    "spriteUrl": "/sprites/colosseum/197.png",
+    "boxId": 1,
+    "category": "starter"
+  },
+  {
+    "id": 3,
+    "dexId": 296,
+    "name": "Makuhita",
+    "spriteUrl": "/sprites/colosseum/296.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 4,
+    "dexId": 153,
+    "name": "Bayleef",
+    "spriteUrl": "/sprites/colosseum/153.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 5,
+    "dexId": 156,
+    "name": "Quilava",
+    "spriteUrl": "/sprites/colosseum/156.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 6,
+    "dexId": 159,
+    "name": "Croconaw",
+    "spriteUrl": "/sprites/colosseum/159.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 7,
+    "dexId": 218,
+    "name": "Slugma",
+    "spriteUrl": "/sprites/colosseum/218.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 8,
+    "dexId": 164,
+    "name": "Noctowl",
+    "spriteUrl": "/sprites/colosseum/164.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 9,
+    "dexId": 180,
+    "name": "Flaaffy",
+    "spriteUrl": "/sprites/colosseum/180.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 10,
+    "dexId": 188,
+    "name": "Skiploom",
+    "spriteUrl": "/sprites/colosseum/188.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 11,
+    "dexId": 195,
+    "name": "Quagsire",
+    "spriteUrl": "/sprites/colosseum/195.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 12,
+    "dexId": 200,
+    "name": "Misdreavus",
+    "spriteUrl": "/sprites/colosseum/200.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 13,
+    "dexId": 162,
+    "name": "Furret",
+    "spriteUrl": "/sprites/colosseum/162.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 14,
+    "dexId": 193,
+    "name": "Yanma",
+    "spriteUrl": "/sprites/colosseum/193.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 15,
+    "dexId": 223,
+    "name": "Remoraid",
+    "spriteUrl": "/sprites/colosseum/223.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 16,
+    "dexId": 226,
+    "name": "Mantine",
+    "spriteUrl": "/sprites/colosseum/226.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 17,
+    "dexId": 211,
+    "name": "Qwilfish",
+    "spriteUrl": "/sprites/colosseum/211.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 18,
+    "dexId": 307,
+    "name": "Meditite",
+    "spriteUrl": "/sprites/colosseum/307.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 19,
+    "dexId": 206,
+    "name": "Dunsparce",
+    "spriteUrl": "/sprites/colosseum/206.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 20,
+    "dexId": 333,
+    "name": "Swablu",
+    "spriteUrl": "/sprites/colosseum/333.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 21,
+    "dexId": 185,
+    "name": "Sudowoodo",
+    "spriteUrl": "/sprites/colosseum/185.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 22,
+    "dexId": 237,
+    "name": "Hitmontop",
+    "spriteUrl": "/sprites/colosseum/237.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 23,
+    "dexId": 244,
+    "name": "Entei",
+    "spriteUrl": "/sprites/colosseum/244.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 24,
+    "dexId": 166,
+    "name": "Ledian",
+    "spriteUrl": "/sprites/colosseum/166.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 25,
+    "dexId": 245,
+    "name": "Suicune",
+    "spriteUrl": "/sprites/colosseum/245.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 26,
+    "dexId": 207,
+    "name": "Gligar",
+    "spriteUrl": "/sprites/colosseum/207.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 27,
+    "dexId": 234,
+    "name": "Stantler",
+    "spriteUrl": "/sprites/colosseum/234.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 28,
+    "dexId": 221,
+    "name": "Piloswine",
+    "spriteUrl": "/sprites/colosseum/221.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 29,
+    "dexId": 215,
+    "name": "Sneasel",
+    "spriteUrl": "/sprites/colosseum/215.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 30,
+    "dexId": 190,
+    "name": "Aipom",
+    "spriteUrl": "/sprites/colosseum/190.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 31,
+    "dexId": 198,
+    "name": "Murkrow",
+    "spriteUrl": "/sprites/colosseum/198.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 32,
+    "dexId": 205,
+    "name": "Forretress",
+    "spriteUrl": "/sprites/colosseum/205.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 33,
+    "dexId": 168,
+    "name": "Ariados",
+    "spriteUrl": "/sprites/colosseum/168.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 34,
+    "dexId": 210,
+    "name": "Granbull",
+    "spriteUrl": "/sprites/colosseum/210.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 35,
+    "dexId": 329,
+    "name": "Vibrava",
+    "spriteUrl": "/sprites/colosseum/329.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 36,
+    "dexId": 243,
+    "name": "Raikou",
+    "spriteUrl": "/sprites/colosseum/243.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 37,
+    "dexId": 192,
+    "name": "Sunflora",
+    "spriteUrl": "/sprites/colosseum/192.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 38,
+    "dexId": 225,
+    "name": "Delibird",
+    "spriteUrl": "/sprites/colosseum/225.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 39,
+    "dexId": 214,
+    "name": "Heracross",
+    "spriteUrl": "/sprites/colosseum/214.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 40,
+    "dexId": 227,
+    "name": "Skarmory",
+    "spriteUrl": "/sprites/colosseum/227.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 41,
+    "dexId": 241,
+    "name": "Miltank",
+    "spriteUrl": "/sprites/colosseum/241.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 42,
+    "dexId": 359,
+    "name": "Absol",
+    "spriteUrl": "/sprites/colosseum/359.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 43,
+    "dexId": 229,
+    "name": "Houndoom",
+    "spriteUrl": "/sprites/colosseum/229.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 44,
+    "dexId": 357,
+    "name": "Tropius",
+    "spriteUrl": "/sprites/colosseum/357.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 45,
+    "dexId": 376,
+    "name": "Metagross",
+    "spriteUrl": "/sprites/colosseum/376.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 46,
+    "dexId": 248,
+    "name": "Tyranitar",
+    "spriteUrl": "/sprites/colosseum/248.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 47,
+    "dexId": 235,
+    "name": "Smeargle",
+    "spriteUrl": "/sprites/colosseum/235.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 48,
+    "dexId": 217,
+    "name": "Ursaring",
+    "spriteUrl": "/sprites/colosseum/217.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 49,
+    "dexId": 213,
+    "name": "Shuckle",
+    "spriteUrl": "/sprites/colosseum/213.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 50,
+    "dexId": 176,
+    "name": "Togetic",
+    "spriteUrl": "/sprites/colosseum/176.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 51,
+    "dexId": 175,
+    "name": "Togepi",
+    "spriteUrl": "/sprites/colosseum/175.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 52,
+    "dexId": 179,
+    "name": "Mareep",
+    "spriteUrl": "/sprites/colosseum/179.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 53,
+    "dexId": 212,
+    "name": "Scizor",
+    "spriteUrl": "/sprites/colosseum/212.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 54,
+    "dexId": 250,
+    "name": "Ho-Oh",
+    "spriteUrl": "/sprites/colosseum/250.png",
+    "boxId": 2,
+    "category": "bonus"
+  }
+]

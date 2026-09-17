@@ -33,12 +33,16 @@ function formatCheckedDate(isoDate) {
 // the checked state is easy to see at a glance).
 function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false }) {
   const number = item.dexId ?? item.id
-  const isGigantamax = item.category === 'gmax'
+  const isGigantamax = item.category === 'gmax' || item.name.includes('Gigantamax')
   const displayName = isGigantamax ? stripGigantamaxText(item.name) : item.name
   const dateLabel = checked ? formatCheckedDate(checkedDate) : null
-  // Checks category first (same pattern as the Gigantamax badge), falls
-  // back to a name check for now since Shadow Pokémon aren't tagged with
-  // a category yet in any checklist's data.
+  // Checks category first (same pattern as the Gigantamax badge) — this
+  // is how Colosseum and XD tag their Shadow Pokémon. Falls back to a
+  // name check for any checklist that hasn't tagged category: 'shadow'
+  // explicitly (GO's own unrelated "Shadow [Pokémon] (costume)" event
+  // reskins happen to match this fallback too — see
+  // src/checklists/Shadow.test.jsx for that edge case, documented not
+  // "fixed").
   const isShadow = item.category === 'shadow' || item.name.includes('Shadow')
 
   return (

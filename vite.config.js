@@ -21,4 +21,11 @@ export default defineConfig(({ command }) => ({
     // inside the container so the forwarded .app.github.dev URL works.
     host: true,
   },
+  // Vitest reads this same config (it's built on top of Vite) — this
+  // block only matters to `npm test`, not to `npm run dev`/`build`.
+  test: {
+    environment: 'jsdom', // fake browser DOM so component tests can render
+    globals: true, // lets test files use describe/it/expect without importing them
+    setupFiles: './src/test/setup.js',
+  },
 }))

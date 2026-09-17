@@ -13,11 +13,15 @@ export default {
   id: 'usum',
   title: 'Pokémon Ultra Sun & Ultra Moon',
   path: '/usum',
-  icon: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/46694fc5-76fc-4293-9b54-3038569ae18d/deeinkc-1a4a97e6-4a94-4d68-b64d-d3dd6b64ff2c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi80NjY5NGZjNS03NmZjLTQyOTMtOWI1NC0zMDM4NTY5YWUxOGQvZGVlaW5rYy0xYTRhOTdlNi00YTk0LTRkNjgtYjY0ZC1kM2RkNmI2NGZmMmMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.sjgbfCwFcDBqZvtbo27zQN9XHHkoTHZMzeZxl___2P8',
+  icon: '/icons/usum.png',
   // Sun-gold to moon-indigo — the actual duality the two versions are
   // named for.
   accentFrom: '#f5a623',
   accentTo: '#3b5bdb',
+  // Explicit, not guessed from entry count — this is what tells
+  // HubPage.jsx to show "still being built" instead of a percentage
+  // that doesn't mean anything yet.
+  placeholder: true,
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
   storageKey: 'usum-caught-v1',

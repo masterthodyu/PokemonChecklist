@@ -1,0 +1,666 @@
+[
+  {
+    "id": 1,
+    "dexId": 216,
+    "name": "Teddiursa",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/e/e6/Menu_XD_216.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 2,
+    "dexId": 165,
+    "name": "Ledyba",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/c/c4/Menu_XD_165.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 3,
+    "dexId": 261,
+    "name": "Poochyena",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/6/65/Menu_XD_261.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 4,
+    "dexId": 228,
+    "name": "Houndour",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/4/4b/Menu_XD_228.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 5,
+    "dexId": 343,
+    "name": "Baltoy",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/3/3e/Menu_XD_343.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 6,
+    "dexId": 179,
+    "name": "Mareep",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/c/cd/Menu_XD_179.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 7,
+    "dexId": 273,
+    "name": "Seedot",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/7/76/Menu_XD_273.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 8,
+    "dexId": 363,
+    "name": "Spheal",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/ba/Menu_XD_363.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 9,
+    "dexId": 316,
+    "name": "Gulpin",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/1/13/Menu_XD_316.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 10,
+    "dexId": 167,
+    "name": "Spinarak",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/c/c1/Menu_XD_167.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 11,
+    "dexId": 322,
+    "name": "Numel",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/d/d3/Menu_XD_322.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 12,
+    "dexId": 318,
+    "name": "Carvanha",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/5/5f/Menu_XD_318.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 13,
+    "dexId": 285,
+    "name": "Shroomish",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/1/18/Menu_XD_285.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 14,
+    "dexId": 301,
+    "name": "Delcatty",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/e/e6/Menu_XD_301.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 15,
+    "dexId": 100,
+    "name": "Voltorb",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/c/c3/Menu_XD_100.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 16,
+    "dexId": 296,
+    "name": "Makuhita",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/ba/Menu_XD_296.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 17,
+    "dexId": 37,
+    "name": "Vulpix",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/f/f5/Menu_XD_037.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 18,
+    "dexId": 355,
+    "name": "Duskull",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/1/11/Menu_XD_355.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 19,
+    "dexId": 280,
+    "name": "Ralts",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/a/a9/Menu_XD_280.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 20,
+    "dexId": 303,
+    "name": "Mawile",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/f/f5/Menu_XD_303.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 21,
+    "dexId": 361,
+    "name": "Snorunt",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/4/4b/Menu_XD_361.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 22,
+    "dexId": 204,
+    "name": "Pineco",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/9/9e/Menu_XD_204.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 23,
+    "dexId": 177,
+    "name": "Natu",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/4/4e/Menu_XD_177.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 24,
+    "dexId": 315,
+    "name": "Roselia",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/f/f2/Menu_XD_315.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 25,
+    "dexId": 52,
+    "name": "Meowth",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/c/c0/Menu_XD_052.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 26,
+    "dexId": 220,
+    "name": "Swinub",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/9/9c/Menu_XD_220.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 27,
+    "dexId": 21,
+    "name": "Spearow",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/6/6e/Menu_XD_021.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 28,
+    "dexId": 88,
+    "name": "Grimer",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/9/90/Menu_XD_088.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 29,
+    "dexId": 86,
+    "name": "Seel",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/b3/Menu_XD_086.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 30,
+    "dexId": 337,
+    "name": "Lunatone",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/4/40/Menu_XD_337.png",
+    "boxId": 1,
+    "category": "shadow"
+  },
+  {
+    "id": 31,
+    "dexId": 175,
+    "name": "Togepi",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/2/2f/Menu_XD_175.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 32,
+    "dexId": 299,
+    "name": "Nosepass",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/be/Menu_XD_299.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 33,
+    "dexId": 335,
+    "name": "Zangoose",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/f/f4/Menu_XD_335.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 34,
+    "dexId": 46,
+    "name": "Paras",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/f/fd/Menu_XD_046.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 35,
+    "dexId": 58,
+    "name": "Growlithe",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/b4/Menu_XD_058.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 36,
+    "dexId": 90,
+    "name": "Shellder",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/3/3b/Menu_XD_090.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 37,
+    "dexId": 15,
+    "name": "Beedrill",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/ba/Menu_XD_015.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 38,
+    "dexId": 17,
+    "name": "Pidgeotto",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/e/e5/Menu_XD_017.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 39,
+    "dexId": 114,
+    "name": "Tangela",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/8/8a/Menu_XD_114.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 40,
+    "dexId": 12,
+    "name": "Butterfree",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/d/d6/Menu_XD_012.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 41,
+    "dexId": 82,
+    "name": "Magneton",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/a/aa/Menu_XD_082.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 42,
+    "dexId": 49,
+    "name": "Venomoth",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/d/df/Menu_XD_049.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 43,
+    "dexId": 70,
+    "name": "Weepinbell",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/1/1b/Menu_XD_070.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 44,
+    "dexId": 24,
+    "name": "Arbok",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/7/7d/Menu_XD_024.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 45,
+    "dexId": 57,
+    "name": "Primeape",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/2/2b/Menu_XD_057.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 46,
+    "dexId": 97,
+    "name": "Hypno",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/8/89/Menu_XD_097.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 47,
+    "dexId": 55,
+    "name": "Golduck",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/9/9f/Menu_XD_055.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 48,
+    "dexId": 302,
+    "name": "Sableye",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/8/89/Menu_XD_302.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 49,
+    "dexId": 85,
+    "name": "Dodrio",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/2/25/Menu_XD_085.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 50,
+    "dexId": 20,
+    "name": "Raticate",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/2/22/Menu_XD_020.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 51,
+    "dexId": 83,
+    "name": "Farfetch'd",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/5/53/Menu_XD_083.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 52,
+    "dexId": 334,
+    "name": "Altaria",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/b8/Menu_XD_334.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 53,
+    "dexId": 115,
+    "name": "Kangaskhan",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/6/60/Menu_XD_115.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 54,
+    "dexId": 354,
+    "name": "Banette",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/d/dc/Menu_XD_354.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 55,
+    "dexId": 126,
+    "name": "Magmar",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/2/20/Menu_XD_126.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 56,
+    "dexId": 127,
+    "name": "Pinsir",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/f/fc/Menu_XD_127.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 57,
+    "dexId": 78,
+    "name": "Rapidash",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/7/76/Menu_XD_078.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 58,
+    "dexId": 219,
+    "name": "Magcargo",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/3/38/Menu_XD_219.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 59,
+    "dexId": 107,
+    "name": "Hitmonchan",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/4/40/Menu_XD_107.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 60,
+    "dexId": 106,
+    "name": "Hitmonlee",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/6/65/Menu_XD_106.png",
+    "boxId": 2,
+    "category": "shadow"
+  },
+  {
+    "id": 61,
+    "dexId": 108,
+    "name": "Lickitung",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/b8/Menu_XD_108.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 62,
+    "dexId": 123,
+    "name": "Scyther",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/7/7f/Menu_XD_123.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 63,
+    "dexId": 113,
+    "name": "Chansey",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/7/7d/Menu_XD_113.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 64,
+    "dexId": 338,
+    "name": "Solrock",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/8/87/Menu_XD_338.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 65,
+    "dexId": 121,
+    "name": "Starmie",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/8/85/Menu_XD_121.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 66,
+    "dexId": 277,
+    "name": "Swellow",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/0/02/Menu_XD_277.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 67,
+    "dexId": 125,
+    "name": "Electabuzz",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/1/19/Menu_XD_125.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 68,
+    "dexId": 143,
+    "name": "Snorlax",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/c/c3/Menu_XD_143.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 69,
+    "dexId": 62,
+    "name": "Poliwrath",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/b/b9/Menu_XD_062.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 70,
+    "dexId": 122,
+    "name": "Mr. Mime",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/9/94/Menu_XD_122.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 71,
+    "dexId": 51,
+    "name": "Dugtrio",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/c/c7/Menu_XD_051.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 72,
+    "dexId": 310,
+    "name": "Manectric",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/0/08/Menu_XD_310.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 73,
+    "dexId": 373,
+    "name": "Salamence",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/0/09/Menu_XD_373.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 74,
+    "dexId": 105,
+    "name": "Marowak",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/9/98/Menu_XD_105.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 75,
+    "dexId": 131,
+    "name": "Lapras",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/6/63/Menu_XD_131.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 76,
+    "dexId": 249,
+    "name": "Shadow Lugia",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/a/a8/Menu_XD_249S.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 77,
+    "dexId": 112,
+    "name": "Rhydon",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/3/31/Menu_XD_112.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 78,
+    "dexId": 146,
+    "name": "Moltres",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/7/7d/Menu_XD_146.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 79,
+    "dexId": 103,
+    "name": "Exeggutor",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/4/4c/Menu_XD_103.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 80,
+    "dexId": 128,
+    "name": "Tauros",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/d/d4/Menu_XD_128.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 81,
+    "dexId": 144,
+    "name": "Articuno",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/3/3d/Menu_XD_144.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 82,
+    "dexId": 145,
+    "name": "Zapdos",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/9/98/Menu_XD_145.png",
+    "boxId": 3,
+    "category": "shadow"
+  },
+  {
+    "id": 83,
+    "dexId": 149,
+    "name": "Dragonite",
+    "spriteUrl": "https://archives.bulbagarden.net/media/upload/6/6d/Menu_XD_149.png",
+    "boxId": 3,
+    "category": "shadow"
+  }
+]

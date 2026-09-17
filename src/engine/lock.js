@@ -20,5 +20,11 @@ if (!EDIT_PASSWORD) {
 }
 
 export function checkPassword(entered) {
+  // The EDIT_PASSWORD check has to come first. Without it, a fresh clone
+  // with no .env.local leaves EDIT_PASSWORD as undefined, and
+  // `undefined === undefined` is true — so checkPassword(undefined) would
+  // report a successful unlock on a site that has no password set at all.
+  // Editing should be impossible to unlock in that state, not trivial.
+  if (!EDIT_PASSWORD) return false
   return entered === EDIT_PASSWORD
 }
