@@ -1,9 +1,11 @@
 # DISCLAIMER
-This is an unofficial, non-commercial fan project. Pokemon and all related names, images, and data are trademarks and copyrights of Nintendo, Game Freak, Creates Inc. and the Pokemon COmpnay. This project is not affiilited with, endorsed by or sponsored yb any of them.
+This is an unofficial, non-commercial fan project. Pokemon and all related names, images, and data are trademarks and copyrights of Nintendo, Game Freak, Creatures Inc. and The Pokemon Company. This project is not affiliated with, endorsed by or sponsored by any of them.
 
 # My Checklist Project
 
-This started as a single page to check off every Pokémon I've caught in Pokémon Home. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, Soul Silver/Heart Gold, Colosseum, and XD: Gale of Darkness so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist. Progress is stored in one shared Firebase database.
+This started as a single page to check off every Pokémon I've caught in Pokémon Home. It's now a hub that holds several independent checklists — Pokémon Home, Pokémon GO, Ultra Sun/Ultra Moon, Soul Silver/Heart Gold, Colosseum, and XD: Gale of Darkness so far — sharing one lock, one deploy, and one underlying "engine" instead of copy-pasting the whole app for each new checklist. Progress is stored in one shared Firebase database. Built with Claude's help along the way, especially for the parts I didn't know how to do myself.
+
+I edit these during my night shifts when I get the chance so apologies for poor edits or discrepencies. Software development isn't my current employment so I get out of practice here and there.
 
 ## How this differs from other trackers
 
@@ -20,7 +22,7 @@ This list is something more personally tailored to myself. I wanted to not just 
 - Filter buttons: All / Caught / Not Caught, with an empty-state message ("No matches for that search," "Everything here is already caught," etc.) instead of a silently blank grid
 - Most checklists use 30-per-box (6×5) grids with Previous/Next and a "jump to box #" field, same as the games' PC boxes
 - Left sidebar: one progress-bar list per "group set" a checklist defines (Pokémon Home has Generation and Category; Colosseum has Category) — click a row to jump to it. Checklists with no group sets defined (SoulSilver, GO, USUM, XD currently) skip the sidebar entirely and center the content instead of leaving a dead gap
-- Gigantamax cards (Pokémon Home) get a small badge currently hotlinked to an external image as a placeholder; swap it for a self-hosted `public/icons/gmax-badge.png` when there's time.
+- Gigantamax cards (Pokémon Home) get a small badge (currently hotlinked from DeviantArt — see "Image sources" below).
 - **Pokémon GO has no boxes** — it's one flat, searchable list instead, since the actual game doesn't have a box system. 
 - Shadow Pokémon cards get a small badge and a subtle purple glow on the sprite
 - Locked by default so random clicks don't change anything — one password unlocks editing across every checklist for the rest of the browser tab after clicking on the lock button or clicking on a card.
@@ -42,28 +44,24 @@ This list is something more personally tailored to myself. I wanted to not just 
 - `src/checklists/` — one folder per checklist. `index.js` is the registry — add one line here per new checklist.
   - `home/` — Pokémon Home: `config.js`, `data.json`, `generations.js`, `categories.js`, `scripts/`
   - `go/` — Pokémon GO: boxless (no box system, since the real game doesn't have one either)
-  - `usum/` — Ultra Sun & Ultra Moon: same shape as Home, currently a placeholder (see below)
+  - `usum/` — Ultra Sun & Ultra Moon: just the four non transferable Totem Pokémon exclusive to that games.
   - `soulsilver/` — Soul Silver & Heart Gold: contains only 1 pokemon, spiked-ear Pichu. Only pokemon that couldn't transfer out of the games.
-  - `colluseum/` — Pokémon Colosseum: 54 entries, with its own `categories.js` (see "The GameCube checklists" below)
+  - `colosseum/` — Pokémon Colosseum: 54 entries, with its own `categories.js` (see "The GameCube checklists" below)
   - `xd/` — Pokémon XD: Gale of Darkness: 83 entries, all Shadow Pokémon
 
 Adding a new checklist means copying the shape of `src/checklists/home/`, writing its `config.js`, and adding one line to `src/checklists/index.js` — nothing in `src/engine/` needs to change.
 
 ## The GameCube checklists (Colosseum & XD)
 
-Both lists were built from one Bulbapedia article, and both keep that article's own row order — which is roughly story order, not dex order:
-
-<https://bulbapedia.bulbagarden.net/wiki/List_of_Shadow_Pokémon>
-
-**Colosseum — 54 entries.** 51 Shadow Pokémon, plus three Colosseum-exclusive Pokémon that are *not* Shadow: Espeon and Umbreon (Wes's starting pair, tagged `starter`) and the Mt. Battle reward Ho-Oh (tagged `bonus`). Keeping those three out of the `shadow` category is deliberate — it stops them inflating the Shadow count and stops `ItemCard` giving them the purple Shadow glow they haven't earned. The three categories are defined in `colluseum/categories.js` and drive the one sidebar list on that page.
+**Colosseum — 54 entries.** 51 Shadow Pokémon, plus three Colosseum-exclusive Pokémon that are *not* Shadow: Espeon and Umbreon (Wes's starting pair, tagged `starter`) and the Mt. Battle reward Ho-Oh (tagged `bonus`). Keeping those three out of the `shadow` category is deliberate — it stops them inflating the Shadow count and stops `ItemCard` giving them the purple Shadow glow they haven't earned. The three categories are defined in `colosseum/categories.js` and drive the one sidebar list on that page.
 
 **XD — 83 entries, all Shadow.** No `starter`/`bonus` extras and no sidebar, because a sidebar with a single group in it would just be a second copy of the header's progress bar. Entry 76 is Shadow Lugia, the only Pokémon whose appearance actually changes when it's turned Shadow — hence its own name and the `249S` sprite rather than a plain Lugia's.
 
 Together the two lists cover **131 unique species**, which is the figure the Bulbapedia article itself states. The overlap is Makuhita, Mareep and Togepi — the three species snaggable in both games.
 
-Three of Colosseum's 51 (**Togepi, Mareep and Scizor**) are Japanese-only e-Reader snags via the Card e Room. They're on the list on purpose, since the point of this project is "every Pokémon possible," but they're the ones to expect never to tick off on a Western cartridge. `shadow.test.js` has a test that exists specifically to stop someone "tidying them up" later.
+Three of Colosseum's 51 (**Togepi, Mareep and Scizor**) are Japanese-only e-Reader snags via the Card e Room. They're on the list on purpose, since the point of this project is "every Pokémon possible," but they're the ones to expect never to tick off on a Western cartridge. `Shadow.test.jsx` has a test that exists specifically to stop someone "tidying them up" later.
 
-**A note on the folder name:** it's spelled `colluseum`, which is a typo for Colosseum. It's kept that way on purpose — `id`, `storageKey` and `syncId` are the literal keys your saved progress already lives under, both in localStorage and in Firebase. Renaming them would point the app at empty keys and your progress would look like it had reset. Only the display `title` is spelled correctly.
+**A note on the folder name:** this was originally spelled `colluseum` (a typo for Colosseum), same as `id`, `storageKey`, and `syncId`. It's since been fixed everywhere — folder included — because this checklist was still new enough that nothing had real saved progress sitting under the old misspelled keys yet. That's the opposite of Home's `pokemon`/`pokemon-caught-v1` keys, which stay misspelled on purpose (see that config's own comment) specifically because real progress already exists there. If you'd already checked things off here before this fix, that progress would be stuck under the old `colluseum-caught-v1` key — a one-time migration would be needed to recover it, rather than just the rename.
 
 ## Hub title & the overall progress card
 
@@ -79,7 +77,7 @@ A checklist can also set `accentFrom`/`accentTo` (two hex colors) to give its hu
 
 The hub itself can have a background image too — set `backgroundImage` in `src/hubConfig.js` to a path, and drop that file in `public/`. Leave it `null` and the hub just keeps its plain dark background. Either way, text stays readable — there's a dark overlay under whatever background image gets set.
 
-A general note on images anywhere in this project: self-hosting a file in `public/` (rather than linking straight to someone else's server) is worth the extra step — a hotlinked URL can break on its own if the other site changes something, moves the file, or (as happened with the Gigantamax badge, the USUM icon, and now the hub's own background image) the link had a time-limited access token baked into it.
+A general note on images anywhere in this project: self-hosting a file in `public/` (rather than linking straight to someone else's server) is worth the extra step — a hotlinked URL can break on its own if the other site changes something, moves the file, or (as with the Gigantamax badge and the hub's own background image, currently) the link had a time-limited access token baked into it.
 
 ## Running it yourself
 
@@ -109,14 +107,12 @@ Test will also run upon build or dev start.
 Uses [Vitest](https://vitest.dev) (config lives in `vite.config.js`'s `test` block) plus [Testing Library](https://testing-library.com/react) for the component tests. Five kinds of tests, none of which need Firebase, a real browser, or any network access:
 
 - `src/engine/sync.test.js`, `src/engine/lock.test.js` — pure-logic tests for the checked-id parsing, the Firebase REST calls (with `fetch` mocked), and the password check.
-- `src/checklists/registry.test.js` — data-integrity checks that run against the **real** `data.json`/`config.js` files, not fixtures. No duplicate ids *or names* within a checklist, no two checklists sharing a `storageKey`/`syncId`, every `spriteUrl` either a local `/sprites/` path or a full URL, every `dexId` a plausible National Dex number, no box holding more than `boxSize` entries, box numbers running contiguously from 1, no sidebar group that matches zero items, every Home category tag actually present in `categories.js`, generation ranges not overlapping.
-- `src/checklists/shadow.test.js` — the Colosseum/XD-specific checks the generic ones can't make: the 51 / 83 / 131 counts the Bulbapedia article states, the non-Shadow exclusives staying out of the `shadow` category, the e-Reader entries still being present, and every Bulbapedia sprite URL being internally valid (see below).
+- `src/checklists/Registry.test.jsx` — data-integrity checks that run against the **real** `data.json`/`config.js` files, not fixtures. No duplicate ids *or names* within a checklist, no two checklists sharing a `storageKey`/`syncId`, every `spriteUrl` either a local `/sprites/` path or a full URL, every `dexId` a plausible National Dex number, no box holding more than `boxSize` entries, box numbers running contiguously from 1, no sidebar group that matches zero items, every Home category tag actually present in `categories.js`, generation ranges not overlapping.
+- `src/checklists/Shadow.test.jsx` — the Colosseum/XD-specific checks the generic ones can't make: Colosseum's 51/2/1 shadow/starter/bonus split, XD's Shadow Lugia entry, the 131-unique-Shadow-species figure Bulbapedia's own article states (and that the 3-species overlap is exactly Makuhita/Mareep/Togepi), and that both checklists are wired into `CHECKLISTS`. Also verifies every sprite URL still pointing at Bulbagarden (currently all 83 of XD's) is internally consistent — Bulbagarden's archive path is a deterministic MD5 hash of the filename, so a wrong or typo'd URL can be caught with `node:crypto` alone, no network needed — and that the dex number baked into each of those filenames matches that entry's `dexId`. Also checks the "Shadow" name fallback `ItemCard.jsx` uses (see `ItemCard.test.jsx` for the component-level behavior of that same fallback) against the real data — that Home's Marshadow doesn't false-positive into it, and that GO's own unrelated "Shadow [Pokémon]" costume Pokémon do (documented on purpose, not something this fixes).
 - `src/engine/ItemCard.test.jsx` — per-card behavior: the Gigantamax name-stripping and badge, the Shadow badge, the checked-date label, and that one click fires `onToggle` exactly once.
 - `src/engine/ChecklistPage.test.jsx` — the big one. Renders the whole page against small fake checklists and covers box navigation, search (including jump-to-box and the ×/Escape clears), the All/Caught/Not Caught filters, the password lock, Select All / Unselect All / Undo, localStorage persistence, the group sidebar, and that boxless checklists render no box controls at all.
 
-**The offline sprite-URL check** is worth calling out, since it looks like it should need the network and doesn't. Bulbapedia's archive serves every file from a path derived from the MD5 of its own filename — `/media/upload/<md5[0]>/<md5[0..1]>/<filename>` — so a URL can be proved correct (or dead) with nothing but `node:crypto`. `shadow.test.js` recomputes the hash for every Colosseum and XD sprite and fails with the exact expected path if one doesn't line up. A second test checks the dex number embedded in each sprite filename still matches that entry's `dexId`, which is what stops an entry drifting into being named one Pokémon, numbered a second and pictured a third.
-
-Adding a checklist to `src/checklists/index.js` gets covered by `registry.test.js` automatically — no test file changes needed for that part.
+Adding a checklist to `src/checklists/index.js` gets covered by `Registry.test.jsx` automatically — no test file changes needed for that part.
 
 **Deployment note:** `vite.config.js`'s `base` needs to match your actual GitHub repo name exactly (currently `/PokemonChecklist/`). `App.jsx`'s router `basename` reads this automatically now, so there's only ever one place to update it. That subpath only applies during `npm run build` — `npm run dev` stays at the plain root, since forcing the dev server under a subpath was causing 404s (most setups, including a GitHub Codespaces forwarded preview URL, open the dev server at its root). `vite.config.js` also sets `server.host: true` so Codespaces' port forwarding can actually reach the dev server.
 
@@ -146,18 +142,18 @@ node src/checklists/home/scripts/assignCategories.mjs
 
 Pokémon GO doesn't have either script — it's boxless, and category tagging hasn't been needed there yet (its ids are hand-assigned decimals grouping variants near their base species, e.g. all the Pikachu costumes near `25.x`). Since these are hand-assigned rather than generated, double-check a new entry's decimal doesn't already belong to another costume before adding it — two entries sharing one `id` means checking either one shows both as checked, and React will complain about duplicate list keys.
 
-Colosseum and XD don't have the scripts either — their boxes are just the article's row order chopped into thirties, so a plain sequential fill is all they need. `registry.test.js` is what guards that (no box over 30, no gaps in the numbering), rather than a script you have to remember to rerun.
+Colosseum and XD don't have the scripts either — their boxes are just the article's row order chopped into thirties, so a plain sequential fill is all they need. `Registry.test.jsx` is what guards that (no box over 30, no gaps in the numbering), rather than a script you have to remember to rerun.
 
 ## Self-hosting sprites & other images
 
-Every sprite in every checklist's `data.json`, plus the hub/checklist icons and the hub background, is currently hotlinked from other sites (see "Image sources" below) rather than self-hosted in `public/`. Two scripts move that over to local files, in two deliberate steps:
+Every sprite and icon started out hotlinked from other sites (see "Image sources" below). Two scripts move that over to local files in `public/`, in two deliberate steps:
 
 1. **`node scripts/download-sprites.mjs`** — reads every checklist's `data.json` and downloads each `spriteUrl` it finds into `public/sprites/<checklist-id>/<original-filename>`, and separately reads every checklist's `config.js` for an `icon:` field that's still a real URL (not already a local path) and downloads that too, into `public/icons/<checklist-id>.<ext>`. **You don't need to create either folder yourself** — the script creates `public/sprites/` and `public/icons/` (and one sprites-subfolder per checklist) automatically the first time it runs. Nothing about this runs on its own — there's no build step, git hook, or CI job that triggers it; you run it yourself, by hand, whenever you want to pull down whatever's currently hotlinked. It's also safe to re-run any time (e.g. after adding new Pokémon to a `data.json`): it skips anything it's already downloaded, so a re-run only fetches what's new.
 2. **`node scripts/use-local-sprites.mjs`** — run this only after step 1, and after you've actually looked through `public/sprites/` to confirm the images downloaded correctly. This rewrites each `data.json`'s `spriteUrl` fields to point at the local copy instead of the original hotlinked URL — but only for files it can actually find locally, so a failed/skipped download just keeps its original working URL rather than breaking. **This one doesn't touch `icon:` fields** — those live in `config.js`, not a JSON file, so once step 1 has downloaded an icon, swap that checklist's `icon:` line over by hand (`download-sprites.mjs` prints the exact local path to use for each one it downloads).
 
 Both are plain Node scripts (`node <path>`), not npm scripts, and both need to run somewhere with normal internet access — some of the source sites (PokémonDB, Serebii, the wixmp-hosted DeviantArt links) block requests from sandboxed or datacenter environments, which is why this is a manual step you run yourself (your own machine, or a Codespace) rather than something automated in CI.
 
-Running step 1 will pull down the 137 Colosseum/XD menu sprites into `public/sprites/colluseum/` and `public/sprites/xd/`. Once step 2 rewrites those to local paths, the MD5 check in `shadow.test.js` skips them automatically — there's no hash left to verify once a URL is a local path, and the test only looks at URLs still pointing at Bulbapedia.
+Colosseum's 54 sprites, and every checklist's icon, have already been through both steps and live locally in `public/sprites/colosseum/` and `public/icons/`. XD's 83 sprites haven't — `xd/data.json` still points straight at Bulbagarden. Running both scripts again only fetches those 83, since everything else downloaded already gets skipped.
 
 ## Cloud sync setup
 
@@ -171,39 +167,24 @@ Every checklist shares one Firebase Realtime Database, each at its own path — 
 
 If `VITE_FIREBASE_DB_URL` isn't set, every checklist just saves locally only — nothing breaks, it just won't follow you across devices until it's set up. One database URL covers every checklist, so there's only ever this one thing to configure, regardless of how many checklists exist.
 
-## Known issues
-
-- Gigantamax cards, the USUM icon, and the hub's own background image are all currently hotlinked to DeviantArt via a temporary wixmp CDN token — see "Image sources" below, and "Self-hosting sprites & other images" above for the fix.
-- **The Colosseum and XD hub icons are hotlinked to `encrypted-tbn0.gstatic.com`** — Google's internal search-result thumbnail cache, not a real image host, and known to go stale without warning. (This README used to claim these were Bulbapedia archive URLs like every other sprite in those two lists, which would have made them verifiably stable — that was wrong; they're not. If Colosseum/XD sprites ever stop loading, this is the first thing to check.) `scripts/download-sprites.mjs` now downloads these two alongside every other sprite — see "Self-hosting sprites & other images" above for the one manual step still needed (pointing `icon:` at the downloaded file, since that line lives in a `.js` file the script won't safely rewrite for you).
-
-## Recently fixed
-
-- **Mobile layout overflowed sideways**, worse on GO than Home. CSS Grid items don't shrink below their content's natural width by default — a long name like "Pikachu (World Championships 2025)" forced its card wider than its grid column, pushing the whole row (and the page) past the screen edge. Desktop never showed it, since there's always enough spare width for a long name to fit on one line. Fixed with `min-width: 0` + `overflow-wrap` on the cards, plus wrap-safety on the header/undo-banner rows and a global `overflow-x: hidden` safety net.
-- **A failed startup sync on a brand-new device looked like data loss.** Nothing distinguished "this device already has progress, a sync hiccup barely matters" from "this device has nothing locally and we couldn't reach the cloud either" — both just showed the same small gray warning. The second case now gets its own more visible message instead of blending in.
-
-- **The Colosseum list had six wrong dex numbers** when it first landed — Noctowl (163→164), Flaaffy (179→180), Furret (161→162), Ledian (165→166), Hitmontop (257→237) and Swablu (276→**333**). Most were off-by-ones onto the pre-evolution; Swablu's was unrelated entirely. It was also missing six entries (Smeargle, Ursaring, Shuckle, Togetic, Togepi, Mareep) and had all 48 entries crammed into box 1 despite `boxSize: 30`. The whole file was rebuilt from Bulbapedia, and `registry.test.js` now has checks that would have caught every one of those.
-- **`checkPassword` returned `true` on a fresh clone.** With no `.env.local`, `EDIT_PASSWORD` was `undefined`, so `checkPassword(undefined)` was `undefined === undefined` — i.e. a successful unlock on a site with no password set at all. `lock.test.js` had been failing on exactly this and was right to. Fixed with an explicit guard.
-- **Five Pokémon GO entries had the wrong name.** In each case the `dexId` and the sprite filename agreed on one species while the name had been copy-pasted from the row above: Buneary, Turtwig (×2) and Rapidash were labelled as Happiny, Chimchar and Ponyta, and two genuinely different Pikachu party hats shared a single name. Renamed by `id`, so no saved progress moved. `registry.test.js`'s duplicate-name check is what surfaced these.
-
-## Still to do
-
-- **Pokémon GO's `data.json` is a work in progress** — lots of costume Pokémon added so far.
-- **Ultra Sun & Ultra Moon's `data.json` is a 3-entry placeholder** — plan is to build it around transferable Pokémon rather than a full regional dex from scratch.
-- **XD's non-Shadow exclusives** aren't in its list yet. If you want parity with how Colosseum handles Espeon/Umbreon/Ho-Oh, the XD equivalents are the Eevee you start with and the Johto starter you get for clearing Mt. Battle. Copy `colluseum/categories.js` and its `groupSets` block to add them.
-- Replace the two GameCube hub icons with real logos (see "Known issues").
-
 ## Image sources
 
-None of the artwork or sprites in this project are mine — all hotlinked from other sites for now, most not yet self-hosted (see the "self-hosting" note above for why that's worth doing eventually).
+None of the artwork or sprites in this project are mine. Most of it is downloaded and self-hosted in `public/` now rather than hotlinked (see "Self-hosting sprites & other images" above) — every checklist's hub icon, and every checklist's sprites except XD's. What's below is where each originally came from, self-hosted or not:
 
 - **Pokémon sprites** (Home, Ultra Sun/Ultra Moon, Soul Silver/Heart Gold checklists) — [PokémonDB](https://pokemondb.net)
 - **Pokémon GO costume/seasonal variant sprites** — [Serebii.net](https://www.serebii.net)
-- **Colosseum & XD menu sprites**, plus both of those checklists' hub icons — [Bulbagarden Archives](https://archives.bulbagarden.net), the media host behind [Bulbapedia](https://bulbapedia.bulbagarden.net). Bulbapedia content is [CC BY-NC-SA 2.5](https://creativecommons.org/licenses/by-nc-sa/2.5/).
+- **Colosseum menu sprites** — [Serebii.net](https://www.serebii.net); self-hosted now.
+- **XD menu sprites** — [Bulbagarden Archives](https://archives.bulbagarden.net), the media host behind [Bulbapedia](https://bulbapedia.bulbagarden.net). Bulbapedia content is [CC BY-NC-SA 2.5](https://creativecommons.org/licenses/by-nc-sa/2.5/). Still hotlinked directly — see "Self-hosting sprites & other images" above.
 - **Pokémon Home hub icon** — Google Play Store listing image
 - **Pokémon GO hub icon** — [Pokémon GO Wiki](https://pokemongo.fandom.com) (Fandom)
 - **Soul Silver/Heart Gold hub icon** — [jklaczpokemon.com](https://jklaczpokemon.com)
-- **Ultra Sun/Ultra Moon hub icon** — DeviantArt, via a temporary wixmp CDN link (needs replacing — see "Known issues")
-- **Gigantamax badge** (Pokémon Home cards) — fan art by DeviantArt user jormxdos, via a temporary wixmp CDN link (currently hotlinked as a placeholder — see the note in `styles.css`)
-- **Hub background image** — "Drawing Every Pokémon Ever" by DeviantArt user ccayco, via a temporary wixmp CDN link
+- **Ultra Sun/Ultra Moon hub icon** — DeviantArt originally; self-hosted now.
+- **Colosseum & XD hub icons** — Bulbagarden Archives originally; self-hosted now.
+- **Gigantamax badge** (Pokémon Home cards) — fan art by DeviantArt user jormxdos, still hotlinked via a temporary wixmp CDN link (see the note in `styles.css`)
+- **Hub background image** — "Drawing Every Pokémon Ever" by DeviantArt user ccayco, still hotlinked via a temporary wixmp CDN link
 
-Three of these (the USUM icon, the Gigantamax badge, and the hub background) are DeviantArt links with a time-limited access token baked into the URL — they're likely to stop working on their own at some point regardless of anything else changing, independent of any copyright question. Worth downloading and self-hosting all three in `public/` when there's time, same as anything else linked here long-term.
+The Gigantamax badge and the hub background are both DeviantArt links with a time-limited access token baked into the URL, so unlike a plain hotlink these could stop working on their own even if nothing else changes — the fix is the same as anything else here still hotlinked: download it and point `public/` at the local copy.
+
+## License
+
+The code itself is MIT-licensed — see `LICENSE`. That covers this project's own code only; it doesn't extend to Pokémon itself (see the disclaimer at the top) or to any of the sprites/artwork listed above, which stay under whatever terms their original sources use.

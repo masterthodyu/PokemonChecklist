@@ -1,33 +1,16 @@
 import data from './data.json'
 import { GENERATIONS } from './generations.js'
 import { CATEGORIES } from './categories.js'
-
-// This is the only Pokémon-specific file the shared engine (src/engine/)
-// reads from. Everything in engine/ is generic and works off whatever
-// config gets handed to it — to add a new checklist, copy this folder's
-// shape (config.js + data.json + optional scripts/) and register the new
-// config in src/checklists/index.js.
 export default {
   id: 'home',
   title: 'Pokémon Home',
   path: '/home',
   icon: 'icons/home.png',
-  // The Pokéball's own red/yellow — also the engine's default accent, so
-  // this is here for clarity rather than necessity.
   accentFrom: '#ee1515',
   accentTo: '#ffcb05',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
   boxSize: 30,
-  // Deliberately still "pokemon", not "home" — this is the literal
-  // localStorage key your saved progress already lives under. Renaming
-  // it would make the app look at a brand new empty key, and your real
-  // progress would appear to reset to zero (the old data would still
-  // technically exist, just orphaned under the old key).
   storageKey: 'pokemon-caught-v1',
-  // Same reasoning as storageKey above, but for the Firebase path this
-  // checklist syncs to (VITE_FIREBASE_DB_URL/checklists/pokemon/...).
-  // Changing this would point sync at an empty path instead of your
-  // actual synced data.
   syncId: 'pokemon',
 
   // Each entry here becomes one progress-bar list in the left sidebar.
