@@ -10,6 +10,7 @@
 // what "Shadow.test.jsx failing" meant. Restored here as actual tests.
 
 import { describe, expect, it } from 'vitest'
+import { createHash } from 'node:crypto'
 import colosseumConfig from './colosseum/config.js'
 import xdConfig from './xd/config.js'
 import homeConfig from './home/config.js'
@@ -52,6 +53,82 @@ describe('XD (xd/) is entirely Shadow Pokémon', () => {
     expect(entry?.dexId).toBe(249)
     expect(entry?.spriteUrl).toMatch(/249S\.png$/)
   })
+})
+
+describe('Bulbapedia\'s own "List of Shadow Pokémon" count', () => {
+  // README / colosseum's config.js: the two lists together cover 131
+  // unique SHADOW species (Bulbapedia's own stated figure) — NOT the same
+  // as 54 + 83, since Colosseum's Espeon/Umbreon/Ho-Oh aren't Shadow
+  // Pokémon, and NOT just 54 + 83 - overlap either unless you exclude
+  // those three first. Get either exclusion wrong and this catches it.
+  it('Colosseum\'s 51 shadow + XD\'s 83, minus the 3-species overlap, is 131', () => {
+    const colosseumShadowDex = new Set(
+      colosseumConfig.data.filter(item => item.category === 'shadow').map(item => item.dexId)
+    )
+    const xdShadowDex = new Set(xdConfig.data.map(item => item.dexId))
+    const union = new Set([...colosseumShadowDex, ...xdShadowDex])
+    expect(union.size).toBe(131)
+  })
+
+  it('the overlap is exactly Makuhita, Mareep, and Togepi', () => {
+    const colosseumShadowByDex = new Map(
+      colosseumConfig.data.filter(item => item.category === 'shadow').map(item => [item.dexId, item.name])
+    )
+    const xdDex = new Set(xdConfig.data.map(item => item.dexId))
+    const overlapNames = [...colosseumShadowByDex.entries()]
+      .filter(([dexId]) => xdDex.has(dexId))
+      .map(([, name]) => name)
+      .sort()
+    expect(overlapNames).toEqual(['Makuhita', 'Mareep', 'Togepi'])
+  })
+})
+
+describe('Bulbagarden sprite URLs are internally valid (offline — no network needed)', () => {
+  // Bulbagarden's archive serves every file from a path derived from the
+  // MD5 hash of its own filename: /media/upload/<md5[0]>/<md5[0..1]>/<filename>.
+  // That means a URL can be proved self-consistent (or shown to be a typo)
+  // with nothing but node:crypto — no need to actually fetch it. Verified
+  // by hand against three real XD URLs before writing this: e.g.
+  // "Menu_XD_216.png" really does hash to a path starting e/e6/, matching
+  // the actual URL in xd/data.json for Teddiursa.
+  //
+  // Only checks entries still pointing at archives.bulbagarden.net —
+  // Colosseum's sprites are local paths now, so there's nothing to check
+  // there until/unless something points back at Bulbagarden again. Right
+  // now that's all 83 of XD's.
+  const allEntries = [
+    ...colosseumConfig.data.map(item => ({ checklist: 'colosseum', ...item })),
+    ...xdConfig.data.map(item => ({ checklist: 'xd', ...item })),
+  ]
+  const bulbagardenEntries = allEntries.filter(item => item.spriteUrl.includes('archives.bulbagarden.net'))
+
+  it('found at least one Bulbagarden-hosted entry to actually check (sanity check on this test itself)', () => {
+    // If this ever fails because BOTH checklists have gone fully local,
+    // that's good news — this whole describe block can be deleted then.
+    expect(bulbagardenEntries.length).toBeGreaterThan(0)
+  })
+
+  it.each(bulbagardenEntries.map(item => [`${item.checklist} — ${item.name}`, item]))(
+    '%s: sprite URL hash-path matches its own filename',
+    (_label, item) => {
+      const match = item.spriteUrl.match(
+        /^https:\/\/archives\.bulbagarden\.net\/media\/upload\/([0-9a-f])\/([0-9a-f]{2})\/(.+)$/
+      )
+      expect(match, item.spriteUrl).not.toBeNull()
+      const [, folder1, folder2, filename] = match
+      const hash = createHash('md5').update(filename).digest('hex')
+      expect(`${folder1}/${folder2}`, item.spriteUrl).toBe(`${hash[0]}/${hash.slice(0, 2)}`)
+    }
+  )
+
+  it.each(bulbagardenEntries.map(item => [`${item.checklist} — ${item.name}`, item]))(
+    "%s: sprite filename's own embedded dex number matches its dexId",
+    (_label, item) => {
+      const match = item.spriteUrl.match(/_(\d+)S?\.png$/)
+      expect(match, item.spriteUrl).not.toBeNull()
+      expect(Number(match[1])).toBe(item.dexId)
+    }
+  )
 })
 
 describe('ItemCard\'s name-based Shadow fallback (see ItemCard.jsx) against real data', () => {
