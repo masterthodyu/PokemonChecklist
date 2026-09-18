@@ -1,26 +1,30 @@
 [
   {
     "id": 1,
-    "dexId": 1,
-    "name": "Rowlet",
-    "spriteUrl": "sprites/usum/rowlet.png",
-    "boxId": 1,
-    "category": "base"
+    "dexId": 20,
+    "name": "Totem Marowak (Alolan Form)",
+    "spriteUrl": "sprites/home/marowak-alolan.png",
+    "boxId": 1
   },
   {
     "id": 2,
-    "dexId": 2,
-    "name": "Dartrix",
-    "spriteUrl": "sprites/usum/dartrix.png",
-    "boxId": 1,
-    "category": "base"
+    "dexId": 752,
+    "name": "Totem Araquanid",
+    "spriteUrl": "sprites/home/araquanid.png",
+    "boxId": 1
   },
   {
     "id": 3,
-    "dexId": 3,
-    "name": "Decidueye",
-    "spriteUrl": "sprites/usum/decidueye.png",
-    "boxId": 1,
-    "category": "base"
+    "dexId": 777,
+    "name": "Totem Togedemaru",
+    "spriteUrl": "sprites/home/togedemaru.png",
+    "boxId": 1
+  },
+  {
+    "id": 4,
+    "dexId": 743,
+    "name": "Totem Ribombee",
+    "spriteUrl": "sprites/home/ribombee.png",
+    "boxId": 1
   }
 ]

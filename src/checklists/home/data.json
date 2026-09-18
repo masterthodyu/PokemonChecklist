@@ -11128,14 +11128,6 @@
     "category": "totem"
   },
   {
-    "id": 1392,
-    "dexId": 20,
-    "name": "Totem Raticate (Alola Form)",
-    "spriteUrl": "sprites/home/raticate-alolan.png",
-    "boxId": 56,
-    "category": "totem"
-  },
-  {
     "id": 1393,
     "dexId": 758,
     "name": "Totem Salazzle",
