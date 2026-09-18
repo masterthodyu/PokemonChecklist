@@ -1,0 +1,20 @@
+[
+
+  {"id":1331,"dexid":773,"name":"Silvally (Fighting)","sprite":"silvally-fighting","boxId":47},
+  {"id":1332,"dexid":773,"name":"Silvally (Flying)","sprite":"silvally-flying","boxId":47},
+  {"id":1333,"dexid":773,"name":"Silvally (Poison)","sprite":"silvally-poison","boxId":47},
+  {"id":1334,"dexid":773,"name":"Silvally (Ground)","sprite":"silvally-ground","boxId":47},
+  {"id":1335,"dexid":773,"name":"Silvally (Rock)","sprite":"silvally-rock","boxId":47},
+  {"id":1336,"dexid":773,"name":"Silvally (Bug)","sprite":"silvally-bug","boxId":47},
+  {"id":1337,"dexid":773,"name":"Silvally (Ghost)","sprite":"silvally-ghost","boxId":47},
+  {"id":1338,"dexid":773,"name":"Silvally (Steel)","sprite":"silvally-steel","boxId":47},
+  {"id":1339,"dexid":773,"name":"Silvally (Fire)","sprite":"silvally-fire","boxId":47},
+  {"id":1340,"dexid":773,"name":"Silvally (Water)","sprite":"silvally-water","boxId":47},
+  {"id":1341,"dexid":773,"name":"Silvally (Grass)","sprite":"silvally-grass","boxId":47},
+  {"id":1342,"dexid":773,"name":"Silvally (Electric)","sprite":"silvally-electric","boxId":47},
+  {"id":1343,"dexid":773,"name":"Silvally (Psychic)","sprite":"silvally-psychic","boxId":47},
+  {"id":1344,"dexid":773,"name":"Silvally (Ice)","sprite":"silvally-ice","boxId":47},
+  {"id":1345,"dexid":773,"name":"Silvally (Dragon)","sprite":"silvally-dragon","boxId":47},
+  {"id":1346,"dexid":773,"name":"Silvally (Dark)","sprite":"silvally-dark","boxId":47},
+  {"id":1347,"dexid":773,"name":"Silvally (Fairy)","sprite":"silvally-fairy","boxId":47}
+]

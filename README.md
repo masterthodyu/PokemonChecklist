@@ -44,10 +44,13 @@ This list is something more personally tailored to myself. I wanted to not just 
 - `src/checklists/` — one folder per checklist. `index.js` is the registry — add one line here per new checklist.
   - `home/` — Pokémon Home: `config.js`, `data.json`, `generations.js`, `categories.js`, `scripts/`
   - `go/` — Pokémon GO: boxless (no box system, since the real game doesn't have one either)
-  - `usum/` — Ultra Sun & Ultra Moon: just the four non transferable Totem Pokémon exclusive to that games.
-  - `soulsilver/` — Soul Silver & Heart Gold: contains only 1 pokemon, spiked-ear Pichu. Only pokemon that couldn't transfer out of the games.
+  - `usum/` — Ultra Sun & Ultra Moon: just the four non transferable Totem Pokémon exclusive to that games. For this list I am using Ultra Sun.
+  - `hgss/` — Heart Gold & Soul Silver : contains only 1 pokemon, spiked-ear Pichu. Only pokemon that couldn't transfer out of the games.
   - `colosseum/` — Pokémon Colosseum: 54 entries, with its own `categories.js` (see "The GameCube checklists" below)
   - `xd/` — Pokémon XD: Gale of Darkness: 83 entries, all Shadow Pokémon
+  - `swsh/` - Pokémon Sword and Shield: Currently holds all Silvally with their respective elements, and one form of Kyurem, Necrozma, and Calyrex (See "Fusion Forms" below)
+  - `la/` - Pokémon Legends Arcues: Only holds Origin Dialga and Palkia because they're cause in the old wooden pokeballs. Origin ball versions are in Home.
+  - `sv/` - contains origin form giratina, all arceus with their plates, and one form of Kyurem, Necrozma, and Calyrex (See "Fusion Forms" below)
 
 Adding a new checklist means copying the shape of `src/checklists/home/`, writing its `config.js`, and adding one line to `src/checklists/index.js` — nothing in `src/engine/` needs to change.
 
@@ -61,7 +64,8 @@ Together the two lists cover **131 unique species**, which is the figure the Bul
 
 Three of Colosseum's 51 (**Togepi, Mareep and Scizor**) are Japanese-only e-Reader snags via the Card e Room. They're on the list on purpose, since the point of this project is "every Pokémon possible," but they're the ones to expect never to tick off on a Western cartridge. `Shadow.test.jsx` has a test that exists specifically to stop someone "tidying them up" later.
 
-**A note on the folder name:** this was originally spelled `colluseum` (a typo for Colosseum), same as `id`, `storageKey`, and `syncId`. It's since been fixed everywhere — folder included — because this checklist was still new enough that nothing had real saved progress sitting under the old misspelled keys yet. That's the opposite of Home's `pokemon`/`pokemon-caught-v1` keys, which stay misspelled on purpose (see that config's own comment) specifically because real progress already exists there. If you'd already checked things off here before this fix, that progress would be stuck under the old `colluseum-caught-v1` key — a one-time migration would be needed to recover it, rather than just the rename.
+**Fusion forms** 
+Out of the entire Pokédex, there are 3 Pokémon with fusions. Those are Kyurem with Black and White forms, Necrozma with Dusk Mane and Dawn Wings forms, and Calyrex with Ice Rider and Shadow Rider forms. Since each save file can only have one of the 2 forms at any given time regardless if in party or in box, I've decided Black Kyurem, Dusk Mane Necrozma, and Ice Rider Calyrex are in my `swsh/` list and White Kyurem, Dawn Wings Necrozma, and Shadow Rider Calyrex are in my `sv/` list.
 
 ## Hub title & the overall progress card
 
