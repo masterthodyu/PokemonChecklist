@@ -1,10 +1,6 @@
-// Turns "Charizard (Gigantamax)" into "Charizard", and
-// "Bulbasaur (Gigantamax Factor) (Gift)" into "Bulbasaur (Gift)" — the
-// little G-Max badge (below) shows the Gigantamax part instead of having
-// it spelled out in the name every time.
-// (This is a Pokémon-specific quirk, kept here since it only ever fires
-// for items tagged category "gmax" — it's a harmless no-op for any other
-// checklist's items.)
+// "Charizard (Gigantamax)" -> "Charizard". "Bulbasaur (Gigantamax
+// Factor) (Gift)" -> "Bulbasaur (Gift)" — the badge shows the Gigantamax
+// part instead of spelling it out in the name.
 function stripGigantamaxText(name) {
   return name
     .replace(/Gigantamax Factor/g, '')
@@ -16,10 +12,8 @@ function stripGigantamaxText(name) {
     .trim()
 }
 
-// Turns an ISO date string into a short label like "Sep 13" — small enough
-// to fit in a corner of the card without crowding anything else. Returns
-// null if there's no date to show (nothing checked yet, or it was checked
-// before this feature existed and so has no date on record).
+// "Sep 13" — short enough for a card corner. Null if there's nothing to
+// show (unchecked, or checked before dates were tracked).
 function formatCheckedDate(isoDate) {
   if (!isoDate) return null
   const date = new Date(isoDate)
@@ -27,22 +21,18 @@ function formatCheckedDate(isoDate) {
   return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
 }
 
-// One clickable tile for a single checklist item: picture, number, name,
-// and a checkbox. Clicking anywhere on the card toggles it checked/not
-// checked (the checkbox itself does the same thing, it's just there so
-// the checked state is easy to see at a glance).
+// One clickable tile: picture, number, name, checkbox. Clicking anywhere
+// on the card toggles it.
 function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false }) {
   const number = item.dexId ?? item.id
   const isGigantamax = item.category === 'gmax' || item.name.includes('Gigantamax')
   const displayName = isGigantamax ? stripGigantamaxText(item.name) : item.name
   const dateLabel = checked ? formatCheckedDate(checkedDate) : null
-  // Checks category first (same pattern as the Gigantamax badge) — this
-  // is how Colosseum and XD tag their Shadow Pokémon. Falls back to a
-  // name check for any checklist that hasn't tagged category: 'shadow'
-  // explicitly (GO's own unrelated "Shadow [Pokémon] (costume)" event
-  // reskins happen to match this fallback too — see
-  // src/checklists/Shadow.test.jsx for that edge case, documented not
-  // "fixed").
+  // Category is the real tag (Colosseum/XD's Shadow Pokémon); the name
+  // check is a fallback for anything not tagged yet. GO's own unrelated
+  // "Shadow [Pokémon] (costume)" reskins happen to match this fallback
+  // too — see src/checklists/Shadow.test.jsx, that's documented as
+  // expected, not a bug.
   const isShadow = item.category === 'shadow' || item.name.includes('Shadow')
 
   return (
@@ -84,7 +74,5 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
     </div>
   )
 }
-
-
 
 export default ItemCard

@@ -16,6 +16,7 @@ Built with the assistance of Claude. I work on this during night shifts when I g
 - [Fusion forms](#fusion-forms)
 - [Alpha Pokémon](#alpha-pokémon)
 - [The GameCube checklists (Colosseum & XD)](#the-gamecube-checklists-colosseum--xd)
+- [Master Dex](#master-dex)
 - [Hub title & the overall progress card](#hub-title--the-overall-progress-card)
 - [Icons, colors, and background image](#icons-colors-and-background-image)
 - [Running it yourself](#running-it-yourself)
@@ -35,7 +36,7 @@ This is something more personally tailored to me. I didn't want to be bound by j
 
 ## What it does
 
-- **A central hub** with overall progress plus a card per checklist, each linking into its own page (icons/colors covered [below](#icons-colors-and-background-image)). A checklist marked `placeholder: true` shows "🚧 Still being built" instead of a percentage — "0 / 3 (0%)" reads as broken, not "not built out yet." A genuinely tiny-but-finished list (like the 1-entry HGSS one) still shows a real percentage.
+- **A central hub** with overall progress plus a card per checklist, each linking into its own page (icons/colors covered [below](#icons-colors-and-background-image)). A checklist marked `placeholder: true` shows "🚧 Still being built" instead of a percentage — "0 / 3 (0%)" reads as broken, not "not built out yet." A genuinely tiny-but-finished list (like the 1-entry HGSS one) still shows a real percentage. A checklist marked `bonus: true` (like [Master Dex](#master-dex)) is the opposite kind of exception — it shows a real percentage, it just never counts toward the hub's own overall total.
 - **Every Pokémon is a card** in a grid — click it, or its checkbox, to mark caught / not caught.
 - **Checking something stamps the date**, shown as a small label on the card. Unchecking removes it entirely — no history kept, so backdating or restoring something is a database-level edit.
 - **Select All / Unselect All** act on everything currently visible (the current box, or the filtered list for a boxless checklist), with a confirmation showing exactly how many items are affected. Both buttons disable themselves when there's nothing to do.
@@ -75,9 +76,12 @@ This is something more personally tailored to me. I didn't want to be bound by j
 | `hgss/` | HeartGold & SoulSilver | Just the 1 Pokémon that can't transfer out — Spiky-eared Pichu |
 | `oras/` | Omega Ruby & Alpha Sapphire | Every non-transferable Cosplay Pikachu |
 | `usum/` | Ultra Sun & Ultra Moon | Just the 4 non-transferable Totem Pokémon (using Ultra Sun) |
+| `lge/` | Let's Go, Eevee! | Just the 1 non-transferable partner Eevee |
+| `lgp/` | Let's Go, Pikachu! | Just the 1 non-transferable partner Pikachu |
 | `swsh/` | Sword & Shield | Every Silvally type, plus Black Kyurem, Dusk Mane Necrozma, and Ice Rider Calyrex — see [Fusion forms](#fusion-forms) |
 | `la/` | Pokémon Legends: Arceus | Just Origin Forme Dialga & Palkia — caught in the old wooden Poké Balls. The regular-ball versions live in Home |
 | `sv/` | Scarlet & Violet | Origin Forme Giratina, every Arceus plate, plus White Kyurem, Dawn Wings Necrozma, and Shadow Rider Calyrex — see [Fusion forms](#fusion-forms) |
+| `masterdex/` | — (bonus checklist) | Extreme-completionist extras that don't fit anywhere else — see [Master Dex](#master-dex) |
 
 Adding a new checklist means copying the shape of `src/checklists/home/`, writing its `config.js`, and adding one line to `index.js` — nothing in `src/engine/` needs to change.
 
@@ -113,6 +117,19 @@ One gap worth knowing about: **Hisuian Sliggoo has no base entry** in this check
 Together the two lists cover **131 unique species**, the figure Bulbapedia's own article states. The overlap is Makuhita, Mareep, and Togepi — the three species snaggable in both games.
 
 Three of Colosseum's 51 (**Togepi, Mareep, and Scizor**) are Japan-only e-Reader snags via the Card e Room. They're on the list on purpose — the whole point here is "every Pokémon possible" — but they're the ones to expect never to tick off on a Western cartridge. `Shadow.test.jsx` has a test that exists specifically to stop future-me from "tidying them up" later.
+
+## Master Dex
+
+A bonus checklist for things that don't fit the "did you catch this species" model at all — specific shinies, specific event- or location-locked forms, matched pairs. Inspired by BirdKeeperToby-style extreme completionism: shiny Haxorus from Black 2/White 2, Red Gyarados from Gold/Silver/Crystal, a matching pair of Spinda, Origin Forme Dialga and Palkia — that kind of thing.
+
+Right now `masterdex/data.json` is just those four examples as a starter template (`placeholder: true`) — the real list still needs building out from scratch, which is a big part of why this whole project exists instead of a spreadsheet.
+
+Two things make this checklist different from every other one:
+
+- **It doesn't count toward the hub's overall completion.** `bonus: true` in `masterdex/config.js` excludes it from that math — permanently, not just while it's a placeholder — since this is an optional extra tier on top of the real dex rather than part of it. `placeholder` and `bonus` are two separate, independent flags: `placeholder` is temporary and hides the percentage entirely; `bonus` is permanent and still shows a real percentage, just never folded into the hub's overall number.
+- **Its boxes don't start at 1.** `boxNumberOffset` in `masterdex/config.js` shifts what a box number *displays* as, without touching the underlying `boxId` values in `data.json` — those still run a plain 1, 2, 3… like every checklist, since `Registry.test.jsx` requires that. The offset itself is computed live, right there in `config.js`, as `Math.max` over every `boxId` in Home's own `data.json` — so Master Dex's boxes always pick up exactly where Home's leave off, automatically, with no fixed number anywhere to remember to bump as Home grows.
+
+Every `spriteUrl` in `masterdex/data.json` right now is a placeholder local path (`sprites/masterdex/...`) that doesn't point at a real file yet, on purpose — real art needs to go in (or `scripts/download-sprites.mjs` needs real hotlinks to pull from) before this checklist is actually live.
 
 ## Hub title & the overall progress card
 
