@@ -83,7 +83,12 @@ function HubPage({ checklists }) {
   // are actually finished data sets. A placeholder checklist (USUM's
   // 3-entry stub, say) would drag this number around meaninglessly if it
   // counted toward the total, since its "total" isn't the real dex size.
-  const realChecklists = checklists.filter(config => !config.placeholder)
+  // `bonus` is a separate, permanent version of the same idea — Master
+  // Dex still shows its own real percentage on its own row (unlike a
+  // placeholder), it's just never meant to be part of "overall
+  // completion" even once it's fully built out, since it's an optional
+  // extra tier on top of the real dex rather than part of it.
+  const realChecklists = checklists.filter(config => !config.placeholder && !config.bonus)
   const overallChecked = realChecklists.reduce((sum, config) => sum + checkedCount(config), 0)
   const overallTotal = realChecklists.reduce((sum, config) => sum + config.data.length, 0)
   const overallPct = overallTotal > 0 ? Math.round((overallChecked / overallTotal) * 100) : 0

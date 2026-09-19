@@ -10,6 +10,7 @@ import swshConfig from './swsh/config.js'
 import orasConfig from './oras/config.js'
 import lgeConfig from './lge/config.js'
 import lgpConfig from './lgp/config.js'
+import masterdexConfig from './masterdex/config.js'
 
 // Add each new checklist's config here once it exists — this list drives
 // both the routes in App.jsx and the summary cards on HubPage.jsx.
@@ -17,6 +18,7 @@ import lgpConfig from './lgp/config.js'
 // data.json + optional scripts/), then add its config import + entry here.
 export const CHECKLISTS = [
   homeConfig,
+  masterdexConfig,
   goConfig,
   colosseumConfig,
   xdConfig,
@@ -28,4 +30,5 @@ export const CHECKLISTS = [
   svConfig,
   laConfig,
   swshConfig,
+
 ]

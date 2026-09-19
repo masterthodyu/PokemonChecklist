@@ -49,6 +49,14 @@ function ChecklistPage({ config }) {
   const { data, boxSize, storageKey, syncId, groupSets, title } = config
   const isBoxed = Boolean(boxSize)
   const syncEnabled = isSyncEnabled(syncId)
+  // Purely cosmetic — shifts what a box number DISPLAYS as, without
+  // touching the underlying boxId values in data.json (those still have
+  // to be a contiguous run starting at 1, same as every checklist —
+  // Registry.test.jsx enforces that). This is what lets Master Dex's
+  // boxes read as "Box 73, 74, 75…" while still being boxId 1, 2, 3…
+  // internally. Defaults to 0 (no shift) for every checklist that
+  // doesn't set it.
+  const boxNumberOffset = config.boxNumberOffset ?? 0
 
   // --- All of this checklist's "memory" lives here as state ---
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
@@ -489,7 +497,7 @@ function ChecklistPage({ config }) {
               </button>
 
               <div className="box-meta">
-                <span className="box-label">Box {boxIndex + 1}</span>
+                <span className="box-label">Box {boxIndex + 1 + boxNumberOffset}</span>
                 <span className="box-range">
                   #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
                 </span>
@@ -497,11 +505,11 @@ function ChecklistPage({ config }) {
                   <span>Jump to box</span>
                   <input
                     type="number"
-                    min="1"
-                    max={totalBoxes}
-                    value={boxIndex + 1}
+                    min={1 + boxNumberOffset}
+                    max={totalBoxes + boxNumberOffset}
+                    value={boxIndex + 1 + boxNumberOffset}
                     onChange={e => {
-                      const nextBox = Number(e.target.value)
+                      const nextBox = Number(e.target.value) - boxNumberOffset
                       if (!Number.isNaN(nextBox)) {
                         setBoxIndex(Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1))
                       }
@@ -545,7 +553,7 @@ function ChecklistPage({ config }) {
             <div className="box-header">
               <span>
                 {isBoxed
-                  ? `Box ${boxIndex + 1}`
+                  ? `Box ${boxIndex + 1 + boxNumberOffset}`
                   : activeGroup
                     ? `${activeGroup.groupLabel} (tap it again in the sidebar to clear)`
                     : title}
