@@ -14,4 +14,5 @@ export const CATEGORIES = [
   { key: 'n', label: "N's Pokémon" },
   { key: 'totem', label: 'Totem Pokémon' },
   { key: 'gmax', label: 'Gigantamax Forms' },
+  { key: 'alpha', label: 'Alpha Pokémon' },
 ]

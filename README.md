@@ -14,6 +14,7 @@ Built with the assistance of Claude. I work on this during night shifts when I g
 - [What it does](#what-it-does)
 - [How it's structured](#how-its-structured)
 - [Fusion forms](#fusion-forms)
+- [Alpha Pokémon](#alpha-pokémon)
 - [The GameCube checklists (Colosseum & XD)](#the-gamecube-checklists-colosseum--xd)
 - [Hub title & the overall progress card](#hub-title--the-overall-progress-card)
 - [Icons, colors, and background image](#icons-colors-and-background-image)
@@ -43,7 +44,8 @@ This is something more personally tailored to me. I didn't want to be bound by j
 - **Filters** — All / Caught / Not Caught — with a real empty-state message ("No matches for that search," "Everything here is already caught") instead of a blank grid.
 - **30-per-box (6×5) grids** with Previous/Next and a "jump to box #" field, mirroring the games' own PC boxes.
 - **A sidebar** per "group set" a checklist defines — Home has Generation and Category; Colosseum has Category — click a row to jump there. Checklists with no group sets skip the sidebar entirely rather than leaving a dead gap.
-- **Gigantamax cards** (Home) get a small badge.
+- **Gigantamax cards** (Home) get a small badge in the top-left of the sprite.
+- **Alpha cards** (Home) get the Legends: Arceus alpha symbol in the top-right — opposite corner from the G-Max badge, so the two never sit on top of each other.
 - **Pokémon GO has no boxes** — it's one flat, searchable list, since the game itself has no box system.
 - **Shadow Pokémon** get a small badge and a subtle purple glow on the sprite.
 - **Locked by default.** One password unlocks editing across every checklist for the rest of the browser tab.
@@ -66,7 +68,7 @@ This is something more personally tailored to me. I didn't want to be bound by j
 
 | Folder | Game | What's in it |
 |---|---|---|
-| `home/` | Pokémon Home | The main list — `config.js`, `data.json`, `generations.js`, `categories.js`, `scripts/`. Contains all base pokémon, gender differences, alternate forms, N's pokémon, Totem pokémon, and Gigantimax |
+| `home/` | Pokémon Home | The main list — `config.js`, `data.json`, `generations.js`, `categories.js`, `scripts/`. Contains all base pokémon, gender differences, alternate forms, N's pokémon, Totem pokémon, Gigantimax, and [Alpha pokémon](#alpha-pokémon) |
 | `go/` | Pokémon GO | Boxless — one flat list, since the real game has no box system |
 | `colosseum/` | Pokémon Colosseum | 54 entries — see [The GameCube checklists](#the-gamecube-checklists-colosseum--xd) |
 | `xd/` | Pokémon XD: Gale of Darkness | 83 entries, all Shadow Pokémon — see [The GameCube checklists](#the-gamecube-checklists-colosseum--xd) |
@@ -85,6 +87,22 @@ Three Pokémon in the whole Pokédex have a fusion mechanic: Kyurem (Black/White
 
 - **`swsh/`** gets Black Kyurem, Dusk Mane Necrozma, and Ice Rider Calyrex
 - **`sv/`** gets White Kyurem, Dawn Wings Necrozma, and Shadow Rider Calyrex
+
+## Alpha Pokémon
+
+Boxes **60–70** are the Legends: Arceus alphas — 320 entries, category `alpha`, its own sidebar row, and the alpha symbol badged onto every card. They're catchable in exactly one game, so they get their own stretch of boxes rather than being scattered next to their normal-sized counterparts.
+
+**What's in scope.** Every Pokémon in the game can be caught as an alpha *except* the 18 Legendaries and Mythicals (Uxie through Darkrai — Hisui dex #225–242), and Alolan Vulpix and Alolan Ninetales, which only ever arrive as a gift or a transfer. That leaves Hisui dex **#001–#224**, which is the first stretch of boxes, in Hisui dex order rather than National — so evolution lines stay together the way the in-game dex shows them.
+
+**Then the variants.** Everything that's a second sprite of a slot already in that run is appended *after* Lucario (#224), still walked in Hisui dex order:
+
+- **Regional duplicates.** Hisuian Sneasel holds dex slot #202 in the main run, since that's the form the game lists there. Johtonian Sneasel is technically a variant *within* the region, so it and its female form sit out in the tail — the same rule would apply to any future regional pair.
+- **Gender differences** — 62 of them, from Bidoof ♀ through Abomasnow ♀, mirroring exactly which species the `gender` category already tracks.
+- **Form differences** — Burmy and Wormadam's three cloaks each, Shellos and Gastrodon's West/East Sea, and all 27 extra Unown letters (`B`–`Z`, `!`, `?`; plain `Unown` is the `A` form and stays at #142 in the main run). Basculin is White-Striped only in Hisui, so it needs no extra entry.
+
+**Naming.** Every entry ends in `(Alpha)`, which is both what `assignCategories.mjs` matches on and what `ItemCard` strips back out before rendering — the badge says "alpha" already, so 320 cards don't need to spell it. The alpha rule is checked *before* the regional-form ones, so `Hisuian Decidueye (Alpha)` counts as an alpha, not as a Hisuian form. Sprites are reused from each entry's existing non-alpha card, since an alpha looks identical apart from being enormous.
+
+One gap worth knowing about: **Hisuian Sliggoo has no base entry** in this checklist yet, only Hisuian Goodra. Its alpha card hotlinks PokémonDB directly instead of borrowing a local sprite — worth fixing whenever the base entry gets added.
 
 ## The GameCube checklists (Colosseum & XD)
 
@@ -110,7 +128,7 @@ A checklist can also set `accentFrom` / `accentTo` (two hex colors) for its own 
 
 The hub itself can have a background image too — set `backgroundImage` in `hubConfig.js` and drop the file in `public/`. Leave it `null` for the plain dark background. Either way, text stays readable — there's a dark overlay under whatever background gets set.
 
-A general note on images anywhere in this project: self-hosting a file in `public/` (rather than linking straight to someone else's server) is worth the extra step. A hotlinked URL can break on its own if the source site changes something, moves the file, or — like the Gigantamax badge and the hub background, currently — the link had a time-limited access token baked in.
+A general note on images anywhere in this project: self-hosting a file in `public/` (rather than linking straight to someone else's server) is worth the extra step. A hotlinked URL can break on its own if the source site changes something, moves the file, or — like the Gigantamax badge, the alpha badge, and the hub background, currently — the link had a time-limited access token baked in.
 
 ## Running it yourself
 
@@ -143,7 +161,7 @@ Built with [Vitest](https://vitest.dev) (config in `vite.config.js`'s `test` blo
 - **`src/engine/sync.test.js`, `src/engine/lock.test.js`** — pure-logic tests: checked-id parsing, the Firebase REST calls (`fetch` mocked), and the password check.
 - **`src/checklists/Registry.test.jsx`** — data-integrity checks against the *real* `data.json`/`config.js` files, not fixtures: no duplicate ids or names within a checklist, no two checklists sharing a `storageKey`/`syncId`, every `spriteUrl` a local path or a full URL, every `dexId` a plausible dex number, no overfull or gapped boxes, no sidebar group matching zero items, every Home category tag real, generation ranges not overlapping.
 - **`src/checklists/Shadow.test.jsx`** — the Colosseum/XD-specific checks the generic ones can't make: the 51/2/1 shadow/starter/bonus split, XD's Shadow Lugia entry, the 131-unique-species figure Bulbapedia states (and that the overlap is exactly Makuhita/Mareep/Togepi), and that both checklists are wired in. Also validates every sprite URL still pointing at Bulbagarden — its archive path is a deterministic MD5 hash of the filename, so a typo'd URL is catchable with `node:crypto` alone — and checks the "Shadow" name fallback against real data (Marshadow doesn't false-positive; GO's own cosmetic "Shadow" costumes do, on purpose).
-- **`src/engine/ItemCard.test.jsx`** — per-card behavior: Gigantamax name-stripping and badge, the Shadow badge, the checked-date label, one click firing `onToggle` exactly once.
+- **`src/engine/ItemCard.test.jsx`** — per-card behavior: Gigantamax and Alpha name-stripping and badges, the Shadow badge, the checked-date label, one click firing `onToggle` exactly once.
 - **`src/HubPage.test.jsx`** — the hub itself: the collection label renders, placeholder checklists don't count toward the overall total, localStorage counts show up correctly, and bad or missing localStorage data doesn't crash the page.
 - **`src/engine/ChecklistPage.test.jsx`** — the big one. Renders a whole page against small fake checklists: box navigation, search (jump-to-box, ×/Escape), the All/Caught/Not Caught filters, the password lock, Select All / Unselect All / Undo, localStorage persistence, the group sidebar, and that boxless checklists render no box controls at all.
 
@@ -218,9 +236,10 @@ None of the artwork or sprites here are mine. Most of it is downloaded and self-
 | USUM hub icon | DeviantArt originally — self-hosted now |
 | Colosseum & XD hub icons | Bulbagarden Archives originally — self-hosted now |
 | Gigantamax badge (Home) | Fan art by DeviantArt user jormxdos — still hotlinked via a temporary wixmp CDN link |
+| Alpha badge (Home) | Fan art by DeviantArt user jormxdos — still hotlinked via a temporary wixmp CDN link |
 | Hub background | *Drawing Every Pokémon Ever* by DeviantArt user ccayco — still hotlinked via a temporary wixmp CDN link |
 
-The Gigantamax badge and hub background are both DeviantArt links with a time-limited access token baked in, so unlike a plain hotlink these could stop working on their own even if nothing else changes. Same fix as anything else here still hotlinked: download it, point `public/` at the local copy.
+The Gigantamax badge, the alpha badge, and the hub background are all DeviantArt links with a time-limited access token baked in, so unlike a plain hotlink these could stop working on their own even if nothing else changes. Same fix as anything else here still hotlinked: download it, point `public/` at the local copy.
 
 ## License
 

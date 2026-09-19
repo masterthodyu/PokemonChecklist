@@ -10,6 +10,11 @@
 //   Paldean form      -> start the name with "Paldean "       e.g. "Paldean Wooper"
 //   Totem Pokémon     -> start the name with "Totem "         e.g. "Totem Raticate"
 //   Gigantamax form   -> put "(Gigantamax)" at the end        e.g. "Charizard (Gigantamax)"
+//   Alpha Pokémon      -> put "(Alpha)" at the end             e.g. "Hisuian Decidueye (Alpha)"
+//                         This one is checked FIRST, so "Hisuian Sneasel (Alpha)"
+//                         counts as an alpha rather than a Hisuian form — an
+//                         alpha is a Legends: Arceus catch, not a sprite
+//                         difference, and it already has its own sidebar group.
 //   N's Pokémon       -> put "N's" anywhere in the name       e.g. "Zorua (N's Pokémon)"
 //   Gender variant     -> same exact name as the base Pokémon, just a
 //                         different id and sprite (this already works for
@@ -46,6 +51,7 @@ function categorize(p) {
   if (p.id === p.dexId) return 'base'
 
   const name = p.name
+  if (name.includes('(Alpha)')) return 'alpha'
   if (name.startsWith('Alolan ')) return 'alolan'
   if (name.startsWith('Galarian ')) return 'galarian'
   if (name.startsWith('Hisuian ')) return 'hisuian'
