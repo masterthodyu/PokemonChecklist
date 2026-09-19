@@ -1,14 +1,16 @@
 [
-    {
+  {
     "dexId": 483,
     "name": "Dialga (Origin Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/dialga-origin.png",
-    "id": 1
+    "id": 1,
+    "boxId": 1
   },
   {
     "dexId": 484,
     "name": "Palkia (Origin Forme)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/palkia-origin.png",
-    "id": 2
+    "id": 2,
+    "boxId": 1
   }
 ]
