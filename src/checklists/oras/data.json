@@ -1,0 +1,44 @@
+[
+  {
+    "dexId": 25,
+    "name": "Pikachu (Cosplay)",
+    "spriteUrl": "https://www.serebii.net/xy/pokemon/025-c.png",
+    "id": 1,
+    "boxId": 1
+  },
+  {
+    "dexId": 25,
+    "name": "Pikachu (Belle)",
+    "spriteUrl": "https://www.serebii.net/xy/pokemon/025-b.png",
+    "id": 2,
+    "boxId": 1
+  },
+  {
+    "dexId": 25,
+    "name": "Pikachu (Libre)",
+    "spriteUrl": "https://www.serebii.net/xy/pokemon/025-l.pngg",
+    "id": 3,
+    "boxId": 1
+  },
+  {
+    "dexId": 25,
+    "name": "Pikachu (Ph. D.)",
+    "spriteUrl": "https://www.serebii.net/xy/pokemon/025-phd.png",
+    "id": 4,
+    "boxId": 1
+  },
+  {
+    "dexId": 25,
+    "name": "Pikachu (Pop Star)",
+    "spriteUrl": "https://www.serebii.net/xy/pokemon/025-ps.png",
+    "id": 5,
+    "boxId": 1
+  },
+  {
+    "dexId": 25,
+    "name": "Pikachu (Rock Star)",
+    "spriteUrl": "https://www.serebii.net/xy/pokemon/025-r.png",
+    "id": 6,
+    "boxId": 1
+  }
+]

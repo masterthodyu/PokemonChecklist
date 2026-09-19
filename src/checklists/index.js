@@ -7,6 +7,9 @@ import xdConfig from './xd/config.js'
 import svConfig from './sv/config.js'
 import laConfig from './legends_arceus/config.js'
 import swshConfig from './swsh/config.js'
+import orasConfig from './oras/config.js'
+import lgeConfig from './lge/config.js'
+import lgpConfig from './lgp/config.js'
 
 // Add each new checklist's config here once it exists — this list drives
 // both the routes in App.jsx and the summary cards on HubPage.jsx.
@@ -15,10 +18,13 @@ import swshConfig from './swsh/config.js'
 export const CHECKLISTS = [
   homeConfig,
   goConfig,
-  usumConfig,
-  hgssConfig,
   colosseumConfig,
   xdConfig,
+  hgssConfig,
+  orasConfig,
+  usumConfig,
+  lgeConfig,
+  lgpConfig,
   svConfig,
   laConfig,
   swshConfig,
