@@ -17,9 +17,7 @@
   {"id":1253,"dexid":555,"name":"Galarian Darmanitan (Zen Mode)","sprite":"darmanitan-galar-zen","boxId":46},
   {"id":1251,"dexid":555,"name":"Darmanitan (Zen Mode)","sprite":"darmanitan-zen","boxId":45},
 
-  {"id":1264,"dexid":646,"name":"White Kyurem","sprite":"kyurem-white","boxId":46},
-  {"id":1265,"dexid":646,"name":"Black Kyurem","sprite":"kyurem-black","boxId":46},
-
+  
   {"id":1267,"dexid":648,"name":"Meloetta (Pirouette Forme)","sprite":"meloetta-pirouette","boxId":46},
   {"id":1268,"dexid":649,"name":"Genesect (Douse Drive)","sprite":"genesect-douse","boxId":46},
   {"id":1269,"dexid":649,"name":"Genesect (Shock Drive)","sprite":"genesect-shock","boxId":46},
@@ -38,8 +36,7 @@
 
   {"id":1355,"dexid":778,"name":"Mimikyu (Busted Form)","sprite":"mimikyu-busted","boxId":47},
 
-  {"id":1356,"dexid":800,"name":"Necrozma (Dusk Mane)","sprite":"necrozma-dusk","boxId":47},
-  {"id":1357,"dexid":800,"name":"Necrozma (Dawn Wings)","sprite":"necrozma-dawn","boxId":47},
+ 
   {"id":1358,"dexid":800,"name":"Ultra Necrozma","sprite":"necrozma-ultra","boxId":47},
 
   {"id":1360,"dexid":845,"name":"Cramorant (Gulping Form)","sprite":"cramorant-gulping","boxId":47},

@@ -10937,6 +10937,14 @@
   },
   {
     "id": 1368,
+    "dexId": 705,
+    "name": "Hisuian Sliggoo",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sliggoo-hisuian.png",
+    "boxId": 53,
+    "category": "hisuian"
+  },
+  {
+    "id": 1369,
     "dexId": 706,
     "name": "Hisuian Goodra",
     "spriteUrl": "sprites/home/goodra-hisuian.png",
@@ -10944,7 +10952,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1369,
+    "id": 1370,
     "dexId": 713,
     "name": "Hisuian Avalugg",
     "spriteUrl": "sprites/home/avalugg-hisuian.png",
@@ -10952,7 +10960,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1370,
+    "id": 1371,
     "dexId": 724,
     "name": "Hisuian Decidueye",
     "spriteUrl": "sprites/home/decidueye-hisuian.png",
@@ -10960,7 +10968,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1371,
+    "id": 1372,
     "dexId": 194,
     "name": "Paldean Wooper",
     "spriteUrl": "sprites/home/wooper-paldean.png",
@@ -10968,7 +10976,7 @@
     "category": "paldean"
   },
   {
-    "id": 1372,
+    "id": 1373,
     "dexId": 128,
     "name": "Paldean Tauros (Combat Breed)",
     "spriteUrl": "sprites/home/tauros-paldean-combat.png",
@@ -10976,7 +10984,7 @@
     "category": "paldean"
   },
   {
-    "id": 1373,
+    "id": 1374,
     "dexId": 128,
     "name": "Paldean Tauros (Blaze Breed)",
     "spriteUrl": "sprites/home/tauros-paldean-blaze.png",
@@ -10984,7 +10992,7 @@
     "category": "paldean"
   },
   {
-    "id": 1374,
+    "id": 1375,
     "dexId": 128,
     "name": "Paldean Tauros (Aqua Breed)",
     "spriteUrl": "sprites/home/tauros-paldean-aqua.png",
@@ -10992,7 +11000,7 @@
     "category": "paldean"
   },
   {
-    "id": 1375,
+    "id": 1376,
     "dexId": 901,
     "name": "Bloodmoon Ursaluna",
     "spriteUrl": "sprites/home/ursaluna-bloodmoon.png",
@@ -11000,7 +11008,7 @@
     "category": "form"
   },
   {
-    "id": 1376,
+    "id": 1377,
     "dexId": 509,
     "name": "Purrloin (N's Pokémon)",
     "spriteUrl": "sprites/home/purrloin.png",
@@ -11008,7 +11016,7 @@
     "category": "n"
   },
   {
-    "id": 1377,
+    "id": 1378,
     "dexId": 519,
     "name": "Pidove (N's Pokémon)",
     "spriteUrl": "sprites/home/pidove.png",
@@ -11016,7 +11024,7 @@
     "category": "n"
   },
   {
-    "id": 1378,
+    "id": 1379,
     "dexId": 527,
     "name": "Woobat (N's Pokémon)",
     "spriteUrl": "sprites/home/woobat.png",
@@ -11024,7 +11032,7 @@
     "category": "n"
   },
   {
-    "id": 1379,
+    "id": 1380,
     "dexId": 532,
     "name": "Timburr (N's Pokémon)",
     "spriteUrl": "sprites/home/timburr.png",
@@ -11032,7 +11040,7 @@
     "category": "n"
   },
   {
-    "id": 1380,
+    "id": 1381,
     "dexId": 535,
     "name": "Tympole (N's Pokémon)",
     "spriteUrl": "sprites/home/tympole.png",
@@ -11040,7 +11048,7 @@
     "category": "n"
   },
   {
-    "id": 1381,
+    "id": 1382,
     "dexId": 525,
     "name": "Boldore (N's Pokémon)",
     "spriteUrl": "sprites/home/boldore.png",
@@ -11048,7 +11056,7 @@
     "category": "n"
   },
   {
-    "id": 1382,
+    "id": 1383,
     "dexId": 551,
     "name": "Sandile (N's Pokémon)",
     "spriteUrl": "sprites/home/sandile.png",
@@ -11056,7 +11064,7 @@
     "category": "n"
   },
   {
-    "id": 1383,
+    "id": 1384,
     "dexId": 554,
     "name": "Darumaka (N's Pokémon)",
     "spriteUrl": "sprites/home/darumaka.png",
@@ -11064,7 +11072,7 @@
     "category": "n"
   },
   {
-    "id": 1384,
+    "id": 1385,
     "dexId": 555,
     "name": "Darmanitan (N's Pokémon)",
     "spriteUrl": "sprites/home/darmanitan.png",
@@ -11072,7 +11080,7 @@
     "category": "n"
   },
   {
-    "id": 1385,
+    "id": 1386,
     "dexId": 559,
     "name": "Scraggy (N's Pokémon)",
     "spriteUrl": "sprites/home/scraggy.png",
@@ -11080,7 +11088,7 @@
     "category": "n"
   },
   {
-    "id": 1386,
+    "id": 1387,
     "dexId": 561,
     "name": "Sigilyph (N's Pokémon)",
     "spriteUrl": "sprites/home/sigilyph.png",
@@ -11088,7 +11096,7 @@
     "category": "n"
   },
   {
-    "id": 1387,
+    "id": 1388,
     "dexId": 570,
     "name": "Zorua (N's Pokémon)",
     "spriteUrl": "sprites/home/zorua.png",
@@ -11096,7 +11104,7 @@
     "category": "n"
   },
   {
-    "id": 1388,
+    "id": 1389,
     "dexId": 595,
     "name": "Joltik (N's Pokémon)",
     "spriteUrl": "sprites/home/joltik.png",
@@ -11104,7 +11112,7 @@
     "category": "n"
   },
   {
-    "id": 1389,
+    "id": 1390,
     "dexId": 597,
     "name": "Ferroseed (N's Pokémon)",
     "spriteUrl": "sprites/home/ferroseed.png",
@@ -11112,7 +11120,7 @@
     "category": "n"
   },
   {
-    "id": 1390,
+    "id": 1391,
     "dexId": 599,
     "name": "Klink (N's Pokémon)",
     "spriteUrl": "sprites/home/klink.png",
@@ -11120,7 +11128,7 @@
     "category": "n"
   },
   {
-    "id": 1391,
+    "id": 1392,
     "dexId": 735,
     "name": "Totem Gumshoos",
     "spriteUrl": "sprites/home/gumshoos.png",
@@ -11128,7 +11136,7 @@
     "category": "totem"
   },
   {
-    "id": 1393,
+    "id": 1394,
     "dexId": 758,
     "name": "Totem Salazzle",
     "spriteUrl": "sprites/home/salazzle.png",
@@ -11136,7 +11144,7 @@
     "category": "totem"
   },
   {
-    "id": 1394,
+    "id": 1395,
     "dexId": 105,
     "name": "Totem Marowak (Alola Form)",
     "spriteUrl": "sprites/home/marowak-alolan.png",
@@ -11144,7 +11152,7 @@
     "category": "totem"
   },
   {
-    "id": 1395,
+    "id": 1396,
     "dexId": 754,
     "name": "Totem Lurantis",
     "spriteUrl": "sprites/home/lurantis.png",
@@ -11152,7 +11160,7 @@
     "category": "totem"
   },
   {
-    "id": 1396,
+    "id": 1397,
     "dexId": 738,
     "name": "Totem Vikavolt",
     "spriteUrl": "sprites/home/vikavolt.png",
@@ -11160,7 +11168,7 @@
     "category": "totem"
   },
   {
-    "id": 1397,
+    "id": 1398,
     "dexId": 778,
     "name": "Totem Mimikyu",
     "spriteUrl": "sprites/home/mimikyu.png",
@@ -11168,7 +11176,7 @@
     "category": "totem"
   },
   {
-    "id": 1398,
+    "id": 1399,
     "dexId": 784,
     "name": "Totem Kommo-o",
     "spriteUrl": "sprites/home/kommo-o.png",
@@ -11176,7 +11184,7 @@
     "category": "totem"
   },
   {
-    "id": 1399,
+    "id": 1400,
     "dexId": 3,
     "name": "Venusaur (Gigantamax)",
     "spriteUrl": "sprites/home/venusaur-gigantamax.png",
@@ -11184,7 +11192,7 @@
     "category": "gmax"
   },
   {
-    "id": 1400,
+    "id": 1401,
     "dexId": 6,
     "name": "Charizard (Gigantamax)",
     "spriteUrl": "sprites/home/charizard-gigantamax.png",
@@ -11192,7 +11200,7 @@
     "category": "gmax"
   },
   {
-    "id": 1401,
+    "id": 1402,
     "dexId": 9,
     "name": "Blastoise (Gigantamax)",
     "spriteUrl": "sprites/home/blastoise-gigantamax.png",
@@ -11200,7 +11208,7 @@
     "category": "gmax"
   },
   {
-    "id": 1402,
+    "id": 1403,
     "dexId": 12,
     "name": "Butterfree (Gigantamax)",
     "spriteUrl": "sprites/home/butterfree-gigantamax.png",
@@ -11208,7 +11216,7 @@
     "category": "gmax"
   },
   {
-    "id": 1403,
+    "id": 1404,
     "dexId": 25,
     "name": "Pikachu (Gigantamax)",
     "spriteUrl": "sprites/home/pikachu-gigantamax.png",
@@ -11216,7 +11224,7 @@
     "category": "gmax"
   },
   {
-    "id": 1404,
+    "id": 1405,
     "dexId": 52,
     "name": "Meowth (Gigantamax)",
     "spriteUrl": "sprites/home/meowth-gigantamax.png",
@@ -11224,7 +11232,7 @@
     "category": "gmax"
   },
   {
-    "id": 1405,
+    "id": 1406,
     "dexId": 68,
     "name": "Machamp (Gigantamax)",
     "spriteUrl": "sprites/home/machamp-gigantamax.png",
@@ -11232,7 +11240,7 @@
     "category": "gmax"
   },
   {
-    "id": 1406,
+    "id": 1407,
     "dexId": 94,
     "name": "Gengar (Gigantamax)",
     "spriteUrl": "sprites/home/gengar-gigantamax.png",
@@ -11240,7 +11248,7 @@
     "category": "gmax"
   },
   {
-    "id": 1407,
+    "id": 1408,
     "dexId": 99,
     "name": "Kingler (Gigantamax)",
     "spriteUrl": "sprites/home/kingler-gigantamax.png",
@@ -11248,7 +11256,7 @@
     "category": "gmax"
   },
   {
-    "id": 1408,
+    "id": 1409,
     "dexId": 131,
     "name": "Lapras (Gigantamax)",
     "spriteUrl": "sprites/home/lapras-gigantamax.png",
@@ -11256,7 +11264,7 @@
     "category": "gmax"
   },
   {
-    "id": 1409,
+    "id": 1410,
     "dexId": 133,
     "name": "Eevee (Gigantamax)",
     "spriteUrl": "sprites/home/eevee-gigantamax.png",
@@ -11264,7 +11272,7 @@
     "category": "gmax"
   },
   {
-    "id": 1410,
+    "id": 1411,
     "dexId": 569,
     "name": "Garbodor (Gigantamax)",
     "spriteUrl": "sprites/home/garbodor-gigantamax.png",
@@ -11272,7 +11280,7 @@
     "category": "gmax"
   },
   {
-    "id": 1411,
+    "id": 1412,
     "dexId": 809,
     "name": "Melmetal (Gigantamax)",
     "spriteUrl": "sprites/home/melmetal-gigantamax.png",
@@ -11280,7 +11288,7 @@
     "category": "gmax"
   },
   {
-    "id": 1412,
+    "id": 1413,
     "dexId": 812,
     "name": "Rillaboom (Gigantamax)",
     "spriteUrl": "sprites/home/rillaboom-gigantamax.png",
@@ -11288,7 +11296,7 @@
     "category": "gmax"
   },
   {
-    "id": 1413,
+    "id": 1414,
     "dexId": 815,
     "name": "Cinderace (Gigantamax)",
     "spriteUrl": "sprites/home/cinderace-gigantamax.png",
@@ -11296,7 +11304,7 @@
     "category": "gmax"
   },
   {
-    "id": 1414,
+    "id": 1415,
     "dexId": 818,
     "name": "Inteleon (Gigantamax)",
     "spriteUrl": "sprites/home/inteleon-gigantamax.png",
@@ -11304,7 +11312,7 @@
     "category": "gmax"
   },
   {
-    "id": 1415,
+    "id": 1416,
     "dexId": 823,
     "name": "Corviknight (Gigantamax)",
     "spriteUrl": "sprites/home/corviknight-gigantamax.png",
@@ -11312,7 +11320,7 @@
     "category": "gmax"
   },
   {
-    "id": 1416,
+    "id": 1417,
     "dexId": 826,
     "name": "Orbeetle (Gigantamax)",
     "spriteUrl": "sprites/home/orbeetle-gigantamax.png",
@@ -11320,7 +11328,7 @@
     "category": "gmax"
   },
   {
-    "id": 1417,
+    "id": 1418,
     "dexId": 834,
     "name": "Drednaw (Gigantamax)",
     "spriteUrl": "sprites/home/drednaw-gigantamax.png",
@@ -11328,7 +11336,7 @@
     "category": "gmax"
   },
   {
-    "id": 1418,
+    "id": 1419,
     "dexId": 839,
     "name": "Coalossal (Gigantamax)",
     "spriteUrl": "sprites/home/coalossal-gigantamax.png",
@@ -11336,7 +11344,7 @@
     "category": "gmax"
   },
   {
-    "id": 1419,
+    "id": 1420,
     "dexId": 841,
     "name": "Flapple (Gigantamax)",
     "spriteUrl": "sprites/home/flapple-gigantamax.png",
@@ -11344,7 +11352,7 @@
     "category": "gmax"
   },
   {
-    "id": 1420,
+    "id": 1421,
     "dexId": 842,
     "name": "Appletun (Gigantamax)",
     "spriteUrl": "sprites/home/appletun-gigantamax.png",
@@ -11352,7 +11360,7 @@
     "category": "gmax"
   },
   {
-    "id": 1421,
+    "id": 1422,
     "dexId": 844,
     "name": "Sandaconda (Gigantamax)",
     "spriteUrl": "sprites/home/sandaconda-gigantamax.png",
@@ -11360,7 +11368,7 @@
     "category": "gmax"
   },
   {
-    "id": 1422,
+    "id": 1423,
     "dexId": 849,
     "name": "Toxtricity Amped Form (Gigantamax)",
     "spriteUrl": "sprites/home/toxtricity-gigantamax.png",
@@ -11368,7 +11376,7 @@
     "category": "gmax"
   },
   {
-    "id": 1423,
+    "id": 1424,
     "dexId": 849,
     "name": "Toxtricity Low Key Form (Gigantamax)",
     "spriteUrl": "sprites/home/toxtricity-gigantamax.png",
@@ -11376,7 +11384,7 @@
     "category": "gmax"
   },
   {
-    "id": 1424,
+    "id": 1425,
     "dexId": 854,
     "name": "Centiskorch (Gigantamax)",
     "spriteUrl": "sprites/home/centiskorch-gigantamax.png",
@@ -11384,7 +11392,7 @@
     "category": "gmax"
   },
   {
-    "id": 1425,
+    "id": 1426,
     "dexId": 859,
     "name": "Hatterene (Gigantamax)",
     "spriteUrl": "sprites/home/hatterene-gigantamax.png",
@@ -11392,7 +11400,7 @@
     "category": "gmax"
   },
   {
-    "id": 1426,
+    "id": 1427,
     "dexId": 863,
     "name": "Grimmsnarl (Gigantamax)",
     "spriteUrl": "sprites/home/grimmsnarl-gigantamax.png",
@@ -11400,7 +11408,7 @@
     "category": "gmax"
   },
   {
-    "id": 1427,
+    "id": 1428,
     "dexId": 867,
     "name": "Alcremie (Gigantamax)",
     "spriteUrl": "sprites/home/alcremie-gigantamax.png",
@@ -11408,7 +11416,7 @@
     "category": "gmax"
   },
   {
-    "id": 1428,
+    "id": 1429,
     "dexId": 889,
     "name": "Copperajah (Gigantamax)",
     "spriteUrl": "sprites/home/copperajah-gigantamax.png",
@@ -11416,7 +11424,7 @@
     "category": "gmax"
   },
   {
-    "id": 1429,
+    "id": 1430,
     "dexId": 894,
     "name": "Duraludon (Gigantamax)",
     "spriteUrl": "sprites/home/duraludon-gigantamax.png",
@@ -11424,7 +11432,7 @@
     "category": "gmax"
   },
   {
-    "id": 1430,
+    "id": 1431,
     "dexId": 892,
     "name": "Urshifu (Rapid Strike Style Gigantamax)",
     "spriteUrl": "sprites/home/urshifu-rapid-strike-gigantamax.png",
@@ -11432,7 +11440,7 @@
     "category": "gmax"
   },
   {
-    "id": 1431,
+    "id": 1432,
     "dexId": 892,
     "name": "Urshifu (Single Strike Style Gigantamax)",
     "spriteUrl": "sprites/home/urshifu-single-strike-gigantamax.png",
@@ -11440,7 +11448,7 @@
     "category": "gmax"
   },
   {
-    "id": 1432,
+    "id": 1433,
     "dexId": 1,
     "name": "Bulbasaur (Gigantamax Factor) (Gift)",
     "spriteUrl": "sprites/home/bulbasaur.png",
@@ -11448,7 +11456,7 @@
     "category": "gmax"
   },
   {
-    "id": 1433,
+    "id": 1434,
     "dexId": 2,
     "name": "Ivysaur (Gigantamax Factor) (Gift)",
     "spriteUrl": "sprites/home/ivysaur.png",
@@ -11456,7 +11464,7 @@
     "category": "gmax"
   },
   {
-    "id": 1434,
+    "id": 1435,
     "dexId": 4,
     "name": "Charmander (Gigantamax Factor) (Gift)",
     "spriteUrl": "sprites/home/charmander.png",
@@ -11464,7 +11472,7 @@
     "category": "gmax"
   },
   {
-    "id": 1435,
+    "id": 1436,
     "dexId": 5,
     "name": "Charmeleon (Gigantamax Factor) (Gift)",
     "spriteUrl": "sprites/home/charmeleon.png",
@@ -11472,7 +11480,7 @@
     "category": "gmax"
   },
   {
-    "id": 1436,
+    "id": 1437,
     "dexId": 7,
     "name": "Squirtle (Gigantamax Factor) (Gift)",
     "spriteUrl": "sprites/home/squirtle.png",
@@ -11480,7 +11488,7 @@
     "category": "gmax"
   },
   {
-    "id": 1437,
+    "id": 1438,
     "dexId": 8,
     "name": "Wartortle (Gigantamax Factor) (Gift)",
     "spriteUrl": "sprites/home/wartortle.png",
@@ -11488,7 +11496,7 @@
     "category": "gmax"
   },
   {
-    "id": 1438,
+    "id": 1439,
     "dexId": 3,
     "name": "Venusaur (Gigantamax) (Gift)",
     "spriteUrl": "sprites/home/venusaur-gigantamax.png",
@@ -11496,7 +11504,7 @@
     "category": "gmax"
   },
   {
-    "id": 1439,
+    "id": 1440,
     "dexId": 6,
     "name": "Charizard (Gigantamax) (Gift)",
     "spriteUrl": "sprites/home/charizard-gigantamax.png",
@@ -11504,7 +11512,7 @@
     "category": "gmax"
   },
   {
-    "id": 1440,
+    "id": 1441,
     "dexId": 9,
     "name": "Blastoise (Gigantamax) (Gift)",
     "spriteUrl": "sprites/home/blastoise-gigantamax.png",
@@ -11512,7 +11520,7 @@
     "category": "gmax"
   },
   {
-    "id": 1441,
+    "id": 1442,
     "dexId": 25,
     "name": "Pikachu (Gigantamax) (Gift)",
     "spriteUrl": "sprites/home/pikachu-gigantamax.png",
@@ -11520,11 +11528,2571 @@
     "category": "gmax"
   },
   {
-    "id": 1442,
+    "id": 1443,
     "dexId": 52,
     "name": "Meowth (Gigantamax) (Gift)",
     "spriteUrl": "sprites/home/meowth-gigantamax.png",
     "boxId": 59,
     "category": "gmax"
+  },
+  {
+    "id": 1444,
+    "dexId": 722,
+    "name": "Rowlet (Alpha)",
+    "spriteUrl": "sprites/home/rowlet.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1445,
+    "dexId": 723,
+    "name": "Dartrix (Alpha)",
+    "spriteUrl": "sprites/home/dartrix.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1446,
+    "dexId": 724,
+    "name": "Hisuian Decidueye (Alpha)",
+    "spriteUrl": "sprites/home/decidueye-hisuian.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1447,
+    "dexId": 155,
+    "name": "Cyndaquil (Alpha)",
+    "spriteUrl": "sprites/home/cyndaquil.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1448,
+    "dexId": 156,
+    "name": "Quilava (Alpha)",
+    "spriteUrl": "sprites/home/quilava.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1449,
+    "dexId": 157,
+    "name": "Hisuian Typhlosion (Alpha)",
+    "spriteUrl": "sprites/home/typhlosion-hisuian.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1450,
+    "dexId": 501,
+    "name": "Oshawott (Alpha)",
+    "spriteUrl": "sprites/home/oshawott.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1451,
+    "dexId": 502,
+    "name": "Dewott (Alpha)",
+    "spriteUrl": "sprites/home/dewott.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1452,
+    "dexId": 503,
+    "name": "Hisuian Samurott (Alpha)",
+    "spriteUrl": "sprites/home/samurott-hisuian.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1453,
+    "dexId": 399,
+    "name": "Bidoof (Alpha)",
+    "spriteUrl": "sprites/home/bidoof.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1454,
+    "dexId": 400,
+    "name": "Bibarel (Alpha)",
+    "spriteUrl": "sprites/home/bibarel.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1455,
+    "dexId": 396,
+    "name": "Starly (Alpha)",
+    "spriteUrl": "sprites/home/starly.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1456,
+    "dexId": 397,
+    "name": "Staravia (Alpha)",
+    "spriteUrl": "sprites/home/staravia.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1457,
+    "dexId": 398,
+    "name": "Staraptor (Alpha)",
+    "spriteUrl": "sprites/home/staraptor.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1458,
+    "dexId": 403,
+    "name": "Shinx (Alpha)",
+    "spriteUrl": "sprites/home/shinx.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1459,
+    "dexId": 404,
+    "name": "Luxio (Alpha)",
+    "spriteUrl": "sprites/home/luxio.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1460,
+    "dexId": 405,
+    "name": "Luxray (Alpha)",
+    "spriteUrl": "sprites/home/luxray.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1461,
+    "dexId": 265,
+    "name": "Wurmple (Alpha)",
+    "spriteUrl": "sprites/home/wurmple.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1462,
+    "dexId": 266,
+    "name": "Silcoon (Alpha)",
+    "spriteUrl": "sprites/home/silcoon.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1463,
+    "dexId": 267,
+    "name": "Beautifly (Alpha)",
+    "spriteUrl": "sprites/home/beautifly.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1464,
+    "dexId": 268,
+    "name": "Cascoon (Alpha)",
+    "spriteUrl": "sprites/home/cascoon.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1465,
+    "dexId": 269,
+    "name": "Dustox (Alpha)",
+    "spriteUrl": "sprites/home/dustox.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1466,
+    "dexId": 77,
+    "name": "Ponyta (Alpha)",
+    "spriteUrl": "sprites/home/ponyta.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1467,
+    "dexId": 78,
+    "name": "Rapidash (Alpha)",
+    "spriteUrl": "sprites/home/rapidash.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1468,
+    "dexId": 133,
+    "name": "Eevee (Alpha)",
+    "spriteUrl": "sprites/home/eevee.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1469,
+    "dexId": 134,
+    "name": "Vaporeon (Alpha)",
+    "spriteUrl": "sprites/home/vaporeon.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1470,
+    "dexId": 135,
+    "name": "Jolteon (Alpha)",
+    "spriteUrl": "sprites/home/jolteon.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1471,
+    "dexId": 136,
+    "name": "Flareon (Alpha)",
+    "spriteUrl": "sprites/home/flareon.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1472,
+    "dexId": 196,
+    "name": "Espeon (Alpha)",
+    "spriteUrl": "sprites/home/espeon.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1473,
+    "dexId": 197,
+    "name": "Umbreon (Alpha)",
+    "spriteUrl": "sprites/home/umbreon.png",
+    "boxId": 60,
+    "category": "alpha"
+  },
+  {
+    "id": 1474,
+    "dexId": 470,
+    "name": "Leafeon (Alpha)",
+    "spriteUrl": "sprites/home/leafeon.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1475,
+    "dexId": 471,
+    "name": "Glaceon (Alpha)",
+    "spriteUrl": "sprites/home/glaceon.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1476,
+    "dexId": 700,
+    "name": "Sylveon (Alpha)",
+    "spriteUrl": "sprites/home/sylveon.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1477,
+    "dexId": 41,
+    "name": "Zubat (Alpha)",
+    "spriteUrl": "sprites/home/zubat.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1478,
+    "dexId": 42,
+    "name": "Golbat (Alpha)",
+    "spriteUrl": "sprites/home/golbat.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1479,
+    "dexId": 169,
+    "name": "Crobat (Alpha)",
+    "spriteUrl": "sprites/home/crobat.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1480,
+    "dexId": 425,
+    "name": "Drifloon (Alpha)",
+    "spriteUrl": "sprites/home/drifloon.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1481,
+    "dexId": 426,
+    "name": "Drifblim (Alpha)",
+    "spriteUrl": "sprites/home/drifblim.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1482,
+    "dexId": 401,
+    "name": "Kricketot (Alpha)",
+    "spriteUrl": "sprites/home/kricketot.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1483,
+    "dexId": 402,
+    "name": "Kricketune (Alpha)",
+    "spriteUrl": "sprites/home/kricketune.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1484,
+    "dexId": 418,
+    "name": "Buizel (Alpha)",
+    "spriteUrl": "sprites/home/buizel.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1485,
+    "dexId": 419,
+    "name": "Floatzel (Alpha)",
+    "spriteUrl": "sprites/home/floatzel.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1486,
+    "dexId": 412,
+    "name": "Burmy (Alpha)",
+    "spriteUrl": "sprites/home/burmy.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1487,
+    "dexId": 413,
+    "name": "Wormadam (Alpha)",
+    "spriteUrl": "sprites/home/wormadam.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1488,
+    "dexId": 414,
+    "name": "Mothim (Alpha)",
+    "spriteUrl": "sprites/home/mothim.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1489,
+    "dexId": 74,
+    "name": "Geodude (Alpha)",
+    "spriteUrl": "sprites/home/geodude.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1490,
+    "dexId": 75,
+    "name": "Graveler (Alpha)",
+    "spriteUrl": "sprites/home/graveler.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1491,
+    "dexId": 76,
+    "name": "Golem (Alpha)",
+    "spriteUrl": "sprites/home/golem.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1492,
+    "dexId": 234,
+    "name": "Stantler (Alpha)",
+    "spriteUrl": "sprites/home/stantler.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1493,
+    "dexId": 899,
+    "name": "Wyrdeer (Alpha)",
+    "spriteUrl": "sprites/home/wyrdeer.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1494,
+    "dexId": 446,
+    "name": "Munchlax (Alpha)",
+    "spriteUrl": "sprites/home/munchlax.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1495,
+    "dexId": 143,
+    "name": "Snorlax (Alpha)",
+    "spriteUrl": "sprites/home/snorlax.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1496,
+    "dexId": 46,
+    "name": "Paras (Alpha)",
+    "spriteUrl": "sprites/home/paras.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1497,
+    "dexId": 47,
+    "name": "Parasect (Alpha)",
+    "spriteUrl": "sprites/home/parasect.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1498,
+    "dexId": 172,
+    "name": "Pichu (Alpha)",
+    "spriteUrl": "sprites/home/pichu.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1499,
+    "dexId": 25,
+    "name": "Pikachu (Alpha)",
+    "spriteUrl": "sprites/home/pikachu.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1500,
+    "dexId": 26,
+    "name": "Raichu (Alpha)",
+    "spriteUrl": "sprites/home/raichu.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1501,
+    "dexId": 63,
+    "name": "Abra (Alpha)",
+    "spriteUrl": "sprites/home/abra.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1502,
+    "dexId": 64,
+    "name": "Kadabra (Alpha)",
+    "spriteUrl": "sprites/home/kadabra.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1503,
+    "dexId": 65,
+    "name": "Alakazam (Alpha)",
+    "spriteUrl": "sprites/home/alakazam.png",
+    "boxId": 61,
+    "category": "alpha"
+  },
+  {
+    "id": 1504,
+    "dexId": 390,
+    "name": "Chimchar (Alpha)",
+    "spriteUrl": "sprites/home/chimchar.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1505,
+    "dexId": 391,
+    "name": "Monferno (Alpha)",
+    "spriteUrl": "sprites/home/monferno.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1506,
+    "dexId": 392,
+    "name": "Infernape (Alpha)",
+    "spriteUrl": "sprites/home/infernape.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1507,
+    "dexId": 427,
+    "name": "Buneary (Alpha)",
+    "spriteUrl": "sprites/home/buneary.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1508,
+    "dexId": 428,
+    "name": "Lopunny (Alpha)",
+    "spriteUrl": "sprites/home/lopunny.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1509,
+    "dexId": 420,
+    "name": "Cherubi (Alpha)",
+    "spriteUrl": "sprites/home/cherubi.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1510,
+    "dexId": 421,
+    "name": "Cherrim (Alpha)",
+    "spriteUrl": "sprites/home/cherrim.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1511,
+    "dexId": 54,
+    "name": "Psyduck (Alpha)",
+    "spriteUrl": "sprites/home/psyduck.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1512,
+    "dexId": 55,
+    "name": "Golduck (Alpha)",
+    "spriteUrl": "sprites/home/golduck.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1513,
+    "dexId": 415,
+    "name": "Combee (Alpha)",
+    "spriteUrl": "sprites/home/combee.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1514,
+    "dexId": 416,
+    "name": "Vespiquen (Alpha)",
+    "spriteUrl": "sprites/home/vespiquen.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1515,
+    "dexId": 123,
+    "name": "Scyther (Alpha)",
+    "spriteUrl": "sprites/home/scyther.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1516,
+    "dexId": 900,
+    "name": "Kleavor (Alpha)",
+    "spriteUrl": "sprites/home/kleavor.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1517,
+    "dexId": 212,
+    "name": "Scizor (Alpha)",
+    "spriteUrl": "sprites/home/scizor.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1518,
+    "dexId": 214,
+    "name": "Heracross (Alpha)",
+    "spriteUrl": "sprites/home/heracross.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1519,
+    "dexId": 439,
+    "name": "Mime-Jr (Alpha)",
+    "spriteUrl": "sprites/home/mime-jr.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1520,
+    "dexId": 122,
+    "name": "Mr-Mime (Alpha)",
+    "spriteUrl": "sprites/home/mr-mime.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1521,
+    "dexId": 190,
+    "name": "Aipom (Alpha)",
+    "spriteUrl": "sprites/home/aipom.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1522,
+    "dexId": 424,
+    "name": "Ambipom (Alpha)",
+    "spriteUrl": "sprites/home/ambipom.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1523,
+    "dexId": 129,
+    "name": "Magikarp (Alpha)",
+    "spriteUrl": "sprites/home/magikarp.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1524,
+    "dexId": 130,
+    "name": "Gyarados (Alpha)",
+    "spriteUrl": "sprites/home/gyarados.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1525,
+    "dexId": 422,
+    "name": "Shellos (Alpha)",
+    "spriteUrl": "sprites/home/shellos.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1526,
+    "dexId": 423,
+    "name": "Gastrodon (Alpha)",
+    "spriteUrl": "sprites/home/gastrodon.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1527,
+    "dexId": 211,
+    "name": "Hisuian Qwilfish (Alpha)",
+    "spriteUrl": "sprites/home/qwilfish-hisuian.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1528,
+    "dexId": 904,
+    "name": "Overqwil (Alpha)",
+    "spriteUrl": "sprites/home/overqwil.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1529,
+    "dexId": 440,
+    "name": "Happiny (Alpha)",
+    "spriteUrl": "sprites/home/happiny.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1530,
+    "dexId": 113,
+    "name": "Chansey (Alpha)",
+    "spriteUrl": "sprites/home/chansey.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1531,
+    "dexId": 242,
+    "name": "Blissey (Alpha)",
+    "spriteUrl": "sprites/home/blissey.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1532,
+    "dexId": 406,
+    "name": "Budew (Alpha)",
+    "spriteUrl": "sprites/home/budew.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1533,
+    "dexId": 315,
+    "name": "Roselia (Alpha)",
+    "spriteUrl": "sprites/home/roselia.png",
+    "boxId": 62,
+    "category": "alpha"
+  },
+  {
+    "id": 1534,
+    "dexId": 407,
+    "name": "Roserade (Alpha)",
+    "spriteUrl": "sprites/home/roserade.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1535,
+    "dexId": 455,
+    "name": "Carnivine (Alpha)",
+    "spriteUrl": "sprites/home/carnivine.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1536,
+    "dexId": 548,
+    "name": "Petilil (Alpha)",
+    "spriteUrl": "sprites/home/petilil.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1537,
+    "dexId": 549,
+    "name": "Hisuian Lilligant (Alpha)",
+    "spriteUrl": "sprites/home/lilligant-hisuian.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1538,
+    "dexId": 114,
+    "name": "Tangela (Alpha)",
+    "spriteUrl": "sprites/home/tangela.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1539,
+    "dexId": 465,
+    "name": "Tangrowth (Alpha)",
+    "spriteUrl": "sprites/home/tangrowth.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1540,
+    "dexId": 339,
+    "name": "Barboach (Alpha)",
+    "spriteUrl": "sprites/home/barboach.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1541,
+    "dexId": 340,
+    "name": "Whiscash (Alpha)",
+    "spriteUrl": "sprites/home/whiscash.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1542,
+    "dexId": 453,
+    "name": "Croagunk (Alpha)",
+    "spriteUrl": "sprites/home/croagunk.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1543,
+    "dexId": 454,
+    "name": "Toxicroak (Alpha)",
+    "spriteUrl": "sprites/home/toxicroak.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1544,
+    "dexId": 280,
+    "name": "Ralts (Alpha)",
+    "spriteUrl": "sprites/home/ralts.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1545,
+    "dexId": 281,
+    "name": "Kirlia (Alpha)",
+    "spriteUrl": "sprites/home/kirlia.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1546,
+    "dexId": 282,
+    "name": "Gardevoir (Alpha)",
+    "spriteUrl": "sprites/home/gardevoir.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1547,
+    "dexId": 475,
+    "name": "Gallade (Alpha)",
+    "spriteUrl": "sprites/home/gallade.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1548,
+    "dexId": 193,
+    "name": "Yanma (Alpha)",
+    "spriteUrl": "sprites/home/yanma.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1549,
+    "dexId": 469,
+    "name": "Yanmega (Alpha)",
+    "spriteUrl": "sprites/home/yanmega.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1550,
+    "dexId": 449,
+    "name": "Hippopotas (Alpha)",
+    "spriteUrl": "sprites/home/hippopotas.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1551,
+    "dexId": 450,
+    "name": "Hippowdon (Alpha)",
+    "spriteUrl": "sprites/home/hippowdon.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1552,
+    "dexId": 417,
+    "name": "Pachirisu (Alpha)",
+    "spriteUrl": "sprites/home/pachirisu.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1553,
+    "dexId": 434,
+    "name": "Stunky (Alpha)",
+    "spriteUrl": "sprites/home/stunky.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1554,
+    "dexId": 435,
+    "name": "Skuntank (Alpha)",
+    "spriteUrl": "sprites/home/skuntank.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1555,
+    "dexId": 216,
+    "name": "Teddiursa (Alpha)",
+    "spriteUrl": "sprites/home/teddiursa.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1556,
+    "dexId": 217,
+    "name": "Ursaring (Alpha)",
+    "spriteUrl": "sprites/home/ursaring.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1557,
+    "dexId": 901,
+    "name": "Ursaluna (Alpha)",
+    "spriteUrl": "sprites/home/ursaluna.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1558,
+    "dexId": 704,
+    "name": "Goomy (Alpha)",
+    "spriteUrl": "sprites/home/goomy.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1559,
+    "dexId": 705,
+    "name": "Hisuian Sliggoo (Alpha)",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sliggoo-hisuian.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1560,
+    "dexId": 706,
+    "name": "Hisuian Goodra (Alpha)",
+    "spriteUrl": "sprites/home/goodra-hisuian.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1561,
+    "dexId": 95,
+    "name": "Onix (Alpha)",
+    "spriteUrl": "sprites/home/onix.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1562,
+    "dexId": 208,
+    "name": "Steelix (Alpha)",
+    "spriteUrl": "sprites/home/steelix.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1563,
+    "dexId": 111,
+    "name": "Rhyhorn (Alpha)",
+    "spriteUrl": "sprites/home/rhyhorn.png",
+    "boxId": 63,
+    "category": "alpha"
+  },
+  {
+    "id": 1564,
+    "dexId": 112,
+    "name": "Rhydon (Alpha)",
+    "spriteUrl": "sprites/home/rhydon.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1565,
+    "dexId": 464,
+    "name": "Rhyperior (Alpha)",
+    "spriteUrl": "sprites/home/rhyperior.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1566,
+    "dexId": 438,
+    "name": "Bonsly (Alpha)",
+    "spriteUrl": "sprites/home/bonsly.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1567,
+    "dexId": 185,
+    "name": "Sudowoodo (Alpha)",
+    "spriteUrl": "sprites/home/sudowoodo.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1568,
+    "dexId": 108,
+    "name": "Lickitung (Alpha)",
+    "spriteUrl": "sprites/home/lickitung.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1569,
+    "dexId": 463,
+    "name": "Lickilicky (Alpha)",
+    "spriteUrl": "sprites/home/lickilicky.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1570,
+    "dexId": 175,
+    "name": "Togepi (Alpha)",
+    "spriteUrl": "sprites/home/togepi.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1571,
+    "dexId": 176,
+    "name": "Togetic (Alpha)",
+    "spriteUrl": "sprites/home/togetic.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1572,
+    "dexId": 468,
+    "name": "Togekiss (Alpha)",
+    "spriteUrl": "sprites/home/togekiss.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1573,
+    "dexId": 387,
+    "name": "Turtwig (Alpha)",
+    "spriteUrl": "sprites/home/turtwig.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1574,
+    "dexId": 388,
+    "name": "Grotle (Alpha)",
+    "spriteUrl": "sprites/home/grotle.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1575,
+    "dexId": 389,
+    "name": "Torterra (Alpha)",
+    "spriteUrl": "sprites/home/torterra.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1576,
+    "dexId": 137,
+    "name": "Porygon (Alpha)",
+    "spriteUrl": "sprites/home/porygon.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1577,
+    "dexId": 233,
+    "name": "Porygon2 (Alpha)",
+    "spriteUrl": "sprites/home/porygon2.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1578,
+    "dexId": 474,
+    "name": "Porygon-Z (Alpha)",
+    "spriteUrl": "sprites/home/porygon-z.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1579,
+    "dexId": 92,
+    "name": "Gastly (Alpha)",
+    "spriteUrl": "sprites/home/gastly.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1580,
+    "dexId": 93,
+    "name": "Haunter (Alpha)",
+    "spriteUrl": "sprites/home/haunter.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1581,
+    "dexId": 94,
+    "name": "Gengar (Alpha)",
+    "spriteUrl": "sprites/home/gengar.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1582,
+    "dexId": 442,
+    "name": "Spiritomb (Alpha)",
+    "spriteUrl": "sprites/home/spiritomb.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1583,
+    "dexId": 198,
+    "name": "Murkrow (Alpha)",
+    "spriteUrl": "sprites/home/murkrow.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1584,
+    "dexId": 430,
+    "name": "Honchkrow (Alpha)",
+    "spriteUrl": "sprites/home/honchkrow.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1585,
+    "dexId": 201,
+    "name": "Unown (Alpha)",
+    "spriteUrl": "sprites/home/unown.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1586,
+    "dexId": 363,
+    "name": "Spheal (Alpha)",
+    "spriteUrl": "sprites/home/spheal.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1587,
+    "dexId": 364,
+    "name": "Sealeo (Alpha)",
+    "spriteUrl": "sprites/home/sealeo.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1588,
+    "dexId": 365,
+    "name": "Walrein (Alpha)",
+    "spriteUrl": "sprites/home/walrein.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1589,
+    "dexId": 223,
+    "name": "Remoraid (Alpha)",
+    "spriteUrl": "sprites/home/remoraid.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1590,
+    "dexId": 224,
+    "name": "Octillery (Alpha)",
+    "spriteUrl": "sprites/home/octillery.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1591,
+    "dexId": 451,
+    "name": "Skorupi (Alpha)",
+    "spriteUrl": "sprites/home/skorupi.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1592,
+    "dexId": 452,
+    "name": "Drapion (Alpha)",
+    "spriteUrl": "sprites/home/drapion.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1593,
+    "dexId": 58,
+    "name": "Hisuian Growlithe (Alpha)",
+    "spriteUrl": "sprites/home/growlithe-hisuian.png",
+    "boxId": 64,
+    "category": "alpha"
+  },
+  {
+    "id": 1594,
+    "dexId": 59,
+    "name": "Hisuian Arcanine (Alpha)",
+    "spriteUrl": "sprites/home/arcanine-hisuian.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1595,
+    "dexId": 431,
+    "name": "Glameow (Alpha)",
+    "spriteUrl": "sprites/home/glameow.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1596,
+    "dexId": 432,
+    "name": "Purugly (Alpha)",
+    "spriteUrl": "sprites/home/purugly.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1597,
+    "dexId": 66,
+    "name": "Machop (Alpha)",
+    "spriteUrl": "sprites/home/machop.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1598,
+    "dexId": 67,
+    "name": "Machoke (Alpha)",
+    "spriteUrl": "sprites/home/machoke.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1599,
+    "dexId": 68,
+    "name": "Machamp (Alpha)",
+    "spriteUrl": "sprites/home/machamp.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1600,
+    "dexId": 441,
+    "name": "Chatot (Alpha)",
+    "spriteUrl": "sprites/home/chatot.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1601,
+    "dexId": 355,
+    "name": "Duskull (Alpha)",
+    "spriteUrl": "sprites/home/duskull.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1602,
+    "dexId": 356,
+    "name": "Dusclops (Alpha)",
+    "spriteUrl": "sprites/home/dusclops.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1603,
+    "dexId": 477,
+    "name": "Dusknoir (Alpha)",
+    "spriteUrl": "sprites/home/dusknoir.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1604,
+    "dexId": 393,
+    "name": "Piplup (Alpha)",
+    "spriteUrl": "sprites/home/piplup.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1605,
+    "dexId": 394,
+    "name": "Prinplup (Alpha)",
+    "spriteUrl": "sprites/home/prinplup.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1606,
+    "dexId": 395,
+    "name": "Empoleon (Alpha)",
+    "spriteUrl": "sprites/home/empoleon.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1607,
+    "dexId": 458,
+    "name": "Mantyke (Alpha)",
+    "spriteUrl": "sprites/home/mantyke.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1608,
+    "dexId": 226,
+    "name": "Mantine (Alpha)",
+    "spriteUrl": "sprites/home/mantine.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1609,
+    "dexId": 550,
+    "name": "Basculin (White-Striped) (Alpha)",
+    "spriteUrl": "sprites/home/basculin-white-striped.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1610,
+    "dexId": 902,
+    "name": "Basculegion (Alpha)",
+    "spriteUrl": "sprites/home/basculegion.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1611,
+    "dexId": 37,
+    "name": "Vulpix (Alpha)",
+    "spriteUrl": "sprites/home/vulpix.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1612,
+    "dexId": 38,
+    "name": "Ninetales (Alpha)",
+    "spriteUrl": "sprites/home/ninetales.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1613,
+    "dexId": 72,
+    "name": "Tentacool (Alpha)",
+    "spriteUrl": "sprites/home/tentacool.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1614,
+    "dexId": 73,
+    "name": "Tentacruel (Alpha)",
+    "spriteUrl": "sprites/home/tentacruel.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1615,
+    "dexId": 456,
+    "name": "Finneon (Alpha)",
+    "spriteUrl": "sprites/home/finneon.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1616,
+    "dexId": 457,
+    "name": "Lumineon (Alpha)",
+    "spriteUrl": "sprites/home/lumineon.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1617,
+    "dexId": 240,
+    "name": "Magby (Alpha)",
+    "spriteUrl": "sprites/home/magby.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1618,
+    "dexId": 126,
+    "name": "Magmar (Alpha)",
+    "spriteUrl": "sprites/home/magmar.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1619,
+    "dexId": 467,
+    "name": "Magmortar (Alpha)",
+    "spriteUrl": "sprites/home/magmortar.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1620,
+    "dexId": 81,
+    "name": "Magnemite (Alpha)",
+    "spriteUrl": "sprites/home/magnemite.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1621,
+    "dexId": 82,
+    "name": "Magneton (Alpha)",
+    "spriteUrl": "sprites/home/magneton.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1622,
+    "dexId": 462,
+    "name": "Magnezone (Alpha)",
+    "spriteUrl": "sprites/home/magnezone.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1623,
+    "dexId": 436,
+    "name": "Bronzor (Alpha)",
+    "spriteUrl": "sprites/home/bronzor.png",
+    "boxId": 65,
+    "category": "alpha"
+  },
+  {
+    "id": 1624,
+    "dexId": 437,
+    "name": "Bronzong (Alpha)",
+    "spriteUrl": "sprites/home/bronzong.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1625,
+    "dexId": 239,
+    "name": "Elekid (Alpha)",
+    "spriteUrl": "sprites/home/elekid.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1626,
+    "dexId": 125,
+    "name": "Electabuzz (Alpha)",
+    "spriteUrl": "sprites/home/electabuzz.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1627,
+    "dexId": 466,
+    "name": "Electivire (Alpha)",
+    "spriteUrl": "sprites/home/electivire.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1628,
+    "dexId": 207,
+    "name": "Gligar (Alpha)",
+    "spriteUrl": "sprites/home/gligar.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1629,
+    "dexId": 472,
+    "name": "Gliscor (Alpha)",
+    "spriteUrl": "sprites/home/gliscor.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1630,
+    "dexId": 443,
+    "name": "Gible (Alpha)",
+    "spriteUrl": "sprites/home/gible.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1631,
+    "dexId": 444,
+    "name": "Gabite (Alpha)",
+    "spriteUrl": "sprites/home/gabite.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1632,
+    "dexId": 445,
+    "name": "Garchomp (Alpha)",
+    "spriteUrl": "sprites/home/garchomp.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1633,
+    "dexId": 299,
+    "name": "Nosepass (Alpha)",
+    "spriteUrl": "sprites/home/nosepass.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1634,
+    "dexId": 476,
+    "name": "Probopass (Alpha)",
+    "spriteUrl": "sprites/home/probopass.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1635,
+    "dexId": 100,
+    "name": "Hisuian Voltorb (Alpha)",
+    "spriteUrl": "sprites/home/voltorb-hisuian.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1636,
+    "dexId": 101,
+    "name": "Hisuian Electrode (Alpha)",
+    "spriteUrl": "sprites/home/electrode-hisuian.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1637,
+    "dexId": 479,
+    "name": "Rotom (Alpha)",
+    "spriteUrl": "sprites/home/rotom.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1638,
+    "dexId": 433,
+    "name": "Chingling (Alpha)",
+    "spriteUrl": "sprites/home/chingling.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1639,
+    "dexId": 358,
+    "name": "Chimecho (Alpha)",
+    "spriteUrl": "sprites/home/chimecho.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1640,
+    "dexId": 200,
+    "name": "Misdreavus (Alpha)",
+    "spriteUrl": "sprites/home/misdreavus.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1641,
+    "dexId": 429,
+    "name": "Mismagius (Alpha)",
+    "spriteUrl": "sprites/home/mismagius.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1642,
+    "dexId": 173,
+    "name": "Cleffa (Alpha)",
+    "spriteUrl": "sprites/home/cleffa.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1643,
+    "dexId": 35,
+    "name": "Clefairy (Alpha)",
+    "spriteUrl": "sprites/home/clefairy.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1644,
+    "dexId": 36,
+    "name": "Clefable (Alpha)",
+    "spriteUrl": "sprites/home/clefable.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1645,
+    "dexId": 215,
+    "name": "Hisuian Sneasel (Alpha)",
+    "spriteUrl": "sprites/home/sneasel-hisuian.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1646,
+    "dexId": 903,
+    "name": "Sneasler (Alpha)",
+    "spriteUrl": "sprites/home/sneasler.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1647,
+    "dexId": 461,
+    "name": "Weavile (Alpha)",
+    "spriteUrl": "sprites/home/weavile.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1648,
+    "dexId": 361,
+    "name": "Snorunt (Alpha)",
+    "spriteUrl": "sprites/home/snorunt.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1649,
+    "dexId": 362,
+    "name": "Glalie (Alpha)",
+    "spriteUrl": "sprites/home/glalie.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1650,
+    "dexId": 478,
+    "name": "Froslass (Alpha)",
+    "spriteUrl": "sprites/home/froslass.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1651,
+    "dexId": 408,
+    "name": "Cranidos (Alpha)",
+    "spriteUrl": "sprites/home/cranidos.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1652,
+    "dexId": 409,
+    "name": "Rampardos (Alpha)",
+    "spriteUrl": "sprites/home/rampardos.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1653,
+    "dexId": 410,
+    "name": "Shieldon (Alpha)",
+    "spriteUrl": "sprites/home/shieldon.png",
+    "boxId": 66,
+    "category": "alpha"
+  },
+  {
+    "id": 1654,
+    "dexId": 411,
+    "name": "Bastiodon (Alpha)",
+    "spriteUrl": "sprites/home/bastiodon.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1655,
+    "dexId": 220,
+    "name": "Swinub (Alpha)",
+    "spriteUrl": "sprites/home/swinub.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1656,
+    "dexId": 221,
+    "name": "Piloswine (Alpha)",
+    "spriteUrl": "sprites/home/piloswine.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1657,
+    "dexId": 473,
+    "name": "Mamoswine (Alpha)",
+    "spriteUrl": "sprites/home/mamoswine.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1658,
+    "dexId": 712,
+    "name": "Bergmite (Alpha)",
+    "spriteUrl": "sprites/home/bergmite.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1659,
+    "dexId": 713,
+    "name": "Hisuian Avalugg (Alpha)",
+    "spriteUrl": "sprites/home/avalugg-hisuian.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1660,
+    "dexId": 459,
+    "name": "Snover (Alpha)",
+    "spriteUrl": "sprites/home/snover.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1661,
+    "dexId": 460,
+    "name": "Abomasnow (Alpha)",
+    "spriteUrl": "sprites/home/abomasnow.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1662,
+    "dexId": 570,
+    "name": "Hisuian Zorua (Alpha)",
+    "spriteUrl": "sprites/home/zorua-hisuian.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1663,
+    "dexId": 571,
+    "name": "Hisuian Zoroark (Alpha)",
+    "spriteUrl": "sprites/home/zoroark-hisuian.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1664,
+    "dexId": 627,
+    "name": "Rufflet (Alpha)",
+    "spriteUrl": "sprites/home/rufflet.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1665,
+    "dexId": 628,
+    "name": "Hisuian Braviary (Alpha)",
+    "spriteUrl": "sprites/home/braviary-hisuian.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1666,
+    "dexId": 447,
+    "name": "Riolu (Alpha)",
+    "spriteUrl": "sprites/home/riolu.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1667,
+    "dexId": 448,
+    "name": "Lucario (Alpha)",
+    "spriteUrl": "sprites/home/lucario.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1668,
+    "dexId": 399,
+    "name": "Bidoof ♀ (Alpha)",
+    "spriteUrl": "sprites/home/bidoof-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1669,
+    "dexId": 400,
+    "name": "Bibarel ♀ (Alpha)",
+    "spriteUrl": "sprites/home/bibarel-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1670,
+    "dexId": 396,
+    "name": "Starly ♀ (Alpha)",
+    "spriteUrl": "sprites/home/starly-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1671,
+    "dexId": 397,
+    "name": "Staravia ♀ (Alpha)",
+    "spriteUrl": "sprites/home/staravia-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1672,
+    "dexId": 398,
+    "name": "Staraptor ♀ (Alpha)",
+    "spriteUrl": "sprites/home/staraptor-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1673,
+    "dexId": 403,
+    "name": "Shinx ♀ (Alpha)",
+    "spriteUrl": "sprites/home/shinx-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1674,
+    "dexId": 404,
+    "name": "Luxio ♀ (Alpha)",
+    "spriteUrl": "sprites/home/luxio-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1675,
+    "dexId": 405,
+    "name": "Luxray ♀ (Alpha)",
+    "spriteUrl": "sprites/home/luxray-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1676,
+    "dexId": 267,
+    "name": "Beautifly ♀ (Alpha)",
+    "spriteUrl": "sprites/home/beautifly-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1677,
+    "dexId": 269,
+    "name": "Dustox ♀ (Alpha)",
+    "spriteUrl": "sprites/home/dustox-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1678,
+    "dexId": 133,
+    "name": "Eevee ♀ (Alpha)",
+    "spriteUrl": "sprites/home/eevee-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1679,
+    "dexId": 41,
+    "name": "Zubat ♀ (Alpha)",
+    "spriteUrl": "sprites/home/zubat-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1680,
+    "dexId": 42,
+    "name": "Golbat ♀ (Alpha)",
+    "spriteUrl": "sprites/home/golbat-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1681,
+    "dexId": 401,
+    "name": "Kricketot ♀ (Alpha)",
+    "spriteUrl": "sprites/home/kricketot-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1682,
+    "dexId": 402,
+    "name": "Kricketune ♀ (Alpha)",
+    "spriteUrl": "sprites/home/kricketune-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1683,
+    "dexId": 418,
+    "name": "Buizel ♀ (Alpha)",
+    "spriteUrl": "sprites/home/buizel-f.png",
+    "boxId": 67,
+    "category": "alpha"
+  },
+  {
+    "id": 1684,
+    "dexId": 419,
+    "name": "Floatzel ♀ (Alpha)",
+    "spriteUrl": "sprites/home/floatzel-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1685,
+    "dexId": 412,
+    "name": "Burmy (Plant Cloak) (Alpha)",
+    "spriteUrl": "sprites/home/burmy-plant.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1686,
+    "dexId": 412,
+    "name": "Burmy (Sandy Cloak) (Alpha)",
+    "spriteUrl": "sprites/home/burmy-sandy.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1687,
+    "dexId": 412,
+    "name": "Burmy (Trash Cloak) (Alpha)",
+    "spriteUrl": "sprites/home/burmy-trash.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1688,
+    "dexId": 413,
+    "name": "Wormadam (Plant Cloak) (Alpha)",
+    "spriteUrl": "sprites/home/wormadam-plant.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1689,
+    "dexId": 413,
+    "name": "Wormadam (Sandy Cloak) (Alpha)",
+    "spriteUrl": "sprites/home/wormadam-sandy.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1690,
+    "dexId": 413,
+    "name": "Wormadam (Trash Cloak) (Alpha)",
+    "spriteUrl": "sprites/home/wormadam-trash.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1691,
+    "dexId": 25,
+    "name": "Pikachu ♀ (Alpha)",
+    "spriteUrl": "sprites/home/pikachu-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1692,
+    "dexId": 26,
+    "name": "Raichu ♀ (Alpha)",
+    "spriteUrl": "sprites/home/raichu-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1693,
+    "dexId": 64,
+    "name": "Kadabra ♀ (Alpha)",
+    "spriteUrl": "sprites/home/kadabra-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1694,
+    "dexId": 65,
+    "name": "Alakazam ♀ (Alpha)",
+    "spriteUrl": "sprites/home/alakazam-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1695,
+    "dexId": 415,
+    "name": "Combee ♀ (Alpha)",
+    "spriteUrl": "sprites/home/combee-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1696,
+    "dexId": 123,
+    "name": "Scyther ♀ (Alpha)",
+    "spriteUrl": "sprites/home/scyther-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1697,
+    "dexId": 212,
+    "name": "Scizor ♀ (Alpha)",
+    "spriteUrl": "sprites/home/scizor-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1698,
+    "dexId": 214,
+    "name": "Heracross ♀ (Alpha)",
+    "spriteUrl": "sprites/home/heracross-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1699,
+    "dexId": 190,
+    "name": "Aipom ♀ (Alpha)",
+    "spriteUrl": "sprites/home/aipom-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1700,
+    "dexId": 424,
+    "name": "Ambipom ♀ (Alpha)",
+    "spriteUrl": "sprites/home/ambipom-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1701,
+    "dexId": 129,
+    "name": "Magikarp ♀ (Alpha)",
+    "spriteUrl": "sprites/home/magikarp-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1702,
+    "dexId": 130,
+    "name": "Gyarados ♀ (Alpha)",
+    "spriteUrl": "sprites/home/gyarados-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1703,
+    "dexId": 422,
+    "name": "Shellos (West Sea) (Alpha)",
+    "spriteUrl": "sprites/home/shellos-west.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1704,
+    "dexId": 422,
+    "name": "Shellos (East Sea) (Alpha)",
+    "spriteUrl": "sprites/home/shellos-east.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1705,
+    "dexId": 423,
+    "name": "Gastrodon (West Sea) (Alpha)",
+    "spriteUrl": "sprites/home/gastrodon-west.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1706,
+    "dexId": 423,
+    "name": "Gastrodon (East Sea) (Alpha)",
+    "spriteUrl": "sprites/home/gastrodon-east.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1707,
+    "dexId": 315,
+    "name": "Roselia ♀ (Alpha)",
+    "spriteUrl": "sprites/home/roselia-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1708,
+    "dexId": 407,
+    "name": "Roserade ♀ (Alpha)",
+    "spriteUrl": "sprites/home/roserade-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1709,
+    "dexId": 465,
+    "name": "Tangrowth ♀ (Alpha)",
+    "spriteUrl": "sprites/home/tangrowth-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1710,
+    "dexId": 453,
+    "name": "Croagunk ♀ (Alpha)",
+    "spriteUrl": "sprites/home/croagunk-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1711,
+    "dexId": 454,
+    "name": "Toxicroak ♀ (Alpha)",
+    "spriteUrl": "sprites/home/toxicroak-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1712,
+    "dexId": 449,
+    "name": "Hippopotas ♀ (Alpha)",
+    "spriteUrl": "sprites/home/hippopotas-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1713,
+    "dexId": 450,
+    "name": "Hippowdon ♀ (Alpha)",
+    "spriteUrl": "sprites/home/hippowdon-f.png",
+    "boxId": 68,
+    "category": "alpha"
+  },
+  {
+    "id": 1714,
+    "dexId": 417,
+    "name": "Pachirisu ♀ (Alpha)",
+    "spriteUrl": "sprites/home/pachirisu-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1715,
+    "dexId": 217,
+    "name": "Ursaring ♀ (Alpha)",
+    "spriteUrl": "sprites/home/ursaring-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1716,
+    "dexId": 208,
+    "name": "Steelix ♀ (Alpha)",
+    "spriteUrl": "sprites/home/steelix-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1717,
+    "dexId": 111,
+    "name": "Rhyhorn ♀ (Alpha)",
+    "spriteUrl": "sprites/home/rhyhorn-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1718,
+    "dexId": 112,
+    "name": "Rhydon ♀ (Alpha)",
+    "spriteUrl": "sprites/home/rhydon-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1719,
+    "dexId": 464,
+    "name": "Rhyperior ♀ (Alpha)",
+    "spriteUrl": "sprites/home/rhyperior-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1720,
+    "dexId": 185,
+    "name": "Sudowoodo ♀ (Alpha)",
+    "spriteUrl": "sprites/home/sudowoodo-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1721,
+    "dexId": 198,
+    "name": "Murkrow ♀ (Alpha)",
+    "spriteUrl": "sprites/home/murkrow-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1722,
+    "dexId": 201,
+    "name": "Unown (B) (Alpha)",
+    "spriteUrl": "sprites/home/unown-b.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1723,
+    "dexId": 201,
+    "name": "Unown (C) (Alpha)",
+    "spriteUrl": "sprites/home/unown-c.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1724,
+    "dexId": 201,
+    "name": "Unown (D) (Alpha)",
+    "spriteUrl": "sprites/home/unown-d.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1725,
+    "dexId": 201,
+    "name": "Unown (E) (Alpha)",
+    "spriteUrl": "sprites/home/unown-e.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1726,
+    "dexId": 201,
+    "name": "Unown (F) (Alpha)",
+    "spriteUrl": "sprites/home/unown-f.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1727,
+    "dexId": 201,
+    "name": "Unown (G) (Alpha)",
+    "spriteUrl": "sprites/home/unown-g.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1728,
+    "dexId": 201,
+    "name": "Unown (H) (Alpha)",
+    "spriteUrl": "sprites/home/unown-h.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1729,
+    "dexId": 201,
+    "name": "Unown (I) (Alpha)",
+    "spriteUrl": "sprites/home/unown-i.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1730,
+    "dexId": 201,
+    "name": "Unown (J) (Alpha)",
+    "spriteUrl": "sprites/home/unown-j.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1731,
+    "dexId": 201,
+    "name": "Unown (K) (Alpha)",
+    "spriteUrl": "sprites/home/unown-k.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1732,
+    "dexId": 201,
+    "name": "Unown (L) (Alpha)",
+    "spriteUrl": "sprites/home/unown-l.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1733,
+    "dexId": 201,
+    "name": "Unown (M) (Alpha)",
+    "spriteUrl": "sprites/home/unown-m.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1734,
+    "dexId": 201,
+    "name": "Unown (N) (Alpha)",
+    "spriteUrl": "sprites/home/unown-n.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1735,
+    "dexId": 201,
+    "name": "Unown (O) (Alpha)",
+    "spriteUrl": "sprites/home/unown-o.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1736,
+    "dexId": 201,
+    "name": "Unown (P) (Alpha)",
+    "spriteUrl": "sprites/home/unown-p.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1737,
+    "dexId": 201,
+    "name": "Unown (Q) (Alpha)",
+    "spriteUrl": "sprites/home/unown-q.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1738,
+    "dexId": 201,
+    "name": "Unown (R) (Alpha)",
+    "spriteUrl": "sprites/home/unown-r.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1739,
+    "dexId": 201,
+    "name": "Unown (S) (Alpha)",
+    "spriteUrl": "sprites/home/unown-s.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1740,
+    "dexId": 201,
+    "name": "Unown (T) (Alpha)",
+    "spriteUrl": "sprites/home/unown-t.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1741,
+    "dexId": 201,
+    "name": "Unown (U) (Alpha)",
+    "spriteUrl": "sprites/home/unown-u.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1742,
+    "dexId": 201,
+    "name": "Unown (V) (Alpha)",
+    "spriteUrl": "sprites/home/unown-v.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1743,
+    "dexId": 201,
+    "name": "Unown (W) (Alpha)",
+    "spriteUrl": "sprites/home/unown-w.png",
+    "boxId": 69,
+    "category": "alpha"
+  },
+  {
+    "id": 1744,
+    "dexId": 201,
+    "name": "Unown (X) (Alpha)",
+    "spriteUrl": "sprites/home/unown-x.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1745,
+    "dexId": 201,
+    "name": "Unown (Y) (Alpha)",
+    "spriteUrl": "sprites/home/unown-y.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1746,
+    "dexId": 201,
+    "name": "Unown (Z) (Alpha)",
+    "spriteUrl": "sprites/home/unown-z.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1747,
+    "dexId": 201,
+    "name": "Unown (!) (Alpha)",
+    "spriteUrl": "sprites/home/unown-em.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1748,
+    "dexId": 201,
+    "name": "Unown (?) (Alpha)",
+    "spriteUrl": "sprites/home/unown-qm.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1749,
+    "dexId": 224,
+    "name": "Octillery ♀ (Alpha)",
+    "spriteUrl": "sprites/home/octillery-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1750,
+    "dexId": 902,
+    "name": "Basculegion ♀ (Alpha)",
+    "spriteUrl": "sprites/home/basculegion-female.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1751,
+    "dexId": 456,
+    "name": "Finneon ♀ (Alpha)",
+    "spriteUrl": "sprites/home/finneon-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1752,
+    "dexId": 457,
+    "name": "Lumineon ♀ (Alpha)",
+    "spriteUrl": "sprites/home/lumineon-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1753,
+    "dexId": 207,
+    "name": "Gligar ♀ (Alpha)",
+    "spriteUrl": "sprites/home/gligar-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1754,
+    "dexId": 443,
+    "name": "Gible ♀ (Alpha)",
+    "spriteUrl": "sprites/home/gible-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1755,
+    "dexId": 444,
+    "name": "Gabite ♀ (Alpha)",
+    "spriteUrl": "sprites/home/gabite-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1756,
+    "dexId": 445,
+    "name": "Garchomp ♀ (Alpha)",
+    "spriteUrl": "sprites/home/garchomp-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1757,
+    "dexId": 215,
+    "name": "Sneasel (Alpha)",
+    "spriteUrl": "sprites/home/sneasel.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1758,
+    "dexId": 215,
+    "name": "Sneasel ♀ (Alpha)",
+    "spriteUrl": "sprites/home/sneasel-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1759,
+    "dexId": 461,
+    "name": "Weavile ♀ (Alpha)",
+    "spriteUrl": "sprites/home/weavile-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1760,
+    "dexId": 221,
+    "name": "Piloswine ♀ (Alpha)",
+    "spriteUrl": "sprites/home/piloswine-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1761,
+    "dexId": 473,
+    "name": "Mamoswine ♀ (Alpha)",
+    "spriteUrl": "sprites/home/mamoswine-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1762,
+    "dexId": 459,
+    "name": "Snover ♀ (Alpha)",
+    "spriteUrl": "sprites/home/snover-f.png",
+    "boxId": 70,
+    "category": "alpha"
+  },
+  {
+    "id": 1763,
+    "dexId": 460,
+    "name": "Abomasnow ♀ (Alpha)",
+    "spriteUrl": "sprites/home/abomasnow-f.png",
+    "boxId": 70,
+    "category": "alpha"
   }
 ]
