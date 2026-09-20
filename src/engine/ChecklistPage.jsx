@@ -35,7 +35,10 @@ function formatSyncedAt(date) {
 // system in-game). Clicking a sidebar group jumps to a box in boxed mode,
 // or filters the list in boxless mode.
 function ChecklistPage({ config }) {
-  const { data, boxSize, storageKey, syncId, groupSets, title } = config
+  const { data, boxSize, storageKey, syncId, groupSets, title, boxNumberOffset = 0 } = config
+  // Shifts displayed box numbers (label, jump field, header) without
+  // touching boxIndex — lets e.g. Master Dex show "Box 71" instead of
+  // "Box 1" when Home already fills 70 boxes. Defaults to 0 everywhere else.
   const isBoxed = Boolean(boxSize)
   const syncEnabled = isSyncEnabled(syncId)
 
@@ -43,6 +46,8 @@ function ChecklistPage({ config }) {
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
   const [showOnly, setShowOnly] = useState('all')           // 'all' | 'caught' | 'uncaught'
   const [boxIndex, setBoxIndex] = useState(0)                // which box we're looking at (0-based) — boxed mode only
+  const [boxInputValue, setBoxInputValue] = useState('1')     // "Jump to box" field's own text, separate from boxIndex
+                                                               // so it only commits on blur/Enter, not every keystroke
   const [activeGroup, setActiveGroup] = useState(null)        // which sidebar group is narrowing the list — boxless mode only
   const [search, setSearch] = useState('')                   // what's typed in the search bar
   const [unlocked, setUnlocked] = useState(false)             // is editing unlocked right now?
@@ -265,6 +270,12 @@ function ChecklistPage({ config }) {
   const totalBoxes = isBoxed ? Math.max(...data.map(p => p.boxId)) : 0
   const currentBoxId = boxIndex + 1
 
+  // Keeps the jump field in sync when boxIndex changes from anywhere
+  // else (Previous/Next, sidebar jump, search landing on a box).
+  useEffect(() => {
+    setBoxInputValue(String(boxIndex + 1 + boxNumberOffset))
+  }, [boxIndex, boxNumberOffset])
+
   // One progress-bar list per group set (Home has "Generation" and
   // "Category"). Each group keeps its own `matches` fn so boxless
   // checklists can filter the flat list on click.
@@ -353,6 +364,7 @@ function ChecklistPage({ config }) {
                 groups={set.groups}
                 onSelect={g => jumpToGroup(set, g)}
                 isBoxed={isBoxed}
+                boxNumberOffset={boxNumberOffset}
               />
             ))}
           </aside>
@@ -433,7 +445,7 @@ function ChecklistPage({ config }) {
               </button>
 
               <div className="box-meta">
-                <span className="box-label">Box {boxIndex + 1}</span>
+                <span className="box-label">Box {boxIndex + 1 + boxNumberOffset}</span>
                 <span className="box-range">
                   #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
                 </span>
@@ -441,14 +453,25 @@ function ChecklistPage({ config }) {
                   <span>Jump to box</span>
                   <input
                     type="number"
-                    min="1"
-                    max={totalBoxes}
-                    value={boxIndex + 1}
+                    min={1 + boxNumberOffset}
+                    max={totalBoxes + boxNumberOffset}
+                    value={boxInputValue}
                     onChange={e => {
-                      const nextBox = Number(e.target.value)
-                      if (!Number.isNaN(nextBox)) {
+                      // Just track typing here — committing on every
+                      // keystroke was the old "type 2, get 1" bug (an
+                      // empty string mid-edit parsed as 0 and clamped).
+                      setBoxInputValue(e.target.value)
+                    }}
+                    onBlur={() => {
+                      const nextBox = Number(boxInputValue) - boxNumberOffset
+                      if (boxInputValue !== '' && !Number.isNaN(nextBox)) {
                         setBoxIndex(Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1))
+                      } else {
+                        setBoxInputValue(String(boxIndex + 1 + boxNumberOffset)) // revert on invalid/empty
                       }
+                    }}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter') e.target.blur() // commits via onBlur
                     }}
                   />
                 </label>
@@ -489,7 +512,7 @@ function ChecklistPage({ config }) {
             <div className="box-header">
               <span>
                 {isBoxed
-                  ? `Box ${boxIndex + 1}`
+                  ? `Box ${boxIndex + 1 + boxNumberOffset}`
                   : activeGroup
                     ? `${activeGroup.groupLabel} (tap it again in the sidebar to clear)`
                     : title}

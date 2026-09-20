@@ -91,6 +91,15 @@ const groupedConfig = {
   ],
 }
 
+// Mirrors Master Dex's boxNumberOffset (masterdex/config.js).
+const offsetConfig = {
+  ...boxedConfig,
+  id: 'test-offset',
+  storageKey: 'test-offset-key',
+  syncId: 'test-offset',
+  boxNumberOffset: 70,
+}
+
 function renderPage(config = boxedConfig) {
   return render(
     <MemoryRouter>
@@ -237,7 +246,36 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     renderPage()
     const jump = screen.getByRole('spinbutton')
     fireEvent.change(jump, { target: { value: '99' } })
+    fireEvent.blur(jump)
     expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+  })
+
+  it('does not commit the jump field until blur/Enter, so deleting a digit mid-edit does not snap back', () => {
+    renderPage()
+    const jump = screen.getByRole('spinbutton')
+    fireEvent.change(jump, { target: { value: '' } })
+    expect(jump.value).toBe('')
+    expect(screen.getByText('Box 1', { selector: '.box-label' })).toBeInTheDocument()
+    fireEvent.change(jump, { target: { value: '2' } })
+    fireEvent.blur(jump)
+    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+  })
+
+  it('opens on the offset box number when boxNumberOffset is set', () => {
+    renderPage(offsetConfig)
+    expect(screen.getByText('Box 71', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(71)
+  })
+
+  it('keeps the offset through Next/Previous and the jump field', () => {
+    renderPage(offsetConfig)
+    fireEvent.click(screen.getByRole('button', { name: 'Next box' }))
+    expect(screen.getByText('Box 72', { selector: '.box-label' })).toBeInTheDocument()
+
+    const jump = screen.getByRole('spinbutton')
+    fireEvent.change(jump, { target: { value: '71' } })
+    fireEvent.blur(jump)
+    expect(screen.getByText('Box 71', { selector: '.box-label' })).toBeInTheDocument()
   })
 
   it('renders no box controls at all for a boxless checklist', () => {

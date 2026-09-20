@@ -127,7 +127,7 @@ Right now `masterdex/data.json` is just those four examples as a starter templat
 Two things make this checklist different from every other one:
 
 - **It doesn't count toward the hub's overall completion.** `bonus: true` in `masterdex/config.js` excludes it from that math — permanently, not just while it's a placeholder — since this is an optional extra tier on top of the real dex rather than part of it. `placeholder` and `bonus` are two separate, independent flags: `placeholder` is temporary and hides the percentage entirely; `bonus` is permanent and still shows a real percentage, just never folded into the hub's overall number.
-- **Its boxes don't start at 1.** `boxNumberOffset` in `masterdex/config.js` shifts what a box number *displays* as, without touching the underlying `boxId` values in `data.json` — those still run a plain 1, 2, 3… like every checklist, since `Registry.test.jsx` requires that. The offset itself is computed live, right there in `config.js`, as `Math.max` over every `boxId` in Home's own `data.json` — so Master Dex's boxes always pick up exactly where Home's leave off, automatically, with no fixed number anywhere to remember to bump as Home grows.
+- **Its boxes don't start at 1.** `boxNumberOffset` in `masterdex/config.js` shifts what a box number *displays* as, without touching the underlying `boxId` values in `data.json` — those still run a plain 1, 2, 3… like every checklist, since `Registry.test.jsx` requires that. The offset itself is computed live, right there in `config.js`, as `Math.max` over every `boxId` in Home's own `data.json`, so Master Dex's boxes always pick up exactly where Home's leave off with no fixed number to remember to bump. `ChecklistPage.jsx` is where it actually gets applied — box label, header, and jump-to-box field all add it on the way out, while `boxIndex` stays untouched underneath. Defaults to `0` for every other checklist.
 
 Every `spriteUrl` in `masterdex/data.json` right now is a placeholder local path (`sprites/masterdex/...`) that doesn't point at a real file yet, on purpose — real art needs to go in (or `scripts/download-sprites.mjs` needs real hotlinks to pull from) before this checklist is actually live.
 
@@ -180,7 +180,7 @@ Built with [Vitest](https://vitest.dev) (config in `vite.config.js`'s `test` blo
 - **`src/checklists/Shadow.test.jsx`** — the Colosseum/XD-specific checks the generic ones can't make: the 51/2/1 shadow/starter/bonus split, XD's Shadow Lugia entry, the 131-unique-species figure Bulbapedia states (and that the overlap is exactly Makuhita/Mareep/Togepi), and that both checklists are wired in. Also validates every sprite URL still pointing at Bulbagarden — its archive path is a deterministic MD5 hash of the filename, so a typo'd URL is catchable with `node:crypto` alone — and checks the "Shadow" name fallback against real data (Marshadow doesn't false-positive; GO's own cosmetic "Shadow" costumes do, on purpose).
 - **`src/engine/ItemCard.test.jsx`** — per-card behavior: Gigantamax and Alpha name-stripping and badges, the Shadow badge, the checked-date label, one click firing `onToggle` exactly once.
 - **`src/HubPage.test.jsx`** — the hub itself: the collection label renders, placeholder checklists don't count toward the overall total, localStorage counts show up correctly, and bad or missing localStorage data doesn't crash the page.
-- **`src/engine/ChecklistPage.test.jsx`** — the big one. Renders a whole page against small fake checklists: box navigation, search (jump-to-box, ×/Escape), the All/Caught/Not Caught filters, the password lock, Select All / Unselect All / Undo, localStorage persistence, the group sidebar, and that boxless checklists render no box controls at all.
+- **`src/engine/ChecklistPage.test.jsx`** — the big one. Renders a whole page against small fake checklists: box navigation, `boxNumberOffset`, the jump-to-box field (clamping, and committing on blur/Enter rather than every keystroke), search (×/Escape), the All/Caught/Not Caught filters, the password lock, Select All / Unselect All / Undo, localStorage persistence, the group sidebar, and that boxless checklists render no box controls at all.
 
 Adding a checklist to `index.js` is automatically covered by `Registry.test.jsx` — no test file changes needed.
 
@@ -213,6 +213,8 @@ node src/checklists/home/scripts/assignCategories.mjs
 GO skips both scripts — it's boxless, and its ids are hand-assigned decimals grouping variants near their base species (e.g. every Pikachu costume near `25.x`). Since these are hand-assigned, double-check a new entry's decimal isn't already taken before adding it — two entries sharing an id means checking either one checks both, and React will complain about duplicate list keys.
 
 Colosseum and XD skip the scripts too — their boxes are just the source article's row order, chopped into thirties, so a plain sequential fill is all they need. `Registry.test.jsx` is what guards that (no box over 30, no gaps), rather than a script to remember to rerun.
+
+None of the above is about what a box *displays as* — that's a separate, purely cosmetic layer (`boxNumberOffset`) covered in [Master Dex](#master-dex).
 
 ## Self-hosting sprites & other images
 
