@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "dexId": 612,
+    "name": "Shiny Haxorus (Black 2/White 2)",
+    "spriteUrl": "sprites/masterdex/shiny-haxorus.png",
+    "boxId": 1
+  },
+  {
+    "id": 2,
+    "dexId": 130,
+    "name": "Red Gyarados (Gold/Silver/Crystal)",
+    "spriteUrl": "sprites/masterdex/red-gyarados.png",
+    "boxId": 1
+  },
+  {
+    "id": 3,
+    "dexId": 327,
+    "name": "Matching Spinda Pair",
+    "spriteUrl": "sprites/masterdex/matching-spinda.png",
+    "boxId": 1
+  },
+  {
+    "id": 4,
+    "dexId": 483,
+    "name": "Origin Forme Dialga",
+    "spriteUrl": "sprites/masterdex/dialga-origin.png",
+    "boxId": 1
+  },
+  {
+    "id": 5,
+    "dexId": 484,
+    "name": "Origin Forme Palkia",
+    "spriteUrl": "sprites/masterdex/palkia-origin.png",
+    "boxId": 1
+  }
+]

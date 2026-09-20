@@ -5,48 +5,40 @@ import GroupProgress from './GroupProgress.jsx'
 import { checkPassword } from './lock.js'
 import { isSyncEnabled, fetchIdsFromCloud, pushIdsToCloud, toCheckedMap, fromCheckedMap, mergeCheckedMaps } from './sync.js'
 
-// Reads a checklist's checked-item Map back out of the browser's storage
-// when the page first loads — a Map of id -> the date it was checked (or
-// null if that date isn't known, which is true for anything checked
-// before this feature existed).
+// Reads a checklist's checked-item Map out of storage. Map of id -> the
+// date it was checked, or null if that's unknown (anything checked
+// before dates were tracked).
 function loadCheckedIds(storageKey) {
   try {
     const raw = localStorage.getItem(storageKey)
     return raw ? toCheckedMap(JSON.parse(raw)) : new Map()
   } catch {
-    // If the saved data is broken/missing for any reason, just start fresh
-    // instead of crashing the whole page.
     return new Map()
   }
 }
 
-// The generic engine behind every checklist. Takes one checklist's
-// `config` (see src/checklists/home/config.js for an example) and
-// renders the whole page — box grid (or flat list), search, filters,
-// sidebars, lock, and cloud sync. This file is the direct descendant of
-// the original App.jsx; nothing in here should ever need to know it's
-// Pokémon specifically — that's all in config.
-//
-// Two layout modes, chosen by whether the config sets a boxSize:
-//   - BOXED (boxSize is a number): items are split into fixed-size boxes
-//     with Previous/Next/Jump-to-box navigation. This is the normal mode.
-//   - BOXLESS (boxSize is null/undefined): no boxes at all — every item
-//     that matches the search + filters shows in one flat, scrollable
-//     list instead. Use this for something like Pokémon GO, which
-//     doesn't have a box system in the actual game. Clicking a sidebar
-//     group (like a generation) narrows the flat list down to just that
-//     group instead of jumping to a box — click it again to clear it.
-// Formats a "last synced" timestamp the way a person would actually say
-// it — just a time if it happened today, otherwise the date too, so it
-// doesn't get confusing after leaving a tab open overnight.
+// Short "last synced" label — just the time if it was today, otherwise
+// the date too.
 function formatSyncedAt(date) {
   const isToday = date.toDateString() === new Date().toDateString()
   const time = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
   return isToday ? time : `${date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}, ${time}`
 }
 
+// The generic engine behind every checklist — takes one config (see
+// src/checklists/home/config.js) and renders the box grid or flat list,
+// search, filters, sidebars, lock, and sync. Nothing in here should know
+// it's Pokémon specifically.
+//
+// boxSize set -> boxed mode (Previous/Next/Jump-to-box). boxSize
+// null/undefined -> boxless, one flat list (e.g. GO, which has no box
+// system in-game). Clicking a sidebar group jumps to a box in boxed mode,
+// or filters the list in boxless mode.
 function ChecklistPage({ config }) {
-  const { data, boxSize, storageKey, syncId, groupSets, title } = config
+  const { data, boxSize, storageKey, syncId, groupSets, title, boxNumberOffset = 0 } = config
+  // Shifts displayed box numbers (label, jump field, header) without
+  // touching boxIndex — lets e.g. Master Dex show "Box 71" instead of
+  // "Box 1" when Home already fills 70 boxes. Defaults to 0 everywhere else.
   const isBoxed = Boolean(boxSize)
   const syncEnabled = isSyncEnabled(syncId)
 
@@ -54,6 +46,8 @@ function ChecklistPage({ config }) {
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
   const [showOnly, setShowOnly] = useState('all')           // 'all' | 'caught' | 'uncaught'
   const [boxIndex, setBoxIndex] = useState(0)                // which box we're looking at (0-based) — boxed mode only
+  const [boxInputValue, setBoxInputValue] = useState('1')     // "Jump to box" field's own text, separate from boxIndex
+                                                               // so it only commits on blur/Enter, not every keystroke
   const [activeGroup, setActiveGroup] = useState(null)        // which sidebar group is narrowing the list — boxless mode only
   const [search, setSearch] = useState('')                   // what's typed in the search bar
   const [unlocked, setUnlocked] = useState(false)             // is editing unlocked right now?
@@ -63,22 +57,18 @@ function ChecklistPage({ config }) {
   const [syncStatus, setSyncStatus] = useState(syncEnabled ? 'loading' : 'off')
   const [lastSyncedAt, setLastSyncedAt] = useState(null) // Date | null — set on every successful fetch or push
 
-  // Whether this device's localStorage was completely empty the moment
-  // this checklist loaded — if so, and cloud sync fails, "0 caught"
-  // could genuinely mean "all your progress is gone" rather than the
-  // usual case (this device already had progress, so a sync hiccup is
-  // low-stakes). That distinction is what the header's loading/error
-  // states below are built around.
+  // Whether this device had zero saved progress the moment this checklist
+  // loaded — if so and cloud sync then fails, "0 caught" could mean the
+  // sync failed, not that there's genuinely nothing saved. Drives the
+  // header's error-state wording below.
   const wasEmptyOnLoad = useRef(checkedIds.size === 0)
 
-  // We don't want to push to the cloud before we've actually pulled the
-  // cloud's data down once — otherwise we might overwrite someone else's
-  // progress with old data from this device before we've even seen theirs.
+  // Don't push to the cloud before pulling it down once — otherwise a
+  // stale local state could overwrite real progress from another device.
   const hasLoadedCloud = useRef(!syncEnabled)
 
-  // If you navigate from one checklist to another (different route, same
-  // mounted engine), reset everything to that checklist's own saved state
-  // instead of carrying the previous checklist's state over.
+  // Switching checklists (different route, same mounted engine) resets
+  // everything to that checklist's own saved state.
   useEffect(() => {
     const freshChecked = loadCheckedIds(storageKey)
     setCheckedIds(freshChecked)
@@ -91,16 +81,11 @@ function ChecklistPage({ config }) {
     setLastSyncedAt(null)
     wasEmptyOnLoad.current = freshChecked.size === 0
     hasLoadedCloud.current = !syncEnabled
-    // storageKey changing means "this is now a different checklist" — that's
-    // the only thing that should re-run this reset.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storageKey])
 
-  // On first load (and whenever we switch checklists): pull down whatever's
-  // saved in the cloud and merge it with what's already saved locally, via
-  // the shared mergeCheckedMaps (see sync.js for the merge rules — never
-  // remove anything either way, and prefer whichever date is earlier when
-  // both sides have the same item checked).
+  // On load (and on checklist switch): pull cloud data and merge with
+  // local via mergeCheckedMaps (see sync.js for the merge rules).
   useEffect(() => {
     if (!syncEnabled) return
 
@@ -122,14 +107,13 @@ function ChecklistPage({ config }) {
     }
   }, [syncId, syncEnabled])
 
-  // Every time checkedIds changes, save it to this browser right away...
+  // Save to localStorage right away on every change.
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(fromCheckedMap(checkedIds)))
   }, [checkedIds, storageKey])
 
-  // ...and also push it up to the cloud a moment later (if sync is set
-  // up). The short delay just avoids firing an API call on every single
-  // click if you're checking off a bunch of items in a row.
+  // Push to the cloud a moment later, if sync is on — delay avoids an API
+  // call per click when checking off several items in a row.
   useEffect(() => {
     if (!syncEnabled || !hasLoadedCloud.current) return
 
@@ -143,10 +127,7 @@ function ChecklistPage({ config }) {
     return () => clearTimeout(timeoutId)
   }, [checkedIds, syncId, syncEnabled])
 
-  // Manually re-attempts pushing the current state up, for when the
-  // automatic push failed (bad connection, database asleep, etc.) — the
-  // "⚠️ Cloud sync failed" message otherwise has no recovery besides
-  // reloading the whole page.
+  // Manual retry for when the auto-push above failed.
   function retrySync() {
     setSyncStatus('loading')
     pushIdsToCloud(syncId, checkedIds).then(success => {
@@ -155,10 +136,8 @@ function ChecklistPage({ config }) {
     })
   }
 
-  // Every time the search box changes, look for a matching item and jump
-  // straight to the box it's in. Boxless checklists don't have boxes to
-  // jump to — searching there just narrows the flat list directly further
-  // down in visibleList, so this effect has nothing to do.
+  // Search jumps to the matching box (boxed only — boxless just filters
+  // the flat list, handled in visibleList below).
   useEffect(() => {
     if (!isBoxed) return
 
@@ -176,8 +155,7 @@ function ChecklistPage({ config }) {
     }
   }, [search, data, isBoxed])
 
-  // Asks for the password (if not already unlocked) and returns true/false
-  // for whether we're allowed to make a change right now.
+  // Prompts for the password if not already unlocked.
   function requestUnlock() {
     if (unlocked) return true
 
@@ -207,26 +185,20 @@ function ChecklistPage({ config }) {
     }
   }
 
-  // Checks/unchecks one item. Won't do anything unless editing is unlocked.
-  // Checking something stamps the current date/time; unchecking just
-  // removes it entirely (no history of "checked, then unchecked" is kept —
-  // if you want that, that's a database-level edit, per your call).
-  // The Undo banner for Select All / Unselect All disappears on its own
-  // after a few seconds if you don't use it — same "why is this still
-  // here" reasoning as any other toast-style notification.
+  // Auto-dismiss the Undo banner after a few seconds if unused.
   useEffect(() => {
     if (!lastBulkAction) return
     const timeoutId = setTimeout(() => setLastBulkAction(null), 8000)
     return () => clearTimeout(timeoutId)
   }, [lastBulkAction])
 
+  // Checking stamps the current date; unchecking removes the entry
+  // entirely (no undo history — a database edit is the only way back).
   function toggleChecked(id) {
     if (!requestUnlock()) return
 
-    // A single click is already its own undo (click it again) — but it
-    // does mean the last bulk action's "undo" banner no longer describes
-    // an accurate revert target, so clear it rather than let it linger
-    // with stale meaning.
+    // Clears any stale Undo banner, since it no longer describes what a
+    // click right now would actually revert.
     setLastBulkAction(null)
 
     setCheckedIds(prev => {
@@ -240,11 +212,8 @@ function ChecklistPage({ config }) {
     })
   }
 
-  // Marks every item currently visible (the current box, or the current
-  // filtered flat list for a boxless checklist) as checked in one go.
-  // Anything already checked keeps its original date — Select All only
-  // stamps the ones that weren't checked yet. Confirms first since it's a
-  // bulk action across potentially 30+ items at once.
+  // Checks everything currently visible. Keeps existing dates on anything
+  // already checked. Confirms first since this can affect 30+ items.
   function selectAllVisible() {
     const targets = visibleList.filter(item => !checkedIds.has(item.id))
     if (targets.length === 0) return // nothing to do
@@ -266,10 +235,8 @@ function ChecklistPage({ config }) {
     })
   }
 
-  // Unchecks every item currently visible. This is the one that actually
-  // loses data (the checked-date for each item) — the Undo banner below
-  // gives you a few seconds to catch a misclick before that date is gone
-  // for good.
+  // Unchecks everything visible — the one action that actually loses
+  // data (each item's checked date). The Undo banner is the safety net.
   function deselectAllVisible() {
     const targets = visibleList.filter(item => checkedIds.has(item.id))
     if (targets.length === 0) return // nothing to do
@@ -292,12 +259,8 @@ function ChecklistPage({ config }) {
     })
   }
 
-  // Reverts the most recent Select All / Unselect All back to exactly
-  // how things were right before it ran. Disappears on its own after a
-  // few seconds, or immediately if you make any other change first (see
-  // toggleChecked/selectAllVisible/deselectAllVisible above) — so it can
-  // never revert something other than the action it's currently labeled
-  // as undoing.
+  // Reverts the most recent Select/Unselect All. Clears itself on its
+  // own, or the moment any other change happens (see toggleChecked).
   function undoLastBulkAction() {
     if (!lastBulkAction) return
     setCheckedIds(lastBulkAction.previousMap)
@@ -307,21 +270,22 @@ function ChecklistPage({ config }) {
   const totalBoxes = isBoxed ? Math.max(...data.map(p => p.boxId)) : 0
   const currentBoxId = boxIndex + 1
 
-  // --- Left sidebar: one progress-bar list per group set the config
-  // defines (Pokémon has "Generation" and "Category"; a future checklist
-  // might only need one, or a different pair entirely). useMemo just means
-  // "only redo this math when checkedIds/data actually changes." Each
-  // group keeps a reference to its own `matches` function too, so boxless
-  // checklists can use it to filter the flat list when a group is clicked.
+  // Keeps the jump field in sync when boxIndex changes from anywhere
+  // else (Previous/Next, sidebar jump, search landing on a box).
+  useEffect(() => {
+    setBoxInputValue(String(boxIndex + 1 + boxNumberOffset))
+  }, [boxIndex, boxNumberOffset])
+
+  // One progress-bar list per group set (Home has "Generation" and
+  // "Category"). Each group keeps its own `matches` fn so boxless
+  // checklists can filter the flat list on click.
   const groupStats = useMemo(() => {
     return groupSets.map(set => {
       const candidates = data.filter(set.filter)
       const groups = set.groups.map(g => {
         const inGroup = candidates.filter(item => set.matches(item, g))
         const checked = inGroup.filter(item => checkedIds.has(item.id)).length
-        // data is already in box order, so the first matching entry tells
-        // us which box to jump to (boxed checklists only).
-        const first = inGroup[0]
+        const first = inGroup[0] // box order -> first match's box is the jump target
         return {
           ...g,
           label: set.displayLabel(g),
@@ -334,9 +298,8 @@ function ChecklistPage({ config }) {
     })
   }, [groupSets, data, checkedIds])
 
-  // Boxed: clicking a sidebar group jumps straight to the box it starts in.
-  // Boxless: clicking a sidebar group narrows the flat list down to just
-  // that group — clicking the same one again clears the filter.
+  // Boxed: jumps to the group's starting box. Boxless: toggles a filter
+  // on the flat list (click again to clear).
   function jumpToGroup(set, g) {
     if (isBoxed) {
       if (g.startBox) setBoxIndex(g.startBox - 1)
@@ -351,13 +314,9 @@ function ChecklistPage({ config }) {
     )
   }
 
-  // The items "in scope" before search/filter narrows things further:
-  // the current box for a boxed checklist, the active group filter (or
-  // everything) for a boxless one. Always sorted by id — for a boxed
-  // checklist this is effectively already true (assignBoxes.mjs assigns
-  // boxes in file order), but for a boxless checklist (GO) this means you
-  // can paste new entries into data.json in any order and they'll still
-  // display sorted, no separate script needed.
+  // Items in scope before search/filter: the current box (boxed), or the
+  // active group filter / everything (boxless). Sorted by id so a
+  // boxless checklist's data.json can be edited in any order.
   const scopedList = useMemo(() => {
     const inScope = isBoxed
       ? data.filter(p => p.boxId === currentBoxId)
@@ -395,11 +354,7 @@ function ChecklistPage({ config }) {
   return (
     <div className="app">
       <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
-        {/* Left sidebar: one progress-bar list per group set — only
-            rendered at all when this checklist's config actually defines
-            groups (like Pokémon's Generation/Category). Checklists with
-            no groupSets (SoulSilver, GO, etc.) skip this entirely instead
-            of showing an empty box. */}
+        {/* Only rendered when the config actually defines groups. */}
         {groupStats.length > 0 && (
           <aside className="sidebar sidebar-left">
             {groupStats.map(set => (
@@ -409,6 +364,7 @@ function ChecklistPage({ config }) {
                 groups={set.groups}
                 onSelect={g => jumpToGroup(set, g)}
                 isBoxed={isBoxed}
+                boxNumberOffset={boxNumberOffset}
               />
             ))}
           </aside>
@@ -489,7 +445,7 @@ function ChecklistPage({ config }) {
               </button>
 
               <div className="box-meta">
-                <span className="box-label">Box {boxIndex + 1}</span>
+                <span className="box-label">Box {boxIndex + 1 + boxNumberOffset}</span>
                 <span className="box-range">
                   #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
                 </span>
@@ -497,14 +453,25 @@ function ChecklistPage({ config }) {
                   <span>Jump to box</span>
                   <input
                     type="number"
-                    min="1"
-                    max={totalBoxes}
-                    value={boxIndex + 1}
+                    min={1 + boxNumberOffset}
+                    max={totalBoxes + boxNumberOffset}
+                    value={boxInputValue}
                     onChange={e => {
-                      const nextBox = Number(e.target.value)
-                      if (!Number.isNaN(nextBox)) {
+                      // Just track typing here — committing on every
+                      // keystroke was the old "type 2, get 1" bug (an
+                      // empty string mid-edit parsed as 0 and clamped).
+                      setBoxInputValue(e.target.value)
+                    }}
+                    onBlur={() => {
+                      const nextBox = Number(boxInputValue) - boxNumberOffset
+                      if (boxInputValue !== '' && !Number.isNaN(nextBox)) {
                         setBoxIndex(Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1))
+                      } else {
+                        setBoxInputValue(String(boxIndex + 1 + boxNumberOffset)) // revert on invalid/empty
                       }
+                    }}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter') e.target.blur() // commits via onBlur
                     }}
                   />
                 </label>
@@ -545,7 +512,7 @@ function ChecklistPage({ config }) {
             <div className="box-header">
               <span>
                 {isBoxed
-                  ? `Box ${boxIndex + 1}`
+                  ? `Box ${boxIndex + 1 + boxNumberOffset}`
                   : activeGroup
                     ? `${activeGroup.groupLabel} (tap it again in the sidebar to clear)`
                     : title}

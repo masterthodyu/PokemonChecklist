@@ -4,10 +4,10 @@
 // and `groups` come from ChecklistPage, already computed from the
 // checklist's config — this component just displays them. `isBoxed` only
 // changes the tooltip wording: a boxed checklist jumps to a box when you
-// click a group, a boxless one narrows the list instead — nothing hits
-// this distinction today (no boxless checklist has groups set up yet),
-// but the wording would otherwise lie the moment one does.
-function GroupProgress({ title, groups, onSelect, isBoxed }) {
+// click a group, a boxless one narrows the list instead. `boxNumberOffset`
+// (default 0) keeps that tooltip's box number consistent with whatever
+// the rest of the page shows.
+function GroupProgress({ title, groups, onSelect, isBoxed, boxNumberOffset = 0 }) {
   return (
     <div className="sidebar-inner">
       <h2>{title}</h2>
@@ -16,7 +16,7 @@ function GroupProgress({ title, groups, onSelect, isBoxed }) {
         const tooltip = g.total === 0
           ? 'Nothing in this group yet'
           : isBoxed
-            ? `Jump to Box ${g.startBox}`
+            ? `Jump to Box ${g.startBox + boxNumberOffset}`
             : 'Show just this group (click again to clear)'
 
         return (

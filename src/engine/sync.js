@@ -1,32 +1,25 @@
-// Talks to Firebase's Realtime Database over its plain REST API — no SDK
-// needed, just fetch calls to URLs ending in ".json": a GET reads a path,
-// a PUT overwrites it.
+// Talks to Firebase's Realtime Database over its REST API — no SDK, just
+// fetch calls to URLs ending in ".json" (GET reads a path, PUT
+// overwrites it).
 //
-// SETUP (one-time, by hand):
-//   1. console.firebase.google.com -> create a project (free Spark plan).
-//   2. Build -> Realtime Database -> Create Database (any region).
-//   3. Copy the database URL it gives you (looks like
-//      https://your-project-default-rtdb.firebaseio.com) into .env.local
-//      as VITE_FIREBASE_DB_URL, and as a FIREBASE_DB_URL secret in GitHub
-//      Actions for the deployed site.
-//   4. In the Rules tab, paste:
-//        { "rules": { ".read": true, ".write": true } }
-//      Wide open on purpose — fine for now since this is just a personal
-//      checklist with nothing sensitive in it. Anyone with the database
-//      URL could read or overwrite it, so this is worth tightening (or
-//      moving back to self-hosting) later.
+// SETUP:
+//   1. console.firebase.google.com -> new project (free Spark plan)
+//   2. Build -> Realtime Database -> Create Database (any region)
+//   3. Copy the database URL (https://your-project-default-rtdb.firebaseio.com)
+//      into .env.local as VITE_FIREBASE_DB_URL, and as a FIREBASE_DB_URL
+//      secret in GitHub Actions for the deployed site
+//   4. Rules tab, paste: { "rules": { ".read": true, ".write": true } }
+//      Wide open on purpose — personal checklist, nothing sensitive.
+//      Anyone with the URL could read/write it, so tighten this later if
+//      that stops being fine.
 //
-// Each checklist gets its own path under the database (config.syncId), so
-// adding a checklist needs no new Firebase setup — just a new path under
-// the same database.
+// Each checklist gets its own path under the database (config.syncId).
 //
-// DATA SHAPE: each checked item is stored as a plain {id, date} record in
-// a JSON array — [{"id": 1, "date": "2026-09-13T10:30:00.000Z"}, ...] —
-// deliberately NOT as an object keyed by id. Firebase's REST API silently
-// turns certain object shapes into arrays on its own (when most of the
-// keys look like array indices), which would scramble a keyed structure
-// like {"1": "...", "2": "..."} without warning. A plain array of record
-// objects has no such ambiguity.
+// Checked items are stored as {id, date} records in a plain JSON array,
+// not as an object keyed by id — Firebase's REST API can silently turn
+// certain object shapes into arrays (when keys look like array indices),
+// which would scramble a keyed structure. A plain array has no such
+// ambiguity.
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DB_URL
 
@@ -34,13 +27,10 @@ export function isSyncEnabled(syncId) {
   return Boolean(DB_URL && syncId)
 }
 
-// Turns whatever came back from Firebase (or was already in localStorage)
-// into a Map of id -> date-it-was-checked (or id -> null if the date
-// isn't known, which happens for anything checked before this feature
-// existed). Handles the old bare-array-of-ids format too, so nobody's
-// existing saved progress breaks when this rolls out. Exported so
-// ChecklistPage.jsx can use this same logic for localStorage — one place
-// that understands "what shape is this data in," not two.
+// Turns whatever came back from Firebase (or localStorage) into a Map of
+// id -> date checked, or id -> null if unknown. Handles the old
+// bare-array-of-ids format too. Exported so ChecklistPage/HubPage share
+// this one parser instead of drifting apart.
 export function toCheckedMap(raw) {
   if (raw == null) return new Map()
   if (!Array.isArray(raw)) return new Map() // unexpected shape - fail safe to empty
@@ -58,19 +48,9 @@ export function fromCheckedMap(map) {
   return [...map].map(([id, date]) => ({ id, date }))
 }
 
-// Combines a local checked-id Map with one just pulled from the cloud,
-// never losing anything either side already has (an "uncheck" on one
-// device might not stick if another device still has that item checked —
-// simple, but good enough for a personal checklist; see ChecklistPage's
-// own comment on this for the full reasoning). When both sides have the
-// same item checked with different dates, keeps whichever date is
-// earlier — that's the actual first time it was marked, which is more
-// truthful than whichever device happened to sync last.
-//
-// Exported so every place that merges cloud data — ChecklistPage (after
-// its own fetch) and HubPage (so the hub's progress bars are already
-// correct on first load, not just after you've opened that checklist at
-// least once) — shares this one implementation instead of drifting apart.
+// Merges a local checked-id Map with one from the cloud. Never removes
+// anything either side has. When both have the same item with different
+// dates, keeps the earlier one (the actual first time it was checked).
 export function mergeCheckedMaps(localMap, cloudMap) {
   const merged = new Map(localMap)
   for (const [id, cloudDate] of cloudMap) {
@@ -87,10 +67,9 @@ export function mergeCheckedMaps(localMap, cloudMap) {
   return merged
 }
 
-// Gets the checked-item list currently saved in the cloud for one
-// checklist, as a Map of id -> date. Returns null if something went wrong
-// (sync is off, no internet, Firebase is down, etc) — the caller should
-// just keep using whatever's saved locally in that case.
+// Gets the checked-item Map for one checklist from the cloud. Returns
+// null on failure (sync off, no internet, Firebase down) — caller should
+// fall back to local data.
 export async function fetchIdsFromCloud(syncId) {
   if (!isSyncEnabled(syncId)) return null
 
