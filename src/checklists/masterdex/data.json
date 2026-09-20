@@ -18,7 +18,7 @@
   {
     "id": 3,
     "dexId": 26,
-    "name": "Pikachu",
+    "name": "Raichu",
     "spriteUrl": "sprites/home/raichu.png",
     "boxId": 1,
     "note": "USUM surf"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "dexId": 35,
-    "name": "Pikachu",
+    "name": "Clefairy",
     "spriteUrl": "sprites/home/clefairy.png",
     "boxId": 1,
     "note": "Pokewalker"
