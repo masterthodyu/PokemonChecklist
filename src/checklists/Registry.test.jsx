@@ -71,6 +71,17 @@ describe.each(CHECKLISTS)('$id data.json', config => {
     }
   })
 
+  // note is optional (almost nothing has one yet) — this only guards
+  // against it being set to something silently wrong, like an empty
+  // string or a number, rather than just left out.
+  it('gives every item with a note a real, non-empty string', () => {
+    const bad = config.data
+      .filter(item => 'note' in item)
+      .filter(item => typeof item.note !== 'string' || item.note.trim() === '')
+      .map(item => `${item.name} -> ${JSON.stringify(item.note)}`)
+    expect(bad).toEqual([])
+  })
+
   // Every spriteUrl is either a local file under public/sprites/ (after
   // scripts/use-local-sprites.mjs has run) or a full http(s) hotlink.
   // Anything else — a bare filename, a "www." with no scheme, a stray
@@ -83,7 +94,11 @@ describe.each(CHECKLISTS)('$id data.json', config => {
     expect(bad).toEqual([])
   })
 
-  it('has no two items sharing the same name', () => {
+  // Skipped for checklists that opt in via allowDuplicateNames (see
+  // masterdex/config.js) — some lists legitimately have two entries with
+  // the same plain name, distinguished by their note field instead. The
+  // id-uniqueness check above still applies to everyone, no exceptions.
+  it.skipIf(config.allowDuplicateNames)('has no two items sharing the same name', () => {
     const counts = new Map()
     for (const item of config.data) {
       counts.set(item.name, (counts.get(item.name) ?? 0) + 1)

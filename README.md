@@ -45,10 +45,9 @@ This is something more personally tailored to me. I didn't want to be bound by j
 - **Filters** — All / Caught / Not Caught — with a real empty-state message ("No matches for that search," "Everything here is already caught") instead of a blank grid.
 - **30-per-box (6×5) grids** with Previous/Next and a "jump to box #" field, mirroring the games' own PC boxes.
 - **A sidebar** per "group set" a checklist defines — Home has Generation and Category; Colosseum has Category — click a row to jump there. Checklists with no group sets skip the sidebar entirely rather than leaving a dead gap.
-- **Gigantamax cards** (Home) get a small badge in the top-left of the sprite.
-- **Alpha cards** (Home) get the Legends: Arceus alpha symbol in the top-right — opposite corner from the G-Max badge, so the two never sit on top of each other.
-- **Pokémon GO has no boxes** — it's one flat, searchable list, since the game itself has no box system.
-- **Shadow Pokémon** get a small badge and a subtle purple glow on the sprite.
+- **Gigantamax, Shadow, and Alpha cards** each get a small badge in the same top-left corner of the sprite — a card is never more than one of the three, so there's nothing for the badges to collide with. Shadow Pokémon also get a subtle purple glow on the sprite itself, separate from the badge.
+- **Pokémon GO has no boxes** — it's one flat, searchable list, since the game itself has no box system. A "↑ Top" button appears once you've scrolled down a bit, for getting back to the search bar without a long scroll back up — boxed checklists don't need it, since Previous/Next already keeps everything on one screen.
+- **A hover tooltip** shows a per-item note when a checklist bothers to set one — "Catch in Red/Blue/Yellow," "Shiny from Black 2/White 2," that kind of thing. It's an optional `note` field in that entry's `data.json`; nothing shows for the (currently, vast majority of) entries that don't have one. Shown on hover or keyboard focus, essentially instantly — it's a real element shown by CSS, not the native `title` attribute, which has a built-in delay and can't be styled.
 - **Locked by default.** One password unlocks editing across every checklist for the rest of the browser tab.
 - **Progress saves locally**, under its own storage key per checklist, surviving tab close.
 - **Cloud sync via Firebase.** A "☁️ Synced" status shows when it *last actually synced*, not just that sync is on. A failed push gets a Retry button right next to the error. On a brand-new device where local storage starts empty, a failed sync shows a louder warning — otherwise "0 caught" plus a quiet sync failure looks identical to actually having lost everything.
@@ -122,14 +121,23 @@ Three of Colosseum's 51 (**Togepi, Mareep, and Scizor**) are Japan-only e-Reader
 
 A bonus checklist for things that don't fit the "did you catch this species" model at all — specific shinies, specific event- or location-locked forms, matched pairs. Inspired by BirdKeeperToby-style extreme completionism: shiny Haxorus from Black 2/White 2, Red Gyarados from Gold/Silver/Crystal, a matching pair of Spinda, Origin Forme Dialga and Palkia — that kind of thing.
 
-Right now `masterdex/data.json` is just those four examples as a starter template (`placeholder: true`) — the real list still needs building out from scratch, which is a big part of why this whole project exists instead of a spreadsheet.
+No longer a placeholder — `masterdex/data.json` is a real, growing list now (20 entries as of this writing, added a few at a time as they're actually caught), and `placeholder: true` has been removed from `masterdex/config.js` accordingly.
 
-Two things make this checklist different from every other one:
+Three things make this checklist different from every other one:
 
-- **It doesn't count toward the hub's overall completion.** `bonus: true` in `masterdex/config.js` excludes it from that math — permanently, not just while it's a placeholder — since this is an optional extra tier on top of the real dex rather than part of it. `placeholder` and `bonus` are two separate, independent flags: `placeholder` is temporary and hides the percentage entirely; `bonus` is permanent and still shows a real percentage, just never folded into the hub's overall number.
+- **It doesn't count toward the hub's overall completion.** `bonus: true` in `masterdex/config.js` excludes it from that math, since this is an optional extra tier on top of the real dex rather than part of it.
 - **Its boxes don't start at 1.** `boxNumberOffset` in `masterdex/config.js` shifts what a box number *displays* as, without touching the underlying `boxId` values in `data.json` — those still run a plain 1, 2, 3… like every checklist, since `Registry.test.jsx` requires that. The offset itself is computed live, right there in `config.js`, as `Math.max` over every `boxId` in Home's own `data.json`, so Master Dex's boxes always pick up exactly where Home's leave off with no fixed number to remember to bump. `ChecklistPage.jsx` is where it actually gets applied — box label, header, and jump-to-box field all add it on the way out, while `boxIndex` stays untouched underneath. Defaults to `0` for every other checklist.
+- **Entries can legitimately share a name.** `allowDuplicateNames: true` in `masterdex/config.js` skips `Registry.test.jsx`'s usual duplicate-name check for this list only — several entries here are the same species caught in different specific ways (three separate "Pikachu" entries, for instance), distinguished by the `note` field instead of by cramming the distinction into the name itself. Ids still have to be unique regardless; that check is never skipped for anyone.
 
-Every `spriteUrl` in `masterdex/data.json` right now is a placeholder local path (`sprites/masterdex/...`) that doesn't point at a real file yet, on purpose — real art needs to go in (or `scripts/download-sprites.mjs` needs real hotlinks to pull from) before this checklist is actually live.
+`spriteUrl` is a mix right now: most entries reuse an existing sprite from `home/`'s own `public/sprites/home/` folder (no need to download the same sprite twice), a couple of shiny catches hotlink PokémonDB directly, and four of the original starter entries (Shiny Haxorus, the matching Spinda pair, Origin Dialga, Origin Palkia) still point at `sprites/masterdex/...` paths with no real file behind them yet — those still need actual art before they'll render.
+
+Growing this list by hand no longer means picking the next `id` or figuring out which `boxId` has room — `masterdex/scripts/assignBoxes.mjs` does that for you. Add a new entry with just `dexId`, `name`, `spriteUrl` (and `note` if it needs one), no `id`/`boxId` at all, then run:
+
+```
+node src/checklists/masterdex/scripts/assignBoxes.mjs
+```
+
+It only assigns an id/boxId to what's actually missing one (or colliding with an existing one) — nothing already-correct gets touched or renumbered, so already-checked progress on the rest of the list is never affected.
 
 ## Hub title & the overall progress card
 
@@ -176,9 +184,9 @@ Tests also run automatically before every `npm run build` or `npm run dev`.
 Built with [Vitest](https://vitest.dev) (config in `vite.config.js`'s `test` block) and [Testing Library](https://testing-library.com/react) for the component tests. Six kinds of tests, none needing Firebase, a real browser, or network access:
 
 - **`src/engine/sync.test.js`, `src/engine/lock.test.js`** — pure-logic tests: checked-id parsing, the Firebase REST calls (`fetch` mocked), and the password check.
-- **`src/checklists/Registry.test.jsx`** — data-integrity checks against the *real* `data.json`/`config.js` files, not fixtures: no duplicate ids or names within a checklist, no two checklists sharing a `storageKey`/`syncId`, every `spriteUrl` a local path or a full URL, every `dexId` a plausible dex number, no overfull or gapped boxes, no sidebar group matching zero items, every Home category tag real, generation ranges not overlapping.
+- **`src/checklists/Registry.test.jsx`** — data-integrity checks against the *real* `data.json`/`config.js` files, not fixtures: no duplicate ids or names within a checklist, no two checklists sharing a `storageKey`/`syncId`, every `spriteUrl` a local path or a full URL, every `dexId` a plausible dex number, no overfull or gapped boxes, no sidebar group matching zero items, every Home category tag real, generation ranges not overlapping, and any item's optional `note` (see "What it does" above) being a real non-empty string rather than accidentally set to something silently wrong.
 - **`src/checklists/Shadow.test.jsx`** — the Colosseum/XD-specific checks the generic ones can't make: the 51/2/1 shadow/starter/bonus split, XD's Shadow Lugia entry, the 131-unique-species figure Bulbapedia states (and that the overlap is exactly Makuhita/Mareep/Togepi), and that both checklists are wired in. Also validates every sprite URL still pointing at Bulbagarden — its archive path is a deterministic MD5 hash of the filename, so a typo'd URL is catchable with `node:crypto` alone — and checks the "Shadow" name fallback against real data (Marshadow doesn't false-positive; GO's own cosmetic "Shadow" costumes do, on purpose).
-- **`src/engine/ItemCard.test.jsx`** — per-card behavior: Gigantamax and Alpha name-stripping and badges, the Shadow badge, the checked-date label, one click firing `onToggle` exactly once.
+- **`src/engine/ItemCard.test.jsx`** — per-card behavior: Gigantamax and Alpha name-stripping and badges, the Shadow badge, the hover tooltip (renders only when `item.note` is set, nothing for an empty string), the checked-date label, one click firing `onToggle` exactly once.
 - **`src/HubPage.test.jsx`** — the hub itself: the collection label renders, placeholder checklists don't count toward the overall total, localStorage counts show up correctly, and bad or missing localStorage data doesn't crash the page.
 - **`src/engine/ChecklistPage.test.jsx`** — the big one. Renders a whole page against small fake checklists: box navigation, `boxNumberOffset`, the jump-to-box field (clamping, and committing on blur/Enter rather than every keystroke), search (×/Escape), the All/Caught/Not Caught filters, the password lock, Select All / Unselect All / Undo, localStorage persistence, the group sidebar, and that boxless checklists render no box controls at all.
 
@@ -203,6 +211,10 @@ Every item in a boxed checklist's `data.json` already has a `boxId`. To change w
 ```
 node src/checklists/home/scripts/assignBoxes.mjs
 ```
+
+`assignBoxes.mjs` no longer renumbers everything on every run — only an entry with no `id` yet, or one whose `id` collides with an existing one, gets assigned a fresh id; anything already correct is left exactly as-is. That matters because progress is stored keyed by `id`, not by file position: the old renumber-everything behavior meant a bunch of already-checked Pokémon could look unchecked again after any run that changed the file's order. Base-form ids (`id === dexId`) were never touched either way.
+
+[Master Dex](#master-dex) has its own copy of this script (`masterdex/scripts/assignBoxes.mjs`) rather than sharing Home's, since it has no "base form" id space to leave alone — every entry there is its own specific catch, so every id goes through the same check.
 
 Same idea for categories — `assignCategories.mjs` tags each item automatically, based on the naming conventions explained in that file's own header comment:
 

@@ -1,7 +1,8 @@
 // Covers the per-card behaviors the README's "What it does" section
-// promises: the Gigantamax and Alpha name-stripping + badges, the Shadow badge, the
-// checked-date label, and that clicking the card (or its checkbox) fires
-// onToggle exactly once — not zero, not twice.
+// promises: the Gigantamax and Alpha name-stripping + badges, the Shadow
+// badge, the optional hover tooltip, the checked-date label, and that
+// clicking the card (or its checkbox) fires onToggle exactly once — not
+// zero, not twice.
 
 import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
@@ -64,7 +65,7 @@ describe('ItemCard - Alpha detection', () => {
     expect(screen.getByText('Kleavor')).toBeInTheDocument()
   })
 
-  it('puts the alpha badge in a different corner than the Gigantamax one', () => {
+  it('shows only the alpha badge (not gmax) for an alpha-only item', () => {
     const item = { ...baseItem, name: 'Kleavor (Alpha)', category: 'alpha' }
     const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
     expect(container.querySelector('.gmax-badge')).toBeNull()
@@ -93,6 +94,57 @@ describe('ItemCard - Shadow detection', () => {
   it('does not set data-shadow on an ordinary item', () => {
     const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
     expect(container.querySelector('.card').hasAttribute('data-shadow')).toBe(false)
+  })
+})
+
+describe('ItemCard - hover tooltip', () => {
+  it('renders the tooltip text when item.note is set', () => {
+    const item = { ...baseItem, note: 'Catch in Red/Blue/Yellow' }
+    render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Catch in Red/Blue/Yellow')
+  })
+
+  it('renders nothing tooltip-related when item.note is not set (most items today)', () => {
+    const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
+    expect(container.querySelector('.card-tooltip')).toBeNull()
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+  })
+
+  it('renders nothing when item.note is an empty string, same as unset', () => {
+    const item = { ...baseItem, note: '' }
+    const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(container.querySelector('.card-tooltip')).toBeNull()
+  })
+
+  it('keeps the tooltip outside .card-content, whether or not the item is caught', () => {
+    // .card:not(.caught) dims the whole .card-content shell — sprite,
+    // name, checkbox, background, border — to opacity 0.6 (see
+    // styles.css), so an unobtained Pokémon's card reads as "not yet
+    // caught." The tooltip is deliberately NOT inside .card-content (it's
+    // a sibling, both children of .card): opacity applies to an
+    // element's whole rendered subtree, so nesting the tooltip inside the
+    // dimmed wrapper would fade it too, no matter what opacity the
+    // tooltip set on itself. jsdom doesn't apply the actual stylesheet,
+    // so this checks the DOM structure that dimming rule depends on
+    // rather than a computed opacity value.
+    const item = { ...baseItem, note: 'Catch in Red/Blue/Yellow' }
+    for (const checked of [false, true]) {
+      const { container } = render(<ItemCard item={item} checked={checked} onToggle={() => {}} />)
+      const tooltip = container.querySelector('.card-tooltip')
+      expect(tooltip.closest('.card-content')).toBeNull()
+      expect(tooltip.parentElement).toBe(container.querySelector('.card'))
+    }
+  })
+
+  it('puts the sprite, name, and checkbox inside .card-content, so they DO fade together', () => {
+    // The flip side of the test above: .card-image/.card-info/the
+    // checkbox are supposed to dim as a unit when uncaught, so unlike the
+    // tooltip they need to actually be inside .card-content.
+    const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
+    const content = container.querySelector('.card-content')
+    expect(content.querySelector('.card-image')).not.toBeNull()
+    expect(content.querySelector('.card-info')).not.toBeNull()
+    expect(content.querySelector('input[type="checkbox"]')).not.toBeNull()
   })
 })
 

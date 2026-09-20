@@ -80,10 +80,13 @@ function HubPage({ checklists }) {
   const checkedCount = config => counts[config.storageKey] ?? 0
 
   // Overall completion across everything — only counting checklists that
-  // are actually finished data sets. A placeholder checklist (USUM's
-  // 3-entry stub, say) would drag this number around meaninglessly if it
-  // counted toward the total, since its "total" isn't the real dex size.
-  const realChecklists = checklists.filter(config => !config.placeholder)
+  // are actually finished data sets, and not the "bonus" ones. A
+  // placeholder (USUM's 3-entry stub) would drag this number around
+  // meaninglessly since its "total" isn't the real dex size. A bonus
+  // checklist (Master Dex) is deliberately outside "did you catch every
+  // species" entirely — it's specific shinies/events/forms on top of the
+  // real dex, not part of it, so it's excluded the same way.
+  const realChecklists = checklists.filter(config => !config.placeholder && !config.bonus)
   const overallChecked = realChecklists.reduce((sum, config) => sum + checkedCount(config), 0)
   const overallTotal = realChecklists.reduce((sum, config) => sum + config.data.length, 0)
   const overallPct = overallTotal > 0 ? Math.round((overallChecked / overallTotal) * 100) : 0

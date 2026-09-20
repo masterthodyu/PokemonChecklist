@@ -388,13 +388,7 @@ header h1 {
 }
 
 .card {
-  background: linear-gradient(180deg, #ffffff 0%, #edf3fb 100%);
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
   cursor: pointer;
-  border: 2px solid rgba(25, 46, 76, 0.12);
-  transition: border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
   position: relative;
   color: #1a2333;
   /* Grid items refuse to shrink below their content's natural width by
@@ -404,6 +398,74 @@ header h1 {
      shows this since there's enough spare width for the name to fit on
      one line anyway. */
   min-width: 0;
+}
+
+/* Everything that visually reads as "the card" — background, border,
+   padding — lives here instead of on .card itself. .card-tooltip is a
+   sibling of this, not a child of it, specifically so the uncaught-card
+   fade below can dim the whole shell (not just the sprite and name)
+   without dragging the tooltip's brightness down with it: opacity applies
+   to an element's whole rendered subtree, so a child can never opt back
+   out of a parent's opacity with its own `opacity: 1`. Splitting the
+   "shell" from the "positioning anchor" is what makes that possible. */
+.card-content {
+  background: linear-gradient(180deg, #ffffff 0%, #edf3fb 100%);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid rgba(25, 46, 76, 0.12);
+  transition: border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
+}
+
+/* Optional per-item hover note ("Catch in Red/Blue/Yellow", "Shiny from
+   Red/Yellow/Blue") — only renders at all when item.note is set in that
+   checklist's data.json, so this is silent no-op for every card that
+   doesn't have one (currently almost all of them).
+
+   Deliberately CSS-only, no JS/state involved: shown purely via :hover
+   and :focus-within below, with essentially no transition delay, unlike
+   the native `title` attribute's several-hundred-ms OS delay (and unlike
+   `title`, this can actually be styled). :focus-within means it's also
+   reachable by tabbing to the card's checkbox, not just a mouse hover. */
+.card-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px) scale(0.9);
+  transform-origin: bottom center;
+  margin-bottom: 8px;
+  max-width: 240px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 203, 5, 0.5); /* same gold as the progress bars, for a bit of brand pop */
+  background: #0a0e16; /* solid, not translucent — legibility over "blends with the page" */
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+  visibility: hidden;
+  pointer-events: none; /* never intercepts the hover it's reacting to */
+  transition: transform 0.08s ease;
+  z-index: 20; /* draws over neighboring cards rather than under them */
+}
+
+.card-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #0a0e16;
+}
+
+.card:hover .card-tooltip,
+.card:focus-within .card-tooltip {
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px) scale(1);
 }
 
 .checked-date {
@@ -481,16 +543,19 @@ header h1 {
 </svg>");
 }
 
-.card.caught {
+.card.caught .card-content {
   border-color: #2ecc71;
-  opacity: 1;
 }
 
-.card:not(.caught) {
+/* The whole card shell fades when uncaught — background, border, sprite,
+   name, all of it — except .card-tooltip, which lives outside
+   .card-content entirely (see above) and so stays fully bright regardless
+   of catch state. */
+.card:not(.caught) .card-content {
   opacity: 0.6;
 }
 
-.card.highlighted {
+.card.highlighted .card-content {
   border-color: #ffcb05;
   box-shadow: 0 0 0 2px rgba(255, 203, 5, 0.25);
 }
@@ -801,4 +866,23 @@ header h1 {
   font-size: 1.6rem;
   color: #ffffff;
   padding-left: 12px;
+}
+.back-to-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensures it stays above other content */
+  padding: 10px 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-top-button:hover {
+  background-color: #555;
+  transform: translateY(-2px);
 }

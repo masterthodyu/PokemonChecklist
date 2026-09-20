@@ -56,42 +56,59 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
       data-shadow={isShadow || undefined}
       onClick={onToggle}
     >
-      <div className="card-image">
-        <img
-          src={item.spriteUrl.startsWith('http') ? item.spriteUrl : `${import.meta.env.BASE_URL}${item.spriteUrl}`}
-          alt={item.name}
-          loading="lazy"
-          onError={e => {
-            // If the image link is broken, just hide the broken-image icon
-            // instead of showing an ugly placeholder.
-            e.target.style.visibility = 'hidden'
-          }}
-        />
-        {isGigantamax && (
-          <span className="gmax-badge" title="Gigantamax" />
-        )}
-        {isShadow && (
-          <span className="shadow-badge" title="Shadow Pokémon" />
-        )}
-        {isAlpha && (
-          <span className="alpha-badge" title="Alpha Pokémon" />
-        )}
-      </div>
-      <div className="card-info">
-        <span className="dex-number">#{String(number).padStart(3, '0')}</span>
-        <span className="name">{displayName}</span>
-      </div>
-      {dateLabel && (
-        <span className="checked-date" title={new Date(checkedDate).toLocaleString()}>
-          {dateLabel}
-        </span>
+      {item.note && (
+        // Deliberately not the native `title` attribute — browsers put a
+        // several-hundred-ms delay before that shows up and it can't be
+        // styled at all. This is a real element instead, shown purely
+        // via CSS on :hover/:focus-within (see .card-tooltip in
+        // styles.css), which is what makes it appear instantly.
+        //
+        // Lives outside .card-content on purpose (a sibling, not a
+        // child) — .card-content is what fades when the item isn't
+        // caught, and a child can't opt back out of a parent's opacity.
+        // Keeping the tooltip out of that subtree is what lets the hint
+        // text stay fully readable while everything inside
+        // .card-content — sprite, name, checkbox — dims normally.
+        <span className="card-tooltip" role="tooltip">{item.note}</span>
       )}
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={onToggle}
-        onClick={e => e.stopPropagation()} // stops the click from also firing the card's onClick above
-      />
+      <div className="card-content">
+        <div className="card-image">
+          <img
+            src={item.spriteUrl.startsWith('http') ? item.spriteUrl : `${import.meta.env.BASE_URL}${item.spriteUrl}`}
+            alt={item.name}
+            loading="lazy"
+            onError={e => {
+              // If the image link is broken, just hide the broken-image icon
+              // instead of showing an ugly placeholder.
+              e.target.style.visibility = 'hidden'
+            }}
+          />
+          {isGigantamax && (
+            <span className="gmax-badge" title="Gigantamax" />
+          )}
+          {isShadow && (
+            <span className="shadow-badge" title="Shadow Pokémon" />
+          )}
+          {isAlpha && (
+            <span className="alpha-badge" title="Alpha Pokémon" />
+          )}
+        </div>
+        <div className="card-info">
+          <span className="dex-number">#{String(number).padStart(3, '0')}</span>
+          <span className="name">{displayName}</span>
+        </div>
+        {dateLabel && (
+          <span className="checked-date" title={new Date(checkedDate).toLocaleString()}>
+            {dateLabel}
+          </span>
+        )}
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={onToggle}
+          onClick={e => e.stopPropagation()} // stops the click from also firing the card's onClick above
+        />
+      </div>
     </div>
   )
 }
