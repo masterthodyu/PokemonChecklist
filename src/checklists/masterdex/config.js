@@ -5,9 +5,11 @@ import homeConfig from '../home/config.js'
 // event/location-locked forms, matched pairs. A bonus tier on top of the
 // real dex, not part of it (see `bonus` below).
 //
-// data.json is still just the 5-entry starter template from when this was
-// set up — flip `placeholder` off once the real list replaces it. Every
-// spriteUrl in it is a local placeholder path with no file behind it yet.
+// Growing by hand, entry by entry — after adding a new one (with or
+// without an id/boxId of its own), run:
+//   node src/checklists/masterdex/scripts/assignBoxes.mjs
+// It only assigns an id/boxId to what's actually new or colliding;
+// nothing already correct gets touched or renumbered.
 
 // Highest boxId in Home's own data, read live rather than typed in by
 // hand — so this always matches Home's real last box as it grows.

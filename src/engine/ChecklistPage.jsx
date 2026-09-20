@@ -192,6 +192,20 @@ function ChecklistPage({ config }) {
     return () => clearTimeout(timeoutId)
   }, [lastBulkAction])
 
+  // Back-to-top button — only meaningful for a boxless checklist (GO),
+  // where the whole thing is one potentially very long scrolling list
+  // instead of a paginated box. Shows once you've actually scrolled a
+  // bit, not from the top of the page.
+  const [showBackToTop, setShowBackToTop] = useState(false)
+  useEffect(() => {
+    if (isBoxed) return
+    function handleScroll() {
+      setShowBackToTop(window.scrollY > 300)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isBoxed])
+
   // Checking stamps the current date; unchecking removes the entry
   // entirely (no undo history — a database edit is the only way back).
   function toggleChecked(id) {
@@ -577,6 +591,18 @@ function ChecklistPage({ config }) {
           </div>
         </main>
       </div>
+
+      {!isBoxed && showBackToTop && (
+        <button
+          className="back-to-top-button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+          title="Back to top"
+        >
+          ↑ Top
+        </button>
+        
+      )}
     </div>
   )
 }

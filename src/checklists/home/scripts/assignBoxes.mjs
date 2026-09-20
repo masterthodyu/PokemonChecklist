@@ -1,10 +1,14 @@
-// Fixes up ../data.json:
 //  1. Makes sure every non-base Pokémon (anything where id !== dexId —
 //     genders, forms, regional variants, Gigantamax, etc.) has a unique
-//     id. Safe to run any time, even if you or Copilot added entries by
-//     hand with id numbers that happen to collide with something else —
-//     this will renumber them cleanly, in the order they already appear
-//     in the file. Base-form ids (id === dexId) are never touched.
+//     id. Existing ids are NEVER renumbered — only an entry with no id
+//     yet (a brand new one you just added), or one whose id happens to
+//     collide with something else's, gets assigned a fresh one. That's
+//     what makes it safe to insert a new Pokémon anywhere in this file —
+//     in the middle, not just at the very end — and rerun this script:
+//     only the new entry gets an id, nothing else shifts. Progress is
+//     stored keyed by id, not by file position, so nobody's already-
+//     checked Pokémon can silently look unchecked afterward. Base-form
+//     ids (id === dexId) are never touched either way.
 //  2. Assigns a boxId to any entry that doesn't have one yet, 30 per box.
 //     Entries that ALREADY have a boxId (including ones you set by hand,
 //     like grouping a whole category into its own box) are left alone —
@@ -12,13 +16,6 @@
 //
 // Run from your project root:
 //   node src/checklists/home/scripts/assignBoxes.mjs
-//
-// Heads up: renumbering ids can shift which id number a gender/form
-// Pokémon happens to have. If you've already got some of those checked
-// off as caught, double-check your progress after running this — your
-// caught list is stored by id, so a few might look unchecked afterward
-// and need re-checking. Base-dex Pokémon (the vast majority) are never
-// affected, since their id never changes.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -39,13 +36,36 @@ const BOX_SIZE = 30
 const pokemon = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'))
 
 // --- Step 1: guarantee every non-base entry has a unique id ---
-const maxDexId = Math.max(...pokemon.map(p => p.dexId))
-let nextId = maxDexId + 1
+// Single pass: base forms and any non-base entry whose id is already set
+// AND hasn't been claimed by an earlier entry in the file keep exactly
+// what they have. Only an entry with no id (new), or one that collides
+// with something earlier in the file, gets assigned a fresh id — the
+// next integer that's not already used anywhere in this file.
+const claimedIds = new Set()
+let nextId = Math.max(
+  0,
+  ...pokemon.map(p => p.dexId),
+  ...pokemon.map(p => p.id ?? 0)
+) + 1
+
+let newlyAssignedCount = 0
+
 for (const p of pokemon) {
-  if (p.id !== p.dexId) {
-    p.id = nextId
-    nextId++
+  if (p.id === p.dexId) {
+    claimedIds.add(p.id) // base form — never reassigned
+    continue
   }
+  if (p.id != null && !claimedIds.has(p.id)) {
+    claimedIds.add(p.id) // already has its own safe, unclaimed id — keep it as-is
+    continue
+  }
+  // Either had no id at all (a newly added entry), or its id collides
+  // with an earlier entry's (a copy-paste mistake) — give it a fresh one
+  // that's never been used anywhere else in this file.
+  while (claimedIds.has(nextId)) nextId++
+  p.id = nextId
+  claimedIds.add(nextId)
+  newlyAssignedCount++
 }
 
 // --- Step 2: fill in boxId ONLY for entries that don't have one yet ---
@@ -80,5 +100,5 @@ for (const p of pokemon) {
 fs.writeFileSync(DATA_PATH, JSON.stringify(pokemon, null, 2) + '\n')
 
 const actualBoxCount = Math.max(...pokemon.map(p => p.boxId))
-console.log(`Ids: unique through ${nextId - 1}.`)
+console.log(`Ids: ${newlyAssignedCount} newly assigned, ${claimedIds.size} unique total.`)
 console.log(`Boxes: ${actualBoxCount} total across ${pokemon.length} Pokémon.`)
