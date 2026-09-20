@@ -115,6 +115,37 @@ describe('ItemCard - hover tooltip', () => {
     const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
     expect(container.querySelector('.card-tooltip')).toBeNull()
   })
+
+  it('keeps the tooltip outside .card-content, whether or not the item is caught', () => {
+    // .card:not(.caught) dims the whole .card-content shell — sprite,
+    // name, checkbox, background, border — to opacity 0.6 (see
+    // styles.css), so an unobtained Pokémon's card reads as "not yet
+    // caught." The tooltip is deliberately NOT inside .card-content (it's
+    // a sibling, both children of .card): opacity applies to an
+    // element's whole rendered subtree, so nesting the tooltip inside the
+    // dimmed wrapper would fade it too, no matter what opacity the
+    // tooltip set on itself. jsdom doesn't apply the actual stylesheet,
+    // so this checks the DOM structure that dimming rule depends on
+    // rather than a computed opacity value.
+    const item = { ...baseItem, note: 'Catch in Red/Blue/Yellow' }
+    for (const checked of [false, true]) {
+      const { container } = render(<ItemCard item={item} checked={checked} onToggle={() => {}} />)
+      const tooltip = container.querySelector('.card-tooltip')
+      expect(tooltip.closest('.card-content')).toBeNull()
+      expect(tooltip.parentElement).toBe(container.querySelector('.card'))
+    }
+  })
+
+  it('puts the sprite, name, and checkbox inside .card-content, so they DO fade together', () => {
+    // The flip side of the test above: .card-image/.card-info/the
+    // checkbox are supposed to dim as a unit when uncaught, so unlike the
+    // tooltip they need to actually be inside .card-content.
+    const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
+    const content = container.querySelector('.card-content')
+    expect(content.querySelector('.card-image')).not.toBeNull()
+    expect(content.querySelector('.card-info')).not.toBeNull()
+    expect(content.querySelector('input[type="checkbox"]')).not.toBeNull()
+  })
 })
 
 describe('ItemCard - checked date', () => {

@@ -388,13 +388,7 @@ header h1 {
 }
 
 .card {
-  background: linear-gradient(180deg, #ffffff 0%, #edf3fb 100%);
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
   cursor: pointer;
-  border: 2px solid rgba(25, 46, 76, 0.12);
-  transition: border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
   position: relative;
   color: #1a2333;
   /* Grid items refuse to shrink below their content's natural width by
@@ -404,6 +398,23 @@ header h1 {
      shows this since there's enough spare width for the name to fit on
      one line anyway. */
   min-width: 0;
+}
+
+/* Everything that visually reads as "the card" — background, border,
+   padding — lives here instead of on .card itself. .card-tooltip is a
+   sibling of this, not a child of it, specifically so the uncaught-card
+   fade below can dim the whole shell (not just the sprite and name)
+   without dragging the tooltip's brightness down with it: opacity applies
+   to an element's whole rendered subtree, so a child can never opt back
+   out of a parent's opacity with its own `opacity: 1`. Splitting the
+   "shell" from the "positioning anchor" is what makes that possible. */
+.card-content {
+  background: linear-gradient(180deg, #ffffff 0%, #edf3fb 100%);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid rgba(25, 46, 76, 0.12);
+  transition: border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
 }
 
 /* Optional per-item hover note ("Catch in Red/Blue/Yellow", "Shiny from
@@ -532,16 +543,19 @@ header h1 {
 </svg>");
 }
 
-.card.caught {
+.card.caught .card-content {
   border-color: #2ecc71;
-  opacity: 1;
 }
 
-.card:not(.caught) {
+/* The whole card shell fades when uncaught — background, border, sprite,
+   name, all of it — except .card-tooltip, which lives outside
+   .card-content entirely (see above) and so stays fully bright regardless
+   of catch state. */
+.card:not(.caught) .card-content {
   opacity: 0.6;
 }
 
-.card.highlighted {
+.card.highlighted .card-content {
   border-color: #ffcb05;
   box-shadow: 0 0 0 2px rgba(255, 203, 5, 0.25);
 }

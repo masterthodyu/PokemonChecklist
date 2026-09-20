@@ -59,7 +59,7 @@
     "id": 8,
     "dexId": 77,
     "name": "Shiny Ponyta",
-    "spriteUrl": "https://img.pokemondb.net/sprites/legends-arceus/shiny/1x/ponyta.png",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/ponyta.png",
     "boxId": 1,
     "note": "Legends Arceus Quest"
   },
@@ -69,7 +69,7 @@
     "name": "Farfetch'd",
     "spriteUrl": "sprites/home/farfetchd.png",
     "boxId": 1,
-    "note": "Platinum Go"
+    "note": "Pokemon Go"
   },
   {
     "id": 10,
@@ -80,36 +80,78 @@
     "note": "Platinum with GBA game inserted"
   },
   {
-    "id": 7,
+    "id": 11,
+    "dexId": 115,
+    "name": "Kangaskhan",
+    "spriteUrl": "sprites/home/kangaskhan.png",
+    "boxId": 1,
+    "note": "Pokemon Go"
+  },
+  {
+    "id": 12,
+    "dexId": 122,
+    "name": "Mr. Mime",
+    "spriteUrl": "sprites/home/mr-mime.png",
+    "boxId": 1,
+    "note": "Pokemon Go"
+  },
+  {
+    "id": 13,
+    "dexId": 123,
+    "name": "Scyther",
+    "spriteUrl": "sprites/home/scyther.png",
+    "boxId": 1,
+    "note": "HGSS bug catching contest sports ball"
+  },
+  {
+    "id": 14,
+    "dexId": 127,
+    "name": "Pinsir",
+    "spriteUrl": "sprites/home/pinsir.png",
+    "boxId": 1,
+    "note": "HGSS bug catching contest sports ball"
+  },
+  {
+    "id": 15,
+    "dexId": 128,
+    "name": "Tauros",
+    "spriteUrl": "sprites/home/tauros.png",
+    "boxId": 1,
+    "note": "Pokemon Go"
+  },
+  {
+    "id": 16,
+    "dexId": 130,
+    "name": "Red Gyarados",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/gyarados.png",
+    "boxId": 1,
+    "note": "(Gold/Silver/Crystal) Lake of Rage"
+  },
+  {
+    "id": 11,
     "dexId": 612,
     "name": "Shiny Haxorus (Black 2/White 2)",
     "spriteUrl": "sprites/masterdex/shiny-haxorus.png",
     "boxId": 1,
     "note": "Shiny caught from B2W2"
   },
+
   {
-    "id": 8,
-    "dexId": 130,
-    "name": "Red Gyarados (Gold/Silver/Crystal)",
-    "spriteUrl": "sprites/masterdex/red-gyarados.png",
-    "boxId": 1
-  },
-  {
-    "id": 9,
+    "id": 13,
     "dexId": 327,
     "name": "Matching Spinda Pair",
     "spriteUrl": "sprites/masterdex/matching-spinda.png",
     "boxId": 1
   },
   {
-    "id": 10,
+    "id": 14,
     "dexId": 483,
     "name": "Origin Forme Dialga",
     "spriteUrl": "sprites/masterdex/dialga-origin.png",
     "boxId": 1
   },
   {
-    "id": 11,
+    "id": 15,
     "dexId": 484,
     "name": "Origin Forme Palkia",
     "spriteUrl": "sprites/masterdex/palkia-origin.png",

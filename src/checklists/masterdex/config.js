@@ -25,7 +25,6 @@ export default {
   storageKey: 'masterdex-caught-v1',
   syncId: 'masterdex',
   groupSets: [],
-  placeholder: true,
   bonus: true, // excluded from the hub's overall completion total, permanently
 
   // Multiple entries here legitimately share a plain name — "Pikachu"
