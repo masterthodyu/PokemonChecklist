@@ -21,12 +21,21 @@ function formatCheckedDate(isoDate) {
   return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
 }
 
+// "Hisuian Decidueye (Alpha)" -> "Hisuian Decidueye" — the alpha badge
+// (below) says it, so 300-odd cards don't all need to spell it out too.
+function stripAlphaText(name) {
+  return name
+    .replace(/\(Alpha\)/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+}
+
 // One clickable tile: picture, number, name, checkbox. Clicking anywhere
 // on the card toggles it.
 function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false }) {
   const number = item.dexId ?? item.id
   const isGigantamax = item.category === 'gmax' || item.name.includes('Gigantamax')
-  const displayName = isGigantamax ? stripGigantamaxText(item.name) : item.name
+  const displayNameBase = isGigantamax ? stripGigantamaxText(item.name) : item.name
   const dateLabel = checked ? formatCheckedDate(checkedDate) : null
   // Category is the real tag (Colosseum/XD's Shadow Pokémon); the name
   // check is a fallback for anything not tagged yet. GO's own unrelated
@@ -34,6 +43,12 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
   // too — see src/checklists/Shadow.test.jsx, that's documented as
   // expected, not a bug.
   const isShadow = item.category === 'shadow' || item.name.includes('Shadow')
+  // Same category-first-then-name pattern as Shadow/Gigantamax above.
+  // Shares the same badge corner as those two (see styles.css) rather
+  // than getting its own spot — a Pokémon is never more than one of
+  // Shadow/Gigantamax/Alpha at once, so there's nothing to collide with.
+  const isAlpha = item.category === 'alpha' || item.name.includes('(Alpha)')
+  const displayName = isAlpha ? stripAlphaText(displayNameBase) : displayNameBase
 
   return (
     <div
@@ -54,6 +69,12 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
         />
         {isGigantamax && (
           <span className="gmax-badge" title="Gigantamax" />
+        )}
+        {isShadow && (
+          <span className="shadow-badge" title="Shadow Pokémon" />
+        )}
+        {isAlpha && (
+          <span className="alpha-badge" title="Alpha Pokémon" />
         )}
       </div>
       <div className="card-info">

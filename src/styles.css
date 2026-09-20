@@ -415,28 +415,8 @@ header h1 {
   pointer-events: none;
 }
 
-/* Shadow Pokémon badge — bottom-left corner of the card. (Bottom-right is
-   already taken by .checked-date, top-right by the checkbox, and the
-   image's own top-left corner by .gmax-badge, so this is the one open
-   spot left.) */
-.card[data-shadow="true"]::after {
-  content: "";
-  position: absolute;
-  bottom: 2px;
-  left: 2px;
-  width: 22px;
-  height: 22px;
-  background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'>\
-  <circle cx='20' cy='20' r='19' fill='%23200030' stroke='%23a259ff' stroke-width='2'/>\
-  <path d='M20 6 C28 10 30 16 26 22 C31 24 30 32 22 34 C25 28 20 26 16 30 C14 24 18 22 14 18 C10 20 8 14 14 12 C12 8 16 5 20 6 Z' fill='%23c084fc'/>\
-</svg>");
-  background-size: contain;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-/* Tint the sprite itself to feel more "shadow" */
+/* Tint the sprite itself to feel more "shadow" — separate from the badge
+   below, which just marks that this card IS a Shadow Pokémon at a glance. */
 .card[data-shadow="true"] .card-image img {
   filter: drop-shadow(0 0 4px rgba(162, 89, 255, 0.7));
 }
@@ -452,23 +432,53 @@ header h1 {
   display: inline-block;
 }
 
-.gmax-badge {
+/* Gigantamax, Shadow, and Alpha badges all share one corner (top-left of
+   the sprite) rather than three separate spots — a single Pokémon is
+   never more than one of these three at once (they come from entirely
+   separate checklists/categories), so there's nothing for them to
+   collide with, and one dedicated "status corner" reads more clearly
+   than three different ones scattered around the card. Each badge class
+   below only needs to set its own background-image. */
+.gmax-badge,
+.shadow-badge,
+.alpha-badge {
   position: absolute;
   top: -4px;
   left: -4px;
 
-  /* TODO: this is hotlinked to someone else's server for now — swap to
-     url('/icons/gmax-badge.png') once the actual file is saved into
-     public/icons/. Until then this could break if that link ever moves. */
-  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffv4gc-26ecc0c6-34dd-49ec-a93a-7360dd5a95fc.png/v1/fill/w_1280,h_1280/gigantamax_icon_by_jormxdos_dffv4gc-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmdjRnYy0yNmVjYzBjNi0zNGRkLTQ5ZWMtYTkzYS03MzYwZGQ1YTk1ZmMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.upz_uLqCRF7S-DJzDuL5PH6jled4GkiHebFWE0-fMSM');
+  width: 16px;
+  height: 16px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 
-  width: 16px;
-  height: 16px;
-
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.gmax-badge {
+  /* TODO: this is hotlinked to someone else's server for now — swap to
+     url('/icons/gmax-badge.png') once the actual file is saved into
+     public/icons/. Until then this could break if that link ever moves. */
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffv4gc-26ecc0c6-34dd-49ec-a93a-7360dd5a95fc.png/v1/fill/w_1280,h_1280/gigantamax_icon_by_jormxdos_dffv4gc-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmdjRnYy0yNmVjYzBjNi0zNGRkLTQ5ZWMtYTkzYS03MzYwZGQ1YTk1ZmMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.upz_uLqCRF7S-DJzDuL5PH6jled4GkiHebFWE0-fMSM');
+}
+
+/* Same fan-art badge image used for the .gmax-badge above, just a
+   different piece by the same DeviantArt artist (jormxdos) — also a
+   temporary wixmp link with a time-limited token baked in. */
+.alpha-badge {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffxy6z-3d129c25-9342-4ef5-8d13-e91c4ccc6888.png/v1/fill/w_1280,h_1280/alpha_pokemon_symbol_by_jormxdos_dffxy6z-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmeHk2ei0zZDEyOWMyNS05MzQyLTRlZjUtOGQxMy1lOTFjNGNjYzY4ODgucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.TEiWjx-bm9P9AmKczuG0lZlMQNS9cYXsEUBtl7LeQzY');
+}
+
+/* Same inline SVG the old .card[data-shadow="true"]::after used to draw
+   this — that was a pseudo-element on the whole card, positioned in its
+   own bottom-left spot, before badges got consolidated into one corner.
+   No hotlink to worry about here since it's inline. */
+.shadow-badge {
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'>\
+  <circle cx='20' cy='20' r='19' fill='%23200030' stroke='%23a259ff' stroke-width='2'/>\
+  <path d='M20 6 C28 10 30 16 26 22 C31 24 30 32 22 34 C25 28 20 26 16 30 C14 24 18 22 14 18 C10 20 8 14 14 12 C12 8 16 5 20 6 Z' fill='%23c084fc'/>\
+</svg>");
 }
 
 .card.caught {
