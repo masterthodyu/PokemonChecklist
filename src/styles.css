@@ -471,6 +471,30 @@ header h1 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+/* Alpha Pokémon badge (Legends: Arceus). Sits in the TOP-RIGHT corner,
+   opposite .gmax-badge's top-left, so an entry that somehow qualified for
+   both would show both instead of stacking one on the other.
+
+   TODO: same story as the Gigantamax badge — hotlinked to someone else's
+   server for now, swap to url('/icons/alpha-badge.png') once the actual
+   file is saved into public/icons/. This link has a time-limited token
+   baked into it, so it can stop working on its own. */
+.alpha-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dffxy6z-3d129c25-9342-4ef5-8d13-e91c4ccc6888.png/v1/fill/w_1280,h_1280/alpha_pokemon_symbol_by_jormxdos_dffxy6z-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZmeHk2ei0zZDEyOWMyNS05MzQyLTRlZjUtOGQxMy1lOTFjNGNjYzY4ODgucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.TEiWjx-bm9P9AmKczuG0lZlMQNS9cYXsEUBtl7LeQzY');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 16px;
+  height: 16px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
 .card.caught {
   border-color: #2ecc71;
   opacity: 1;

@@ -1,5 +1,5 @@
 // Covers the per-card behaviors the README's "What it does" section
-// promises: the Gigantamax name-stripping + badge, the Shadow badge, the
+// promises: the Gigantamax and Alpha name-stripping + badges, the Shadow badge, the
 // checked-date label, and that clicking the card (or its checkbox) fires
 // onToggle exactly once — not zero, not twice.
 
@@ -40,6 +40,40 @@ describe('ItemCard - Gigantamax detection', () => {
     const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
     expect(container.querySelector('.gmax-badge')).toBeNull()
     expect(screen.getByText('Bulbasaur')).toBeInTheDocument()
+  })
+})
+
+describe('ItemCard - Alpha detection', () => {
+  it('strips "(Alpha)" from the displayed name when category is "alpha"', () => {
+    const item = { ...baseItem, name: 'Hisuian Decidueye (Alpha)', category: 'alpha' }
+    const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(screen.getByText('Hisuian Decidueye')).toBeInTheDocument()
+    expect(container.querySelector('.alpha-badge')).not.toBeNull()
+  })
+
+  it('keeps the rest of a two-part name, e.g. the gender symbol', () => {
+    const item = { ...baseItem, name: 'Staraptor ♀ (Alpha)', category: 'alpha' }
+    render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(screen.getByText('Staraptor ♀')).toBeInTheDocument()
+  })
+
+  it('still detects an alpha via the name even without an "alpha" category (the fallback)', () => {
+    const item = { ...baseItem, name: 'Kleavor (Alpha)', category: undefined }
+    const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(container.querySelector('.alpha-badge')).not.toBeNull()
+    expect(screen.getByText('Kleavor')).toBeInTheDocument()
+  })
+
+  it('puts the alpha badge in a different corner than the Gigantamax one', () => {
+    const item = { ...baseItem, name: 'Kleavor (Alpha)', category: 'alpha' }
+    const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(container.querySelector('.gmax-badge')).toBeNull()
+    expect(container.querySelector('.alpha-badge')).not.toBeNull()
+  })
+
+  it('shows no alpha badge for an ordinary item', () => {
+    const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
+    expect(container.querySelector('.alpha-badge')).toBeNull()
   })
 })
 

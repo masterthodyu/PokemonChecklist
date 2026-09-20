@@ -1,6 +1,10 @@
-// "Charizard (Gigantamax)" -> "Charizard". "Bulbasaur (Gigantamax
-// Factor) (Gift)" -> "Bulbasaur (Gift)" — the badge shows the Gigantamax
-// part instead of spelling it out in the name.
+// Turns "Charizard (Gigantamax)" into "Charizard", and
+// "Bulbasaur (Gigantamax Factor) (Gift)" into "Bulbasaur (Gift)" — the
+// little G-Max badge (below) shows the Gigantamax part instead of having
+// it spelled out in the name every time.
+// (This is a Pokémon-specific quirk, kept here since it only ever fires
+// for items tagged category "gmax" — it's a harmless no-op for any other
+// checklist's items.)
 function stripGigantamaxText(name) {
   return name
     .replace(/Gigantamax Factor/g, '')
@@ -12,8 +16,21 @@ function stripGigantamaxText(name) {
     .trim()
 }
 
-// "Sep 13" — short enough for a card corner. Null if there's nothing to
-// show (unchecked, or checked before dates were tracked).
+// Same idea for "Hisuian Decidueye (Alpha)" -> "Hisuian Decidueye": the
+// alpha badge (below) says it, so the name doesn't have to. Every entry in
+// the alpha run carries the suffix, so leaving it in would put the same
+// seven characters on 300-odd cards.
+function stripAlphaText(name) {
+  return name
+    .replace(/\(Alpha\)/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+}
+
+// Turns an ISO date string into a short label like "Sep 13" — small enough
+// to fit in a corner of the card without crowding anything else. Returns
+// null if there's no date to show (nothing checked yet, or it was checked
+// before this feature existed and so has no date on record).
 function formatCheckedDate(isoDate) {
   if (!isoDate) return null
   const date = new Date(isoDate)
@@ -21,19 +38,28 @@ function formatCheckedDate(isoDate) {
   return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
 }
 
-// One clickable tile: picture, number, name, checkbox. Clicking anywhere
-// on the card toggles it.
+// One clickable tile for a single checklist item: picture, number, name,
+// and a checkbox. Clicking anywhere on the card toggles it checked/not
+// checked (the checkbox itself does the same thing, it's just there so
+// the checked state is easy to see at a glance).
 function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false }) {
   const number = item.dexId ?? item.id
   const isGigantamax = item.category === 'gmax' || item.name.includes('Gigantamax')
-  const displayName = isGigantamax ? stripGigantamaxText(item.name) : item.name
+  const displayNameBase = isGigantamax ? stripGigantamaxText(item.name) : item.name
   const dateLabel = checked ? formatCheckedDate(checkedDate) : null
-  // Category is the real tag (Colosseum/XD's Shadow Pokémon); the name
-  // check is a fallback for anything not tagged yet. GO's own unrelated
-  // "Shadow [Pokémon] (costume)" reskins happen to match this fallback
-  // too — see src/checklists/Shadow.test.jsx, that's documented as
-  // expected, not a bug.
+  // Checks category first (same pattern as the Gigantamax badge) — this
+  // is how Colosseum and XD tag their Shadow Pokémon. Falls back to a
+  // name check for any checklist that hasn't tagged category: 'shadow'
+  // explicitly (GO's own unrelated "Shadow [Pokémon] (costume)" event
+  // reskins happen to match this fallback too — see
+  // src/checklists/Shadow.test.jsx for that edge case, documented not
+  // "fixed").
   const isShadow = item.category === 'shadow' || item.name.includes('Shadow')
+  // Alpha Pokémon (Legends: Arceus) get their own badge in the opposite
+  // corner from the G-Max one, so a Pokémon could in principle wear both
+  // without them overlapping. Same category-first-then-name pattern again.
+  const isAlpha = item.category === 'alpha' || item.name.includes('(Alpha)')
+  const displayName = isAlpha ? stripAlphaText(displayNameBase) : displayNameBase
 
   return (
     <div
@@ -55,6 +81,9 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
         {isGigantamax && (
           <span className="gmax-badge" title="Gigantamax" />
         )}
+        {isAlpha && (
+          <span className="alpha-badge" title="Alpha Pokémon" />
+        )}
       </div>
       <div className="card-info">
         <span className="dex-number">#{String(number).padStart(3, '0')}</span>
@@ -74,5 +103,7 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
     </div>
   )
 }
+
+
 
 export default ItemCard
