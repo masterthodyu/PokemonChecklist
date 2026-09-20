@@ -1,7 +1,8 @@
 // Covers the per-card behaviors the README's "What it does" section
-// promises: the Gigantamax and Alpha name-stripping + badges, the Shadow badge, the
-// checked-date label, and that clicking the card (or its checkbox) fires
-// onToggle exactly once — not zero, not twice.
+// promises: the Gigantamax and Alpha name-stripping + badges, the Shadow
+// badge, the optional hover tooltip, the checked-date label, and that
+// clicking the card (or its checkbox) fires onToggle exactly once — not
+// zero, not twice.
 
 import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
@@ -64,7 +65,7 @@ describe('ItemCard - Alpha detection', () => {
     expect(screen.getByText('Kleavor')).toBeInTheDocument()
   })
 
-  it('puts the alpha badge in a different corner than the Gigantamax one', () => {
+  it('shows only the alpha badge (not gmax) for an alpha-only item', () => {
     const item = { ...baseItem, name: 'Kleavor (Alpha)', category: 'alpha' }
     const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
     expect(container.querySelector('.gmax-badge')).toBeNull()
@@ -93,6 +94,26 @@ describe('ItemCard - Shadow detection', () => {
   it('does not set data-shadow on an ordinary item', () => {
     const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
     expect(container.querySelector('.card').hasAttribute('data-shadow')).toBe(false)
+  })
+})
+
+describe('ItemCard - hover tooltip', () => {
+  it('renders the tooltip text when item.note is set', () => {
+    const item = { ...baseItem, note: 'Catch in Red/Blue/Yellow' }
+    render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Catch in Red/Blue/Yellow')
+  })
+
+  it('renders nothing tooltip-related when item.note is not set (most items today)', () => {
+    const { container } = render(<ItemCard item={baseItem} checked={false} onToggle={() => {}} />)
+    expect(container.querySelector('.card-tooltip')).toBeNull()
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
+  })
+
+  it('renders nothing when item.note is an empty string, same as unset', () => {
+    const item = { ...baseItem, note: '' }
+    const { container } = render(<ItemCard item={item} checked={false} onToggle={() => {}} />)
+    expect(container.querySelector('.card-tooltip')).toBeNull()
   })
 })
 

@@ -1,34 +1,115 @@
 [
   {
     "id": 1,
-    "dexId": 612,
-    "name": "Shiny Haxorus (Black 2/White 2)",
-    "spriteUrl": "sprites/masterdex/shiny-haxorus.png",
-    "boxId": 1
+    "dexId": 25,
+    "name": "Pikachu",
+    "spriteUrl": "sprites/home/pikachu.png",
+    "boxId": 1,
+    "note": "From Pokemon Battle Revolution"
   },
   {
     "id": 2,
+    "dexId": 25,
+    "name": "Pikachu",
+    "spriteUrl": "sprites/home/pikachu.png",
+    "boxId": 1,
+    "note": "USUM surf"
+  },
+  {
+    "id": 3,
+    "dexId": 26,
+    "name": "Pikachu",
+    "spriteUrl": "sprites/home/raichu.png",
+    "boxId": 1,
+    "note": "USUM surf"
+  },
+  {
+    "id": 4,
+    "dexId": 35,
+    "name": "Pikachu",
+    "spriteUrl": "sprites/home/clefairy.png",
+    "boxId": 1,
+    "note": "Pokewalker"
+  },
+  {
+    "id": 5,
+    "dexId": 39,
+    "name": "Jigglypuff",
+    "spriteUrl": "sprites/home/jigglypuff.png",
+    "boxId": 1,
+    "note": "Pokewalker"
+  },
+  {
+    "id": 6,
+    "dexId": 50,
+    "name": "Diglett",
+    "spriteUrl": "sprites/home/diglett-alolan.png",
+    "boxId": 1,
+    "note": "Isle of Armor 151 reward"
+  },
+  {
+    "id": 7,
+    "dexId": 72,
+    "name": "Tentacool",
+    "spriteUrl": "sprites/home/tentacool.png",
+    "boxId": 1,
+    "note": "HGSS with only starter"
+  },
+  {
+    "id": 8,
+    "dexId": 77,
+    "name": "Shiny Ponyta",
+    "spriteUrl": "https://img.pokemondb.net/sprites/legends-arceus/shiny/1x/ponyta.png",
+    "boxId": 1,
+    "note": "Legends Arceus Quest"
+  },
+  {
+    "id": 9,
+    "dexId": 83,
+    "name": "Farfetch'd",
+    "spriteUrl": "sprites/home/farfetchd.png",
+    "boxId": 1,
+    "note": "Platinum Go"
+  },
+  {
+    "id": 10,
+    "dexId": 94,
+    "name": "Gengar",
+    "spriteUrl": "sprites/home/gengar.png",
+    "boxId": 1,
+    "note": "Platinum with GBA game inserted"
+  },
+  {
+    "id": 7,
+    "dexId": 612,
+    "name": "Shiny Haxorus (Black 2/White 2)",
+    "spriteUrl": "sprites/masterdex/shiny-haxorus.png",
+    "boxId": 1,
+    "note": "Shiny caught from B2W2"
+  },
+  {
+    "id": 8,
     "dexId": 130,
     "name": "Red Gyarados (Gold/Silver/Crystal)",
     "spriteUrl": "sprites/masterdex/red-gyarados.png",
     "boxId": 1
   },
   {
-    "id": 3,
+    "id": 9,
     "dexId": 327,
     "name": "Matching Spinda Pair",
     "spriteUrl": "sprites/masterdex/matching-spinda.png",
     "boxId": 1
   },
   {
-    "id": 4,
+    "id": 10,
     "dexId": 483,
     "name": "Origin Forme Dialga",
     "spriteUrl": "sprites/masterdex/dialga-origin.png",
     "boxId": 1
   },
   {
-    "id": 5,
+    "id": 11,
     "dexId": 484,
     "name": "Origin Forme Palkia",
     "spriteUrl": "sprites/masterdex/palkia-origin.png",

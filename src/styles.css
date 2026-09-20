@@ -406,6 +406,57 @@ header h1 {
   min-width: 0;
 }
 
+/* Optional per-item hover note ("Catch in Red/Blue/Yellow", "Shiny from
+   Red/Yellow/Blue") — only renders at all when item.note is set in that
+   checklist's data.json, so this is silent no-op for every card that
+   doesn't have one (currently almost all of them).
+
+   Deliberately CSS-only, no JS/state involved: shown purely via :hover
+   and :focus-within below, with essentially no transition delay, unlike
+   the native `title` attribute's several-hundred-ms OS delay (and unlike
+   `title`, this can actually be styled). :focus-within means it's also
+   reachable by tabbing to the card's checkbox, not just a mouse hover. */
+.card-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px) scale(0.9);
+  transform-origin: bottom center;
+  margin-bottom: 8px;
+  max-width: 240px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 203, 5, 0.5); /* same gold as the progress bars, for a bit of brand pop */
+  background: #0a0e16; /* solid, not translucent — legibility over "blends with the page" */
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+  visibility: hidden;
+  pointer-events: none; /* never intercepts the hover it's reacting to */
+  transition: transform 0.08s ease;
+  z-index: 20; /* draws over neighboring cards rather than under them */
+}
+
+.card-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #0a0e16;
+}
+
+.card:hover .card-tooltip,
+.card:focus-within .card-tooltip {
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px) scale(1);
+}
+
 .checked-date {
   position: absolute;
   bottom: 4px;

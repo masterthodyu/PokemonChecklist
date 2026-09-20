@@ -56,6 +56,14 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
       data-shadow={isShadow || undefined}
       onClick={onToggle}
     >
+      {item.note && (
+        // Deliberately not the native `title` attribute — browsers put a
+        // several-hundred-ms delay before that shows up and it can't be
+        // styled at all. This is a real element instead, shown purely
+        // via CSS on :hover/:focus-within (see .card-tooltip in
+        // styles.css), which is what makes it appear instantly.
+        <span className="card-tooltip" role="tooltip">{item.note}</span>
+      )}
       <div className="card-image">
         <img
           src={item.spriteUrl.startsWith('http') ? item.spriteUrl : `${import.meta.env.BASE_URL}${item.spriteUrl}`}
