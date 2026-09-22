@@ -128,8 +128,8 @@ function HubPage({ checklists }) {
           const accentFrom = config.accentFrom || '#ee1515'
           const accentTo = config.accentTo || '#ffcb05'
 
-          // Checklists still mid-setup (like USUM's 3-entry starter data)
-          // would otherwise show something like "0 / 3 caught (0%)" —
+          // Checklists still mid-setup (a placeholder with only a
+          // handful of entries so far) would otherwise show something like "0 / 3 caught (0%)" —
           // reads as broken rather than "not built out yet." This is an
           // explicit flag on the checklist's own config, not a guess from
           // entry count — a genuinely tiny-but-finished list (SoulSilver's
@@ -145,7 +145,11 @@ function HubPage({ checklists }) {
               style={{ '--row-accent-from': accentFrom, '--row-accent-to': accentTo }}
             >
               {config.icon ? (
-                <img className="hub-row-icon" src={config.icon} alt="" />
+                <img
+                  className="hub-row-icon"
+                  src={config.icon.startsWith('http') ? config.icon : `${import.meta.env.BASE_URL}${config.icon}`}
+                  alt=""
+                />
               ) : (
                 <div className="hub-row-icon hub-row-icon-placeholder">?</div>
               )}

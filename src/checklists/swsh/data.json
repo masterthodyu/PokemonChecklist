@@ -4,7 +4,8 @@
     "dexId": 646,
     "name": "Kyurem (Black)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/kyurem-black.png",
-    "boxId": 1
+    "boxId": 1,
+    "category": "fusion"
   },
   {
     "id": 2,
@@ -130,13 +131,15 @@
     "dexId": 800,
     "name": "Necrozma (Dusk Mane)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/necrozma-dusk-mane.png",
-    "boxId": 1
+    "boxId": 1,
+    "category": "fusion"
   },
   {
     "id": 20,
     "dexId": 898,
     "name": "Calyrex (Ice Rider)",
     "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/calyrex-ice-rider.png",
-    "boxId": 1
+    "boxId": 1,
+    "category": "fusion"
   }
 ]
