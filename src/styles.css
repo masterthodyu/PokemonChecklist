@@ -721,8 +721,13 @@ header h1 {
 
 .hub {
   min-height: 100vh;
-  background-size: cover;
-  background-position: center;
+  /* Portrait artwork (taller than wide) — "cover" would crop it down to a
+     thin sliver on a wide screen. Repeating it at full height instead
+     shows the whole image and tiles it sideways to fill any extra width,
+     rather than cropping anything away. */
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-size: auto 100%;
 }
 
 /* Distinct display face for just the hub's own title — nowhere else in
@@ -750,11 +755,10 @@ header h1 {
 }
 
 .hub-list {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
-  max-width: 640px;
+  max-width: 1100px;
   margin: 20px auto 0;
 }
 
@@ -763,7 +767,7 @@ header h1 {
    version (a 0.06-opacity fill with no shadow) was very easy to miss
    entirely. This one holds its own regardless of what's behind it. */
 .overall-status {
-  max-width: 640px;
+  max-width: 1100px;
   margin: 24px auto 0;
   padding: 18px 20px;
   border-radius: 16px;
@@ -819,15 +823,14 @@ header h1 {
 
 .hub-row {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
   background:
     radial-gradient(circle at 15% 15%, rgba(238, 21, 21, 0.08), transparent 35%),
     linear-gradient(180deg, #1b2735 0%, #0e1620 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 4px solid var(--row-accent-from, #ee1515);
+  border-top: 4px solid var(--row-accent-from, #ee1515);
   border-radius: 16px;
-  padding: 16px 20px;
+  padding: 16px;
   text-decoration: none;
   color: #f5f7fa;
   transition: border-color 0.15s, background 0.15s, transform 0.15s;
@@ -835,13 +838,21 @@ header h1 {
 
 .hub-row:hover {
   border-color: #ffcb05;
-  border-left-color: var(--row-accent-from, #ee1515);
-  transform: translateX(2px);
+  border-top-color: var(--row-accent-from, #ee1515);
+  transform: translateY(-2px);
+}
+
+.hub-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .hub-row-icon {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
   object-fit: cover;
   flex-shrink: 0;
@@ -858,20 +869,19 @@ header h1 {
 }
 
 .hub-row-body {
-  flex: 1;
   min-width: 0;
 }
 
 .hub-row-body h2 {
   margin: 0 0 6px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #ffffff;
 }
 
 .hub-row-count {
   margin: 0 0 8px;
   color: #dfe3e8;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 /* Per-game progress fill — reads its color from the row's own CSS vars
@@ -884,15 +894,122 @@ header h1 {
   transition: width 0.2s ease;
 }
 
-/* The completion percentage, promoted to its own bold stat on the right
-   of the row instead of buried inside the "x / y (z%)" line — it's the
-   number you actually glance at. */
+/* The completion percentage — now a badge in the card's top-right corner,
+   next to the icon, instead of a right-aligned stat on a wide row. */
 .hub-row-stat {
   flex-shrink: 0;
   font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: #ffffff;
-  padding-left: 12px;
+}
+
+/* --- Left/right arrows between the hub and its (currently blank) side pages --- */
+
+.hub-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(18, 28, 39, 0.75);
+  color: #f5f7fa;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+
+.hub-arrow:hover {
+  border-color: #ffcb05;
+  background: rgba(18, 28, 39, 0.95);
+}
+
+.hub-arrow-left {
+  left: 16px;
+}
+
+.hub-arrow-left:hover {
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.hub-arrow-right {
+  right: 16px;
+}
+
+.hub-arrow-right:hover {
+  transform: translateY(-50%) translateX(2px);
+}
+
+.hub-arrow-disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+  pointer-events: none; /* purely visual — nothing to click through to yet */
+}
+
+@media (max-width: 640px) {
+  /* Fixed corner arrows would otherwise sit on top of narrow-screen
+     content — pin them to the very edge and shrink slightly instead. */
+  .hub-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .hub-arrow-left {
+    left: 6px;
+  }
+
+  .hub-arrow-right {
+    right: 6px;
+  }
+}
+
+/* --- The blank side pages themselves --- */
+
+.extra-hub-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  margin: 40px auto 0;
+  max-width: 480px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 203, 5, 0.08), transparent 40%),
+    linear-gradient(180deg, #1b2735 0%, #0e1620 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  color: #9aa4af;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* A quick slide-in on arrival, in the direction the page was reached
+   from — this plus the identical background/shell is what makes
+   stepping between the hub and these pages feel continuous instead of
+   like navigating to a different part of the site. */
+@keyframes slide-in-from-right {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-from-left {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-from-right {
+  animation: slide-in-from-right 0.25s ease-out;
+}
+
+.slide-from-left {
+  animation: slide-in-from-left 0.25s ease-out;
 }
 .back-to-top-button {
   position: fixed;

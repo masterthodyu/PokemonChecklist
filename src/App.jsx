@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ChecklistPage from './engine/ChecklistPage.jsx'
 import HubPage from './HubPage.jsx'
+import LeftPage from './LeftPage.jsx'
+import RightPage from './RightPage.jsx'
 import { CHECKLISTS } from './checklists/index.js'
 // App.jsx no longer knows anything about Pokémon specifically — it just
 // wires up one route per checklist in the registry, plus a hub route.
@@ -11,6 +13,11 @@ function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<HubPage checklists={CHECKLISTS} />} />
+        {/* Two genuinely separate pages (see LeftPage.jsx / RightPage.jsx),
+            not one shared component — blank for now, reachable via the
+            hub's left/right arrows. */}
+        <Route path="/left" element={<LeftPage />} />
+        <Route path="/right" element={<RightPage />} />
         {CHECKLISTS.map(config => (
           <Route
             key={config.id}

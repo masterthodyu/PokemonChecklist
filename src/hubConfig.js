@@ -5,7 +5,7 @@
 // Leave it null and the hub just uses the plain dark background it
 // already has — nothing breaks either way.
 export const HUB_CONFIG = {
-  title: "Thodyu's Pokemon Completion",
+  title: "Thodyu's Pokemon Collection",
   // A small personal heading shown above the overall progress bar (not
   // the page's own <h1> above it — this one sits right on the progress
   // card itself). Leave it as '' / null to hide that line entirely.
