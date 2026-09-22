@@ -35,12 +35,28 @@ function formatSyncedAt(date) {
 // system in-game). Clicking a sidebar group jumps to a box in boxed mode,
 // or filters the list in boxless mode.
 function ChecklistPage({ config }) {
-  const { data, boxSize, storageKey, syncId, groupSets, title, boxNumberOffset = 0 } = config
+  const { data, boxSize, storageKey, syncId, groupSets, title, boxNumberOffset = 0, backgroundImage } = config
   // Shifts displayed box numbers (label, jump field, header) without
   // touching boxIndex — lets e.g. Master Dex show "Box 71" instead of
   // "Box 1" when Home already fills 70 boxes. Defaults to 0 everywhere else.
   const isBoxed = Boolean(boxSize)
   const syncEnabled = isSyncEnabled(syncId)
+  // Same pattern as the hub's own optional background (see hubConfig.js /
+  // HubPage.jsx) — a checklist with no backgroundImage set just keeps the
+  // plain dark background every page already has. Nothing to opt into.
+  const hasBackground = Boolean(backgroundImage)
+  // The dark tint has to be composited into this SAME background-image
+  // value, as an extra gradient layer, rather than a separate darkened
+  // element stacked on top — .app is `position: relative` (needed below),
+  // which makes its own background paint above a plain z-index:-1
+  // overlay in the stacking order, silently hiding the tint entirely
+  // behind the photo. Baking it into one layered background sidesteps
+  // that: a layer always paints over the layers listed after it.
+  const backgroundImageUrl = hasBackground
+    ? backgroundImage.startsWith('http')
+      ? backgroundImage
+      : `${import.meta.env.BASE_URL}${backgroundImage}`
+    : null
 
   // --- All of this checklist's "memory" lives here as state ---
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
@@ -284,6 +300,29 @@ function ChecklistPage({ config }) {
   const totalBoxes = isBoxed ? Math.max(...data.map(p => p.boxId)) : 0
   const currentBoxId = boxIndex + 1
 
+  // Arrow keys / PageUp/PageDown move between boxes, same as the
+  // Previous/Next buttons — skipped while typing in an input so it
+  // doesn't fight with search or the jump-to-box field.
+  useEffect(() => {
+    if (!isBoxed) return
+
+    function handleKeyDown(e) {
+      const tag = document.activeElement?.tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return
+
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault()
+        setBoxIndex(prev => Math.max(prev - 1, 0))
+      } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault()
+        setBoxIndex(prev => Math.min(prev + 1, totalBoxes - 1))
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isBoxed, totalBoxes])
+
   // Keeps the jump field in sync when boxIndex changes from anywhere
   // else (Previous/Next, sidebar jump, search landing on a box).
   useEffect(() => {
@@ -366,21 +405,30 @@ function ChecklistPage({ config }) {
   const checkedCount = checkedIds.size
 
   return (
-    <div className="app">
+    <div
+      className={`app ${hasBackground ? 'checklist-has-background' : ''}`}
+      style={hasBackground ? { backgroundImage: `linear-gradient(rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.72)), url(${backgroundImageUrl})` } : undefined}
+    >
       <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
-        {/* Only rendered when the config actually defines groups. */}
+        {/* First group set (Generation, for Home) gets the left sidebar
+            to itself; everything after it (Category, and any further
+            sets a future checklist adds) stacks into the right sidebar
+            instead — matching the two-asides-either-side-of-content
+            layout the CSS grid (.layout's 200px/1fr/200px columns) was
+            already set up for, previously left with the right column
+            unused. Position is purely "first vs rest," not tied to any
+            set's name, so this works for a checklist with only one
+            group set (right sidebar just doesn't render) same as one
+            with three or more. */}
         {groupStats.length > 0 && (
           <aside className="sidebar sidebar-left">
-            {groupStats.map(set => (
-              <GroupProgress
-                key={set.label}
-                title={set.label}
-                groups={set.groups}
-                onSelect={g => jumpToGroup(set, g)}
-                isBoxed={isBoxed}
-                boxNumberOffset={boxNumberOffset}
-              />
-            ))}
+            <GroupProgress
+              title={groupStats[0].label}
+              groups={groupStats[0].groups}
+              onSelect={g => jumpToGroup(groupStats[0], g)}
+              isBoxed={isBoxed}
+              boxNumberOffset={boxNumberOffset}
+            />
           </aside>
         )}
 
@@ -424,83 +472,6 @@ function ChecklistPage({ config }) {
             )}
           </header>
 
-          <div className="controls">
-            <div className="search-wrapper">
-              <input
-                type="text"
-                placeholder="Search by name or number..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                onKeyDown={e => {
-                  if (e.key === 'Escape') setSearch('')
-                }}
-              />
-              {search && (
-                <button
-                  className="search-clear-button"
-                  onClick={() => setSearch('')}
-                  aria-label="Clear search"
-                  title="Clear search"
-                >
-                  ×
-                </button>
-              )}
-            </div>
-          </div>
-
-          {isBoxed && (
-            <div className="box-controls">
-              <button
-                className="nav-button"
-                onClick={() => setBoxIndex(prev => Math.max(prev - 1, 0))}
-                disabled={boxIndex === 0}
-              >
-                Previous box
-              </button>
-
-              <div className="box-meta">
-                <span className="box-label">Box {boxIndex + 1 + boxNumberOffset}</span>
-                <span className="box-range">
-                  #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
-                </span>
-                <label className="box-jump">
-                  <span>Jump to box</span>
-                  <input
-                    type="number"
-                    min={1 + boxNumberOffset}
-                    max={totalBoxes + boxNumberOffset}
-                    value={boxInputValue}
-                    onChange={e => {
-                      // Just track typing here — committing on every
-                      // keystroke was the old "type 2, get 1" bug (an
-                      // empty string mid-edit parsed as 0 and clamped).
-                      setBoxInputValue(e.target.value)
-                    }}
-                    onBlur={() => {
-                      const nextBox = Number(boxInputValue) - boxNumberOffset
-                      if (boxInputValue !== '' && !Number.isNaN(nextBox)) {
-                        setBoxIndex(Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1))
-                      } else {
-                        setBoxInputValue(String(boxIndex + 1 + boxNumberOffset)) // revert on invalid/empty
-                      }
-                    }}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter') e.target.blur() // commits via onBlur
-                    }}
-                  />
-                </label>
-              </div>
-
-              <button
-                className="nav-button"
-                onClick={() => setBoxIndex(prev => Math.min(prev + 1, totalBoxes - 1))}
-                disabled={boxIndex === totalBoxes - 1}
-              >
-                Next box
-              </button>
-            </div>
-          )}
-
           <div className="filter-buttons">
             <button
               className={showOnly === 'all' ? 'active' : ''}
@@ -522,15 +493,114 @@ function ChecklistPage({ config }) {
             </button>
           </div>
 
+          {/* A single box has nowhere to navigate to — Previous/Next would
+              both always be disabled and the jump field could only ever
+              hold the one valid number, so none of it earns its space. */}
+          {isBoxed && totalBoxes > 1 && (
+            <div className="box-controls">
+              <button
+                className="nav-button"
+                onClick={() => setBoxIndex(prev => Math.max(prev - 1, 0))}
+                disabled={boxIndex === 0}
+              >
+                Previous box
+              </button>
+
+              <div className="box-meta">
+                <div className="box-jump">
+                  <span className="box-jump-label">Box</span>
+                  <input
+                    aria-label="Jump to box"
+                    type="number"
+                    min={1 + boxNumberOffset}
+                    max={totalBoxes + boxNumberOffset}
+                    value={boxInputValue}
+                    onChange={e => {
+                      // Just track typing here — committing on every
+                      // keystroke was the old "type 2, get 1" bug (an
+                      // empty string mid-edit parsed as 0 and clamped).
+                      setBoxInputValue(e.target.value)
+                    }}
+                    onBlur={() => {
+                      const nextBox = Number(boxInputValue) - boxNumberOffset
+                      if (boxInputValue !== '' && !Number.isNaN(nextBox)) {
+                        const clampedIndex = Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1)
+                        setBoxIndex(clampedIndex)
+                        // Set the field's own display directly, rather than
+                        // relying only on the boxIndex-watching effect below
+                        // — that effect only re-runs when boxIndex actually
+                        // CHANGES. Typing an out-of-range number that clamps
+                        // back to the box already showing (e.g. "31" on a
+                        // single-box checklist, already on box 1) leaves
+                        // boxIndex unchanged, so nothing would otherwise ever
+                        // tell the field to stop showing "31".
+                        setBoxInputValue(String(clampedIndex + 1 + boxNumberOffset))
+                      } else {
+                        setBoxInputValue(String(boxIndex + 1 + boxNumberOffset)) // revert on invalid/empty
+                      }
+                    }}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter') e.target.blur() // commits via onBlur
+                    }}
+                  />
+                </div>
+                <span className="box-range">
+                  #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
+                </span>
+              </div>
+
+              <button
+                className="nav-button"
+                onClick={() => setBoxIndex(prev => Math.min(prev + 1, totalBoxes - 1))}
+                disabled={boxIndex === totalBoxes - 1}
+              >
+                Next box
+              </button>
+            </div>
+          )}
+
           <div className="box-panel">
             <div className="box-header">
-              <span>
-                {isBoxed
-                  ? `Box ${boxIndex + 1 + boxNumberOffset}`
-                  : activeGroup
-                    ? `${activeGroup.groupLabel} (tap it again in the sidebar to clear)`
-                    : title}
-              </span>
+              {/* The checklist title already has its own <h1> above, and
+                  box-controls already shows "Box N" for multi-box
+                  checklists — repeating either here left the search bar
+                  fighting for space it doesn't need to. This only shows
+                  up when a sidebar group filter is actually active, since
+                  that's not indicated anywhere else and "tap again to
+                  clear" is real information, not a repeat of something
+                  already on the page. */}
+              {activeGroup && (
+                <span>{activeGroup.groupLabel} (tap it again in the sidebar to clear)</span>
+              )}
+
+              {/* Moved here from its own row above the box controls —
+                  living right next to what it's actually filtering
+                  (this box's own count and Select All/Unselect All)
+                  reads more directly than being separated from it by
+                  the All/Caught/Not Caught buttons and the box
+                  navigator in between. */}
+              <div className="search-wrapper">
+                <input
+                  type="text"
+                  placeholder="Search by name or number..."
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  onKeyDown={e => {
+                    if (e.key === 'Escape') setSearch('')
+                  }}
+                />
+                {search && (
+                  <button
+                    className="search-clear-button"
+                    onClick={() => setSearch('')}
+                    aria-label="Clear search"
+                    title="Clear search"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+
               <span className="box-header-right">
                 {visibleList.length} / {scopedList.length} shown
                 <span className="box-header-caught">
@@ -590,6 +660,26 @@ function ChecklistPage({ config }) {
             )}
           </div>
         </main>
+
+        {/* Sits after <main> in the DOM (not right after the left aside)
+            specifically so grid auto-placement lands it in the layout's
+            third column, not doubled up in the first. See the comment
+            by sidebar-left above for why it's "everything past the
+            first set," not a specific named set. */}
+        {groupStats.length > 1 && (
+          <aside className="sidebar sidebar-right">
+            {groupStats.slice(1).map(set => (
+              <GroupProgress
+                key={set.label}
+                title={set.label}
+                groups={set.groups}
+                onSelect={g => jumpToGroup(set, g)}
+                isBoxed={isBoxed}
+                boxNumberOffset={boxNumberOffset}
+              />
+            ))}
+          </aside>
+        )}
       </div>
 
       {!isBoxed && showBackToTop && (

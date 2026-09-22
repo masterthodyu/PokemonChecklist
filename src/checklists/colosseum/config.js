@@ -5,6 +5,7 @@ export default {
   title: 'Pokémon Colosseum',
   path: '/colosseum',
   icon: 'icons/colosseum.png',
+  backgroundImage: 'backgrounds/Colosseum.jpg',
   accentFrom: '#c8a25b',
   accentTo: '#604e82',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }

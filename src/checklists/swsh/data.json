@@ -3,7 +3,7 @@
     "id": 1,
     "dexId": 646,
     "name": "Kyurem (Black)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/kyurem-black.png",
+    "spriteUrl": "sprites/swsh/kyurem-black.png",
     "boxId": 1,
     "category": "fusion"
   },
@@ -11,126 +11,126 @@
     "id": 2,
     "dexId": 773,
     "name": "Silvally (Fighting)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-fighting.png",
+    "spriteUrl": "sprites/swsh/silvally-fighting.png",
     "boxId": 1
   },
   {
     "id": 3,
     "dexId": 773,
     "name": "Silvally (Flying)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-flying.png",
+    "spriteUrl": "sprites/swsh/silvally-flying.png",
     "boxId": 1
   },
   {
     "id": 4,
     "dexId": 773,
     "name": "Silvally (Poison)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-poison.png",
+    "spriteUrl": "sprites/swsh/silvally-poison.png",
     "boxId": 1
   },
   {
     "id": 5,
     "dexId": 773,
     "name": "Silvally (Ground)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-ground.png",
+    "spriteUrl": "sprites/swsh/silvally-ground.png",
     "boxId": 1
   },
   {
     "id": 6,
     "dexId": 773,
     "name": "Silvally (Rock)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-rock.png",
+    "spriteUrl": "sprites/swsh/silvally-rock.png",
     "boxId": 1
   },
   {
     "id": 7,
     "dexId": 773,
     "name": "Silvally (Bug)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-bug.png",
+    "spriteUrl": "sprites/swsh/silvally-bug.png",
     "boxId": 1
   },
   {
     "id": 8,
     "dexId": 773,
     "name": "Silvally (Ghost)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-ghost.png",
+    "spriteUrl": "sprites/swsh/silvally-ghost.png",
     "boxId": 1
   },
   {
     "id": 9,
     "dexId": 773,
     "name": "Silvally (Steel)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-steel.png",
+    "spriteUrl": "sprites/swsh/silvally-steel.png",
     "boxId": 1
   },
   {
     "id": 10,
     "dexId": 773,
     "name": "Silvally (Fire)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-fire.png",
+    "spriteUrl": "sprites/swsh/silvally-fire.png",
     "boxId": 1
   },
   {
     "id": 11,
     "dexId": 773,
     "name": "Silvally (Water)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-water.png",
+    "spriteUrl": "sprites/swsh/silvally-water.png",
     "boxId": 1
   },
   {
     "id": 12,
     "dexId": 773,
     "name": "Silvally (Grass)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-grass.png",
+    "spriteUrl": "sprites/swsh/silvally-grass.png",
     "boxId": 1
   },
   {
     "id": 13,
     "dexId": 773,
     "name": "Silvally (Electric)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-electric.png",
+    "spriteUrl": "sprites/swsh/silvally-electric.png",
     "boxId": 1
   },
   {
     "id": 14,
     "dexId": 773,
     "name": "Silvally (Psychic)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-psychic.png",
+    "spriteUrl": "sprites/swsh/silvally-psychic.png",
     "boxId": 1
   },
   {
     "id": 15,
     "dexId": 773,
     "name": "Silvally (Ice)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-ice.png",
+    "spriteUrl": "sprites/swsh/silvally-ice.png",
     "boxId": 1
   },
   {
     "id": 16,
     "dexId": 773,
     "name": "Silvally (Dragon)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-dragon.png",
+    "spriteUrl": "sprites/swsh/silvally-dragon.png",
     "boxId": 1
   },
   {
     "id": 17,
     "dexId": 773,
     "name": "Silvally (Dark)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-dark.png",
+    "spriteUrl": "sprites/swsh/silvally-dark.png",
     "boxId": 1
   },
   {
     "id": 18,
     "dexId": 773,
     "name": "Silvally (Fairy)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/silvally-fairy.png",
+    "spriteUrl": "sprites/swsh/silvally-fairy.png",
     "boxId": 1
   },
   {
     "id": 19,
     "dexId": 800,
     "name": "Necrozma (Dusk Mane)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/necrozma-dusk-mane.png",
+    "spriteUrl": "sprites/swsh/necrozma-dusk-mane.png",
     "boxId": 1,
     "category": "fusion"
   },
@@ -138,7 +138,7 @@
     "id": 20,
     "dexId": 898,
     "name": "Calyrex (Ice Rider)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/calyrex-ice-rider.png",
+    "spriteUrl": "sprites/swsh/calyrex-ice-rider.png",
     "boxId": 1,
     "category": "fusion"
   }

@@ -15,8 +15,9 @@ function readLocalCheckedMap(storageKey) {
   }
 }
 
-// Landing page: one row per checklist in the CHECKLISTS registry, stacked
-// in a single centered column, each showing its icon, title, and
+// Landing page: one card per checklist in the CHECKLISTS registry, laid
+// out in a responsive grid (wraps to however many columns fit, more rows
+// as more checklists get added), each showing its icon, title, and
 // progress, linking into that checklist's route.
 //
 // To add a new checklist's icon: just set `icon` in that checklist's
@@ -25,6 +26,15 @@ function readLocalCheckedMap(storageKey) {
 // shows instead, so nothing looks broken while you're still deciding.
 function HubPage({ checklists }) {
   const hasBackground = Boolean(HUB_CONFIG.backgroundImage)
+  // Composited into one layered background-image, not a separate overlay
+  // element — see the matching comment in ChecklistPage.jsx for why a
+  // separate z-index:-1 overlay silently paints underneath this element's
+  // own background instead of over it.
+  const backgroundImageUrl = hasBackground
+    ? HUB_CONFIG.backgroundImage.startsWith('http')
+      ? HUB_CONFIG.backgroundImage
+      : `${import.meta.env.BASE_URL}${HUB_CONFIG.backgroundImage}`
+    : null
 
   // Checked-item counts per checklist, keyed by storageKey. Starts from
   // whatever's already saved locally — same as before, so there's no
@@ -93,9 +103,15 @@ function HubPage({ checklists }) {
 
   return (
     <div
-      className={`app hub ${hasBackground ? 'hub-has-background' : ''}`}
-      style={hasBackground ? { backgroundImage: `url(${HUB_CONFIG.backgroundImage})` } : undefined}
+      className={`app hub`}
+      style={hasBackground ? { backgroundImage: `linear-gradient(rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.72)), url(${backgroundImageUrl})` } : undefined}
     >
+      {/* Blank pages for now — see ExtraHubPage.jsx. Same background,
+          same shell, so stepping through them doesn't feel like leaving
+          the hub at all. */}
+      <Link to="/left" className="hub-arrow hub-arrow-left" aria-label="Previous page">←</Link>
+      <Link to="/right" className="hub-arrow hub-arrow-right" aria-label="Next page">→</Link>
+
       <header>
         <h1>{HUB_CONFIG.title}</h1>
       </header>
@@ -144,15 +160,18 @@ function HubPage({ checklists }) {
               className="hub-row"
               style={{ '--row-accent-from': accentFrom, '--row-accent-to': accentTo }}
             >
-              {config.icon ? (
-                <img
-                  className="hub-row-icon"
-                  src={config.icon.startsWith('http') ? config.icon : `${import.meta.env.BASE_URL}${config.icon}`}
-                  alt=""
-                />
-              ) : (
-                <div className="hub-row-icon hub-row-icon-placeholder">?</div>
-              )}
+              <div className="hub-row-top">
+                {config.icon ? (
+                  <img
+                    className="hub-row-icon"
+                    src={config.icon.startsWith('http') ? config.icon : `${import.meta.env.BASE_URL}${config.icon}`}
+                    alt=""
+                  />
+                ) : (
+                  <div className="hub-row-icon hub-row-icon-placeholder">?</div>
+                )}
+                {!isPlaceholderData && <div className="hub-row-stat">{pct}%</div>}
+              </div>
 
               <div className="hub-row-body">
                 <h2>{config.title}</h2>
@@ -167,8 +186,6 @@ function HubPage({ checklists }) {
                   </>
                 )}
               </div>
-
-              {!isPlaceholderData && <div className="hub-row-stat">{pct}%</div>}
             </Link>
           )
         })}

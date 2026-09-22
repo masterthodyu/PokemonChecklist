@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap');
 
 * {
   box-sizing: border-box;
@@ -29,6 +29,23 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 24px 16px 60px;
+}
+
+/* A checklist's own optional background image (config.js's
+   backgroundImage — separate from the hub's own, in hubConfig.js). Uses
+   a plain, generic cover/center fit rather than the hub's specific
+   repeat-x tiling, since the hub's is tuned around one particular
+   portrait artwork and this needs to look reasonable with whatever image
+   any given checklist sets, at any aspect ratio. The dark tint that
+   keeps text readable over it is baked directly into the backgroundImage
+   value itself (see ChecklistPage.jsx) rather than a separate overlay
+   element here — a separate darkened layer painted underneath this
+   element's own background in the stacking order, since .app is
+   `position: relative` for other reasons. */
+.checklist-has-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -117,15 +134,26 @@ header h1 {
   color: #ffcb05;
 }
 
-.controls {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+/* Lives inside .box-header now (search-by-name/number, right next to
+   what it's filtering) rather than its own centered row above the box
+   controls — .controls, the old wrapper for that standalone row, is
+   gone; every visual rule that used to hang off it now lives directly
+   on .search-wrapper/.search-wrapper input instead. min(220px, 100%)
+   is deliberately narrower than the old min(420px, 100%): .box-header
+   already has a label on one side and the shown/caught count plus two
+   buttons on the other, so this needs to be the one flexible-width
+   piece that yields first, not the widest thing in the row. */
+.search-wrapper {
+  position: relative;
+  flex: 1 1 220px;
+  min-width: 0;
+  max-width: 420px;
 }
 
-.controls input {
-  width: min(100%, 420px);
+.search-wrapper input {
+  width: 100%;
   padding: 10px 14px;
+  padding-right: 36px; /* room for the clear button so it never overlaps typed text */
   border-radius: 10px;
   border: 1px solid #d1d1d6;
   background: #111111;
@@ -133,18 +161,8 @@ header h1 {
   font-size: 1rem;
 }
 
-.controls input::placeholder {
+.search-wrapper input::placeholder {
   color: #b5bac1;
-}
-
-.search-wrapper {
-  position: relative;
-  width: min(100%, 420px);
-}
-
-.search-wrapper input {
-  width: 100%;
-  padding-right: 36px; /* room for the clear button so it never overlaps typed text */
 }
 
 .search-clear-button {
@@ -175,12 +193,20 @@ header h1 {
   margin-bottom: 20px;
 }
 
+/* `end` within column 1 means "as far right as column 1 allows" — i.e.
+   right up against the centered Box/Jump block, not the row's actual
+   left edge. `start` swaps that: pins Previous to column 1's own left
+   edge (the row's true outer edge) and Next to column 3's own right
+   edge, spreading them out to flank the whole row — and, since this row
+   shares the same width as .box-panel below it, to line up with that
+   panel's edges too — instead of both buttons clustering next to the
+   center block with a lot of dead space further out on either side. */
 .box-controls .nav-button:first-of-type {
-  justify-self: end;
+  justify-self: start;
 }
 
 .box-controls .nav-button:last-of-type {
-  justify-self: start;
+  justify-self: end;
 }
 
 @media (max-width: 500px) {
@@ -214,35 +240,43 @@ header h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
   min-width: 180px;
 }
 
 .box-jump {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: #dfe3e8;
-  margin-top: 6px;
+  gap: 8px;
+}
+
+.box-jump-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .box-jump input {
-  width: 72px;
-  padding: 8px 10px;
+  width: 64px;
+  padding: 6px 8px;
   border-radius: 8px;
   border: 1px solid #d1d1d6;
   background: #111111;
   color: #ffffff;
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-.box-label {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff;
+  text-align: center;
+  /* The up/down spinner is the browser's own default chrome for
+     type="number", not anything hardcoded here — this is what turns it
+     off, browser by browser. */
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.box-jump input::-webkit-outer-spin-button,
+.box-jump input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .box-range {
@@ -716,13 +750,36 @@ header h1 {
   .sidebar {
     position: static;
   }
+
+  /* Grid's default is source order — left sidebar, then main content,
+     then right sidebar — which on a single mobile column would bury the
+     right sidebar below a whole box of cards. `order` (grid items honor
+     it same as flex items) puts both sidebars back-to-back above the
+     content instead, the same relative arrangement two group sets had
+     before they were split into separate left/right sidebars. */
+  .sidebar-left {
+    order: 1;
+  }
+
+  .sidebar-right {
+    order: 2;
+  }
+
+  .main-content {
+    order: 3;
+  }
 }
 /* --- Hub page --- */
 
 .hub {
   min-height: 100vh;
-  background-size: cover;
-  background-position: center;
+  /* Portrait artwork (taller than wide) — "cover" would crop it down to a
+     thin sliver on a wide screen. Repeating it at full height instead
+     shows the whole image and tiles it sideways to fill any extra width,
+     rather than cropping anything away. */
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-size: auto 100%;
 }
 
 /* Distinct display face for just the hub's own title — nowhere else in
@@ -736,25 +793,16 @@ header h1 {
 }
 
 /* A dark overlay under the hub's own background gradient so text stays
-   readable no matter what image someone sets as the background. */
-.hub-has-background {
-  position: relative;
-}
-
-.hub-has-background::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 10, 18, 0.65);
-  z-index: -1;
-}
+   readable no matter what image someone sets as the background — baked
+   directly into the backgroundImage value itself (see HubPage.jsx)
+   rather than a separate overlay element, which used to paint underneath
+   this element's own background instead of over it. */
 
 .hub-list {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
-  max-width: 640px;
+  max-width: 1100px;
   margin: 20px auto 0;
 }
 
@@ -763,7 +811,7 @@ header h1 {
    version (a 0.06-opacity fill with no shadow) was very easy to miss
    entirely. This one holds its own regardless of what's behind it. */
 .overall-status {
-  max-width: 640px;
+  max-width: 1100px;
   margin: 24px auto 0;
   padding: 18px 20px;
   border-radius: 16px;
@@ -819,15 +867,15 @@ header h1 {
 
 .hub-row {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  background:
-    radial-gradient(circle at 15% 15%, rgba(238, 21, 21, 0.08), transparent 35%),
+  flex-direction: column;
+  background-color: #131b27; /* floor color if the layered gradient below isn't supported */
+  background-image:
+    radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--row-accent-from, #ee1515) 14%, transparent), transparent 35%),
     linear-gradient(180deg, #1b2735 0%, #0e1620 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 4px solid var(--row-accent-from, #ee1515);
+  border-top: 4px solid var(--row-accent-from, #ee1515);
   border-radius: 16px;
-  padding: 16px 20px;
+  padding: 16px;
   text-decoration: none;
   color: #f5f7fa;
   transition: border-color 0.15s, background 0.15s, transform 0.15s;
@@ -835,17 +883,28 @@ header h1 {
 
 .hub-row:hover {
   border-color: #ffcb05;
-  border-left-color: var(--row-accent-from, #ee1515);
-  transform: translateX(2px);
+  border-top-color: var(--row-accent-from, #ee1515);
+  transform: translateY(-2px);
+}
+
+.hub-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .hub-row-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 0 0 2px #0e1620,
+    0 0 0 3.5px var(--row-accent-from, #ee1515);
 }
 
 .hub-row-icon-placeholder {
@@ -858,20 +917,22 @@ header h1 {
 }
 
 .hub-row-body {
-  flex: 1;
   min-width: 0;
 }
 
 .hub-row-body h2 {
   margin: 0 0 6px;
-  font-size: 1.1rem;
+  font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.005em;
   color: #ffffff;
 }
 
 .hub-row-count {
   margin: 0 0 8px;
   color: #dfe3e8;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 /* Per-game progress fill — reads its color from the row's own CSS vars
@@ -884,15 +945,122 @@ header h1 {
   transition: width 0.2s ease;
 }
 
-/* The completion percentage, promoted to its own bold stat on the right
-   of the row instead of buried inside the "x / y (z%)" line — it's the
-   number you actually glance at. */
+/* The completion percentage — now a badge in the card's top-right corner,
+   next to the icon, instead of a right-aligned stat on a wide row. */
 .hub-row-stat {
   flex-shrink: 0;
   font-family: 'Baloo 2', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: #ffffff;
-  padding-left: 12px;
+}
+
+/* --- Left/right arrows between the hub and its (currently blank) side pages --- */
+
+.hub-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(18, 28, 39, 0.75);
+  color: #f5f7fa;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+
+.hub-arrow:hover {
+  border-color: #ffcb05;
+  background: rgba(18, 28, 39, 0.95);
+}
+
+.hub-arrow-left {
+  left: 16px;
+}
+
+.hub-arrow-left:hover {
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.hub-arrow-right {
+  right: 16px;
+}
+
+.hub-arrow-right:hover {
+  transform: translateY(-50%) translateX(2px);
+}
+
+.hub-arrow-disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+  pointer-events: none; /* purely visual — nothing to click through to yet */
+}
+
+@media (max-width: 640px) {
+  /* Fixed corner arrows would otherwise sit on top of narrow-screen
+     content — pin them to the very edge and shrink slightly instead. */
+  .hub-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .hub-arrow-left {
+    left: 6px;
+  }
+
+  .hub-arrow-right {
+    right: 6px;
+  }
+}
+
+/* --- The blank side pages themselves --- */
+
+.extra-hub-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  margin: 40px auto 0;
+  max-width: 480px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 203, 5, 0.08), transparent 40%),
+    linear-gradient(180deg, #1b2735 0%, #0e1620 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  color: #9aa4af;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* A quick slide-in on arrival, in the direction the page was reached
+   from — this plus the identical background/shell is what makes
+   stepping between the hub and these pages feel continuous instead of
+   like navigating to a different part of the site. */
+@keyframes slide-in-from-right {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-from-left {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-from-right {
+  animation: slide-in-from-right 0.25s ease-out;
+}
+
+.slide-from-left {
+  animation: slide-in-from-left 0.25s ease-out;
 }
 .back-to-top-button {
   position: fixed;

@@ -3,133 +3,133 @@
     "id": 1,
     "dexId": 487,
     "name": "Giratina (Origin Forme)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/giratina-origin.png",
+    "spriteUrl": "sprites/sv/giratina-origin.png",
     "boxId": 1
   },
   {
     "id": 2,
     "dexId": 493,
     "name": "Arceus (Fighting)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-fighting.png",
+    "spriteUrl": "sprites/sv/arceus-fighting.png",
     "boxId": 1
   },
   {
     "id": 3,
     "dexId": 493,
     "name": "Arceus (Flying)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-flying.png",
+    "spriteUrl": "sprites/sv/arceus-flying.png",
     "boxId": 1
   },
   {
     "id": 4,
     "dexId": 493,
     "name": "Arceus (Poison)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-poison.png",
+    "spriteUrl": "sprites/sv/arceus-poison.png",
     "boxId": 1
   },
   {
     "id": 5,
     "dexId": 493,
     "name": "Arceus (Ground)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-ground.png",
+    "spriteUrl": "sprites/sv/arceus-ground.png",
     "boxId": 1
   },
   {
     "id": 6,
     "dexId": 493,
     "name": "Arceus (Rock)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-rock.png",
+    "spriteUrl": "sprites/sv/arceus-rock.png",
     "boxId": 1
   },
   {
     "id": 7,
     "dexId": 493,
     "name": "Arceus (Bug)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-bug.png",
+    "spriteUrl": "sprites/sv/arceus-bug.png",
     "boxId": 1
   },
   {
     "id": 8,
     "dexId": 493,
     "name": "Arceus (Ghost)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-ghost.png",
+    "spriteUrl": "sprites/sv/arceus-ghost.png",
     "boxId": 1
   },
   {
     "id": 9,
     "dexId": 493,
     "name": "Arceus (Steel)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-steel.png",
+    "spriteUrl": "sprites/sv/arceus-steel.png",
     "boxId": 1
   },
   {
     "id": 10,
     "dexId": 493,
     "name": "Arceus (Fire)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-fire.png",
+    "spriteUrl": "sprites/sv/arceus-fire.png",
     "boxId": 1
   },
   {
     "id": 11,
     "dexId": 493,
     "name": "Arceus (Water)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-water.png",
+    "spriteUrl": "sprites/sv/arceus-water.png",
     "boxId": 1
   },
   {
     "id": 12,
     "dexId": 493,
     "name": "Arceus (Grass)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-grass.png",
+    "spriteUrl": "sprites/sv/arceus-grass.png",
     "boxId": 1
   },
   {
     "id": 13,
     "dexId": 493,
     "name": "Arceus (Electric)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-electric.png",
+    "spriteUrl": "sprites/sv/arceus-electric.png",
     "boxId": 1
   },
   {
     "id": 14,
     "dexId": 493,
     "name": "Arceus (Psychic)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-psychic.png",
+    "spriteUrl": "sprites/sv/arceus-psychic.png",
     "boxId": 1
   },
   {
     "id": 15,
     "dexId": 493,
     "name": "Arceus (Ice)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-ice.png",
+    "spriteUrl": "sprites/sv/arceus-ice.png",
     "boxId": 1
   },
   {
     "id": 16,
     "dexId": 493,
     "name": "Arceus (Dragon)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-dragon.png",
+    "spriteUrl": "sprites/sv/arceus-dragon.png",
     "boxId": 1
   },
   {
     "id": 17,
     "dexId": 493,
     "name": "Arceus (Dark)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-dark.png",
+    "spriteUrl": "sprites/sv/arceus-dark.png",
     "boxId": 1
   },
   {
     "id": 18,
     "dexId": 493,
     "name": "Arceus (Fairy)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/arceus-fairy.png",
+    "spriteUrl": "sprites/sv/arceus-fairy.png",
     "boxId": 1
   },
   {
     "id": 19,
     "dexId": 646,
     "name": "Kyurem (White)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/kyurem-white.png",
+    "spriteUrl": "sprites/sv/kyurem-white.png",
     "boxId": 1,
     "category": "fusion"
   },
@@ -137,7 +137,7 @@
     "id": 20,
     "dexId": 800,
     "name": "Necrozma (Dawn Wings)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/necrozma-dawn-wings.png",
+    "spriteUrl": "sprites/sv/necrozma-dawn-wings.png",
     "boxId": 1,
     "category": "fusion"
   },
@@ -145,7 +145,7 @@
     "id": 21,
     "dexId": 898,
     "name": "Calyrex (Shadow Rider)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/scarlet-violet/normal/1x/calyrex-shadow-rider.png",
+    "spriteUrl": "sprites/sv/calyrex-shadow-rider.png",
     "boxId": 1,
     "category": "fusion"
   }

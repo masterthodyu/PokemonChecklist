@@ -27,8 +27,8 @@ export const CHECKLISTS = [
   usumConfig,
   lgeConfig,
   lgpConfig,
-  svConfig,
-  laConfig,
   swshConfig,
+  laConfig,
+  svConfig,
 
 ]
