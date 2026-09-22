@@ -7,7 +7,11 @@
 
 import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import ItemCard from './ItemCard.jsx'
+
+const stylesPath = fileURLToPath(new URL('../styles.css', import.meta.url))
 
 const baseItem = {
   id: 1,
@@ -271,6 +275,23 @@ describe('ItemCard - name shrink-to-fit', () => {
     } finally {
       restore()
     }
+  })
+
+  it("keeps .name's box height in a unit independent of its own font-size", () => {
+    // Regression guard for a real bug: .name's box height was declared
+    // in `em`, which resolves against the element's OWN font-size — the
+    // same element shrinkNameToFit() sets an inline font-size on. That
+    // meant a shrunk (long-name) card's "fixed" box shrank right along
+    // with its font, so it came out visibly shorter than a card next to
+    // it that never needed shrinking — the opposite of a fixed box.
+    // jsdom doesn't apply the real stylesheet (see the tooltip-fade
+    // tests above), so this reads styles.css as text rather than
+    // asserting on a computed style.
+    const css = readFileSync(stylesPath, 'utf8')
+    const nameRule = css.match(/\.name\s*\{[^}]*\}/)?.[0]
+    expect(nameRule, '.name rule not found in styles.css').toBeTruthy()
+    expect(nameRule).not.toMatch(/(?:min|max)-height:\s*[\d.]+em/)
+    expect(nameRule).toMatch(/(?:min|max)-height:\s*[\d.]+rem/)
   })
 })
 

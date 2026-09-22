@@ -575,9 +575,22 @@ header h1 {
      same size regardless of checklist. ItemCard.jsx shrinks this span's
      own font-size to fit most names; line-clamp + ellipsis below is the
      fallback for the rare name still too long even at that shrink's
-     floor. Full name is always available via ItemCard's `title` tooltip. */
-  min-height: 2.4em;
-  max-height: 2.4em;
+     floor. Full name is always available via ItemCard's `title` tooltip.
+
+     Fixed in rem, NOT em: this height used to be 2.4em, but em on a
+     property resolves against the element's OWN font-size — and
+     shrinkNameToFit() (ItemCard.jsx) sets that same element's inline
+     font-size to shrink long names. That meant every shrunk card's
+     "fixed" box shrank right along with its font (2.4em of a smaller
+     font is a smaller box), so a long-name card ended up with a visibly
+     SHORTER name box than a short-name card next to it — the opposite
+     of what a fixed box is supposed to guarantee, and the actual cause
+     of cards coming out different heights. rem is always relative to
+     the root font-size, so it holds steady regardless of this
+     element's own font-size. 2.04rem = 2.4 × .card-info's 0.85rem line
+     length — recalculate this if that 0.85rem ever changes. */
+  min-height: 2.04rem;
+  max-height: 2.04rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
