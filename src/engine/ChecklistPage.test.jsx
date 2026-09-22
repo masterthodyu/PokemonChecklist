@@ -91,6 +91,18 @@ const groupedConfig = {
   ],
 }
 
+// Boxless + grouped — GO's actual shape (generation sidebar, flat list).
+// jumpToGroup only ever sets activeGroup in boxless mode, so this is what
+// exercises the "tap again to clear" label in the search row.
+const boxlessGroupedConfig = {
+  ...groupedConfig,
+  ...boxlessConfig,
+  id: 'test-boxless-grouped',
+  storageKey: 'test-boxless-grouped-key',
+  syncId: 'test-boxless-grouped',
+  groupSets: groupedConfig.groupSets,
+}
+
 // Mirrors Home: two group sets (Generation, then Category) rather than
 // groupedConfig's one — the first goes to .sidebar-left, everything
 // after it stacks into .sidebar-right.
@@ -253,14 +265,14 @@ describe('ChecklistPage - saving progress', () => {
 describe('ChecklistPage - box navigation (boxed checklists)', () => {
   it('opens on box 1 with Previous disabled', () => {
     renderPage()
-    expect(screen.getByText('Box 1', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(1)
     expect(screen.getByRole('button', { name: 'Previous box' })).toBeDisabled()
   })
 
   it('moves to box 2 and disables Next once there are no more boxes', () => {
     renderPage()
     fireEvent.click(screen.getByRole('button', { name: 'Next box' }))
-    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
     expect(screen.getByRole('button', { name: 'Next box' })).toBeDisabled()
     expect(screen.getByRole('button', { name: 'Previous box' })).toBeEnabled()
   })
@@ -272,14 +284,9 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     expect(container.querySelectorAll('.card')).toHaveLength(5)
   })
 
-  it('keeps an accessible name on the jump field even with no visible label text', () => {
-    // The "Jump to box" text used to sit visibly above the input inside
-    // a <label>; compacted out (per the mockup) in favor of Box N/the
-    // Previous/Next buttons already making the input's purpose obvious
-    // — but it's still an aria-label now rather than nothing, so this
-    // guards against that accessible name silently disappearing too.
+  it('shows a visible "Box" label without also duplicating the full text as its accessible name', () => {
     renderPage()
-    expect(screen.queryByText('Jump to box')).toBeNull()
+    expect(screen.getByText('Box', { selector: '.box-jump-label' })).toBeInTheDocument()
     expect(screen.getByRole('spinbutton', { name: 'Jump to box' })).toBeInTheDocument()
   })
 
@@ -288,7 +295,7 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     const jump = screen.getByRole('spinbutton')
     fireEvent.change(jump, { target: { value: '99' } })
     fireEvent.blur(jump)
-    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
   })
 
   it('does not commit the jump field until blur/Enter, so deleting a digit mid-edit does not snap back', () => {
@@ -296,27 +303,60 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     const jump = screen.getByRole('spinbutton')
     fireEvent.change(jump, { target: { value: '' } })
     expect(jump.value).toBe('')
-    expect(screen.getByText('Box 1', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByText('#001 - #030', { selector: '.box-range' })).toBeInTheDocument() // still box 1 underneath
     fireEvent.change(jump, { target: { value: '2' } })
     fireEvent.blur(jump)
-    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
   })
 
   it('opens on the offset box number when boxNumberOffset is set', () => {
     renderPage(offsetConfig)
-    expect(screen.getByText('Box 71', { selector: '.box-label' })).toBeInTheDocument()
     expect(screen.getByRole('spinbutton')).toHaveValue(71)
   })
 
   it('keeps the offset through Next/Previous and the jump field', () => {
     renderPage(offsetConfig)
     fireEvent.click(screen.getByRole('button', { name: 'Next box' }))
-    expect(screen.getByText('Box 72', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(72)
 
     const jump = screen.getByRole('spinbutton')
     fireEvent.change(jump, { target: { value: '71' } })
     fireEvent.blur(jump)
-    expect(screen.getByText('Box 71', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(71)
+  })
+
+  it('navigates boxes with arrow keys and PageUp/PageDown', () => {
+    renderPage()
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(1)
+    fireEvent.keyDown(window, { key: 'PageDown' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
+    fireEvent.keyDown(window, { key: 'PageUp' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(1)
+  })
+
+  it('clamps keyboard navigation at the first/last box, same as the buttons', () => {
+    renderPage()
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(1)
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
+  })
+
+  it('ignores arrow keys while typing in the search or jump-to-box field', () => {
+    renderPage()
+    const search = screen.getByPlaceholderText('Search by name or number...')
+    search.focus()
+    fireEvent.keyDown(search, { key: 'ArrowRight' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(1)
+
+    const jump = screen.getByRole('spinbutton')
+    jump.focus()
+    fireEvent.keyDown(jump, { key: 'ArrowRight' })
+    expect(screen.getByRole('spinbutton')).toHaveValue(1)
   })
 
   it('renders no box controls at all for a boxless checklist', () => {
@@ -325,14 +365,39 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     expect(screen.queryByRole('spinbutton')).toBeNull()
   })
 
+  it('does not wire up keyboard box navigation for a boxless checklist', () => {
+    renderPage(boxlessConfig)
+    fireEvent.keyDown(window, { key: 'ArrowRight' })
+    // No box label to check — this just confirms no crash from the
+    // listener firing (or not firing) against boxless state.
+    expect(screen.getByRole('heading', { name: 'Test Boxless Checklist' })).toBeInTheDocument()
+  })
+
+  it('shows nothing to the left of the search bar when no group filter is active', () => {
+    renderPage()
+    expect(document.querySelector('.box-header > span:not([class])')).toBeNull()
+  })
+
+  it('shows the active group filter label left of the search bar, and clears it on nothing otherwise', () => {
+    const { container } = renderPage(boxlessGroupedConfig)
+    expect(document.querySelector('.box-header > span:not([class])')).toBeNull()
+
+    const sidebar = container.querySelector('.sidebar-left')
+    fireEvent.click(within(sidebar).getByText('Shadow'))
+    expect(screen.getByText('Shadow (tap it again in the sidebar to clear)')).toBeInTheDocument()
+
+    fireEvent.click(within(sidebar).getByText('Shadow')) // toggle off
+    expect(document.querySelector('.box-header > span:not([class])')).toBeNull()
+  })
+
   it('renders no Previous/Next/jump controls when a boxed checklist only has one box', () => {
     renderPage(singleBoxConfig)
     expect(screen.queryByRole('button', { name: 'Previous box' })).toBeNull()
     expect(screen.queryByRole('button', { name: 'Next box' })).toBeNull()
     expect(screen.queryByRole('spinbutton')).toBeNull()
-    // The box-panel's own "Box 1" heading is a separate, simpler label —
-    // still useful on its own, so it stays even with nav gone.
-    expect(screen.getByText('Box 1', { selector: '.box-header span' })).toBeInTheDocument()
+    // The checklist's own <h1> already says its name — nothing repeats
+    // it here, same as any other checklist with no active group filter.
+    expect(document.querySelector('.box-header > span:not([class])')).toBeNull()
   })
 
   it('reverts the jump field to the box already showing, even when the clamped target is the same box (not just a different one)', () => {
@@ -347,7 +412,6 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     const jump = screen.getByRole('spinbutton')
     fireEvent.change(jump, { target: { value: '99' } })
     fireEvent.blur(jump)
-    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
     expect(jump).toHaveValue(2)
   })
 })
@@ -367,7 +431,7 @@ describe('ChecklistPage - search', () => {
     fireEvent.change(screen.getByPlaceholderText(/Search by name or number/), {
       target: { value: 'Testmon33' },
     })
-    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
   })
 
   it('clears with the × button', () => {
@@ -503,10 +567,10 @@ describe('ChecklistPage - the group sidebar', () => {
     // 'base' starts at Testmon2 (box 1), so send it to a group that does
     // move: switch to box 2 first, then click back to Shadow (box 1).
     fireEvent.click(screen.getByRole('button', { name: 'Next box' }))
-    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(2)
 
     fireEvent.click(within(sidebar).getByText('Shadow'))
-    expect(screen.getByText('Box 1', { selector: '.box-label' })).toBeInTheDocument()
+    expect(screen.getByRole('spinbutton')).toHaveValue(1)
   })
 
   it('puts only the first group set in .sidebar-left when there are several', () => {

@@ -300,6 +300,29 @@ function ChecklistPage({ config }) {
   const totalBoxes = isBoxed ? Math.max(...data.map(p => p.boxId)) : 0
   const currentBoxId = boxIndex + 1
 
+  // Arrow keys / PageUp/PageDown move between boxes, same as the
+  // Previous/Next buttons — skipped while typing in an input so it
+  // doesn't fight with search or the jump-to-box field.
+  useEffect(() => {
+    if (!isBoxed) return
+
+    function handleKeyDown(e) {
+      const tag = document.activeElement?.tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return
+
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault()
+        setBoxIndex(prev => Math.max(prev - 1, 0))
+      } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault()
+        setBoxIndex(prev => Math.min(prev + 1, totalBoxes - 1))
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isBoxed, totalBoxes])
+
   // Keeps the jump field in sync when boxIndex changes from anywhere
   // else (Previous/Next, sidebar jump, search landing on a box).
   useEffect(() => {
@@ -484,17 +507,8 @@ function ChecklistPage({ config }) {
               </button>
 
               <div className="box-meta">
-                <span className="box-label">Box {boxIndex + 1 + boxNumberOffset}</span>
-                <span className="box-range">
-                  #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
-                </span>
-                {/* No visible "Jump to box" label anymore — compacted
-                    out, per the mockup, since "Box N" and the
-                    Previous/Next buttons right next to it already make
-                    what this input does obvious. Still labeled for
-                    screen readers via aria-label instead of a sighted
-                    text line, so nothing is lost, just not shown. */}
                 <div className="box-jump">
+                  <span className="box-jump-label">Box</span>
                   <input
                     aria-label="Jump to box"
                     type="number"
@@ -530,6 +544,9 @@ function ChecklistPage({ config }) {
                     }}
                   />
                 </div>
+                <span className="box-range">
+                  #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
+                </span>
               </div>
 
               <button
@@ -544,13 +561,17 @@ function ChecklistPage({ config }) {
 
           <div className="box-panel">
             <div className="box-header">
-              <span>
-                {isBoxed
-                  ? `Box ${boxIndex + 1 + boxNumberOffset}`
-                  : activeGroup
-                    ? `${activeGroup.groupLabel} (tap it again in the sidebar to clear)`
-                    : title}
-              </span>
+              {/* The checklist title already has its own <h1> above, and
+                  box-controls already shows "Box N" for multi-box
+                  checklists — repeating either here left the search bar
+                  fighting for space it doesn't need to. This only shows
+                  up when a sidebar group filter is actually active, since
+                  that's not indicated anywhere else and "tap again to
+                  clear" is real information, not a repeat of something
+                  already on the page. */}
+              {activeGroup && (
+                <span>{activeGroup.groupLabel} (tap it again in the sidebar to clear)</span>
+              )}
 
               {/* Moved here from its own row above the box controls —
                   living right next to what it's actually filtering

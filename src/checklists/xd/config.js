@@ -4,7 +4,7 @@ export default {
   title: 'Pokémon XD: Gale of Darkness',
   path: '/xd',
   icon: 'icons/xd.png',
-  backgroundImage: null,
+  backgroundImage: 'backgrounds/xdbg.png',
   accentFrom: '#cfdced',
   accentTo: '#604e82',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }

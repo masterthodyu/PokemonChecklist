@@ -4,7 +4,7 @@ export default {
   title: 'Pokémon Omega Ruby & Alpha Saphire',
   path: '/oras',
   icon: 'icons/oras.png',
-  backgroundImage: null,
+  backgroundImage: 'backgrounds/orasbg.png',
   accentFrom: '#1251a2',
   accentTo: '#e60f0f',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }
