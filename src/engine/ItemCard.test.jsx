@@ -8,10 +8,18 @@
 import { describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import ItemCard from './ItemCard.jsx'
 
-const stylesPath = fileURLToPath(new URL('../styles.css', import.meta.url))
+// Deliberately NOT `fileURLToPath(new URL('../styles.css', import.meta.url))`:
+// under `environment: 'jsdom'` (vite.config.js), jsdom polyfills its own
+// global `URL`, shadowing Node's — and a URL built with jsdom's
+// implementation doesn't satisfy fileURLToPath's expectations the same
+// way Node's own URL does, throwing "The URL must be of scheme file"
+// even though the path looks completely normal. `__dirname` sidesteps
+// this: Vitest's vite-node runtime injects it as a CJS-style
+// compatibility global, unaffected by jsdom's URL polyfill.
+const stylesPath = join(__dirname, '../styles.css')
 
 const baseItem = {
   id: 1,
@@ -237,18 +245,37 @@ describe('ItemCard - number display', () => {
 
 describe('ItemCard - name shrink-to-fit', () => {
   // jsdom doesn't actually lay text out, so scrollHeight/clientHeight are
-  // both 0 by default — these tests fake real layout numbers on
-  // HTMLElement.prototype so shrinkNameToFit's overflow check has
-  // something real to react to, then restore the originals afterward so
-  // other tests in this file aren't affected.
+  // both 0 by default — these tests fake real layout numbers so
+  // shrinkNameToFit's overflow check has something real to react to,
+  // then restore the originals afterward so other tests in this file
+  // aren't affected.
+  //
+  // Mocked on Element.prototype, not HTMLElement.prototype: jsdom (like
+  // real browsers) defines scrollHeight/clientHeight as part of the
+  // Element interface, not an HTMLElement-specific one — SVG elements
+  // have them too. HTMLElement.prototype has no OWN descriptor for
+  // either, only an inherited one, so getOwnPropertyDescriptor(
+  // HTMLElement.prototype, ...) returns undefined — and restoring a
+  // property with an undefined descriptor throws. restoreOne() below
+  // handles that: if there was nothing of its own to save, it deletes
+  // the mock instead of "restoring" a descriptor that never existed,
+  // letting the real inherited getter show through again.
+  function restoreOne(target, prop, original) {
+    if (original) {
+      Object.defineProperty(target, prop, original)
+    } else {
+      delete target[prop]
+    }
+  }
+
   function mockLayout({ scrollHeight, clientHeight }) {
-    const originalScrollHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'scrollHeight')
-    const originalClientHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientHeight')
-    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', { configurable: true, get: () => scrollHeight })
-    Object.defineProperty(HTMLElement.prototype, 'clientHeight', { configurable: true, get: () => clientHeight })
+    const originalScrollHeight = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollHeight')
+    const originalClientHeight = Object.getOwnPropertyDescriptor(Element.prototype, 'clientHeight')
+    Object.defineProperty(Element.prototype, 'scrollHeight', { configurable: true, get: () => scrollHeight })
+    Object.defineProperty(Element.prototype, 'clientHeight', { configurable: true, get: () => clientHeight })
     return () => {
-      Object.defineProperty(HTMLElement.prototype, 'scrollHeight', originalScrollHeight)
-      Object.defineProperty(HTMLElement.prototype, 'clientHeight', originalClientHeight)
+      restoreOne(Element.prototype, 'scrollHeight', originalScrollHeight)
+      restoreOne(Element.prototype, 'clientHeight', originalClientHeight)
     }
   }
 
