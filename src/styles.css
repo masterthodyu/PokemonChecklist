@@ -134,15 +134,26 @@ header h1 {
   color: #ffcb05;
 }
 
-.controls {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+/* Lives inside .box-header now (search-by-name/number, right next to
+   what it's filtering) rather than its own centered row above the box
+   controls — .controls, the old wrapper for that standalone row, is
+   gone; every visual rule that used to hang off it now lives directly
+   on .search-wrapper/.search-wrapper input instead. min(220px, 100%)
+   is deliberately narrower than the old min(420px, 100%): .box-header
+   already has a label on one side and the shown/caught count plus two
+   buttons on the other, so this needs to be the one flexible-width
+   piece that yields first, not the widest thing in the row. */
+.search-wrapper {
+  position: relative;
+  flex: 1 1 220px;
+  min-width: 0;
+  max-width: 420px;
 }
 
-.controls input {
-  width: min(100%, 420px);
+.search-wrapper input {
+  width: 100%;
   padding: 10px 14px;
+  padding-right: 36px; /* room for the clear button so it never overlaps typed text */
   border-radius: 10px;
   border: 1px solid #d1d1d6;
   background: #111111;
@@ -150,18 +161,8 @@ header h1 {
   font-size: 1rem;
 }
 
-.controls input::placeholder {
+.search-wrapper input::placeholder {
   color: #b5bac1;
-}
-
-.search-wrapper {
-  position: relative;
-  width: min(100%, 420px);
-}
-
-.search-wrapper input {
-  width: 100%;
-  padding-right: 36px; /* room for the clear button so it never overlaps typed text */
 }
 
 .search-clear-button {
@@ -192,12 +193,20 @@ header h1 {
   margin-bottom: 20px;
 }
 
+/* `end` within column 1 means "as far right as column 1 allows" — i.e.
+   right up against the centered Box/Jump block, not the row's actual
+   left edge. `start` swaps that: pins Previous to column 1's own left
+   edge (the row's true outer edge) and Next to column 3's own right
+   edge, spreading them out to flank the whole row — and, since this row
+   shares the same width as .box-panel below it, to line up with that
+   panel's edges too — instead of both buttons clustering next to the
+   center block with a lot of dead space further out on either side. */
 .box-controls .nav-button:first-of-type {
-  justify-self: end;
+  justify-self: start;
 }
 
 .box-controls .nav-button:last-of-type {
-  justify-self: start;
+  justify-self: end;
 }
 
 @media (max-width: 500px) {
@@ -234,15 +243,14 @@ header h1 {
   min-width: 180px;
 }
 
+/* Just wraps the jump-to-box input now — the "Jump to box" text that
+   used to sit above it (font-weight/size/color, the column layout, the
+   gap between the two) is gone, compacted out along with the spacing
+   that came with it. margin-top trimmed from 6px to 2px for the same
+   reason: less between #001-#030 and the input now that there's no
+   label line between them to breathe around. */
 .box-jump {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: #dfe3e8;
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 .box-jump input {
@@ -743,6 +751,24 @@ header h1 {
 
   .sidebar {
     position: static;
+  }
+
+  /* Grid's default is source order — left sidebar, then main content,
+     then right sidebar — which on a single mobile column would bury the
+     right sidebar below a whole box of cards. `order` (grid items honor
+     it same as flex items) puts both sidebars back-to-back above the
+     content instead, the same relative arrangement two group sets had
+     before they were split into separate left/right sidebars. */
+  .sidebar-left {
+    order: 1;
+  }
+
+  .sidebar-right {
+    order: 2;
+  }
+
+  .main-content {
+    order: 3;
   }
 }
 /* --- Hub page --- */

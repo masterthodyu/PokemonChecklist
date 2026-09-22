@@ -91,6 +91,26 @@ const groupedConfig = {
   ],
 }
 
+// Mirrors Home: two group sets (Generation, then Category) rather than
+// groupedConfig's one — the first goes to .sidebar-left, everything
+// after it stacks into .sidebar-right.
+const twoGroupSetsConfig = {
+  ...groupedConfig,
+  id: 'test-two-group-sets',
+  storageKey: 'test-two-group-sets-key',
+  syncId: 'test-two-group-sets',
+  groupSets: [
+    {
+      label: 'Generation',
+      groups: [{ key: 'gen', label: 'Gen 1' }],
+      filter: () => true,
+      matches: () => true,
+      displayLabel: g => g.label,
+    },
+    ...groupedConfig.groupSets, // 'Category', as above
+  ],
+}
+
 // Mirrors Master Dex's boxNumberOffset (masterdex/config.js).
 const offsetConfig = {
   ...boxedConfig,
@@ -250,6 +270,17 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     expect(container.querySelectorAll('.card')).toHaveLength(30)
     fireEvent.click(screen.getByRole('button', { name: 'Next box' }))
     expect(container.querySelectorAll('.card')).toHaveLength(5)
+  })
+
+  it('keeps an accessible name on the jump field even with no visible label text', () => {
+    // The "Jump to box" text used to sit visibly above the input inside
+    // a <label>; compacted out (per the mockup) in favor of Box N/the
+    // Previous/Next buttons already making the input's purpose obvious
+    // — but it's still an aria-label now rather than nothing, so this
+    // guards against that accessible name silently disappearing too.
+    renderPage()
+    expect(screen.queryByText('Jump to box')).toBeNull()
+    expect(screen.getByRole('spinbutton', { name: 'Jump to box' })).toBeInTheDocument()
   })
 
   it('clamps the jump-to-box field instead of landing on a box that does not exist', () => {
@@ -476,6 +507,45 @@ describe('ChecklistPage - the group sidebar', () => {
 
     fireEvent.click(within(sidebar).getByText('Shadow'))
     expect(screen.getByText('Box 1', { selector: '.box-label' })).toBeInTheDocument()
+  })
+
+  it('puts only the first group set in .sidebar-left when there are several', () => {
+    const { container } = renderPage(twoGroupSetsConfig)
+    const left = container.querySelector('.sidebar-left')
+    expect(left).not.toBeNull()
+    expect(within(left).getByText('Generation')).toBeInTheDocument()
+    expect(within(left).queryByText('Category')).toBeNull()
+  })
+
+  it('stacks every group set after the first into .sidebar-right', () => {
+    const { container } = renderPage(twoGroupSetsConfig)
+    const right = container.querySelector('.sidebar-right')
+    expect(right).not.toBeNull()
+    expect(within(right).getByText('Category')).toBeInTheDocument()
+    expect(within(right).queryByText('Generation')).toBeNull()
+  })
+
+  it('renders no .sidebar-right at all with only one group set', () => {
+    // groupedConfig has exactly one group set ('Category') — confirms
+    // the right sidebar isn't left behind as an empty shell when there's
+    // nothing to put in it.
+    const { container } = renderPage(groupedConfig)
+    expect(container.querySelector('.sidebar-right')).toBeNull()
+  })
+})
+
+describe('ChecklistPage - search bar placement', () => {
+  it('lives inside .box-header, next to the box stats it filters', () => {
+    // Regression guard: the search input used to sit in its own row
+    // above the filter buttons: moved into .box-header so it's visually
+    // grouped with what it actually affects (this box's shown/caught
+    // count and Select All/Unselect All) instead of being separated
+    // from it by the All/Caught/Not Caught buttons and the box
+    // navigator in between.
+    const { container } = renderPage()
+    const input = screen.getByPlaceholderText(/Search by name or number/)
+    expect(input.closest('.box-header')).not.toBeNull()
+    expect(container.querySelector('.controls')).toBeNull()
   })
 })
 

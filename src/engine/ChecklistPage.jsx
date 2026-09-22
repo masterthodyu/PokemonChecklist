@@ -387,19 +387,25 @@ function ChecklistPage({ config }) {
       style={hasBackground ? { backgroundImage: `linear-gradient(rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.72)), url(${backgroundImageUrl})` } : undefined}
     >
       <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
-        {/* Only rendered when the config actually defines groups. */}
+        {/* First group set (Generation, for Home) gets the left sidebar
+            to itself; everything after it (Category, and any further
+            sets a future checklist adds) stacks into the right sidebar
+            instead — matching the two-asides-either-side-of-content
+            layout the CSS grid (.layout's 200px/1fr/200px columns) was
+            already set up for, previously left with the right column
+            unused. Position is purely "first vs rest," not tied to any
+            set's name, so this works for a checklist with only one
+            group set (right sidebar just doesn't render) same as one
+            with three or more. */}
         {groupStats.length > 0 && (
           <aside className="sidebar sidebar-left">
-            {groupStats.map(set => (
-              <GroupProgress
-                key={set.label}
-                title={set.label}
-                groups={set.groups}
-                onSelect={g => jumpToGroup(set, g)}
-                isBoxed={isBoxed}
-                boxNumberOffset={boxNumberOffset}
-              />
-            ))}
+            <GroupProgress
+              title={groupStats[0].label}
+              groups={groupStats[0].groups}
+              onSelect={g => jumpToGroup(groupStats[0], g)}
+              isBoxed={isBoxed}
+              boxNumberOffset={boxNumberOffset}
+            />
           </aside>
         )}
 
@@ -443,30 +449,6 @@ function ChecklistPage({ config }) {
             )}
           </header>
 
-          <div className="controls">
-            <div className="search-wrapper">
-              <input
-                type="text"
-                placeholder="Search by name or number..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                onKeyDown={e => {
-                  if (e.key === 'Escape') setSearch('')
-                }}
-              />
-              {search && (
-                <button
-                  className="search-clear-button"
-                  onClick={() => setSearch('')}
-                  aria-label="Clear search"
-                  title="Clear search"
-                >
-                  ×
-                </button>
-              )}
-            </div>
-          </div>
-
           <div className="filter-buttons">
             <button
               className={showOnly === 'all' ? 'active' : ''}
@@ -506,9 +488,15 @@ function ChecklistPage({ config }) {
                 <span className="box-range">
                   #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
                 </span>
-                <label className="box-jump">
-                  <span>Jump to box</span>
+                {/* No visible "Jump to box" label anymore — compacted
+                    out, per the mockup, since "Box N" and the
+                    Previous/Next buttons right next to it already make
+                    what this input does obvious. Still labeled for
+                    screen readers via aria-label instead of a sighted
+                    text line, so nothing is lost, just not shown. */}
+                <div className="box-jump">
                   <input
+                    aria-label="Jump to box"
                     type="number"
                     min={1 + boxNumberOffset}
                     max={totalBoxes + boxNumberOffset}
@@ -541,7 +529,7 @@ function ChecklistPage({ config }) {
                       if (e.key === 'Enter') e.target.blur() // commits via onBlur
                     }}
                   />
-                </label>
+                </div>
               </div>
 
               <button
@@ -563,6 +551,35 @@ function ChecklistPage({ config }) {
                     ? `${activeGroup.groupLabel} (tap it again in the sidebar to clear)`
                     : title}
               </span>
+
+              {/* Moved here from its own row above the box controls —
+                  living right next to what it's actually filtering
+                  (this box's own count and Select All/Unselect All)
+                  reads more directly than being separated from it by
+                  the All/Caught/Not Caught buttons and the box
+                  navigator in between. */}
+              <div className="search-wrapper">
+                <input
+                  type="text"
+                  placeholder="Search by name or number..."
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  onKeyDown={e => {
+                    if (e.key === 'Escape') setSearch('')
+                  }}
+                />
+                {search && (
+                  <button
+                    className="search-clear-button"
+                    onClick={() => setSearch('')}
+                    aria-label="Clear search"
+                    title="Clear search"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+
               <span className="box-header-right">
                 {visibleList.length} / {scopedList.length} shown
                 <span className="box-header-caught">
@@ -622,6 +639,26 @@ function ChecklistPage({ config }) {
             )}
           </div>
         </main>
+
+        {/* Sits after <main> in the DOM (not right after the left aside)
+            specifically so grid auto-placement lands it in the layout's
+            third column, not doubled up in the first. See the comment
+            by sidebar-left above for why it's "everything past the
+            first set," not a specific named set. */}
+        {groupStats.length > 1 && (
+          <aside className="sidebar sidebar-right">
+            {groupStats.slice(1).map(set => (
+              <GroupProgress
+                key={set.label}
+                title={set.label}
+                groups={set.groups}
+                onSelect={g => jumpToGroup(set, g)}
+                isBoxed={isBoxed}
+                boxNumberOffset={boxNumberOffset}
+              />
+            ))}
+          </aside>
+        )}
       </div>
 
       {!isBoxed && showBackToTop && (
