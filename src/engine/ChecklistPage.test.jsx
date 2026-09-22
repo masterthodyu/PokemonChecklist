@@ -100,6 +100,16 @@ const offsetConfig = {
   boxNumberOffset: 70,
 }
 
+// Mirrors LGP/LGE: boxed, but only ever the one box (e.g. a single
+// non-transferable partner Pokémon).
+const singleBoxConfig = {
+  ...boxedConfig,
+  id: 'test-single-box',
+  storageKey: 'test-single-box-key',
+  syncId: 'test-single-box',
+  data: makeItems(1),
+}
+
 function renderPage(config = boxedConfig) {
   return render(
     <MemoryRouter>
@@ -282,6 +292,32 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     renderPage(boxlessConfig)
     expect(screen.queryByRole('button', { name: 'Next box' })).toBeNull()
     expect(screen.queryByRole('spinbutton')).toBeNull()
+  })
+
+  it('renders no Previous/Next/jump controls when a boxed checklist only has one box', () => {
+    renderPage(singleBoxConfig)
+    expect(screen.queryByRole('button', { name: 'Previous box' })).toBeNull()
+    expect(screen.queryByRole('button', { name: 'Next box' })).toBeNull()
+    expect(screen.queryByRole('spinbutton')).toBeNull()
+    // The box-panel's own "Box 1" heading is a separate, simpler label —
+    // still useful on its own, so it stays even with nav gone.
+    expect(screen.getByText('Box 1', { selector: '.box-header span' })).toBeInTheDocument()
+  })
+
+  it('reverts the jump field to the box already showing, even when the clamped target is the same box (not just a different one)', () => {
+    // Regression test: the field used to only get corrected back by an
+    // effect that watches boxIndex — which never re-fires when the
+    // clamped result equals the box you were already on, so typing an
+    // out-of-range number and clicking away left the field stuck showing
+    // it (e.g. typing "31" on a single-box checklist, or landing back on
+    // the box you started from).
+    renderPage()
+    fireEvent.click(screen.getByRole('button', { name: 'Next box' })) // -> box 2
+    const jump = screen.getByRole('spinbutton')
+    fireEvent.change(jump, { target: { value: '99' } })
+    fireEvent.blur(jump)
+    expect(screen.getByText('Box 2', { selector: '.box-label' })).toBeInTheDocument()
+    expect(jump).toHaveValue(2)
   })
 })
 

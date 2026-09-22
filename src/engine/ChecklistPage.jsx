@@ -45,6 +45,18 @@ function ChecklistPage({ config }) {
   // HubPage.jsx) — a checklist with no backgroundImage set just keeps the
   // plain dark background every page already has. Nothing to opt into.
   const hasBackground = Boolean(backgroundImage)
+  // The dark tint has to be composited into this SAME background-image
+  // value, as an extra gradient layer, rather than a separate darkened
+  // element stacked on top — .app is `position: relative` (needed below),
+  // which makes its own background paint above a plain z-index:-1
+  // overlay in the stacking order, silently hiding the tint entirely
+  // behind the photo. Baking it into one layered background sidesteps
+  // that: a layer always paints over the layers listed after it.
+  const backgroundImageUrl = hasBackground
+    ? backgroundImage.startsWith('http')
+      ? backgroundImage
+      : `${import.meta.env.BASE_URL}${backgroundImage}`
+    : null
 
   // --- All of this checklist's "memory" lives here as state ---
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
@@ -372,7 +384,7 @@ function ChecklistPage({ config }) {
   return (
     <div
       className={`app ${hasBackground ? 'checklist-has-background' : ''}`}
-      style={hasBackground ? { backgroundImage: `url(${backgroundImage})` } : undefined}
+      style={hasBackground ? { backgroundImage: `linear-gradient(rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.72)), url(${backgroundImageUrl})` } : undefined}
     >
       <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
         {/* Only rendered when the config actually defines groups. */}
@@ -455,7 +467,31 @@ function ChecklistPage({ config }) {
             </div>
           </div>
 
-          {isBoxed && (
+          <div className="filter-buttons">
+            <button
+              className={showOnly === 'all' ? 'active' : ''}
+              onClick={() => setShowOnly('all')}
+            >
+              All
+            </button>
+            <button
+              className={showOnly === 'caught' ? 'active' : ''}
+              onClick={() => setShowOnly('caught')}
+            >
+              Caught
+            </button>
+            <button
+              className={showOnly === 'uncaught' ? 'active' : ''}
+              onClick={() => setShowOnly('uncaught')}
+            >
+              Not Caught
+            </button>
+          </div>
+
+          {/* A single box has nowhere to navigate to — Previous/Next would
+              both always be disabled and the jump field could only ever
+              hold the one valid number, so none of it earns its space. */}
+          {isBoxed && totalBoxes > 1 && (
             <div className="box-controls">
               <button
                 className="nav-button"
@@ -486,7 +522,17 @@ function ChecklistPage({ config }) {
                     onBlur={() => {
                       const nextBox = Number(boxInputValue) - boxNumberOffset
                       if (boxInputValue !== '' && !Number.isNaN(nextBox)) {
-                        setBoxIndex(Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1))
+                        const clampedIndex = Math.min(Math.max(nextBox - 1, 0), totalBoxes - 1)
+                        setBoxIndex(clampedIndex)
+                        // Set the field's own display directly, rather than
+                        // relying only on the boxIndex-watching effect below
+                        // — that effect only re-runs when boxIndex actually
+                        // CHANGES. Typing an out-of-range number that clamps
+                        // back to the box already showing (e.g. "31" on a
+                        // single-box checklist, already on box 1) leaves
+                        // boxIndex unchanged, so nothing would otherwise ever
+                        // tell the field to stop showing "31".
+                        setBoxInputValue(String(clampedIndex + 1 + boxNumberOffset))
                       } else {
                         setBoxInputValue(String(boxIndex + 1 + boxNumberOffset)) // revert on invalid/empty
                       }
@@ -507,27 +553,6 @@ function ChecklistPage({ config }) {
               </button>
             </div>
           )}
-
-          <div className="filter-buttons">
-            <button
-              className={showOnly === 'all' ? 'active' : ''}
-              onClick={() => setShowOnly('all')}
-            >
-              All
-            </button>
-            <button
-              className={showOnly === 'caught' ? 'active' : ''}
-              onClick={() => setShowOnly('caught')}
-            >
-              Caught
-            </button>
-            <button
-              className={showOnly === 'uncaught' ? 'active' : ''}
-              onClick={() => setShowOnly('uncaught')}
-            >
-              Not Caught
-            </button>
-          </div>
 
           <div className="box-panel">
             <div className="box-header">

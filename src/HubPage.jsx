@@ -26,6 +26,15 @@ function readLocalCheckedMap(storageKey) {
 // shows instead, so nothing looks broken while you're still deciding.
 function HubPage({ checklists }) {
   const hasBackground = Boolean(HUB_CONFIG.backgroundImage)
+  // Composited into one layered background-image, not a separate overlay
+  // element — see the matching comment in ChecklistPage.jsx for why a
+  // separate z-index:-1 overlay silently paints underneath this element's
+  // own background instead of over it.
+  const backgroundImageUrl = hasBackground
+    ? HUB_CONFIG.backgroundImage.startsWith('http')
+      ? HUB_CONFIG.backgroundImage
+      : `${import.meta.env.BASE_URL}${HUB_CONFIG.backgroundImage}`
+    : null
 
   // Checked-item counts per checklist, keyed by storageKey. Starts from
   // whatever's already saved locally — same as before, so there's no
@@ -94,8 +103,8 @@ function HubPage({ checklists }) {
 
   return (
     <div
-      className={`app hub ${hasBackground ? 'hub-has-background' : ''}`}
-      style={hasBackground ? { backgroundImage: `url(${HUB_CONFIG.backgroundImage})` } : undefined}
+      className={`app hub`}
+      style={hasBackground ? { backgroundImage: `linear-gradient(rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.72)), url(${backgroundImageUrl})` } : undefined}
     >
       {/* Blank pages for now — see ExtraHubPage.jsx. Same background,
           same shell, so stepping through them doesn't feel like leaving
