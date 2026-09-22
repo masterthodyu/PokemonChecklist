@@ -3,7 +3,7 @@
     "id": 1,
     "dexId": 25,
     "name": "Pikachu (Partner)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/lets-go-pikachu-eevee/normal/pikachu-lets-go.png",
+    "spriteUrl": "sprites/lgp/pikachu-lets-go.png",
     "boxId": 1
   }
 ]

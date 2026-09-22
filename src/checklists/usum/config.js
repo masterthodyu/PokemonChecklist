@@ -4,8 +4,7 @@ export default {
   title: 'Pokémon Ultra Sun & Ultra Moon',
   path: '/usum',
   icon: 'icons/usum.png',
-  // Sun-gold to moon-indigo — the actual duality the two versions are
-  // named for.
+  backgroundImage: 'backgrounds/alola.jpg',
   accentFrom: '#f5a623',
   accentTo: '#3b5bdb',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }

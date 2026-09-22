@@ -6,6 +6,7 @@ export default {
   title: 'Pokémon Home',
   path: '/home',
   icon: 'icons/home.png',
+  backgroundImage: null,
   accentFrom: '#ee1515',
   accentTo: '#ffcb05',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }

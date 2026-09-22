@@ -10939,7 +10939,7 @@
     "id": 1368,
     "dexId": 705,
     "name": "Hisuian Sliggoo",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sliggoo-hisuian.png",
+    "spriteUrl": "sprites/home/sliggoo-hisuian.png",
     "boxId": 53,
     "category": "hisuian"
   },
@@ -12459,7 +12459,7 @@
     "id": 1559,
     "dexId": 705,
     "name": "Hisuian Sliggoo (Alpha)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sliggoo-hisuian.png",
+    "spriteUrl": "sprites/home/sliggoo-hisuian.png",
     "boxId": 63,
     "category": "alpha"
   },

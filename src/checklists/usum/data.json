@@ -3,28 +3,28 @@
     "id": 1,
     "dexId": 20,
     "name": "Totem Marowak (Alolan Form)",
-    "spriteUrl": "https://img.pokemondb.net/sprites/sun-moon/normal/1x/marowak-alolan.png",
+    "spriteUrl": "sprites/usum/marowak-alolan.png",
     "boxId": 1
   },
   {
     "id": 2,
     "dexId": 752,
     "name": "Totem Araquanid",
-    "spriteUrl": "https://img.pokemondb.net/sprites/sun-moon/normal/1x/araquanid.png",
+    "spriteUrl": "sprites/usum/araquanid.png",
     "boxId": 1
   },
   {
     "id": 3,
     "dexId": 777,
     "name": "Totem Togedemaru",
-    "spriteUrl": "https://img.pokemondb.net/sprites/sun-moon/normal/1x/togedemaru.png",
+    "spriteUrl": "sprites/usum/togedemaru.png",
     "boxId": 1
   },
   {
     "id": 4,
     "dexId": 743,
     "name": "Totem Ribombee",
-    "spriteUrl": "https://img.pokemondb.net/sprites/ultra-sun-ultra-moon/normal/1x/ribombee.png",
+    "spriteUrl": "sprites/usum/ribombee.png",
     "boxId": 1
   }
 ]

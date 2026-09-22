@@ -3,7 +3,8 @@ export default {
   id: 'la',
   title: 'Pokémon Legends Arceus',
   path: '/la',
-  icon: 'https://cdn2.steamgriddb.com/icon_thumb/6b36917c087c21e48531ea1309ac0147.png',
+  icon: 'icons/legends-arceus.png',
+  backgroundImage: null,
   accentFrom: '#cfdced',
   accentTo: '#74824e',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }

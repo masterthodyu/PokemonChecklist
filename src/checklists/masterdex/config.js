@@ -20,6 +20,7 @@ export default {
   title: 'Master Dex',
   path: '/masterdex',
   icon: 'icons/master.png',
+  backgroundImage: null,
   accentFrom: '#c9a227',
   accentTo: '#4b3869',
   data, // array of { id, dexId, name, spriteUrl, boxId }

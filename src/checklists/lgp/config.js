@@ -3,7 +3,8 @@ export default {
   id: 'lgp',
   title: "Pokémon Let's Go Pikachu ",
   path: '/lgp',
-  icon: 'https://assets.nintendo.eu/image/upload/f_auto,c_limit,w_992,q_auto:low/MNS/NOE/70010000000446/SQ_NSwitch_PokemonLetsGoPikachu_enGB',
+  icon: 'icons/letsgopika.png',
+  backgroundImage: 'backgrounds/Pikachu_Eevee_wallpaper_1920x1080.jpg',
   accentFrom: '#c7ccd1',
   accentTo: '#f4c430',
   data, // array of { id, dexId, name, spriteUrl, boxId, category }

@@ -31,6 +31,29 @@ body {
   padding: 24px 16px 60px;
 }
 
+/* A checklist's own optional background image (config.js's
+   backgroundImage — separate from the hub's own, in hubConfig.js). Uses
+   a plain, generic cover/center fit rather than the hub's specific
+   repeat-x tiling, since the hub's is tuned around one particular
+   portrait artwork and this needs to look reasonable with whatever image
+   any given checklist sets, at any aspect ratio. Same dark-overlay
+   technique as the hub either way, so text stays readable regardless of
+   what's behind it. */
+.checklist-has-background {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checklist-has-background::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 18, 0.65);
+  z-index: -1;
+}
+
 header {
   text-align: center;
   margin: 0 auto 20px;

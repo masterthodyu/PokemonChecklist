@@ -35,12 +35,16 @@ function formatSyncedAt(date) {
 // system in-game). Clicking a sidebar group jumps to a box in boxed mode,
 // or filters the list in boxless mode.
 function ChecklistPage({ config }) {
-  const { data, boxSize, storageKey, syncId, groupSets, title, boxNumberOffset = 0 } = config
+  const { data, boxSize, storageKey, syncId, groupSets, title, boxNumberOffset = 0, backgroundImage } = config
   // Shifts displayed box numbers (label, jump field, header) without
   // touching boxIndex — lets e.g. Master Dex show "Box 71" instead of
   // "Box 1" when Home already fills 70 boxes. Defaults to 0 everywhere else.
   const isBoxed = Boolean(boxSize)
   const syncEnabled = isSyncEnabled(syncId)
+  // Same pattern as the hub's own optional background (see hubConfig.js /
+  // HubPage.jsx) — a checklist with no backgroundImage set just keeps the
+  // plain dark background every page already has. Nothing to opt into.
+  const hasBackground = Boolean(backgroundImage)
 
   // --- All of this checklist's "memory" lives here as state ---
   const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
@@ -366,7 +370,10 @@ function ChecklistPage({ config }) {
   const checkedCount = checkedIds.size
 
   return (
-    <div className="app">
+    <div
+      className={`app ${hasBackground ? 'checklist-has-background' : ''}`}
+      style={hasBackground ? { backgroundImage: `url(${backgroundImage})` } : undefined}
+    >
       <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
         {/* Only rendered when the config actually defines groups. */}
         {groupStats.length > 0 && (

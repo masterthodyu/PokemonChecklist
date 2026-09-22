@@ -156,6 +156,8 @@ A checklist can also set `accentFrom` / `accentTo` (two hex colors) for its own 
 
 The hub itself can have a background image too — set `backgroundImage` in `hubConfig.js` and drop the file in `public/`. Leave it `null` for the plain dark background. Either way, text stays readable — there's a dark overlay under whatever background gets set.
 
+**Each individual checklist can have its own background too**, separate from the hub's — set `backgroundImage` in that checklist's own `config.js` (every checklist has this field now, `null` by default) the same way as the hub's: a path to a file in `public/`, or a hotlinked URL. Same dark overlay underneath either way. Unlike the hub's background — which tiles a specific portrait image sideways to fill the width — a checklist's background just scales to cover the page and stays centered, since it needs to look reasonable with whatever image that particular checklist sets, at whatever aspect ratio. Leave it `null` (the default) and that checklist just keeps the same plain dark background every page has always had — nothing to opt into, nothing looks different unless you actually set one.
+
 A general note on images anywhere in this project: self-hosting a file in `public/` (rather than linking straight to someone else's server) is worth the extra step. A hotlinked URL can break on its own if the source site changes something, moves the file, or — like the Gigantamax badge, the alpha badge, and the hub background, currently — the link had a time-limited access token baked in.
 
 ## Running it yourself
