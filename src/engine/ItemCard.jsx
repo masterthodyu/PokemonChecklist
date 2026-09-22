@@ -1,3 +1,5 @@
+import { useLayoutEffect, useRef } from 'react'
+
 // "Charizard (Gigantamax)" -> "Charizard". "Bulbasaur (Gigantamax
 // Factor) (Gift)" -> "Bulbasaur (Gift)" — the badge shows the Gigantamax
 // part instead of spelling it out in the name.
@@ -30,25 +32,69 @@ function stripAlphaText(name) {
     .trim()
 }
 
+// A checklist that has bothered to set `category` on an item at all is
+// being explicit, and that should be trusted completely — an item
+// deliberately tagged e.g. category: 'fusion' must never ALSO match a
+// name-based guess for something unrelated, even if its name happens to
+// contain a matching word. (Calyrex (Shadow Rider) is not a Shadow
+// Pokémon — it just has "Shadow" in its own name.) The name check only
+// ever kicks in as a fallback for a checklist that hasn't tagged
+// category on this item at all — GO's own unrelated "Shadow [Pokémon]
+// (costume)" reskins are exactly that case, and it's genuinely fine for
+// them to fall back to it (see src/checklists/Shadow.test.jsx) — the
+// difference is those entries have no category set, Calyrex does.
+function matchesBadge(item, categoryValue, nameNeedle) {
+  return item.category ? item.category === categoryValue : item.name.includes(nameNeedle)
+}
+
+// How far the name is allowed to shrink before we give up and let the
+// CSS line-clamp ellipsize it instead (see .name in styles.css). 0.62
+// is roughly the point where a name is still legible but any smaller
+// starts to feel like squinting — past that, a couple of extreme GO
+// entries (the 48-character Gimmighoul ones) are better off just
+// truncated than shrunk to the size of fine print.
+const MIN_NAME_SCALE = 0.62
+const NAME_SHRINK_STEP = 0.04
+
+// Shrinks `el`'s font size, in small steps, until its text no longer
+// overflows the 2-line box .name is clamped to in CSS — or until it
+// hits MIN_NAME_SCALE, whichever comes first. Comparing scrollHeight
+// (the content's real, unclamped height) to clientHeight (the fixed
+// 2-line box height) is the standard way to detect -webkit-line-clamp
+// truncation; it stays 0-vs-0 in test environments that don't lay text
+// out, so this is a safe no-op there.
+function shrinkNameToFit(el) {
+  if (!el) return
+  el.style.fontSize = '' // reset first — same DOM node can be reused for a different name
+  let scale = 1
+  while (el.scrollHeight > el.clientHeight + 1 && scale > MIN_NAME_SCALE) {
+    scale = Math.max(MIN_NAME_SCALE, scale - NAME_SHRINK_STEP)
+    el.style.fontSize = `${scale}em`
+  }
+}
+
 // One clickable tile: picture, number, name, checkbox. Clicking anywhere
 // on the card toggles it.
 function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false }) {
   const number = item.dexId ?? item.id
-  const isGigantamax = item.category === 'gmax' || item.name.includes('Gigantamax')
+  const isGigantamax = matchesBadge(item, 'gmax', 'Gigantamax')
   const displayNameBase = isGigantamax ? stripGigantamaxText(item.name) : item.name
   const dateLabel = checked ? formatCheckedDate(checkedDate) : null
-  // Category is the real tag (Colosseum/XD's Shadow Pokémon); the name
-  // check is a fallback for anything not tagged yet. GO's own unrelated
-  // "Shadow [Pokémon] (costume)" reskins happen to match this fallback
-  // too — see src/checklists/Shadow.test.jsx, that's documented as
-  // expected, not a bug.
-  const isShadow = item.category === 'shadow' || item.name.includes('Shadow')
-  // Same category-first-then-name pattern as Shadow/Gigantamax above.
-  // Shares the same badge corner as those two (see styles.css) rather
-  // than getting its own spot — a Pokémon is never more than one of
-  // Shadow/Gigantamax/Alpha at once, so there's nothing to collide with.
-  const isAlpha = item.category === 'alpha' || item.name.includes('(Alpha)')
+  const isShadow = matchesBadge(item, 'shadow', 'Shadow')
+  // Shares the same badge corner as Shadow/Gigantamax above (see
+  // styles.css) rather than getting its own spot — a Pokémon is never
+  // more than one of Shadow/Gigantamax/Alpha at once, so there's
+  // nothing to collide with.
+  const isAlpha = matchesBadge(item, 'alpha', '(Alpha)')
   const displayName = isAlpha ? stripAlphaText(displayNameBase) : displayNameBase
+
+  const nameRef = useRef(null)
+  // Runs before paint, so a long name never flashes at full size before
+  // shrinking — and re-runs if displayName itself changes (it normally
+  // won't for a given card's lifetime; checking/unchecking doesn't).
+  useLayoutEffect(() => {
+    shrinkNameToFit(nameRef.current)
+  }, [displayName])
 
   return (
     <div
@@ -95,7 +141,12 @@ function ItemCard({ item, checked, checkedDate, onToggle, highlighted = false })
         </div>
         <div className="card-info">
           <span className="dex-number">#{String(number).padStart(3, '0')}</span>
-          <span className="name">{displayName}</span>
+          {/* `title` gives the full name on hover/long-press as a backup —
+              shrinkNameToFit handles almost every case by scaling the
+              font down, but a name that's still too long even at the
+              size floor falls back to the CSS line-clamp ellipsis, and
+              this is how that name stays reachable. */}
+          <span className="name" ref={nameRef} title={displayName}>{displayName}</span>
         </div>
         {dateLabel && (
           <span className="checked-date" title={new Date(checkedDate).toLocaleString()}>

@@ -3,10 +3,21 @@
 // are in any real checklist. registry.test.js covers the real data;
 // this file covers HubPage's own rendering logic.
 
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import HubPage from './HubPage.jsx'
+
+// The real hubConfig.js currently sets collectionLabel to '' (hidden) —
+// see that file's own comment — so there's nothing for the test below to
+// find without a stub. This mock supplies a real value just for this file.
+vi.mock('./hubConfig.js', () => ({
+  HUB_CONFIG: {
+    title: 'Test Hub',
+    collectionLabel: 'Test Collection Label',
+    backgroundImage: null,
+  },
+}))
 
 const finishedChecklist = {
   id: 'test-finished',
@@ -46,9 +57,7 @@ describe('HubPage', () => {
     renderHub([finishedChecklist])
     // This is the exact regression this test exists for: the label used
     // to be missing, then the card it sits in was too faint to see.
-    // HUB_CONFIG.collectionLabel is the real config value, not a mock —
-    // if that field's name or default ever changes, this should fail.
-    //expect(screen.getByText("Thodyu's Pokemon Collection")).toBeInTheDocument()
+    expect(screen.getByText('Test Collection Label')).toBeInTheDocument()
     expect(screen.getByText('Overall completion')).toBeInTheDocument()
   })
 

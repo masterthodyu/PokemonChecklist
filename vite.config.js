@@ -14,7 +14,7 @@ import react from '@vitejs/plugin-react'
 // dev server at its root, not at /PokemonChecklist/.
 export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/PokemonChecklist/',
+  base: command === 'build' ? '/PokemonChecklist/' : '/',
   server: {
     // Vite only listens on localhost by default, which Codespaces' port
     // forwarding can't reach — this makes it listen on all interfaces

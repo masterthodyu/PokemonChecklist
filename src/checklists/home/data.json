@@ -10506,7 +10506,7 @@
   {
     "id": 1314,
     "dexId": 925,
-    "name": "Maushold (Family of Four)",
+    "name": "Maushold (Family of Three)",
     "spriteUrl": "sprites/home/maushold-family3.png",
     "boxId": 50,
     "category": "form"
@@ -11146,7 +11146,7 @@
   {
     "id": 1395,
     "dexId": 105,
-    "name": "Totem Marowak (Alola Form)",
+    "name": "Totem Alolan Marowak",
     "spriteUrl": "sprites/home/marowak-alolan.png",
     "boxId": 56,
     "category": "totem"
