@@ -260,6 +260,23 @@ describe('ChecklistPage - saving progress', () => {
     renderPage(boxlessConfig)
     expect(screen.getByText('0 / 5 caught (0%)')).toBeInTheDocument()
   })
+
+  it('falls back to legacyStorageKey when the current storage key has nothing saved yet (a renamed checklist)', () => {
+    localStorage.setItem('test-legacy-key', JSON.stringify([{ id: 1, date: null }, { id: 2, date: null }]))
+    renderPage({ ...boxedConfig, storageKey: 'test-boxed-key', legacyStorageKey: 'test-legacy-key' })
+    expect(screen.getByText('2 / 35 caught (6%)')).toBeInTheDocument()
+  })
+
+  it('prefers the current storage key over the legacy one, and never writes back to the legacy key', () => {
+    localStorage.setItem('test-boxed-key', JSON.stringify([{ id: 1, date: null }]))
+    localStorage.setItem('test-legacy-key', JSON.stringify([{ id: 1, date: null }, { id: 2, date: null }, { id: 3, date: null }]))
+    unlock()
+    const { container } = renderPage({ ...boxedConfig, storageKey: 'test-boxed-key', legacyStorageKey: 'test-legacy-key' })
+    expect(screen.getByText('1 / 35 caught (3%)')).toBeInTheDocument()
+
+    fireEvent.click(container.querySelectorAll('.card')[1]) // check id 2 too
+    expect(JSON.parse(localStorage.getItem('test-legacy-key'))).toHaveLength(3) // untouched
+  })
 })
 
 describe('ChecklistPage - box navigation (boxed checklists)', () => {
@@ -550,6 +567,17 @@ describe('ChecklistPage - the group sidebar', () => {
     const { container } = renderPage()
     expect(container.querySelector('.sidebar-left')).toBeNull()
     expect(container.querySelector('.layout-no-sidebar')).not.toBeNull()
+  })
+
+  it('reserves only the left sidebar column — not a dead empty one on the right — for a checklist with exactly one groupSet', () => {
+    // Regression test: Colosseum has exactly one groupSet (Category), so
+    // .sidebar-right's own `groupStats.length > 1` never renders it — but
+    // .layout's default grid still reserved a 200px column for it anyway,
+    // leaving Colosseum's page shifted left with an empty gap on the right.
+    const { container } = renderPage(groupedConfig)
+    expect(container.querySelector('.sidebar-right')).toBeNull()
+    expect(container.querySelector('.layout-one-sidebar')).not.toBeNull()
+    expect(container.querySelector('.layout-no-sidebar')).toBeNull()
   })
 
   it('renders one progress row per group, with that group real totals', () => {

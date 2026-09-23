@@ -445,7 +445,15 @@ header h1 {
 .card-content {
   background: linear-gradient(180deg, #ffffff 0%, #edf3fb 100%);
   border-radius: 10px;
-  padding: 10px;
+  /* Extra bottom padding, specifically — reserves a dedicated strip for
+     .checked-date (which is absolutely positioned, so it doesn't push
+     layout height on its own); without this, a genuinely 2-line name
+     fills its fixed-height box right down to the edge, and the date
+     ends up sitting flush against that second line of text. A 1-line
+     name never showed this, since the box's unused second line acted as
+     an accidental buffer — this makes that buffer real and guaranteed,
+     for every card, whether its name needs one or two lines. */
+  padding: 10px 10px 24px;
   text-align: center;
   border: 2px solid rgba(25, 46, 76, 0.12);
   transition: border-color 0.15s, opacity 0.15s, box-shadow 0.15s;

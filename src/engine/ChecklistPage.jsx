@@ -8,10 +8,24 @@ import { isSyncEnabled, fetchIdsFromCloud, pushIdsToCloud, toCheckedMap, fromChe
 // Reads a checklist's checked-item Map out of storage. Map of id -> the
 // date it was checked, or null if that's unknown (anything checked
 // before dates were tracked).
-function loadCheckedIds(storageKey) {
+//
+// `legacyStorageKey`, if given, is the same one-time migration idea as
+// fetchIdsFromCloud's legacySyncId above: if the real storageKey has
+// nothing saved yet, check the old key before giving up. The very next
+// save (the effect right below in ChecklistPage) always writes to the
+// current storageKey, never the legacy one, so this is a one-time read,
+// not an ongoing dependency on the old key sticking around.
+function loadCheckedIds(storageKey, legacyStorageKey) {
   try {
     const raw = localStorage.getItem(storageKey)
-    return raw ? toCheckedMap(JSON.parse(raw)) : new Map()
+    if (raw) return toCheckedMap(JSON.parse(raw))
+
+    if (legacyStorageKey) {
+      const legacyRaw = localStorage.getItem(legacyStorageKey)
+      if (legacyRaw) return toCheckedMap(JSON.parse(legacyRaw))
+    }
+
+    return new Map()
   } catch {
     return new Map()
   }
@@ -35,7 +49,7 @@ function formatSyncedAt(date) {
 // system in-game). Clicking a sidebar group jumps to a box in boxed mode,
 // or filters the list in boxless mode.
 function ChecklistPage({ config }) {
-  const { data, boxSize, storageKey, syncId, groupSets, title, boxNumberOffset = 0, backgroundImage } = config
+  const { data, boxSize, storageKey, syncId, legacyStorageKey, legacySyncId, groupSets, title, boxNumberOffset = 0, backgroundImage } = config
   // Shifts displayed box numbers (label, jump field, header) without
   // touching boxIndex — lets e.g. Master Dex show "Box 71" instead of
   // "Box 1" when Home already fills 70 boxes. Defaults to 0 everywhere else.
@@ -59,7 +73,7 @@ function ChecklistPage({ config }) {
     : null
 
   // --- All of this checklist's "memory" lives here as state ---
-  const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey))
+  const [checkedIds, setCheckedIds] = useState(() => loadCheckedIds(storageKey, legacyStorageKey))
   const [showOnly, setShowOnly] = useState('all')           // 'all' | 'caught' | 'uncaught'
   const [boxIndex, setBoxIndex] = useState(0)                // which box we're looking at (0-based) — boxed mode only
   const [boxInputValue, setBoxInputValue] = useState('1')     // "Jump to box" field's own text, separate from boxIndex
@@ -86,7 +100,7 @@ function ChecklistPage({ config }) {
   // Switching checklists (different route, same mounted engine) resets
   // everything to that checklist's own saved state.
   useEffect(() => {
-    const freshChecked = loadCheckedIds(storageKey)
+    const freshChecked = loadCheckedIds(storageKey, legacyStorageKey)
     setCheckedIds(freshChecked)
     setShowOnly('all')
     setBoxIndex(0)
@@ -106,7 +120,7 @@ function ChecklistPage({ config }) {
     if (!syncEnabled) return
 
     let cancelled = false
-    fetchIdsFromCloud(syncId).then(cloudMap => {
+    fetchIdsFromCloud(syncId, legacySyncId).then(cloudMap => {
       if (cancelled) return
       if (cloudMap !== null) {
         setCheckedIds(prevLocal => mergeCheckedMaps(prevLocal, cloudMap))
@@ -121,7 +135,7 @@ function ChecklistPage({ config }) {
     return () => {
       cancelled = true
     }
-  }, [syncId, syncEnabled])
+  }, [syncId, legacySyncId, syncEnabled])
 
   // Save to localStorage right away on every change.
   useEffect(() => {
@@ -409,7 +423,11 @@ function ChecklistPage({ config }) {
       className={`app ${hasBackground ? 'checklist-has-background' : ''}`}
       style={hasBackground ? { backgroundImage: `linear-gradient(rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.72)), url(${backgroundImageUrl})` } : undefined}
     >
-      <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
+      <div
+        className={`layout ${
+          groupStats.length === 0 ? 'layout-no-sidebar' : groupStats.length === 1 ? 'layout-one-sidebar' : ''
+        }`}
+      >
         {/* First group set (Generation, for Home) gets the left sidebar
             to itself; everything after it (Category, and any further
             sets a future checklist adds) stacks into the right sidebar
@@ -417,9 +435,11 @@ function ChecklistPage({ config }) {
             layout the CSS grid (.layout's 200px/1fr/200px columns) was
             already set up for, previously left with the right column
             unused. Position is purely "first vs rest," not tied to any
-            set's name, so this works for a checklist with only one
-            group set (right sidebar just doesn't render) same as one
-            with three or more. */}
+            set's name. A checklist with only one group set (Colosseum)
+            drops the reserved right column entirely via
+            layout-one-sidebar, rather than leaving it empty — same idea
+            as layout-no-sidebar below, just for one sidebar instead of
+            zero. */}
         {groupStats.length > 0 && (
           <aside className="sidebar sidebar-left">
             <GroupProgress

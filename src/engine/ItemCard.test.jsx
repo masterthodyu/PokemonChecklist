@@ -189,12 +189,25 @@ describe('ItemCard - hover tooltip', () => {
 })
 
 describe('ItemCard - checked date', () => {
-  it('shows a formatted date label when checked with a known date', () => {
+  it('shows the date as MM/DD/YY, not a locale-dependent format', () => {
     const isoDate = '2026-09-13T14:22:01.000Z'
     render(<ItemCard item={baseItem} checked={true} checkedDate={isoDate} onToggle={() => {}} />)
-    // Computed the same way the component computes it, so this doesn't
-    // hardcode a locale-specific string that could differ across machines.
-    const expectedLabel = new Date(isoDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+    // Computed the same way the component computes it (local-timezone
+    // getMonth/getDate/getFullYear), rather than hardcoding a string
+    // that could be wrong if this test ever runs in a different
+    // timezone than whatever machine originally wrote it.
+    const d = new Date(isoDate)
+    const expectedLabel = `${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}/${String(d.getFullYear()).slice(-2)}`
+    expect(screen.getByText(expectedLabel)).toBeInTheDocument()
+  })
+
+  it('pads single-digit months and days with a leading zero', () => {
+    // January 5th — both month and day are single digits, so this is the
+    // case that would reveal a missing padStart() as "1/5/26" instead of
+    // "01/05/26".
+    render(<ItemCard item={baseItem} checked={true} checkedDate="2026-01-05T12:00:00.000Z" onToggle={() => {}} />)
+    const d = new Date('2026-01-05T12:00:00.000Z')
+    const expectedLabel = `${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}/${String(d.getFullYear()).slice(-2)}`
     expect(screen.getByText(expectedLabel)).toBeInTheDocument()
   })
 

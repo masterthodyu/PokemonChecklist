@@ -6,10 +6,17 @@ import { toCheckedMap, fromCheckedMap, isSyncEnabled, fetchIdsFromCloud, mergeCh
 // Reads the exact same localStorage key each ChecklistPage writes to,
 // through the same toCheckedMap parser ChecklistPage itself uses (so this
 // stays correct no matter how the storage format changes in the future).
-function readLocalCheckedMap(storageKey) {
+function readLocalCheckedMap(storageKey, legacyStorageKey) {
   try {
     const raw = localStorage.getItem(storageKey)
-    return raw ? toCheckedMap(JSON.parse(raw)) : new Map()
+    if (raw) return toCheckedMap(JSON.parse(raw))
+
+    if (legacyStorageKey) {
+      const legacyRaw = localStorage.getItem(legacyStorageKey)
+      if (legacyRaw) return toCheckedMap(JSON.parse(legacyRaw))
+    }
+
+    return new Map()
   } catch {
     return new Map()
   }
@@ -43,7 +50,7 @@ function HubPage({ checklists }) {
   // data comes back in.
   const [counts, setCounts] = useState(() =>
     Object.fromEntries(
-      checklists.map(config => [config.storageKey, readLocalCheckedMap(config.storageKey).size])
+      checklists.map(config => [config.storageKey, readLocalCheckedMap(config.storageKey, config.legacyStorageKey).size])
     )
   )
 
@@ -69,10 +76,10 @@ function HubPage({ checklists }) {
     for (const config of checklists) {
       if (config.placeholder || !isSyncEnabled(config.syncId)) continue
 
-      fetchIdsFromCloud(config.syncId).then(cloudMap => {
+      fetchIdsFromCloud(config.syncId, config.legacySyncId).then(cloudMap => {
         if (cancelled || cloudMap === null) return
 
-        const merged = mergeCheckedMaps(readLocalCheckedMap(config.storageKey), cloudMap)
+        const merged = mergeCheckedMaps(readLocalCheckedMap(config.storageKey, config.legacyStorageKey), cloudMap)
         localStorage.setItem(config.storageKey, JSON.stringify(fromCheckedMap(merged)))
         setCounts(prev => ({ ...prev, [config.storageKey]: merged.size }))
       })
