@@ -125,6 +125,61 @@ describe('fetchIdsFromCloud', () => {
     expect(result).toBeNull()
     expect(fetchSpy).not.toHaveBeenCalled()
   })
+
+  it('does not touch the legacy path at all when the current syncId already has data', async () => {
+    vi.stubEnv('VITE_FIREBASE_DB_URL', 'https://example-default-rtdb.firebaseio.com')
+    vi.resetModules()
+    const { fetchIdsFromCloud } = await import('./sync.js')
+    const fetchSpy = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => [{ id: 1, date: null }],
+    })
+    vi.stubGlobal('fetch', fetchSpy)
+
+    const result = await fetchIdsFromCloud('home', 'pokemon')
+    expect(result.get(1)).toBeNull()
+    expect(fetchSpy).toHaveBeenCalledTimes(1)
+    expect(fetchSpy.mock.calls[0][0]).toBe('https://example-default-rtdb.firebaseio.com/checklists/home/checkedIds.json')
+  })
+
+  it('falls back to legacySyncId when the current syncId path is empty', async () => {
+    vi.stubEnv('VITE_FIREBASE_DB_URL', 'https://example-default-rtdb.firebaseio.com')
+    vi.resetModules()
+    const { fetchIdsFromCloud } = await import('./sync.js')
+    const fetchSpy = vi.fn().mockImplementation(url =>
+      url.includes('/checklists/home/')
+        ? Promise.resolve({ ok: true, json: async () => null }) // nothing at the new path yet
+        : Promise.resolve({ ok: true, json: async () => [{ id: 4, date: null }] }) // old data still at 'pokemon'
+    )
+    vi.stubGlobal('fetch', fetchSpy)
+
+    const result = await fetchIdsFromCloud('home', 'pokemon')
+    expect(result.get(4)).toBeNull()
+    expect(fetchSpy).toHaveBeenCalledTimes(2)
+    expect(fetchSpy.mock.calls[1][0]).toBe('https://example-default-rtdb.firebaseio.com/checklists/pokemon/checkedIds.json')
+  })
+
+  it('returns an empty Map (not null) when neither the current nor the legacy path has anything saved', async () => {
+    vi.stubEnv('VITE_FIREBASE_DB_URL', 'https://example-default-rtdb.firebaseio.com')
+    vi.resetModules()
+    const { fetchIdsFromCloud } = await import('./sync.js')
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => null }))
+
+    const result = await fetchIdsFromCloud('home', 'pokemon')
+    expect(result).not.toBeNull()
+    expect(result.size).toBe(0)
+  })
+
+  it('never checks a legacy path when none was given', async () => {
+    vi.stubEnv('VITE_FIREBASE_DB_URL', 'https://example-default-rtdb.firebaseio.com')
+    vi.resetModules()
+    const { fetchIdsFromCloud } = await import('./sync.js')
+    const fetchSpy = vi.fn().mockResolvedValue({ ok: true, json: async () => null })
+    vi.stubGlobal('fetch', fetchSpy)
+
+    await fetchIdsFromCloud('home')
+    expect(fetchSpy).toHaveBeenCalledTimes(1)
+  })
 })
 
 describe('pushIdsToCloud', () => {

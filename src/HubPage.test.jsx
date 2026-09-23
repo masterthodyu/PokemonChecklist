@@ -108,4 +108,19 @@ describe('HubPage', () => {
     const overallCard = container.querySelector('.overall-status')
     expect(within(overallCard).getByText(/0 \/ 4 caught/)).toBeInTheDocument()
   })
+
+  it('falls back to legacyStorageKey when the current storageKey has nothing saved yet', () => {
+    const renamedChecklist = { ...finishedChecklist, storageKey: 'home-caught-v1', legacyStorageKey: 'pokemon-caught-v1' }
+    localStorage.setItem('pokemon-caught-v1', JSON.stringify([{ id: 1, date: null }, { id: 2, date: null }]))
+    const row = renderHub([renamedChecklist]) && screen.getByText('Test Finished Checklist').closest('.hub-row')
+    expect(within(row).getByText('2 / 4 caught')).toBeInTheDocument()
+  })
+
+  it('prefers the current storageKey over the legacy one once it actually has data', () => {
+    const renamedChecklist = { ...finishedChecklist, storageKey: 'home-caught-v1', legacyStorageKey: 'pokemon-caught-v1' }
+    localStorage.setItem('home-caught-v1', JSON.stringify([{ id: 1, date: null }]))
+    localStorage.setItem('pokemon-caught-v1', JSON.stringify([{ id: 1, date: null }, { id: 2, date: null }, { id: 3, date: null }]))
+    const row = renderHub([renamedChecklist]) && screen.getByText('Test Finished Checklist').closest('.hub-row')
+    expect(within(row).getByText('1 / 4 caught')).toBeInTheDocument()
+  })
 })

@@ -260,6 +260,23 @@ describe('ChecklistPage - saving progress', () => {
     renderPage(boxlessConfig)
     expect(screen.getByText('0 / 5 caught (0%)')).toBeInTheDocument()
   })
+
+  it('falls back to legacyStorageKey when the current storage key has nothing saved yet (a renamed checklist)', () => {
+    localStorage.setItem('test-legacy-key', JSON.stringify([{ id: 1, date: null }, { id: 2, date: null }]))
+    renderPage({ ...boxedConfig, storageKey: 'test-boxed-key', legacyStorageKey: 'test-legacy-key' })
+    expect(screen.getByText('2 / 35 caught (6%)')).toBeInTheDocument()
+  })
+
+  it('prefers the current storage key over the legacy one, and never writes back to the legacy key', () => {
+    localStorage.setItem('test-boxed-key', JSON.stringify([{ id: 1, date: null }]))
+    localStorage.setItem('test-legacy-key', JSON.stringify([{ id: 1, date: null }, { id: 2, date: null }, { id: 3, date: null }]))
+    unlock()
+    const { container } = renderPage({ ...boxedConfig, storageKey: 'test-boxed-key', legacyStorageKey: 'test-legacy-key' })
+    expect(screen.getByText('1 / 35 caught (3%)')).toBeInTheDocument()
+
+    fireEvent.click(container.querySelectorAll('.card')[1]) // check id 2 too
+    expect(JSON.parse(localStorage.getItem('test-legacy-key'))).toHaveLength(3) // untouched
+  })
 })
 
 describe('ChecklistPage - box navigation (boxed checklists)', () => {

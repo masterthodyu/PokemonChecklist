@@ -70,7 +70,16 @@ export function mergeCheckedMaps(localMap, cloudMap) {
 // Gets the checked-item Map for one checklist from the cloud. Returns
 // null on failure (sync off, no internet, Firebase down) — caller should
 // fall back to local data.
-export async function fetchIdsFromCloud(syncId) {
+//
+// `legacySyncId`, if given, is a one-time migration path: if the current
+// syncId has nothing saved yet, this checks the old id too, so renaming
+// a checklist's syncId (like "pokemon" -> "home") doesn't orphan
+// whatever progress is already sitting under the old path. Once this
+// reads real data from the legacy path, the very next push writes it
+// back under the NEW syncId (pushIdsToCloud never touches legacySyncId),
+// so this fallback naturally stops being needed after the first sync —
+// the old path is just left in place afterward, not deleted.
+export async function fetchIdsFromCloud(syncId, legacySyncId) {
   if (!isSyncEnabled(syncId)) return null
 
   try {
@@ -78,7 +87,17 @@ export async function fetchIdsFromCloud(syncId) {
     if (!res.ok) throw new Error(`Firebase read failed: ${res.status}`)
 
     const data = await res.json()
-    return toCheckedMap(data)
+    if (data != null) return toCheckedMap(data)
+
+    if (legacySyncId) {
+      const legacyRes = await fetch(`${DB_URL}/checklists/${legacySyncId}/checkedIds.json`)
+      if (legacyRes.ok) {
+        const legacyData = await legacyRes.json()
+        if (legacyData != null) return toCheckedMap(legacyData)
+      }
+    }
+
+    return new Map() // genuinely nothing saved yet, at either path
   } catch (err) {
     console.warn('Could not load the cloud save — using the local save instead.', err)
     return null
