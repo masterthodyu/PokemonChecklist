@@ -447,7 +447,7 @@ header h1 {
   border-radius: 10px;
   /* Extra bottom padding, specifically — reserves a dedicated strip for
      .checked-date (which is absolutely positioned, so it doesn't push
-     layout height on its own; without this, a genuinely 2-line name
+     layout height on its own); without this, a genuinely 2-line name
      fills its fixed-height box right down to the edge, and the date
      ends up sitting flush against that second line of text. A 1-line
      name never showed this, since the box's unused second line acted as
