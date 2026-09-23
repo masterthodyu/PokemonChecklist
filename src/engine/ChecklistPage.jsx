@@ -409,7 +409,11 @@ function ChecklistPage({ config }) {
       className={`app ${hasBackground ? 'checklist-has-background' : ''}`}
       style={hasBackground ? { backgroundImage: `linear-gradient(rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.72)), url(${backgroundImageUrl})` } : undefined}
     >
-      <div className={`layout ${groupStats.length > 0 ? '' : 'layout-no-sidebar'}`}>
+      <div
+        className={`layout ${
+          groupStats.length === 0 ? 'layout-no-sidebar' : groupStats.length === 1 ? 'layout-one-sidebar' : ''
+        }`}
+      >
         {/* First group set (Generation, for Home) gets the left sidebar
             to itself; everything after it (Category, and any further
             sets a future checklist adds) stacks into the right sidebar
@@ -417,9 +421,11 @@ function ChecklistPage({ config }) {
             layout the CSS grid (.layout's 200px/1fr/200px columns) was
             already set up for, previously left with the right column
             unused. Position is purely "first vs rest," not tied to any
-            set's name, so this works for a checklist with only one
-            group set (right sidebar just doesn't render) same as one
-            with three or more. */}
+            set's name. A checklist with only one group set (Colosseum)
+            drops the reserved right column entirely via
+            layout-one-sidebar, rather than leaving it empty — same idea
+            as layout-no-sidebar below, just for one sidebar instead of
+            zero. */}
         {groupStats.length > 0 && (
           <aside className="sidebar sidebar-left">
             <GroupProgress

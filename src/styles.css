@@ -665,6 +665,17 @@ header h1 {
   margin: 0 auto;
 }
 
+/* A checklist with exactly one group set (Colosseum's own Category
+   sidebar, with no second set to fill the right column) gets a plain
+   left-sidebar-plus-content grid instead — same reasoning as
+   layout-no-sidebar above, just dropping the one unused column instead
+   of both. Without this, .layout's default 3-column template still
+   reserved that empty 200px on the right, shifting everything else left
+   with a dead gap next to it. */
+.layout-one-sidebar {
+  grid-template-columns: 200px minmax(0, 1fr);
+}
+
 .main-content {
   min-width: 0;
 }

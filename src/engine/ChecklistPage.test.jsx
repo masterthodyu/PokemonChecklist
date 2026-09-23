@@ -552,6 +552,17 @@ describe('ChecklistPage - the group sidebar', () => {
     expect(container.querySelector('.layout-no-sidebar')).not.toBeNull()
   })
 
+  it('reserves only the left sidebar column — not a dead empty one on the right — for a checklist with exactly one groupSet', () => {
+    // Regression test: Colosseum has exactly one groupSet (Category), so
+    // .sidebar-right's own `groupStats.length > 1` never renders it — but
+    // .layout's default grid still reserved a 200px column for it anyway,
+    // leaving Colosseum's page shifted left with an empty gap on the right.
+    const { container } = renderPage(groupedConfig)
+    expect(container.querySelector('.sidebar-right')).toBeNull()
+    expect(container.querySelector('.layout-one-sidebar')).not.toBeNull()
+    expect(container.querySelector('.layout-no-sidebar')).toBeNull()
+  })
+
   it('renders one progress row per group, with that group real totals', () => {
     const { container } = renderPage(groupedConfig)
     const sidebar = container.querySelector('.sidebar-left')
