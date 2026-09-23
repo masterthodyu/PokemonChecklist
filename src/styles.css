@@ -445,7 +445,15 @@ header h1 {
 .card-content {
   background: linear-gradient(180deg, #ffffff 0%, #edf3fb 100%);
   border-radius: 10px;
-  padding: 10px;
+  /* Extra bottom padding, specifically — reserves a dedicated strip for
+     .checked-date (which is absolutely positioned, so it doesn't push
+     layout height on its own; without this, a genuinely 2-line name
+     fills its fixed-height box right down to the edge, and the date
+     ends up sitting flush against that second line of text. A 1-line
+     name never showed this, since the box's unused second line acted as
+     an accidental buffer — this makes that buffer real and guaranteed,
+     for every card, whether its name needs one or two lines. */
+  padding: 10px 10px 24px;
   text-align: center;
   border: 2px solid rgba(25, 46, 76, 0.12);
   transition: border-color 0.15s, opacity 0.15s, box-shadow 0.15s;
@@ -663,17 +671,6 @@ header h1 {
   grid-template-columns: minmax(0, 1fr);
   max-width: 900px;
   margin: 0 auto;
-}
-
-/* A checklist with exactly one group set (Colosseum's own Category
-   sidebar, with no second set to fill the right column) gets a plain
-   left-sidebar-plus-content grid instead — same reasoning as
-   layout-no-sidebar above, just dropping the one unused column instead
-   of both. Without this, .layout's default 3-column template still
-   reserved that empty 200px on the right, shifting everything else left
-   with a dead gap next to it. */
-.layout-one-sidebar {
-  grid-template-columns: 200px minmax(0, 1fr);
 }
 
 .main-content {

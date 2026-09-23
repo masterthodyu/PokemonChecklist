@@ -14,13 +14,19 @@ function stripGigantamaxText(name) {
     .trim()
 }
 
-// "Sep 13" — short enough for a card corner. Null if there's nothing to
-// show (unchecked, or checked before dates were tracked).
+// "09/13/25" — always this exact MM/DD/YY shape, deliberately not
+// toLocaleDateString(), which would show DD/MM/YY instead for a visitor
+// whose browser is set to a non-US locale. Short enough for a card
+// corner either way. Null if there's nothing to show (unchecked, or
+// checked before dates were tracked).
 function formatCheckedDate(isoDate) {
   if (!isoDate) return null
   const date = new Date(isoDate)
   if (Number.isNaN(date.getTime())) return null
-  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+  const mm = String(date.getMonth() + 1).padStart(2, '0')
+  const dd = String(date.getDate()).padStart(2, '0')
+  const yy = String(date.getFullYear()).slice(-2)
+  return `${mm}/${dd}/${yy}`
 }
 
 // "Hisuian Decidueye (Alpha)" -> "Hisuian Decidueye" — the alpha badge
