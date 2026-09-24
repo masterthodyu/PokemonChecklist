@@ -50,7 +50,7 @@ body {
 
 header {
   text-align: center;
-  margin: 0 auto 20px;
+  margin: 0 auto 14px;
   width: 100%;
 }
 
@@ -61,9 +61,32 @@ header h1 {
   text-align: center;
 }
 
+.header-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* Back-link text plus the lock-status button's own longest state
+   ("🔓 Editing unlocked — tap to relock") add up to roughly 460px at
+   their natural width — more than the content width on every common
+   phone size (an iPhone 14 Pro Max's own 430px viewport, minus .app's
+   padding, still only leaves ~398px). Without this, html's global
+   `overflow-x: hidden` safety net means that overflow doesn't scroll —
+   it silently clips the lock-status button off the right edge on every
+   phone-sized screen, every time. Stacking them removes the horizontal
+   squeeze entirely instead of trying to shrink text to fit it. */
+@media (max-width: 500px) {
+  .header-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
 .back-link {
-  display: inline-block;
-  margin-bottom: 12px;
   color: #dfe3e8;
   text-decoration: none;
   font-size: 0.9rem;
@@ -81,15 +104,23 @@ header h1 {
   text-align: center;
 }
 
+/* A round icon button now that it's just the emoji, not a pill wrapping
+   a full sentence — fixed width/height + centered content instead of
+   padding sized for text, so a single character reads as a proper
+   button instead of an oddly wide, mostly-empty rounded rectangle. */
 .lock-status {
-  margin: 10px auto 0;
-  display: block;
-  padding: 6px 14px;
-  border-radius: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(18, 28, 39, 0.9);
   color: #f5f7fa;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -277,11 +308,6 @@ header h1 {
 .box-jump input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.box-range {
-  color: #dfe3e8;
-  font-size: 0.85rem;
 }
 
 .filter-buttons {
@@ -528,6 +554,19 @@ header h1 {
 .card img {
   width: 72px;
   height: 72px;
+  /* Without this, any sprite that isn't naturally square (tall legendary
+     art especially — Giratina's Origin Forme, every Arceus plate,
+     Necrozma's Dawn/Dusk forms) gets stretched to fill the box instead
+     of scaled to fit it, distorting the art. This scales each sprite to
+     fit within the 72x72 box, preserving its real proportions, with any
+     leftover space just staying transparent rather than stretching to
+     fill it. Global fix — every checklist shares this one rule.
+
+     This exact line has been silently lost and re-added at least three
+     times now across separate rounds of edits — see
+     src/styles.test.js, which exists specifically to make that a loud
+     failing test instead of a quiet visual regression the next time. */
+  object-fit: contain;
   image-rendering: pixelated;
 }
 
@@ -671,6 +710,17 @@ header h1 {
   grid-template-columns: minmax(0, 1fr);
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* A checklist with exactly one group set (Colosseum's own Category
+   sidebar, with no second set to fill the right column) gets a plain
+   left-sidebar-plus-content grid instead — same reasoning as
+   layout-no-sidebar above, just dropping the one unused column instead
+   of both. Without this, .layout's default 3-column template still
+   reserved that empty 200px on the right, shifting everything else left
+   with a dead gap next to it. */
+.layout-one-sidebar {
+  grid-template-columns: 200px minmax(0, 1fr);
 }
 
 .main-content {

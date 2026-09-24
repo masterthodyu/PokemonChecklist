@@ -126,10 +126,9 @@ describe.each(CHECKLISTS)('$id data.json', config => {
       }
     })
 
-    // The box header renders "#001 - #030" straight from boxSize, and the
-    // grid is a 6x5 CSS layout — a box holding more than boxSize entries
-    // overflows both. This is exactly what the Colosseum list did when it
-    // first landed: all 48 entries sat in box 1.
+    // The grid is a fixed 6x5 CSS layout — a box holding more than
+    // boxSize entries overflows it. This is exactly what the Colosseum
+    // list did when it first landed: all 48 entries sat in box 1.
     it('never puts more than boxSize items in a single box', () => {
       const counts = new Map()
       for (const item of config.data) {
