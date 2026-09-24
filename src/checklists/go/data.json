@@ -1182,13 +1182,13 @@
     "spriteUrl": "sprites/go/026-flowers.png"
   },
   {
-    "id": 26.07,
+    "id": 26.08,
     "dexId": 26,
     "name": "Raichu (Detective)",
     "spriteUrl": "sprites/go/026-detective.png"
   },
   {
-    "id": 26.08,
+    "id": 26.07,
     "dexId": 26,
     "name": "Raichu (Beanie)",
     "spriteUrl": "sprites/go/026-beanie.png"

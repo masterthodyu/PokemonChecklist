@@ -174,8 +174,12 @@ describe('ChecklistPage - header and progress', () => {
   })
 
   it('starts locked', () => {
+    // The lock button is icon-only now (🔒/🔓, no visible sentence) —
+    // the full "Locked — tap to unlock editing" text still exists, just
+    // as the button's accessible name (aria-label) and title tooltip
+    // rather than as rendered text, so this checks it there instead.
     renderPage()
-    expect(screen.getByText(/Locked — tap to unlock editing/)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Locked — tap to unlock editing/ })).toBeInTheDocument()
   })
 
   it('has a link back to the hub', () => {
@@ -204,7 +208,7 @@ describe('ChecklistPage - the password lock', () => {
     const { container } = renderPage()
     fireEvent.click(container.querySelector('.card'))
     expect(screen.getByText('1 / 35 caught (3%)')).toBeInTheDocument()
-    expect(screen.getByText(/Editing unlocked — tap to relock/)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Editing unlocked — tap to relock/ })).toBeInTheDocument()
   })
 
   it('only asks for the password once, not on every single click', () => {
@@ -221,10 +225,10 @@ describe('ChecklistPage - the password lock', () => {
   it('relocks when the lock button is clicked again', () => {
     unlock()
     renderPage()
-    fireEvent.click(screen.getByText(/Locked — tap to unlock editing/))
-    expect(screen.getByText(/Editing unlocked/)).toBeInTheDocument()
-    fireEvent.click(screen.getByText(/Editing unlocked/))
-    expect(screen.getByText(/Locked — tap to unlock editing/)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /Locked — tap to unlock editing/ }))
+    expect(screen.getByRole('button', { name: /Editing unlocked/ })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /Editing unlocked/ }))
+    expect(screen.getByRole('button', { name: /Locked — tap to unlock editing/ })).toBeInTheDocument()
   })
 })
 
@@ -320,7 +324,7 @@ describe('ChecklistPage - box navigation (boxed checklists)', () => {
     const jump = screen.getByRole('spinbutton')
     fireEvent.change(jump, { target: { value: '' } })
     expect(jump.value).toBe('')
-    expect(screen.getByText('#001 - #030', { selector: '.box-range' })).toBeInTheDocument() // still box 1 underneath
+    expect(screen.getByText('Testmon1')).toBeInTheDocument() // still box 1 underneath, whatever the field shows mid-edit
     fireEvent.change(jump, { target: { value: '2' } })
     fireEvent.blur(jump)
     expect(screen.getByRole('spinbutton')).toHaveValue(2)

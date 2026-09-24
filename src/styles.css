@@ -104,13 +104,23 @@ header h1 {
   text-align: center;
 }
 
+/* A round icon button now that it's just the emoji, not a pill wrapping
+   a full sentence — fixed width/height + centered content instead of
+   padding sized for text, so a single character reads as a proper
+   button instead of an oddly wide, mostly-empty rounded rectangle. */
 .lock-status {
-  padding: 6px 14px;
-  border-radius: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(18, 28, 39, 0.9);
   color: #f5f7fa;
-  font-size: 0.85rem;
+  font-size: 1.1rem;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -298,11 +308,6 @@ header h1 {
 .box-jump input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.box-range {
-  color: #dfe3e8;
-  font-size: 0.85rem;
 }
 
 .filter-buttons {

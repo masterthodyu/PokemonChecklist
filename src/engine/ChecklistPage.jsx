@@ -458,8 +458,18 @@ function ChecklistPage({ config }) {
               <Link to="/" className="back-link">
                 ← Back to checklists
               </Link>
-              <button className="lock-status" onClick={handleLockButtonClick}>
-                {unlocked ? '🔓 Editing unlocked — tap to relock' : '🔒 Locked — tap to unlock editing'}
+              {/* Icon only now, not "🔒 Locked — tap to unlock editing" as
+                  visible text — same meaning still reaches a screen reader
+                  via aria-label, and a mouse user gets it back on hover via
+                  title; a sighted user tapping/clicking never needed the
+                  sentence spelled out every time to begin with. */}
+              <button
+                className="lock-status"
+                onClick={handleLockButtonClick}
+                aria-label={unlocked ? 'Editing unlocked — tap to relock' : 'Locked — tap to unlock editing'}
+                title={unlocked ? 'Editing unlocked — tap to relock' : 'Locked — tap to unlock editing'}
+              >
+                {unlocked ? '🔓' : '🔒'}
               </button>
             </div>
             <h1>{title}</h1>
@@ -566,9 +576,6 @@ function ChecklistPage({ config }) {
                     }}
                   />
                 </div>
-                <span className="box-range">
-                  #{String(currentBoxId * boxSize - (boxSize - 1)).padStart(3, '0')} - #{String(currentBoxId * boxSize).padStart(3, '0')}
-                </span>
               </div>
 
               <button
