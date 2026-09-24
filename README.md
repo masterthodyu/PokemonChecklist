@@ -187,7 +187,7 @@ npm run test:watch  # re-runs on file changes
 
 Tests also run automatically before every `npm run build` or `npm run dev`.
 
-Built with [Vitest](https://vitest.dev) (config in `vite.config.js`'s `test` block) and [Testing Library](https://testing-library.com/react) for the component tests. Six kinds of tests, none needing Firebase, a real browser, or network access:
+Built with [Vitest](https://vitest.dev) (config in `vite.config.js`'s `test` block) and [Testing Library](https://testing-library.com/react) for the component tests. Seven kinds of tests, none needing Firebase, a real browser, or network access:
 
 - **`src/engine/sync.test.js`, `src/engine/lock.test.js`** — pure-logic tests: checked-id parsing, the Firebase REST calls (`fetch` mocked), and the password check.
 - **`src/checklists/Registry.test.jsx`** — data-integrity checks against the *real* `data.json`/`config.js` files, not fixtures: no duplicate ids or names within a checklist, no two checklists sharing a `storageKey`/`syncId`, every `spriteUrl` a local path or a full URL, every `dexId` a plausible dex number, no overfull or gapped boxes, no sidebar group matching zero items, every Home category tag real, generation ranges not overlapping, and any item's optional `note` (see "What it does" above) being a real non-empty string rather than accidentally set to something silently wrong.
@@ -195,6 +195,7 @@ Built with [Vitest](https://vitest.dev) (config in `vite.config.js`'s `test` blo
 - **`src/engine/ItemCard.test.jsx`** — per-card behavior: Gigantamax and Alpha name-stripping and badges, the Shadow badge, that an explicit category always wins over a name-based guess (the Calyrex Shadow Rider case), the hover tooltip (renders only when `item.note` is set, nothing for an empty string), the checked-date label, one click firing `onToggle` exactly once.
 - **`src/HubPage.test.jsx`** — the hub itself: the collection label renders, placeholder checklists don't count toward the overall total, localStorage counts show up correctly, and bad or missing localStorage data doesn't crash the page.
 - **`src/engine/ChecklistPage.test.jsx`** — the big one. Renders a whole page against small fake checklists: box navigation, `boxNumberOffset`, the jump-to-box field (clamping, and committing on blur/Enter rather than every keystroke), search (×/Escape), the All/Caught/Not Caught filters, the password lock, Select All / Unselect All / Undo, localStorage persistence, the group sidebar, and that boxless checklists render no box controls at all.
+- **`src/styles.text.js`** — a handful of specific CSS rules read straight out of `styles.css` as plain text and checked for the exact property they depend on, not a full CSS parser. Exists for rules that have gone quietly missing more than once during other edits (sprite `object-fit: contain` in particular, lost and re-added three separate times) — a component test can't catch this, since jsdom never applies real CSS, so nothing else in the suite would.
 
 Adding a checklist to `index.js` is automatically covered by `Registry.test.jsx` — no test file changes needed.
 
