@@ -454,16 +454,18 @@ function ChecklistPage({ config }) {
 
         <main className="main-content">
           <header>
-            <Link to="/" className="back-link">
-              ← Back to checklists
-            </Link>
+            <div className="header-top-row">
+              <Link to="/" className="back-link">
+                ← Back to checklists
+              </Link>
+              <button className="lock-status" onClick={handleLockButtonClick}>
+                {unlocked ? '🔓 Editing unlocked — tap to relock' : '🔒 Locked — tap to unlock editing'}
+              </button>
+            </div>
             <h1>{title}</h1>
             <p className="progress">
               {checkedCount} / {total} caught ({Math.round((checkedCount / total) * 100)}%)
             </p>
-            <button className="lock-status" onClick={handleLockButtonClick}>
-              {unlocked ? '🔓 Editing unlocked — tap to relock' : '🔒 Locked — tap to unlock editing'}
-            </button>
             {syncEnabled && (
               <p className={`sync-status ${syncStatus === 'error' && wasEmptyOnLoad.current ? 'sync-status-urgent' : ''}`}>
                 {syncStatus === 'loading' && wasEmptyOnLoad.current && '☁️ Checking for saved progress before showing 0…'}
