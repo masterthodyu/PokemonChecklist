@@ -1972,5 +1972,11 @@
     "dexId": 225,
     "name": "Delibird (Holidays)",
     "spriteUrl": "sprites/go/225-holiday2020.png"
+  },
+  {
+    "id": 25.0101,
+    "dexId": 25,
+    "name": "Pikachu (Astronaut)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-astronaut.png"
   }
 ]

@@ -129,6 +129,78 @@
   },
   {
     "id": 17,
+    "dexId": 144,
+    "name": "Shiny Articuno",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/articuno.png",
+    "boxId": 1,
+    "note": "(Red/Blue/Yellow)"
+  },
+  {
+    "id": 18,
+    "dexId": 145,
+    "name": "Shiny Zapdos",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/zapdos.png",
+    "boxId": 1,
+    "note": "(Red/Blue/Yellow)"
+  },
+  {
+    "id": 19,
+    "dexId": 146,
+    "name": "Shiny Moltres",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/moltres.png",
+    "boxId": 1,
+    "note": "(Red/Blue/Yellow)"
+  },
+  {
+    "id": 20,
+    "dexId": 147,
+    "name": "Shiny Dratini",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/dratini.png",
+    "boxId": 1,
+    "note": "Floccesy Town Gift"
+  },
+  {
+    "id": 21,
+    "dexId": 150,
+    "name": "Shiny Mewtwo",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/mewtwo.png",
+    "boxId": 1,
+    "note": "(Red/Blue/Yellow)"
+  },
+  {
+    "id": 22,
+    "dexId": 152,
+    "name": "Chikorita",
+    "spriteUrl": "sprites/home/chikorita.png",
+    "boxId": 1,
+    "note": "Emerald"
+  },
+  {
+    "id": 23,
+    "dexId": 155,
+    "name": "Cyndaquil",
+    "spriteUrl": "sprites/home/cyndaquil.png",
+    "boxId": 1,
+    "note": "Emerald"
+  },
+  {
+    "id": 24,
+    "dexId": 158,
+    "name": "Totodile",
+    "spriteUrl": "sprites/home/totodile.png",
+    "boxId": 1,
+    "note": "Emerald"
+  },
+  {
+    "id": 25,
+    "dexId": 172,
+    "name": "Pichu",
+    "spriteUrl": "sprites/home/pichu.png",
+    "boxId": 1,
+    "note": "Pokemon Box"
+  },
+  {
+    "id": 27,
     "dexId": 612,
     "name": "Shiny Haxorus (Black 2/White 2)",
     "spriteUrl": "sprites/masterdex/shiny-haxorus.png",
@@ -136,24 +208,33 @@
     "note": "Shiny caught from B2W2"
   },
   {
-    "id": 18,
+    "id": 28,
     "dexId": 327,
     "name": "Matching Spinda Pair",
     "spriteUrl": "sprites/masterdex/matching-spinda.png",
     "boxId": 1
   },
   {
-    "id": 19,
+    "id": 29,
     "dexId": 483,
     "name": "Origin Forme Dialga",
     "spriteUrl": "sprites/masterdex/dialga-origin.png",
     "boxId": 1
   },
   {
-    "id": 20,
+    "id": 30,
     "dexId": 484,
     "name": "Origin Forme Palkia",
     "spriteUrl": "sprites/masterdex/palkia-origin.png",
-    "boxId": 1
+    "boxId": 2
+  },
+  {
+    "id": 40,
+    "dexId": 484,
+    "name": "Shiny Blitzle",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/shiny/1x/blitzle.png",
+    "boxId": 2,
+    "note": "SV league club room"
   }
+  
 ]
