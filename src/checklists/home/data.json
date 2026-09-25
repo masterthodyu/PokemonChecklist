@@ -3701,8 +3701,8 @@
   {
     "id": 412,
     "dexId": 412,
-    "name": "Burmy",
-    "spriteUrl": "sprites/home/burmy.png",
+    "name": "Burmy (Plant Cloak)",
+    "spriteUrl": "sprites/home/burmy-plant.png",
     "boxId": 14,
     "category": "base",
     "note": "Diamond/Pearl/Platinum"
@@ -3710,8 +3710,8 @@
   {
     "id": 413,
     "dexId": 413,
-    "name": "Wormadam",
-    "spriteUrl": "sprites/home/wormadam.png",
+    "name": "Wormadam (Plant Cloak)",
+    "spriteUrl": "sprites/home/wormadam-plant.png",
     "boxId": 14,
     "category": "base",
     "note": "Diamond/Pearl/Platinum"
@@ -3791,8 +3791,8 @@
   {
     "id": 422,
     "dexId": 422,
-    "name": "Shellos",
-    "spriteUrl": "sprites/home/shellos.png",
+    "name": "Shellos (West Sea)",
+    "spriteUrl": "sprites/home/shellos-west.png",
     "boxId": 15,
     "category": "base",
     "note": "Diamond/Pearl/Platinum"
@@ -3800,8 +3800,8 @@
   {
     "id": 423,
     "dexId": 423,
-    "name": "Gastrodon",
-    "spriteUrl": "sprites/home/gastrodon.png",
+    "name": "Gastrodon (West Sea)",
+    "spriteUrl": "sprites/home/gastrodon-west.png",
     "boxId": 15,
     "category": "base",
     "note": "Diamond/Pearl/Platinum"
@@ -10347,21 +10347,13 @@
   {
     "id": 1166,
     "dexId": 412,
-    "name": "Burmy (Plant Cloak)",
-    "spriteUrl": "sprites/home/burmy-plant.png",
-    "boxId": 43,
-    "category": "form"
-  },
-  {
-    "id": 1167,
-    "dexId": 412,
     "name": "Burmy (Sandy Cloak)",
     "spriteUrl": "sprites/home/burmy-sandy.png",
     "boxId": 43,
     "category": "form"
   },
   {
-    "id": 1168,
+    "id": 1167,
     "dexId": 412,
     "name": "Burmy (Trash Cloak)",
     "spriteUrl": "sprites/home/burmy-trash.png",
@@ -10369,15 +10361,7 @@
     "category": "form"
   },
   {
-    "id": 1169,
-    "dexId": 413,
-    "name": "Wormadam (Plant Cloak)",
-    "spriteUrl": "sprites/home/wormadam-plant.png",
-    "boxId": 43,
-    "category": "form"
-  },
-  {
-    "id": 1170,
+    "id": 1168,
     "dexId": 413,
     "name": "Wormadam (Sandy Cloak)",
     "spriteUrl": "sprites/home/wormadam-sandy.png",
@@ -10385,7 +10369,7 @@
     "category": "form"
   },
   {
-    "id": 1171,
+    "id": 1169,
     "dexId": 413,
     "name": "Wormadam (Trash Cloak)",
     "spriteUrl": "sprites/home/wormadam-trash.png",
@@ -10393,15 +10377,7 @@
     "category": "form"
   },
   {
-    "id": 1172,
-    "dexId": 422,
-    "name": "Shellos (West Sea)",
-    "spriteUrl": "sprites/home/shellos-west.png",
-    "boxId": 43,
-    "category": "form"
-  },
-  {
-    "id": 1173,
+    "id": 1170,
     "dexId": 422,
     "name": "Shellos (East Sea)",
     "spriteUrl": "sprites/home/shellos-east.png",
@@ -10409,15 +10385,7 @@
     "category": "form"
   },
   {
-    "id": 1174,
-    "dexId": 423,
-    "name": "Gastrodon (West Sea)",
-    "spriteUrl": "sprites/home/gastrodon-west.png",
-    "boxId": 43,
-    "category": "form"
-  },
-  {
-    "id": 1175,
+    "id": 1171,
     "dexId": 423,
     "name": "Gastrodon (East Sea)",
     "spriteUrl": "sprites/home/gastrodon-east.png",
@@ -10425,7 +10393,7 @@
     "category": "form"
   },
   {
-    "id": 1176,
+    "id": 1172,
     "dexId": 479,
     "name": "Heat Rotom",
     "spriteUrl": "sprites/home/rotom-heat.png",
@@ -10433,7 +10401,7 @@
     "category": "form"
   },
   {
-    "id": 1177,
+    "id": 1173,
     "dexId": 479,
     "name": "Wash Rotom",
     "spriteUrl": "sprites/home/rotom-wash.png",
@@ -10441,7 +10409,7 @@
     "category": "form"
   },
   {
-    "id": 1178,
+    "id": 1174,
     "dexId": 479,
     "name": "Frost Rotom",
     "spriteUrl": "sprites/home/rotom-frost.png",
@@ -10449,7 +10417,7 @@
     "category": "form"
   },
   {
-    "id": 1179,
+    "id": 1175,
     "dexId": 479,
     "name": "Fan Rotom",
     "spriteUrl": "sprites/home/rotom-fan.png",
@@ -10457,7 +10425,7 @@
     "category": "form"
   },
   {
-    "id": 1180,
+    "id": 1176,
     "dexId": 479,
     "name": "Mow Rotom",
     "spriteUrl": "sprites/home/rotom-mow.png",
@@ -10465,7 +10433,7 @@
     "category": "form"
   },
   {
-    "id": 1181,
+    "id": 1177,
     "dexId": 492,
     "name": "Shaymin (Sky Forme)",
     "spriteUrl": "sprites/home/shaymin-sky.png",
@@ -10473,7 +10441,7 @@
     "category": "form"
   },
   {
-    "id": 1182,
+    "id": 1178,
     "dexId": 585,
     "name": "Deerling (Summer Form)",
     "spriteUrl": "sprites/home/deerling-summer.png",
@@ -10481,7 +10449,7 @@
     "category": "form"
   },
   {
-    "id": 1183,
+    "id": 1179,
     "dexId": 585,
     "name": "Deerling (Autumn Form)",
     "spriteUrl": "sprites/home/deerling-autumn.png",
@@ -10489,7 +10457,7 @@
     "category": "form"
   },
   {
-    "id": 1184,
+    "id": 1180,
     "dexId": 585,
     "name": "Deerling (Winter Form)",
     "spriteUrl": "sprites/home/deerling-winter.png",
@@ -10497,7 +10465,7 @@
     "category": "form"
   },
   {
-    "id": 1185,
+    "id": 1181,
     "dexId": 586,
     "name": "Sawsbuck (Summer Form)",
     "spriteUrl": "sprites/home/sawsbuck-summer.png",
@@ -10505,7 +10473,7 @@
     "category": "form"
   },
   {
-    "id": 1186,
+    "id": 1182,
     "dexId": 586,
     "name": "Sawsbuck (Autumn Form)",
     "spriteUrl": "sprites/home/sawsbuck-autumn.png",
@@ -10513,7 +10481,7 @@
     "category": "form"
   },
   {
-    "id": 1187,
+    "id": 1183,
     "dexId": 586,
     "name": "Sawsbuck (Winter Form)",
     "spriteUrl": "sprites/home/sawsbuck-winter.png",
@@ -10521,7 +10489,7 @@
     "category": "form"
   },
   {
-    "id": 1188,
+    "id": 1184,
     "dexId": 550,
     "name": "Basculin (Blue-Striped Form)",
     "spriteUrl": "sprites/home/basculin-blue-striped.png",
@@ -10529,7 +10497,7 @@
     "category": "form"
   },
   {
-    "id": 1189,
+    "id": 1185,
     "dexId": 641,
     "name": "Tornadus (Therian Forme)",
     "spriteUrl": "sprites/home/tornadus-therian.png",
@@ -10537,7 +10505,7 @@
     "category": "form"
   },
   {
-    "id": 1190,
+    "id": 1186,
     "dexId": 642,
     "name": "Thundurus (Therian Forme)",
     "spriteUrl": "sprites/home/thundurus-therian.png",
@@ -10545,7 +10513,7 @@
     "category": "form"
   },
   {
-    "id": 1191,
+    "id": 1187,
     "dexId": 645,
     "name": "Landorus (Therian Forme)",
     "spriteUrl": "sprites/home/landorus-therian.png",
@@ -10553,7 +10521,7 @@
     "category": "form"
   },
   {
-    "id": 1192,
+    "id": 1188,
     "dexId": 647,
     "name": "Keldeo (Resolute Form)",
     "spriteUrl": "sprites/home/keldeo-resolute.png",
@@ -10561,7 +10529,7 @@
     "category": "form"
   },
   {
-    "id": 1193,
+    "id": 1189,
     "dexId": 658,
     "name": "Ash-Greninja",
     "spriteUrl": "sprites/home/greninja-ash.png",
@@ -10569,7 +10537,7 @@
     "category": "form"
   },
   {
-    "id": 1194,
+    "id": 1190,
     "dexId": 666,
     "name": "Vivillon (Polar Pattern)",
     "spriteUrl": "sprites/home/vivillon-polar.png",
@@ -10577,7 +10545,7 @@
     "category": "form"
   },
   {
-    "id": 1195,
+    "id": 1191,
     "dexId": 666,
     "name": "Vivillon (Tundra Pattern)",
     "spriteUrl": "sprites/home/vivillon-tundra.png",
@@ -10585,7 +10553,7 @@
     "category": "form"
   },
   {
-    "id": 1196,
+    "id": 1192,
     "dexId": 666,
     "name": "Vivillon (Continental Pattern)",
     "spriteUrl": "sprites/home/vivillon-continental.png",
@@ -10593,7 +10561,7 @@
     "category": "form"
   },
   {
-    "id": 1197,
+    "id": 1193,
     "dexId": 666,
     "name": "Vivillon (Garden Pattern)",
     "spriteUrl": "sprites/home/vivillon-garden.png",
@@ -10601,7 +10569,7 @@
     "category": "form"
   },
   {
-    "id": 1198,
+    "id": 1194,
     "dexId": 666,
     "name": "Vivillon (Elegant Pattern)",
     "spriteUrl": "sprites/home/vivillon-elegant.png",
@@ -10609,7 +10577,7 @@
     "category": "form"
   },
   {
-    "id": 1199,
+    "id": 1195,
     "dexId": 666,
     "name": "Vivillon (Meadow Pattern)",
     "spriteUrl": "sprites/home/vivillon-meadow.png",
@@ -10617,7 +10585,7 @@
     "category": "form"
   },
   {
-    "id": 1200,
+    "id": 1196,
     "dexId": 666,
     "name": "Vivillon (Modern Pattern)",
     "spriteUrl": "sprites/home/vivillon-modern.png",
@@ -10625,7 +10593,7 @@
     "category": "form"
   },
   {
-    "id": 1201,
+    "id": 1197,
     "dexId": 666,
     "name": "Vivillon (Marine Pattern)",
     "spriteUrl": "sprites/home/vivillon-marine.png",
@@ -10633,7 +10601,7 @@
     "category": "form"
   },
   {
-    "id": 1202,
+    "id": 1198,
     "dexId": 666,
     "name": "Vivillon (Archipelago Pattern)",
     "spriteUrl": "sprites/home/vivillon-archipelago.png",
@@ -10641,7 +10609,7 @@
     "category": "form"
   },
   {
-    "id": 1203,
+    "id": 1199,
     "dexId": 666,
     "name": "Vivillon (High Plains Pattern)",
     "spriteUrl": "sprites/home/vivillon-high-plains.png",
@@ -10649,7 +10617,7 @@
     "category": "form"
   },
   {
-    "id": 1204,
+    "id": 1200,
     "dexId": 666,
     "name": "Vivillon (Sandstorm Pattern)",
     "spriteUrl": "sprites/home/vivillon-sandstorm.png",
@@ -10657,7 +10625,7 @@
     "category": "form"
   },
   {
-    "id": 1205,
+    "id": 1201,
     "dexId": 666,
     "name": "Vivillon (River Pattern)",
     "spriteUrl": "sprites/home/vivillon-river.png",
@@ -10665,7 +10633,7 @@
     "category": "form"
   },
   {
-    "id": 1206,
+    "id": 1202,
     "dexId": 666,
     "name": "Vivillon (Monsoon Pattern)",
     "spriteUrl": "sprites/home/vivillon-monsoon.png",
@@ -10673,7 +10641,7 @@
     "category": "form"
   },
   {
-    "id": 1207,
+    "id": 1203,
     "dexId": 666,
     "name": "Vivillon (Savanna Pattern)",
     "spriteUrl": "sprites/home/vivillon-savanna.png",
@@ -10681,7 +10649,7 @@
     "category": "form"
   },
   {
-    "id": 1208,
+    "id": 1206,
     "dexId": 666,
     "name": "Vivillon (Sun Pattern)",
     "spriteUrl": "sprites/home/vivillon-sun.png",
@@ -10689,7 +10657,7 @@
     "category": "form"
   },
   {
-    "id": 1209,
+    "id": 1207,
     "dexId": 666,
     "name": "Vivillon (Ocean Pattern)",
     "spriteUrl": "sprites/home/vivillon-ocean.png",
@@ -10697,7 +10665,7 @@
     "category": "form"
   },
   {
-    "id": 1210,
+    "id": 1208,
     "dexId": 666,
     "name": "Vivillon (Jungle Pattern)",
     "spriteUrl": "sprites/home/vivillon-jungle.png",
@@ -10705,7 +10673,7 @@
     "category": "form"
   },
   {
-    "id": 1211,
+    "id": 1209,
     "dexId": 666,
     "name": "Vivillon (Fancy Pattern)",
     "spriteUrl": "sprites/home/vivillon-fancy.png",
@@ -10713,7 +10681,7 @@
     "category": "form"
   },
   {
-    "id": 1212,
+    "id": 1210,
     "dexId": 666,
     "name": "Vivillon (Poké Ball Pattern)",
     "spriteUrl": "sprites/home/vivillon-poke-ball.png",
@@ -10721,7 +10689,7 @@
     "category": "form"
   },
   {
-    "id": 1213,
+    "id": 1211,
     "dexId": 669,
     "name": "Flabébé (Yellow Flower)",
     "spriteUrl": "sprites/home/flabebe-yellow.png",
@@ -10729,7 +10697,7 @@
     "category": "form"
   },
   {
-    "id": 1214,
+    "id": 1212,
     "dexId": 669,
     "name": "Flabébé (Orange Flower)",
     "spriteUrl": "sprites/home/flabebe-orange.png",
@@ -10737,7 +10705,7 @@
     "category": "form"
   },
   {
-    "id": 1215,
+    "id": 1213,
     "dexId": 669,
     "name": "Flabébé (Blue Flower)",
     "spriteUrl": "sprites/home/flabebe-blue.png",
@@ -10745,7 +10713,7 @@
     "category": "form"
   },
   {
-    "id": 1216,
+    "id": 1214,
     "dexId": 669,
     "name": "Flabébé (White Flower)",
     "spriteUrl": "sprites/home/flabebe-white.png",
@@ -10753,7 +10721,7 @@
     "category": "form"
   },
   {
-    "id": 1217,
+    "id": 1215,
     "dexId": 670,
     "name": "Floette (Yellow Flower)",
     "spriteUrl": "sprites/home/floette-yellow.png",
@@ -10761,7 +10729,7 @@
     "category": "form"
   },
   {
-    "id": 1218,
+    "id": 1216,
     "dexId": 670,
     "name": "Floette (Orange Flower)",
     "spriteUrl": "sprites/home/floette-orange.png",
@@ -10769,7 +10737,7 @@
     "category": "form"
   },
   {
-    "id": 1219,
+    "id": 1217,
     "dexId": 670,
     "name": "Floette (Blue Flower)",
     "spriteUrl": "sprites/home/floette-blue.png",
@@ -10777,7 +10745,7 @@
     "category": "form"
   },
   {
-    "id": 1220,
+    "id": 1218,
     "dexId": 670,
     "name": "Floette (White Flower)",
     "spriteUrl": "sprites/home/floette-white.png",
@@ -10785,7 +10753,7 @@
     "category": "form"
   },
   {
-    "id": 1221,
+    "id": 1219,
     "dexId": 670,
     "name": "Floette (Eternal Flower)",
     "spriteUrl": "sprites/home/670-e.png",
@@ -10793,7 +10761,7 @@
     "category": "form"
   },
   {
-    "id": 1222,
+    "id": 1220,
     "dexId": 671,
     "name": "Florges (Yellow Flower)",
     "spriteUrl": "sprites/home/florges-yellow.png",
@@ -10801,7 +10769,7 @@
     "category": "form"
   },
   {
-    "id": 1223,
+    "id": 1221,
     "dexId": 671,
     "name": "Florges (Orange Flower)",
     "spriteUrl": "sprites/home/florges-orange.png",
@@ -10809,7 +10777,7 @@
     "category": "form"
   },
   {
-    "id": 1224,
+    "id": 1222,
     "dexId": 671,
     "name": "Florges (Blue Flower)",
     "spriteUrl": "sprites/home/florges-blue.png",
@@ -10817,7 +10785,7 @@
     "category": "form"
   },
   {
-    "id": 1225,
+    "id": 1223,
     "dexId": 671,
     "name": "Florges (White Flower)",
     "spriteUrl": "sprites/home/florges-white.png",
@@ -10825,7 +10793,7 @@
     "category": "form"
   },
   {
-    "id": 1226,
+    "id": 1224,
     "dexId": 676,
     "name": "Furfrou (Heart Trim)",
     "spriteUrl": "sprites/home/furfrou-heart.png",
@@ -10833,7 +10801,7 @@
     "category": "form"
   },
   {
-    "id": 1227,
+    "id": 1225,
     "dexId": 676,
     "name": "Furfrou (Star Trim)",
     "spriteUrl": "sprites/home/furfrou-star.png",
@@ -10841,7 +10809,7 @@
     "category": "form"
   },
   {
-    "id": 1228,
+    "id": 1226,
     "dexId": 676,
     "name": "Furfrou (Diamond Trim)",
     "spriteUrl": "sprites/home/furfrou-diamond.png",
@@ -10849,7 +10817,7 @@
     "category": "form"
   },
   {
-    "id": 1229,
+    "id": 1227,
     "dexId": 676,
     "name": "Furfrou (Debutante Trim)",
     "spriteUrl": "sprites/home/furfrou-debutante.png",
@@ -10857,7 +10825,7 @@
     "category": "form"
   },
   {
-    "id": 1230,
+    "id": 1228,
     "dexId": 676,
     "name": "Furfrou (Matron Trim)",
     "spriteUrl": "sprites/home/furfrou-matron.png",
@@ -10865,7 +10833,7 @@
     "category": "form"
   },
   {
-    "id": 1231,
+    "id": 1229,
     "dexId": 676,
     "name": "Furfrou (Dandy Trim)",
     "spriteUrl": "sprites/home/furfrou-dandy.png",
@@ -10873,7 +10841,7 @@
     "category": "form"
   },
   {
-    "id": 1232,
+    "id": 1230,
     "dexId": 676,
     "name": "Furfrou (La Reine Trim)",
     "spriteUrl": "sprites/home/furfrou-la-reine.png",
@@ -10881,7 +10849,7 @@
     "category": "form"
   },
   {
-    "id": 1233,
+    "id": 1231,
     "dexId": 676,
     "name": "Furfrou (Kabuki Trim)",
     "spriteUrl": "sprites/home/furfrou-kabuki.png",
@@ -10889,7 +10857,7 @@
     "category": "form"
   },
   {
-    "id": 1234,
+    "id": 1232,
     "dexId": 676,
     "name": "Furfrou (Pharaoh Trim)",
     "spriteUrl": "sprites/home/furfrou-pharaoh.png",
@@ -10897,7 +10865,7 @@
     "category": "form"
   },
   {
-    "id": 1235,
+    "id": 1233,
     "dexId": 710,
     "name": "Pumpkaboo (Small Size)",
     "spriteUrl": "sprites/home/pumpkaboo-small.png",
@@ -10905,7 +10873,7 @@
     "category": "form"
   },
   {
-    "id": 1236,
+    "id": 1234,
     "dexId": 710,
     "name": "Pumpkaboo (Large Size)",
     "spriteUrl": "sprites/home/pumpkaboo-large.png",
@@ -10913,7 +10881,7 @@
     "category": "form"
   },
   {
-    "id": 1237,
+    "id": 1235,
     "dexId": 710,
     "name": "Pumpkaboo (Super Size)",
     "spriteUrl": "sprites/home/pumpkaboo-super.png",
@@ -10921,7 +10889,7 @@
     "category": "form"
   },
   {
-    "id": 1238,
+    "id": 1236,
     "dexId": 711,
     "name": "Gourgeist (Small Size)",
     "spriteUrl": "sprites/home/gourgeist-small.png",
@@ -10929,7 +10897,7 @@
     "category": "form"
   },
   {
-    "id": 1239,
+    "id": 1237,
     "dexId": 711,
     "name": "Gourgeist (Large Size)",
     "spriteUrl": "sprites/home/gourgeist-large.png",
@@ -10937,7 +10905,7 @@
     "category": "form"
   },
   {
-    "id": 1240,
+    "id": 1238,
     "dexId": 711,
     "name": "Gourgeist (Super Size)",
     "spriteUrl": "sprites/home/gourgeist-super.png",
@@ -10945,7 +10913,7 @@
     "category": "form"
   },
   {
-    "id": 1241,
+    "id": 1239,
     "dexId": 718,
     "name": "Zygarde (10% Forme)",
     "spriteUrl": "sprites/home/zygarde-10.png",
@@ -10953,7 +10921,7 @@
     "category": "form"
   },
   {
-    "id": 1242,
+    "id": 1240,
     "dexId": 720,
     "name": "Hoopa Unbound",
     "spriteUrl": "sprites/home/hoopa-unbound.png",
@@ -10961,7 +10929,7 @@
     "category": "form"
   },
   {
-    "id": 1243,
+    "id": 1241,
     "dexId": 741,
     "name": "Oricorio (Pom-Pom Style)",
     "spriteUrl": "sprites/home/oricorio-pom-pom.png",
@@ -10969,7 +10937,7 @@
     "category": "form"
   },
   {
-    "id": 1244,
+    "id": 1242,
     "dexId": 741,
     "name": "Oricorio (Pa'u Style)",
     "spriteUrl": "sprites/home/oricorio-pau.png",
@@ -10977,7 +10945,7 @@
     "category": "form"
   },
   {
-    "id": 1245,
+    "id": 1243,
     "dexId": 741,
     "name": "Oricorio (Sensu Style)",
     "spriteUrl": "sprites/home/oricorio-sensu.png",
@@ -10985,7 +10953,7 @@
     "category": "form"
   },
   {
-    "id": 1246,
+    "id": 1244,
     "dexId": 745,
     "name": "Lycanroc (Midnight Form)",
     "spriteUrl": "sprites/home/lycanroc-midnight.png",
@@ -10993,7 +10961,7 @@
     "category": "form"
   },
   {
-    "id": 1247,
+    "id": 1245,
     "dexId": 745,
     "name": "Lycanroc (Dusk Form)",
     "spriteUrl": "sprites/home/lycanroc-dusk.png",
@@ -11001,7 +10969,7 @@
     "category": "form"
   },
   {
-    "id": 1248,
+    "id": 1246,
     "dexId": 774,
     "name": "Minior (Core, Red)",
     "spriteUrl": "sprites/home/minior-red-core.png",
@@ -11009,7 +10977,7 @@
     "category": "form"
   },
   {
-    "id": 1249,
+    "id": 1247,
     "dexId": 774,
     "name": "Minior (Core, Orange)",
     "spriteUrl": "sprites/home/minior-orange-core.png",
@@ -11017,7 +10985,7 @@
     "category": "form"
   },
   {
-    "id": 1250,
+    "id": 1248,
     "dexId": 774,
     "name": "Minior (Core, Yellow)",
     "spriteUrl": "sprites/home/minior-yellow-core.png",
@@ -11025,7 +10993,7 @@
     "category": "form"
   },
   {
-    "id": 1251,
+    "id": 1249,
     "dexId": 774,
     "name": "Minior (Core, Green)",
     "spriteUrl": "sprites/home/minior-green-core.png",
@@ -11033,7 +11001,7 @@
     "category": "form"
   },
   {
-    "id": 1252,
+    "id": 1250,
     "dexId": 774,
     "name": "Minior (Core, Blue)",
     "spriteUrl": "sprites/home/minior-blue-core.png",
@@ -11041,7 +11009,7 @@
     "category": "form"
   },
   {
-    "id": 1253,
+    "id": 1251,
     "dexId": 774,
     "name": "Minior (Core, Indigo)",
     "spriteUrl": "sprites/home/minior-indigo-core.png",
@@ -11049,7 +11017,7 @@
     "category": "form"
   },
   {
-    "id": 1254,
+    "id": 1252,
     "dexId": 774,
     "name": "Minior (Core, Violet)",
     "spriteUrl": "sprites/home/minior-violet-core.png",
@@ -11057,7 +11025,7 @@
     "category": "form"
   },
   {
-    "id": 1255,
+    "id": 1253,
     "dexId": 801,
     "name": "Magearna (Original Color Form)",
     "spriteUrl": "sprites/home/magearna-original.png",
@@ -11065,7 +11033,7 @@
     "category": "form"
   },
   {
-    "id": 1256,
+    "id": 1254,
     "dexId": 849,
     "name": "Toxtricity (Low Key Form)",
     "spriteUrl": "sprites/home/toxtricity-low-key.png",
@@ -11073,7 +11041,7 @@
     "category": "form"
   },
   {
-    "id": 1257,
+    "id": 1255,
     "dexId": 854,
     "name": "Sinistea (Antique Form)",
     "spriteUrl": "sprites/home/sinistea-antique.png",
@@ -11081,7 +11049,7 @@
     "category": "form"
   },
   {
-    "id": 1258,
+    "id": 1256,
     "dexId": 855,
     "name": "Polteageist (Antique Form)",
     "spriteUrl": "sprites/home/polteageist-antique.png",
@@ -11089,7 +11057,7 @@
     "category": "form"
   },
   {
-    "id": 1259,
+    "id": 1257,
     "dexId": 892,
     "name": "Urshifu (Rapid Strike Style)",
     "spriteUrl": "sprites/home/urshifu-rapid-strike.png",
@@ -11097,7 +11065,7 @@
     "category": "form"
   },
   {
-    "id": 1260,
+    "id": 1258,
     "dexId": 893,
     "name": "Zarude (Dada)",
     "spriteUrl": "sprites/home/zarude-dada.png",
@@ -11105,7 +11073,7 @@
     "category": "form"
   },
   {
-    "id": 1261,
+    "id": 1259,
     "dexId": 905,
     "name": "Enamorus (Therian Forme)",
     "spriteUrl": "sprites/home/enamorus-therian.png",
@@ -11113,7 +11081,7 @@
     "category": "form"
   },
   {
-    "id": 1262,
+    "id": 1260,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Berry Sweet)",
     "spriteUrl": "sprites/home/alcremie-vanilla-cream-berry.png",
@@ -11121,7 +11089,7 @@
     "category": "form"
   },
   {
-    "id": 1263,
+    "id": 1261,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Clover Sweet)",
     "spriteUrl": "sprites/home/alcremie-vanilla-cream-clover.png",
@@ -11129,7 +11097,7 @@
     "category": "form"
   },
   {
-    "id": 1264,
+    "id": 1262,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Flower Sweet)",
     "spriteUrl": "sprites/home/alcremie-vanilla-cream-flower.png",
@@ -11137,7 +11105,7 @@
     "category": "form"
   },
   {
-    "id": 1265,
+    "id": 1263,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Love Sweet)",
     "spriteUrl": "sprites/home/alcremie-vanilla-cream-love.png",
@@ -11145,7 +11113,7 @@
     "category": "form"
   },
   {
-    "id": 1266,
+    "id": 1264,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Ribbon Sweet)",
     "spriteUrl": "sprites/home/alcremie-vanilla-cream-ribbon.png",
@@ -11153,7 +11121,7 @@
     "category": "form"
   },
   {
-    "id": 1267,
+    "id": 1265,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Star Sweet)",
     "spriteUrl": "sprites/home/alcremie-vanilla-cream-star.png",
@@ -11161,7 +11129,7 @@
     "category": "form"
   },
   {
-    "id": 1268,
+    "id": 1266,
     "dexId": 869,
     "name": "Alcremie (Vanilla Cream, Strawberry Sweet)",
     "spriteUrl": "sprites/home/alcremie-vanilla-cream-strawberry.png",
@@ -11169,7 +11137,7 @@
     "category": "form"
   },
   {
-    "id": 1269,
+    "id": 1267,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Berry Sweet)",
     "spriteUrl": "sprites/home/alcremie-caramel-swirl-berry.png",
@@ -11177,7 +11145,7 @@
     "category": "form"
   },
   {
-    "id": 1270,
+    "id": 1268,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Clover Sweet)",
     "spriteUrl": "sprites/home/alcremie-caramel-swirl-clover.png",
@@ -11185,7 +11153,7 @@
     "category": "form"
   },
   {
-    "id": 1271,
+    "id": 1269,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Flower Sweet)",
     "spriteUrl": "sprites/home/alcremie-caramel-swirl-flower.png",
@@ -11193,7 +11161,7 @@
     "category": "form"
   },
   {
-    "id": 1272,
+    "id": 1270,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Love Sweet)",
     "spriteUrl": "sprites/home/alcremie-caramel-swirl-love.png",
@@ -11201,7 +11169,7 @@
     "category": "form"
   },
   {
-    "id": 1273,
+    "id": 1271,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Ribbon Sweet)",
     "spriteUrl": "sprites/home/alcremie-caramel-swirl-ribbon.png",
@@ -11209,7 +11177,7 @@
     "category": "form"
   },
   {
-    "id": 1274,
+    "id": 1272,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Star Sweet)",
     "spriteUrl": "sprites/home/alcremie-caramel-swirl-star.png",
@@ -11217,7 +11185,7 @@
     "category": "form"
   },
   {
-    "id": 1275,
+    "id": 1273,
     "dexId": 869,
     "name": "Alcremie (Caramel Swirl, Strawberry Sweet)",
     "spriteUrl": "sprites/home/alcremie-caramel-swirl-strawberry.png",
@@ -11225,7 +11193,7 @@
     "category": "form"
   },
   {
-    "id": 1276,
+    "id": 1274,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Berry Sweet)",
     "spriteUrl": "sprites/home/alcremie-lemon-cream-berry.png",
@@ -11233,7 +11201,7 @@
     "category": "form"
   },
   {
-    "id": 1277,
+    "id": 1275,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Clover Sweet)",
     "spriteUrl": "sprites/home/alcremie-lemon-cream-clover.png",
@@ -11241,7 +11209,7 @@
     "category": "form"
   },
   {
-    "id": 1278,
+    "id": 1276,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Flower Sweet)",
     "spriteUrl": "sprites/home/alcremie-lemon-cream-flower.png",
@@ -11249,7 +11217,7 @@
     "category": "form"
   },
   {
-    "id": 1279,
+    "id": 1277,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Love Sweet)",
     "spriteUrl": "sprites/home/alcremie-lemon-cream-love.png",
@@ -11257,7 +11225,7 @@
     "category": "form"
   },
   {
-    "id": 1280,
+    "id": 1278,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Ribbon Sweet)",
     "spriteUrl": "sprites/home/alcremie-lemon-cream-ribbon.png",
@@ -11265,7 +11233,7 @@
     "category": "form"
   },
   {
-    "id": 1281,
+    "id": 1279,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Star Sweet)",
     "spriteUrl": "sprites/home/alcremie-lemon-cream-star.png",
@@ -11273,7 +11241,7 @@
     "category": "form"
   },
   {
-    "id": 1282,
+    "id": 1280,
     "dexId": 869,
     "name": "Alcremie (Lemon Cream, Strawberry Sweet)",
     "spriteUrl": "sprites/home/alcremie-lemon-cream-strawberry.png",
@@ -11281,7 +11249,7 @@
     "category": "form"
   },
   {
-    "id": 1283,
+    "id": 1281,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Berry Sweet)",
     "spriteUrl": "sprites/home/alcremie-matcha-cream-berry.png",
@@ -11289,7 +11257,7 @@
     "category": "form"
   },
   {
-    "id": 1284,
+    "id": 1282,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Clover Sweet)",
     "spriteUrl": "sprites/home/alcremie-matcha-cream-clover.png",
@@ -11297,7 +11265,7 @@
     "category": "form"
   },
   {
-    "id": 1285,
+    "id": 1283,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Flower Sweet)",
     "spriteUrl": "sprites/home/alcremie-matcha-cream-flower.png",
@@ -11305,7 +11273,7 @@
     "category": "form"
   },
   {
-    "id": 1286,
+    "id": 1284,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Love Sweet)",
     "spriteUrl": "sprites/home/alcremie-matcha-cream-love.png",
@@ -11313,7 +11281,7 @@
     "category": "form"
   },
   {
-    "id": 1287,
+    "id": 1285,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Ribbon Sweet)",
     "spriteUrl": "sprites/home/alcremie-matcha-cream-ribbon.png",
@@ -11321,7 +11289,7 @@
     "category": "form"
   },
   {
-    "id": 1288,
+    "id": 1286,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Star Sweet)",
     "spriteUrl": "sprites/home/alcremie-matcha-cream-star.png",
@@ -11329,7 +11297,7 @@
     "category": "form"
   },
   {
-    "id": 1289,
+    "id": 1287,
     "dexId": 869,
     "name": "Alcremie (Matcha Cream, Strawberry Sweet)",
     "spriteUrl": "sprites/home/alcremie-matcha-cream-strawberry.png",
@@ -11337,7 +11305,7 @@
     "category": "form"
   },
   {
-    "id": 1290,
+    "id": 1288,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Berry Sweet)",
     "spriteUrl": "sprites/home/alcremie-mint-cream-berry.png",
@@ -11345,7 +11313,7 @@
     "category": "form"
   },
   {
-    "id": 1291,
+    "id": 1289,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Clover Sweet)",
     "spriteUrl": "sprites/home/alcremie-mint-cream-clover.png",
@@ -11353,7 +11321,7 @@
     "category": "form"
   },
   {
-    "id": 1292,
+    "id": 1290,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Flower Sweet)",
     "spriteUrl": "sprites/home/alcremie-mint-cream-flower.png",
@@ -11361,7 +11329,7 @@
     "category": "form"
   },
   {
-    "id": 1293,
+    "id": 1291,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Love Sweet)",
     "spriteUrl": "sprites/home/alcremie-mint-cream-love.png",
@@ -11369,7 +11337,7 @@
     "category": "form"
   },
   {
-    "id": 1294,
+    "id": 1292,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Ribbon Sweet)",
     "spriteUrl": "sprites/home/alcremie-mint-cream-ribbon.png",
@@ -11377,7 +11345,7 @@
     "category": "form"
   },
   {
-    "id": 1295,
+    "id": 1293,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Star Sweet)",
     "spriteUrl": "sprites/home/alcremie-mint-cream-star.png",
@@ -11385,7 +11353,7 @@
     "category": "form"
   },
   {
-    "id": 1296,
+    "id": 1294,
     "dexId": 869,
     "name": "Alcremie (Mint Cream, Strawberry Sweet)",
     "spriteUrl": "sprites/home/alcremie-mint-cream-strawberry.png",
@@ -11393,7 +11361,7 @@
     "category": "form"
   },
   {
-    "id": 1297,
+    "id": 1295,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Berry Sweet)",
     "spriteUrl": "sprites/home/alcremie-rainbow-swirl-berry.png",
@@ -11401,7 +11369,7 @@
     "category": "form"
   },
   {
-    "id": 1298,
+    "id": 1296,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Clover Sweet)",
     "spriteUrl": "sprites/home/alcremie-rainbow-swirl-clover.png",
@@ -11409,7 +11377,7 @@
     "category": "form"
   },
   {
-    "id": 1299,
+    "id": 1297,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Flower Sweet)",
     "spriteUrl": "sprites/home/alcremie-rainbow-swirl-flower.png",
@@ -11417,7 +11385,7 @@
     "category": "form"
   },
   {
-    "id": 1300,
+    "id": 1298,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Love Sweet)",
     "spriteUrl": "sprites/home/alcremie-rainbow-swirl-love.png",
@@ -11425,7 +11393,7 @@
     "category": "form"
   },
   {
-    "id": 1301,
+    "id": 1299,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Ribbon Sweet)",
     "spriteUrl": "sprites/home/alcremie-rainbow-swirl-ribbon.png",
@@ -11433,7 +11401,7 @@
     "category": "form"
   },
   {
-    "id": 1302,
+    "id": 1300,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Star Sweet)",
     "spriteUrl": "sprites/home/alcremie-rainbow-swirl-star.png",
@@ -11441,7 +11409,7 @@
     "category": "form"
   },
   {
-    "id": 1303,
+    "id": 1301,
     "dexId": 869,
     "name": "Alcremie (Rainbow Swirl Cream, Strawberry Sweet)",
     "spriteUrl": "sprites/home/alcremie-rainbow-swirl-strawberry.png",
@@ -11449,7 +11417,7 @@
     "category": "form"
   },
   {
-    "id": 1304,
+    "id": 1302,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Berry Sweet)",
     "spriteUrl": "sprites/home/alcremie-ruby-cream-berry.png",
@@ -11457,7 +11425,7 @@
     "category": "form"
   },
   {
-    "id": 1305,
+    "id": 1303,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Clover Sweet)",
     "spriteUrl": "sprites/home/alcremie-ruby-cream-clover.png",
@@ -11465,7 +11433,7 @@
     "category": "form"
   },
   {
-    "id": 1306,
+    "id": 1304,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Flower Sweet)",
     "spriteUrl": "sprites/home/alcremie-ruby-cream-flower.png",
@@ -11473,7 +11441,7 @@
     "category": "form"
   },
   {
-    "id": 1307,
+    "id": 1305,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Love Sweet)",
     "spriteUrl": "sprites/home/alcremie-ruby-cream-love.png",
@@ -11481,7 +11449,7 @@
     "category": "form"
   },
   {
-    "id": 1308,
+    "id": 1306,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Ribbon Sweet)",
     "spriteUrl": "sprites/home/alcremie-ruby-cream-ribbon.png",
@@ -11489,7 +11457,7 @@
     "category": "form"
   },
   {
-    "id": 1309,
+    "id": 1307,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Star Sweet)",
     "spriteUrl": "sprites/home/alcremie-ruby-cream-star.png",
@@ -11497,7 +11465,7 @@
     "category": "form"
   },
   {
-    "id": 1310,
+    "id": 1308,
     "dexId": 869,
     "name": "Alcremie (Ruby Cream, Strawberry Sweet)",
     "spriteUrl": "sprites/home/alcremie-ruby-cream-strawberry.png",
@@ -11505,7 +11473,7 @@
     "category": "form"
   },
   {
-    "id": 1311,
+    "id": 1309,
     "dexId": 867,
     "name": "Squawkabilly (Blue Plumage)",
     "spriteUrl": "sprites/home/squawkabilly-blue.png",
@@ -11513,7 +11481,7 @@
     "category": "form"
   },
   {
-    "id": 1312,
+    "id": 1310,
     "dexId": 867,
     "name": "Squawkabilly (Yellow Plumage)",
     "spriteUrl": "sprites/home/squawkabilly-yellow.png",
@@ -11521,7 +11489,7 @@
     "category": "form"
   },
   {
-    "id": 1313,
+    "id": 1311,
     "dexId": 867,
     "name": "Squawkabilly (White Plumage)",
     "spriteUrl": "sprites/home/squawkabilly-white.png",
@@ -11529,7 +11497,7 @@
     "category": "form"
   },
   {
-    "id": 1314,
+    "id": 1312,
     "dexId": 925,
     "name": "Maushold (Family of Three)",
     "spriteUrl": "sprites/home/maushold-family3.png",
@@ -11537,7 +11505,7 @@
     "category": "form"
   },
   {
-    "id": 1315,
+    "id": 1313,
     "dexId": 978,
     "name": "Tatsugiri (Droopy Form)",
     "spriteUrl": "sprites/home/tatsugiri-droopy.png",
@@ -11545,7 +11513,7 @@
     "category": "form"
   },
   {
-    "id": 1316,
+    "id": 1314,
     "dexId": 978,
     "name": "Tatsugiri (Stretchy Form)",
     "spriteUrl": "sprites/home/tatsugiri-stretchy.png",
@@ -11553,7 +11521,7 @@
     "category": "form"
   },
   {
-    "id": 1317,
+    "id": 1315,
     "dexId": 982,
     "name": "Dudunsparce (Three-Segment Form)",
     "spriteUrl": "sprites/home/dudunsparce-three-segment.png",
@@ -11561,7 +11529,7 @@
     "category": "form"
   },
   {
-    "id": 1318,
+    "id": 1316,
     "dexId": 999,
     "name": "Gimmighoul (Roaming Form)",
     "spriteUrl": "sprites/home/gimmighoul-roaming.png",
@@ -11569,7 +11537,7 @@
     "category": "form"
   },
   {
-    "id": 1319,
+    "id": 1317,
     "dexId": 1013,
     "name": "Poltchageist (Artisan Form)",
     "spriteUrl": "sprites/home/poltchageist-artisan.png",
@@ -11577,7 +11545,7 @@
     "category": "form"
   },
   {
-    "id": 1320,
+    "id": 1318,
     "dexId": 1014,
     "name": "Sinistcha (Masterpiece Form)",
     "spriteUrl": "sprites/home/sinistcha.png",
@@ -11585,7 +11553,7 @@
     "category": "form"
   },
   {
-    "id": 1321,
+    "id": 1319,
     "dexId": 19,
     "name": "Alolan Rattata",
     "spriteUrl": "sprites/home/rattata-alolan.png",
@@ -11593,7 +11561,7 @@
     "category": "alolan"
   },
   {
-    "id": 1322,
+    "id": 1320,
     "dexId": 20,
     "name": "Alolan Raticate",
     "spriteUrl": "sprites/home/raticate-alolan.png",
@@ -11601,7 +11569,7 @@
     "category": "alolan"
   },
   {
-    "id": 1323,
+    "id": 1321,
     "dexId": 26,
     "name": "Alolan Raichu",
     "spriteUrl": "sprites/home/raichu-alolan.png",
@@ -11609,7 +11577,7 @@
     "category": "alolan"
   },
   {
-    "id": 1324,
+    "id": 1322,
     "dexId": 27,
     "name": "Alolan Sandshrew",
     "spriteUrl": "sprites/home/sandshrew-alolan.png",
@@ -11617,7 +11585,7 @@
     "category": "alolan"
   },
   {
-    "id": 1325,
+    "id": 1323,
     "dexId": 28,
     "name": "Alolan Sandslash",
     "spriteUrl": "sprites/home/sandslash-alolan.png",
@@ -11625,7 +11593,7 @@
     "category": "alolan"
   },
   {
-    "id": 1326,
+    "id": 1324,
     "dexId": 37,
     "name": "Alolan Vulpix",
     "spriteUrl": "sprites/home/vulpix-alolan.png",
@@ -11633,7 +11601,7 @@
     "category": "alolan"
   },
   {
-    "id": 1327,
+    "id": 1325,
     "dexId": 38,
     "name": "Alolan Ninetales",
     "spriteUrl": "sprites/home/ninetales-alolan.png",
@@ -11641,7 +11609,7 @@
     "category": "alolan"
   },
   {
-    "id": 1328,
+    "id": 1326,
     "dexId": 50,
     "name": "Alolan Diglett",
     "spriteUrl": "sprites/home/diglett-alolan.png",
@@ -11649,7 +11617,7 @@
     "category": "alolan"
   },
   {
-    "id": 1329,
+    "id": 1327,
     "dexId": 51,
     "name": "Alolan Dugtrio",
     "spriteUrl": "sprites/home/dugtrio-alolan.png",
@@ -11657,7 +11625,7 @@
     "category": "alolan"
   },
   {
-    "id": 1330,
+    "id": 1328,
     "dexId": 52,
     "name": "Alolan Meowth",
     "spriteUrl": "sprites/home/meowth-alolan.png",
@@ -11665,7 +11633,7 @@
     "category": "alolan"
   },
   {
-    "id": 1331,
+    "id": 1329,
     "dexId": 53,
     "name": "Alolan Persian",
     "spriteUrl": "sprites/home/persian-alolan.png",
@@ -11673,7 +11641,7 @@
     "category": "alolan"
   },
   {
-    "id": 1332,
+    "id": 1330,
     "dexId": 74,
     "name": "Alolan Geodude",
     "spriteUrl": "sprites/home/geodude-alolan.png",
@@ -11681,10 +11649,26 @@
     "category": "alolan"
   },
   {
-    "id": 1333,
+    "id": 1331,
     "dexId": 75,
     "name": "Alolan Graveler",
     "spriteUrl": "sprites/home/graveler-alolan.png",
+    "boxId": 51,
+    "category": "alolan"
+  },
+  {
+    "id": 1332,
+    "dexId": 88,
+    "name": "Alolan Grimer",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/grimer-alolan.png",
+    "boxId": 51,
+    "category": "alolan"
+  },
+  {
+    "id": 1333,
+    "dexId": 89,
+    "name": "Alolan Muk",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/muk-alolan.png",
     "boxId": 51,
     "category": "alolan"
   },
@@ -11914,6 +11898,14 @@
   },
   {
     "id": 1362,
+    "dexId": 215,
+    "name": "Hisuian Sneasel ♀",
+    "spriteUrl": "https://img.pokemondb.net/sprites/home/normal/1x/sneasel-hisuian-f.png",
+    "boxId": 53,
+    "category": "hisuian"
+  },
+  {
+    "id": 1363,
     "dexId": 503,
     "name": "Hisuian Samurott",
     "spriteUrl": "sprites/home/samurott-hisuian.png",
@@ -11921,7 +11913,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1363,
+    "id": 1364,
     "dexId": 549,
     "name": "Hisuian Lilligant",
     "spriteUrl": "sprites/home/lilligant-hisuian.png",
@@ -11929,7 +11921,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1364,
+    "id": 1365,
     "dexId": 550,
     "name": "Basculin (White-Striped)",
     "spriteUrl": "sprites/home/basculin-white-striped.png",
@@ -11937,7 +11929,7 @@
     "category": "form"
   },
   {
-    "id": 1365,
+    "id": 1366,
     "dexId": 570,
     "name": "Hisuian Zorua",
     "spriteUrl": "sprites/home/zorua-hisuian.png",
@@ -11945,7 +11937,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1366,
+    "id": 1367,
     "dexId": 571,
     "name": "Hisuian Zoroark",
     "spriteUrl": "sprites/home/zoroark-hisuian.png",
@@ -11953,7 +11945,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1367,
+    "id": 1368,
     "dexId": 628,
     "name": "Hisuian Braviary",
     "spriteUrl": "sprites/home/braviary-hisuian.png",
@@ -11961,7 +11953,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1368,
+    "id": 1369,
     "dexId": 705,
     "name": "Hisuian Sliggoo",
     "spriteUrl": "sprites/home/sliggoo-hisuian.png",
@@ -11969,7 +11961,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1369,
+    "id": 1370,
     "dexId": 706,
     "name": "Hisuian Goodra",
     "spriteUrl": "sprites/home/goodra-hisuian.png",
@@ -11977,7 +11969,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1370,
+    "id": 1371,
     "dexId": 713,
     "name": "Hisuian Avalugg",
     "spriteUrl": "sprites/home/avalugg-hisuian.png",
@@ -11985,7 +11977,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1371,
+    "id": 1372,
     "dexId": 724,
     "name": "Hisuian Decidueye",
     "spriteUrl": "sprites/home/decidueye-hisuian.png",
@@ -11993,7 +11985,7 @@
     "category": "hisuian"
   },
   {
-    "id": 1372,
+    "id": 1373,
     "dexId": 194,
     "name": "Paldean Wooper",
     "spriteUrl": "sprites/home/wooper-paldean.png",
@@ -12001,7 +11993,7 @@
     "category": "paldean"
   },
   {
-    "id": 1373,
+    "id": 1374,
     "dexId": 128,
     "name": "Paldean Tauros (Combat Breed)",
     "spriteUrl": "sprites/home/tauros-paldean-combat.png",
@@ -12009,7 +12001,7 @@
     "category": "paldean"
   },
   {
-    "id": 1374,
+    "id": 1375,
     "dexId": 128,
     "name": "Paldean Tauros (Blaze Breed)",
     "spriteUrl": "sprites/home/tauros-paldean-blaze.png",
@@ -12017,7 +12009,7 @@
     "category": "paldean"
   },
   {
-    "id": 1375,
+    "id": 1376,
     "dexId": 128,
     "name": "Paldean Tauros (Aqua Breed)",
     "spriteUrl": "sprites/home/tauros-paldean-aqua.png",
@@ -12025,7 +12017,7 @@
     "category": "paldean"
   },
   {
-    "id": 1376,
+    "id": 1377,
     "dexId": 901,
     "name": "Bloodmoon Ursaluna",
     "spriteUrl": "sprites/home/ursaluna-bloodmoon.png",
@@ -12033,7 +12025,7 @@
     "category": "form"
   },
   {
-    "id": 1377,
+    "id": 1378,
     "dexId": 509,
     "name": "Purrloin (N's Pokémon)",
     "spriteUrl": "sprites/home/purrloin.png",
@@ -12041,7 +12033,7 @@
     "category": "n"
   },
   {
-    "id": 1378,
+    "id": 1379,
     "dexId": 519,
     "name": "Pidove (N's Pokémon)",
     "spriteUrl": "sprites/home/pidove.png",
@@ -12049,7 +12041,7 @@
     "category": "n"
   },
   {
-    "id": 1379,
+    "id": 1380,
     "dexId": 527,
     "name": "Woobat (N's Pokémon)",
     "spriteUrl": "sprites/home/woobat.png",
@@ -12057,7 +12049,7 @@
     "category": "n"
   },
   {
-    "id": 1380,
+    "id": 1381,
     "dexId": 532,
     "name": "Timburr (N's Pokémon)",
     "spriteUrl": "sprites/home/timburr.png",
@@ -12065,7 +12057,7 @@
     "category": "n"
   },
   {
-    "id": 1381,
+    "id": 1382,
     "dexId": 535,
     "name": "Tympole (N's Pokémon)",
     "spriteUrl": "sprites/home/tympole.png",
@@ -12073,7 +12065,7 @@
     "category": "n"
   },
   {
-    "id": 1382,
+    "id": 1383,
     "dexId": 525,
     "name": "Boldore (N's Pokémon)",
     "spriteUrl": "sprites/home/boldore.png",
@@ -12081,7 +12073,7 @@
     "category": "n"
   },
   {
-    "id": 1383,
+    "id": 1384,
     "dexId": 551,
     "name": "Sandile (N's Pokémon)",
     "spriteUrl": "sprites/home/sandile.png",
@@ -12089,7 +12081,7 @@
     "category": "n"
   },
   {
-    "id": 1384,
+    "id": 1385,
     "dexId": 554,
     "name": "Darumaka (N's Pokémon)",
     "spriteUrl": "sprites/home/darumaka.png",
@@ -12097,7 +12089,7 @@
     "category": "n"
   },
   {
-    "id": 1385,
+    "id": 1386,
     "dexId": 555,
     "name": "Darmanitan (N's Pokémon)",
     "spriteUrl": "sprites/home/darmanitan.png",
@@ -12105,7 +12097,7 @@
     "category": "n"
   },
   {
-    "id": 1386,
+    "id": 1387,
     "dexId": 559,
     "name": "Scraggy (N's Pokémon)",
     "spriteUrl": "sprites/home/scraggy.png",
@@ -12113,7 +12105,7 @@
     "category": "n"
   },
   {
-    "id": 1387,
+    "id": 1388,
     "dexId": 561,
     "name": "Sigilyph (N's Pokémon)",
     "spriteUrl": "sprites/home/sigilyph.png",
@@ -12121,7 +12113,7 @@
     "category": "n"
   },
   {
-    "id": 1388,
+    "id": 1389,
     "dexId": 570,
     "name": "Zorua (N's Pokémon)",
     "spriteUrl": "sprites/home/zorua.png",
@@ -12129,7 +12121,7 @@
     "category": "n"
   },
   {
-    "id": 1389,
+    "id": 1390,
     "dexId": 595,
     "name": "Joltik (N's Pokémon)",
     "spriteUrl": "sprites/home/joltik.png",
@@ -12137,7 +12129,7 @@
     "category": "n"
   },
   {
-    "id": 1390,
+    "id": 1391,
     "dexId": 597,
     "name": "Ferroseed (N's Pokémon)",
     "spriteUrl": "sprites/home/ferroseed.png",
@@ -12145,7 +12137,7 @@
     "category": "n"
   },
   {
-    "id": 1391,
+    "id": 1392,
     "dexId": 599,
     "name": "Klink (N's Pokémon)",
     "spriteUrl": "sprites/home/klink.png",
@@ -12153,7 +12145,7 @@
     "category": "n"
   },
   {
-    "id": 1392,
+    "id": 1393,
     "dexId": 735,
     "name": "Totem Gumshoos",
     "spriteUrl": "sprites/home/gumshoos.png",
@@ -12171,8 +12163,8 @@
   {
     "id": 1395,
     "dexId": 105,
-    "name": "Totem Alolan Marowak",
-    "spriteUrl": "sprites/home/marowak-alolan.png",
+    "name": "Totem Alolan Raticate",
+    "spriteUrl": "sprites/home/raticate-alolan.png",
     "boxId": 56,
     "category": "totem"
   },
@@ -13211,16 +13203,16 @@
   {
     "id": 1525,
     "dexId": 422,
-    "name": "Shellos (Alpha)",
-    "spriteUrl": "sprites/home/shellos.png",
+    "name": "Shellos (West Sea) (Alpha)",
+    "spriteUrl": "sprites/home/shellos-west.png",
     "boxId": 62,
     "category": "alpha"
   },
   {
     "id": 1526,
     "dexId": 423,
-    "name": "Gastrodon (Alpha)",
-    "spriteUrl": "sprites/home/gastrodon.png",
+    "name": "Gastrodon (West Sea) (Alpha)",
+    "spriteUrl": "sprites/home/gastrodon-west.png",
     "boxId": 62,
     "category": "alpha"
   },
@@ -14633,26 +14625,10 @@
     "category": "alpha"
   },
   {
-    "id": 1703,
-    "dexId": 422,
-    "name": "Shellos (West Sea) (Alpha)",
-    "spriteUrl": "sprites/home/shellos-west.png",
-    "boxId": 68,
-    "category": "alpha"
-  },
-  {
     "id": 1704,
     "dexId": 422,
     "name": "Shellos (East Sea) (Alpha)",
     "spriteUrl": "sprites/home/shellos-east.png",
-    "boxId": 68,
-    "category": "alpha"
-  },
-  {
-    "id": 1705,
-    "dexId": 423,
-    "name": "Gastrodon (West Sea) (Alpha)",
-    "spriteUrl": "sprites/home/gastrodon-west.png",
     "boxId": 68,
     "category": "alpha"
   },
