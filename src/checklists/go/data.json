@@ -1802,29 +1802,35 @@
   {
     "id": 25.0096,
     "dexId": 25,
+    "name": "Pikachu (Astronaut)",
+    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-astronaut.png"
+  },
+  {
+    "id": 25.0097,
+    "dexId": 25,
     "name": "Pikachu (PokéXciting! Turquoise)",
     "spriteUrl": "sprites/go/025-pokexcitingmalaysia.png"
   },
   {
-    "id": 25.0097,
+    "id": 25.0098,
     "dexId": 25,
     "name": "Pikachu (PokéXciting! Pink)",
     "spriteUrl": "sprites/go/025-pokexcitingtaiwan.png"
   },
   {
-    "id": 25.0098,
+    "id": 25.0099,
     "dexId": 25,
     "name": "Pikachu (PokéXciting! Blue)",
     "spriteUrl": "sprites/go/025-pokexcitingsingapore.png"
   },
   {
-    "id": 25.0099,
+    "id": 25.0100,
     "dexId": 25,
     "name": "Pikachu (PokéXciting! Red)",
     "spriteUrl": "sprites/go/025-pokexcitingphilippines.png"
   },
   {
-    "id": 25.01,
+    "id": 25.0101,
     "dexId": 25,
     "name": "Pikachu (Orange Hanbok)",
     "spriteUrl": "sprites/go/025-hanbok.png"
@@ -1972,11 +1978,5 @@
     "dexId": 225,
     "name": "Delibird (Holidays)",
     "spriteUrl": "sprites/go/225-holiday2020.png"
-  },
-  {
-    "id": 25.0101,
-    "dexId": 25,
-    "name": "Pikachu (Astronaut)",
-    "spriteUrl": "https://serebii.net/pokemongo/pokemon/025-astronaut.png"
   }
 ]

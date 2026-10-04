@@ -1,12 +1,6 @@
-// These tests read the real data.json/config.js files that ship with the
-// app (not fixtures) — the goal is to catch data problems automatically
-// (duplicate ids, missing fields, bad category tags) instead of relying
-// on someone noticing during a manual review, which is how the GO
-// duplicate-id issue in "Known issues" sat around for a while.
-//
-// Everything in the `describe.each(CHECKLISTS)` block below is generated
-// from the registry, so adding a checklist to src/checklists/index.js
-// gets it covered here automatically with no edits to this file.
+// Runs against the all data.json and config.js files, not fixtures
+// catches data problems (duplicate ids, missing fields, bad categories) before manual testing
+// describe.each(CHECKLISTS) means a new checklist is covered automatically, no edits needed here.
 
 import { describe, expect, it } from 'vitest'
 import { CHECKLISTS } from './index.js'
@@ -14,9 +8,8 @@ import homeConfig from './home/config.js'
 import { CATEGORIES } from './home/categories.js'
 import { GENERATIONS } from './home/generations.js'
 
-// The highest real National Dex number as of Gen 9 (Pecharunt). A dexId
-// above this is almost always a typo rather than a new Pokémon — and if a
-// Gen 10 ever does land, this one line is the only thing to bump.
+// Highest real National Dex number as of Gen 9. A dexId above this is
+// almost always a typo — bump this one line if a Gen 10 ever lands.
 const MAX_NATIONAL_DEX = 1025
 
 describe('checklist registry (src/checklists/index.js)', () => {
@@ -37,9 +30,9 @@ describe('checklist registry (src/checklists/index.js)', () => {
     }
   })
 
-  // ChecklistPage divides by data.length to show a percentage, and
-  // Math.max(...[]) is -Infinity — an empty data.json breaks the page in
-  // two different ways at once, so it's worth failing loudly here.
+  // ChecklistPage divides by data.length for a percentage, and
+  // Math.max(...[]) is -Infinity — an empty data.json breaks two things
+  // at once, so this fails loudly rather than quietly.
   it('gives every checklist at least one entry', () => {
     for (const config of CHECKLISTS) {
       expect(config.data.length, `${config.id} has an empty data.json`).toBeGreaterThan(0)
@@ -47,9 +40,6 @@ describe('checklist registry (src/checklists/index.js)', () => {
   })
 })
 
-// One block per checklist, generated from the real registry — add a
-// checklist to src/checklists/index.js and it's automatically covered
-// here too, no test file changes needed.
 describe.each(CHECKLISTS)('$id data.json', config => {
   it('has no two items sharing the same id', () => {
     const ids = config.data.map(item => item.id)
@@ -71,9 +61,8 @@ describe.each(CHECKLISTS)('$id data.json', config => {
     }
   })
 
-  // note is optional (almost nothing has one yet) — this only guards
-  // against it being set to something silently wrong, like an empty
-  // string or a number, rather than just left out.
+  // note is optional — this only guards against it being set to
+  // something wrong (empty string, a number) rather than just left out.
   it('gives every item with a note a real, non-empty string', () => {
     const bad = config.data
       .filter(item => 'note' in item)
@@ -82,11 +71,9 @@ describe.each(CHECKLISTS)('$id data.json', config => {
     expect(bad).toEqual([])
   })
 
-  // Every spriteUrl is either a local file under public/sprites/ (after
-  // scripts/use-local-sprites.mjs has run) or a full http(s) hotlink.
-  // Anything else — a bare filename, a "www." with no scheme, a stray
-  // space — renders as a silently broken image, since ItemCard's onError
-  // handler deliberately hides broken images rather than showing them.
+  // ItemCard's onError hides broken images rather than showing them, so
+  // a malformed spriteUrl fails silently in the app. This is the test
+  // that catches it instead.
   it('gives every item a spriteUrl that is either a local sprites/ path or a full URL', () => {
     const bad = config.data
       .filter(item => !/^sprites\//.test(item.spriteUrl) && !/^https?:\/\//.test(item.spriteUrl))
@@ -96,8 +83,8 @@ describe.each(CHECKLISTS)('$id data.json', config => {
 
   // Skipped for checklists that opt in via allowDuplicateNames (see
   // masterdex/config.js) — some lists legitimately have two entries with
-  // the same plain name, distinguished by their note field instead. The
-  // id-uniqueness check above still applies to everyone, no exceptions.
+  // the same name, told apart by note instead. Id-uniqueness above still
+  // applies to everyone.
   it.skipIf(config.allowDuplicateNames)('has no two items sharing the same name', () => {
     const counts = new Map()
     for (const item of config.data) {
@@ -107,10 +94,8 @@ describe.each(CHECKLISTS)('$id data.json', config => {
     expect(duplicates).toEqual([])
   })
 
-  // dexId is optional (GO's costume entries don't all have one), but when
-  // it IS set it has to be a real National Dex number. This is the check
-  // that catches an off-by-one typo like Ledyba's 165 being used for
-  // Ledian, which is genuinely 166.
+  // dexId is optional, but when set it has to be real — catches an
+  // off-by-one like Ledyba's 165 being used for Ledian (actually 166).
   it('gives every item with a dexId a plausible National Dex number', () => {
     const bad = config.data
       .filter(item => item.dexId != null)
@@ -126,9 +111,8 @@ describe.each(CHECKLISTS)('$id data.json', config => {
       }
     })
 
-    // The grid is a fixed 6x5 CSS layout — a box holding more than
-    // boxSize entries overflows it. This is exactly what the Colosseum
-    // list did when it first landed: all 48 entries sat in box 1.
+    // The grid is a fixed 6x5 layout — a box past boxSize overflows it.
+    // Colosseum's first draft put all 48 entries in box 1.
     it('never puts more than boxSize items in a single box', () => {
       const counts = new Map()
       for (const item of config.data) {
@@ -140,27 +124,22 @@ describe.each(CHECKLISTS)('$id data.json', config => {
       expect(overfull).toEqual([])
     })
 
-    // ChecklistPage's "jump to box" input is bounded by the HIGHEST boxId,
-    // so a gap in the sequence (boxes 1, 2, 4) gives you a reachable box
-    // that renders an empty grid with no explanation.
+    // "Jump to box" is bounded by the highest boxId — a gap (1, 2, 4)
+    // gives you a reachable box that renders an empty, unexplained grid.
     it('uses a contiguous run of box numbers starting at 1', () => {
       const used = [...new Set(config.data.map(item => item.boxId))].sort((a, b) => a - b)
       const expected = Array.from({ length: used.length }, (_, i) => i + 1)
       expect(used).toEqual(expected)
     })
   } else {
-    // A boxless checklist (GO) skips box navigation entirely. A stray
-    // boxId in its data.json is dead weight that reads as if the box
-    // system applies when it doesn't.
     it('has no leftover boxId values (boxless checklist)', () => {
       const stray = config.data.filter(item => item.boxId != null).map(item => item.name)
       expect(stray).toEqual([])
     })
   }
 
-  // Every group a sidebar offers should actually match something. A group
-  // whose `matches` never fires renders as a permanently-disabled 0/0 row,
-  // which looks like a bug in the page rather than a mistake in config.
+  // A group whose matches() never fires renders as a permanently 0/0
+  // sidebar row — looks like a page bug, is actually a config mistake.
   it('has no sidebar group that matches zero items', () => {
     const empty = []
     for (const set of config.groupSets) {
@@ -176,11 +155,9 @@ describe.each(CHECKLISTS)('$id data.json', config => {
 })
 
 describe('home checklist category tagging', () => {
-  // CATEGORIES only lists the "extra" sidebar categories beyond base forms
-  // (see the comment at the top of categories.js) — assignCategories.mjs
-  // also tags every plain base-form entry as 'base', which deliberately
-  // has no matching sidebar group (nothing in groupSets' `matches` looks
-  // for it). That's intentional, not a typo, so it's allowed here too.
+  // CATEGORIES lists the "extra" sidebar categories beyond base forms —
+  // assignCategories.mjs also tags plain base forms as 'base', which has
+  // no matching sidebar group on purpose. Allowed here too.
   const validKeys = new Set([...CATEGORIES.map(c => c.key), 'base'])
 
   it('only uses category keys that are either a real sidebar group or the "base" marker', () => {
